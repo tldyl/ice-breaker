@@ -1,0 +1,58 @@
+[
+  {
+    "NAMES": [
+      "resonance",
+      "共鸣"
+    ],
+    "PROPER_NAME": "共鸣",
+    "DESCRIPTION": "提升 #y魔法 牌卡牌描述中的所有数值。 NL 增强充能球的效果。"
+  },
+  {
+    "NAMES": [
+      "remote",
+      "远程"
+    ],
+    "PROPER_NAME": "远程",
+    "DESCRIPTION": "无视目标与受击相关的效果。"
+  },
+  {
+    "NAMES": [
+      "magic",
+      "魔法"
+    ],
+    "PROPER_NAME": "魔法",
+    "DESCRIPTION": "#y魔法 牌不受 #y力量 与 #y敏捷 加成。"
+  },
+  {
+    "NAMES": [
+      "possess",
+      "拥有"
+    ],
+    "PROPER_NAME": "拥有",
+    "DESCRIPTION": "存在于抽牌堆，或弃牌堆，或手牌的牌视为 #y拥有 这张牌。"
+  },
+  {
+    "NAMES": [
+      "trigger",
+      "触发效果"
+    ],
+    "PROPER_NAME": "触发效果",
+    "DESCRIPTION": "触发卡牌的效果，但不视作打出。"
+  },
+  {
+    "NAMES": [
+      "dodge",
+      "闪避"
+    ],
+    "PROPER_NAME": "闪避",
+    "DESCRIPTION": "受到的 #y攻击 伤害减半 。"
+  },
+  {
+    "NAMES": [
+      "flight",
+      "飞行"
+    ],
+    "PROPER_NAME": "飞行",
+    "DESCRIPTION": "有 #y飞行 状态的生物受到的 #y攻击 伤害减半 。"
+  }
+]

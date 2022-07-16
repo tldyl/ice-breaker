@@ -1,0 +1,9 @@
+{
+  "IceBreaker:StaffBlizzard": {
+    "NAME": "法杖“暴雪”",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "每场战斗第一次获得 #y格挡 时，将获得量翻倍。"
+    ]
+  }
+}

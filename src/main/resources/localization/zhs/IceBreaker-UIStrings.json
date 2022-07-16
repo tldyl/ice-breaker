@@ -1,0 +1,12 @@
+{
+  "IceBreaker:ApplyStrengthNotice": {
+    "TEXT": [
+      "#r我无法获得力量加成！"
+    ]
+  },
+  "IceBreaker:SelectCardInCardGroupAction": {
+    "TEXT": [
+      "选择 %d 张牌。"
+    ]
+  }
+}
