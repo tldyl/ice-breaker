@@ -2,12 +2,21 @@ package demoMod.icebreaker.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 public class AbstractPowerPatch {
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(IceBreaker.makeID("ApplyStrengthNotice"));
+
     @SpirePatch(
             clz = AbstractPower.class,
             method = "atDamageFinalReceive",
@@ -58,6 +67,21 @@ public class AbstractPowerPatch {
                 return SpireReturn.Return(block);
             }
             return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(
+            clz = StrengthPower.class,
+            method = "stackPower"
+    )
+    public static class PatchStackPower {
+        public static void Postfix(StrengthPower power, int amount) {
+            if (power.amount > 0) {
+                power.amount = 0;
+                AbstractPlayer p = AbstractDungeon.player;
+                AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, uiStrings.TEXT[0], true));
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(power.owner, power.owner, StrengthPower.POWER_ID));
+            }
         }
     }
 }
