@@ -5,8 +5,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.ResonancePower;
 
@@ -22,26 +20,24 @@ public class GhostStar extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     public GhostStar() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
-        this.exhaust = true;
+        this.isFetter = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(-1);
+            this.upgradeMagicNumber(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, 1)));
-        addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false)));
-        addToBot(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false)));
+        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
     }
 }

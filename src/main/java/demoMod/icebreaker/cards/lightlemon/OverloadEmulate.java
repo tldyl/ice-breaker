@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 public class OverloadEmulate extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("OverloadEmulate");
@@ -25,6 +26,7 @@ public class OverloadEmulate extends AbstractLightLemonCard {
 
     public OverloadEmulate() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -43,6 +45,8 @@ public class OverloadEmulate extends AbstractLightLemonCard {
         } else {
             addToBot(new GainEnergyAction(3));
         }
-        addToBot(new ApplyPowerAction(p, p, new DrawReductionPower(p, 1)));
+        if (!p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(p, p, new DrawReductionPower(p, 1)));
+        }
     }
 }

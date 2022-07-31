@@ -27,23 +27,24 @@ public class ManaAgitation extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
     public ManaAgitation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 12;
         this.baseMagicNumber = this.magicNumber = 12;
+        this.baseM2 = this.m2 = 2;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.REMOTE);
-        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(6);
-            this.upgradeMagicNumber(-3);
+            this.upgradeDamage(4);
+            this.upgradeMagicNumber(-4);
+            this.upgradeM2(1);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -53,7 +54,7 @@ public class ManaAgitation extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.m2)));
         addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, this.upgraded ? 3 : 2)));
     }
 }

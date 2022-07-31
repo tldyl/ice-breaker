@@ -8,9 +8,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,7 @@ public class Light extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -47,7 +48,7 @@ public class Light extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if (m.hasPower(WeakPower.POWER_ID)) {
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new DrawCardAction(1));
         }
     }

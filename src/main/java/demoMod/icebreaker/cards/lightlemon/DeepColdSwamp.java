@@ -1,13 +1,11 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 
@@ -27,12 +25,15 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
 
     private static final int COST = 1;
 
+    private boolean updateCheck = false;
+
     public DeepColdSwamp() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 1;
         this.baseBlock = this.block = 7;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.isFetter = true;
     }
 
     @Override
@@ -40,7 +41,20 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(3);
-            this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this && AbstractDungeon.gridSelectScreen.upgradePreviewCard != this) {
+                onAddToMasterDeck();
+            }
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck) {
+            onAddToMasterDeck();
+            updateCheck = true;
         }
     }
 
@@ -55,10 +69,6 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            if (!mo.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
-            }
-        }
+
     }
 }

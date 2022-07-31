@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -22,7 +23,9 @@ import demoMod.icebreaker.relics.StaffBlizzard;
 
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @SpireInitializer
 public class IceBreaker implements EditStringsSubscriber,
@@ -31,7 +34,8 @@ public class IceBreaker implements EditStringsSubscriber,
                                    EditCharactersSubscriber,
                                    EditRelicsSubscriber,
                                    PostInitializeSubscriber,
-                                   AddAudioSubscriber {
+                                   AddAudioSubscriber,
+                                   PostUpdateSubscriber {
 
     private static final String ATTACK_CARD = "512/bg_attack_icebreaker.png";
     private static final String SKILL_CARD = "512/bg_skill_icebreaker.png";
@@ -43,6 +47,8 @@ public class IceBreaker implements EditStringsSubscriber,
     private static final String POWER_CARD_PORTRAIT = "1024/bg_power_icebreaker.png";
     private static final String ENERGY_ORB_PORTRAIT = "1024/card_icebreaker_orb.png";
     public static Color mainIceBreakerColor = new Color(0.992F, 0.945F, 0.635F, 1.0F);
+
+    private static final List<AbstractGameAction> actionQueue = new ArrayList<>();
 
     public static void initialize() {
         new IceBreaker();
@@ -201,5 +207,23 @@ public class IceBreaker implements EditStringsSubscriber,
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("SNAP", "IceAudio/sfx/snap.wav");
+    }
+
+    @Override
+    public void receivePostUpdate() {
+        if (!actionQueue.isEmpty()) {
+            actionQueue.get(0).update();
+            if (actionQueue.get(0).isDone) {
+                actionQueue.remove(0);
+            }
+        }
+    }
+
+    public static void addToBot(AbstractGameAction action) {
+        actionQueue.add(action);
+    }
+
+    public static void addToTop(AbstractGameAction action) {
+        actionQueue.add(0, action);
     }
 }

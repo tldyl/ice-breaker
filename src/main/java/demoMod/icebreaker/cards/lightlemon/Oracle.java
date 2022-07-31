@@ -21,24 +21,24 @@ public class Oracle extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public Oracle() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseMagicNumber = this.magicNumber = 2;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new LoseResonancePower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new LoseResonancePower(p)));
     }
 }

@@ -15,9 +15,8 @@ public class LoseResonancePower extends AbstractPower {
     public static final String NAME;
     public static final String[] DESC;
 
-    public LoseResonancePower(AbstractCreature owner, int amount) {
+    public LoseResonancePower(AbstractCreature owner) {
         this.owner = owner;
-        this.amount = amount;
         this.ID = POWER_ID;
         this.name = NAME;
         this.type = PowerType.DEBUFF;
@@ -32,7 +31,7 @@ public class LoseResonancePower extends AbstractPower {
 
     public void atEndOfTurn(boolean isPlayer) {
         flash();
-        addToBot(new ApplyPowerAction(this.owner, this.owner, new ResonancePower(this.owner, -this.amount), -this.amount));
+        addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ResonancePower.POWER_ID));
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 

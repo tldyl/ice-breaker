@@ -1,11 +1,13 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.characters.IceBreakerCharacter;
 
 public class OtherPartyOfMissing extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("OtherPartyOfMissing");
@@ -25,6 +27,7 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.block = this.baseBlock = 4;
         this.baseMagicNumber = this.magicNumber = 4;
+        this.isFetter = true;
     }
 
     @Override
@@ -39,6 +42,9 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
+        if (p instanceof IceBreakerCharacter) {
+            addToBot(new TalkAction(p, cardStrings.EXTENDED_DESCRIPTION[0]));
+        }
     }
 
     @Override

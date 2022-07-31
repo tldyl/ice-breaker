@@ -1,8 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -28,33 +27,27 @@ public class CoordinateMovement extends AbstractLightLemonCard {
 
     public CoordinateMovement() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseBlock = this.block = 6;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.isFetter = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeBlock(3);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(this.magicNumber, new AbstractGameAction() {
-            @Override
-            public void update() {
-                int ctr = 0;
-                for (AbstractCard card : DrawCardAction.drawnCards) {
-                    if (card.costForTurn == 0 || card.freeToPlayOnce) {
-                        ctr++;
-                    }
-                }
-                addToTop(new DrawCardAction(ctr));
-                isDone = true;
-            }
-        }));
+        this.addToBot(new GainBlockAction(p, p, this.block));
+    }
+
+    @Override
+    public void onTriggerFetter() {
+        addToBot(new GainEnergyAction(1));
     }
 }

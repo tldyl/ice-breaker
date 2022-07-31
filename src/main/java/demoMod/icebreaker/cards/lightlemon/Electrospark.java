@@ -3,22 +3,20 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StaticDischargePower;
-import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 
 import java.util.ArrayList;
 
-public class Electrospark extends AbstractLightLemonCard {
+public class Electrospark extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
     public static final String ID = IceBreaker.makeID("Electrospark");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -30,12 +28,12 @@ public class Electrospark extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public Electrospark() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
-        this.baseMagicNumber = this.magicNumber = 3;
+        this.damage = this.baseDamage = 4;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
@@ -52,10 +50,17 @@ public class Electrospark extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction("ORB_LIGHTNING_CHANNEL", 0.1F));
-        AbstractDungeon.effectList.add(new FlashPowerEffect(new StaticDischargePower(m, 1)));
-        addToBot(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1F));
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, false, false));
+    }
+
+    @Override
+    public void onEnterExtraTurn() {
+        addToBot(new DiscardToHandAction(this));
+    }
+
+    @Override
+    public void onExitExtraTurn() {
+
     }
 }

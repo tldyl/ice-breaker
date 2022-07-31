@@ -1,5 +1,6 @@
 package demoMod.icebreaker.powers;
 
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -70,6 +71,13 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
             return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? this.amount + magicNumber : magicNumber;
         }
         return magicNumber;
+    }
+
+    @Override
+    public void onAfterCardPlayed(AbstractCard usedCard) {
+        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new ReducePowerAction(owner, owner, this, 1));
+        }
     }
 
     static {

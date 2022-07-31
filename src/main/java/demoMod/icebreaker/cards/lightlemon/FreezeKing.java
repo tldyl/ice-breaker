@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -62,7 +63,7 @@ public class FreezeKing extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new GainBlockAction(p, p, this.block));
-        if (m.hasPower(WeakPower.POWER_ID) && !this.purgeOnUse) {
+        if (m.hasPower(WeakPower.POWER_ID) && !this.purgeOnUse && p.hasPower(ExtraTurnPower.POWER_ID)) {
             AbstractCard tmp = this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = this.current_x;
@@ -72,6 +73,21 @@ public class FreezeKing extends AbstractLightLemonCard {
             tmp.calculateCardDamage(m);
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, this.energyOnUse, true, true), true);
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        boolean shouldTrigger = false;
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.isDeadOrEscaped() && m.hasPower(WeakPower.POWER_ID)) {
+                shouldTrigger = true;
+                break;
+            }
+        }
+        if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) && extraEffectOnExtraTurn && shouldTrigger) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

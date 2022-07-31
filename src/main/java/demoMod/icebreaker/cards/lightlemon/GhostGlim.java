@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class GhostGlim extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -53,6 +55,8 @@ public class GhostGlim extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new GainBlockAction(p, this.block));
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
+        }
     }
 }

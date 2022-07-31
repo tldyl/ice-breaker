@@ -5,7 +5,7 @@
       "共鸣"
     ],
     "PROPER_NAME": "共鸣",
-    "DESCRIPTION": "提升 #y魔法 牌卡牌描述中的所有数值。 NL 增强充能球的效果。"
+    "DESCRIPTION": "在 #y狭隙 内时，提升 #y魔法 牌卡牌描述中的所有数值。 NL 增强充能球的效果。"
   },
   {
     "NAMES": [
@@ -54,5 +54,30 @@
     ],
     "PROPER_NAME": "飞行",
     "DESCRIPTION": "有 #y飞行 状态的生物受到的 #y攻击 伤害减半 。"
+  },
+  {
+    "NAMES": [
+      "fetter",
+      "羁绊"
+    ],
+    "PROPER_NAME": "羁绊",
+    "DESCRIPTION": "拾起 #y羁绊 牌时，选择牌组中一张牌作为 #y羁绊 目标。 NL 每次打出 #y羁绊 且目标处于抽牌堆时，将目标置入手牌。"
+  },
+  {
+    "NAMES": [
+      "timestasis",
+      "时间停滞",
+      "时间凝滞"
+    ],
+    "PROPER_NAME": "时间凝滞",
+    "DESCRIPTION": "累加到 #b12 层及以上时，失去 #b12 层 #y时间凝滞 并进入 #y狭隙 。"
+  },
+  {
+    "NAMES": [
+      "extraturn",
+      "狭隙"
+    ],
+    "PROPER_NAME": "狭隙",
+    "DESCRIPTION": "进入时，获得一个额外回合。 NL 无视敌人的出牌、受伤时触发的效果。"
   }
 ]

@@ -1,7 +1,6 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,9 +29,9 @@ public class SnowWalk extends AbstractLightLemonCard {
     public SnowWalk() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 3;
-        this.baseM2 = this.m2 = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.isFetter = true;
     }
 
     @Override
@@ -50,6 +49,5 @@ public class SnowWalk extends AbstractLightLemonCard {
                 addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
             }
         }
-        addToBot(new DrawCardAction(this.m2));
     }
 }

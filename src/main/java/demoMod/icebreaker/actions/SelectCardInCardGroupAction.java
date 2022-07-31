@@ -33,7 +33,7 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
     public void update() {
         if (this.duration == this.startDuration) {
             CardGroup temp;
-            if (this.player.drawPile.isEmpty()) {
+            if (this.cardGroup.isEmpty()) {
                 this.isDone = true;
                 return;
             }

@@ -1,15 +1,14 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -30,8 +29,10 @@ public class DistortReality extends AbstractLightLemonCard {
     public DistortReality() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 1;
+        this.baseBlock = this.block = 9;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -39,6 +40,7 @@ public class DistortReality extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.upgradeBlock(3);
         }
     }
 
@@ -51,14 +53,8 @@ public class DistortReality extends AbstractLightLemonCard {
                 card.applyPowers();
             }
         }
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if (EnergyPanel.totalCount == 0) {
-                    addToTop(new GainEnergyAction(DistortReality.this.magicNumber));
-                }
-                isDone = true;
-            }
-        });
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new GainBlockAction(p, p, this.block));
+        }
     }
 }

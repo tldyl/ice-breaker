@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -24,22 +25,23 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
     public CascadeIceWall() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = this.block = 4;
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseBlock = this.block = 8;
+        this.baseMagicNumber = this.magicNumber = 4;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
-            this.upgradeMagicNumber(1);
+            this.upgradeBlock(3);
+            this.upgradeMagicNumber(2);
         }
     }
 
@@ -54,6 +56,8 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber)));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber)));
+        }
     }
 }

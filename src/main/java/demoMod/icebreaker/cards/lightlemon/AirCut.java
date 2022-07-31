@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,10 +16,11 @@ import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import com.megacrit.cardcrawl.vfx.combat.AnimatedSlashEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 
 import java.util.ArrayList;
 
-public class AirCut extends AbstractLightLemonCard {
+public class AirCut extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
     public static final String ID = IceBreaker.makeID("AirCut");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -38,6 +38,7 @@ public class AirCut extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 9;
         this.baseMagicNumber = this.magicNumber = 1;
+        this.extraEffectOnExtraTurn = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
@@ -57,7 +58,16 @@ public class AirCut extends AbstractLightLemonCard {
         addToBot(new SFXAction("ATTACK_FAST", 0.2F));
         addToBot(new VFXAction(new AnimatedSlashEffect(m.hb.cX, m.hb.cY - 30.0F * Settings.scale, 500.0F, 200.0F, 290.0F, 3.0F, Color.VIOLET, Color.PINK)));
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new DrawCardAction(this.magicNumber));
         addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, this.magicNumber)));
+    }
+
+    @Override
+    public void onEnterExtraTurn() {
+        this.modifyCostForCombat(0);
+    }
+
+    @Override
+    public void onExitExtraTurn() {
+        this.modifyCostForCombat(COST);
     }
 }

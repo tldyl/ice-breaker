@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.DodgePower;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class SilverDoor extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
-        this.exhaust = true;
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -48,7 +49,9 @@ public class SilverDoor extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DodgePower(p, this.magicNumber)));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(p, p, new DodgePower(p, this.magicNumber)));
+        }
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 }
