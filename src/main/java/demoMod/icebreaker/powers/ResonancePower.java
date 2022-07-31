@@ -56,18 +56,18 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public float modifyBlock(float blockAmount, AbstractCard card) {
-        return card.hasTag(CardTagEnum.MAGIC) ? blockAmount + this.amount : blockAmount;
+        return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? blockAmount + this.amount : blockAmount;
     }
 
     @Override
     public int onModifyMagicNumber(int magicNumber, AbstractCard card) {
-        return card.hasTag(CardTagEnum.MAGIC) ? this.amount + magicNumber : magicNumber;
+        return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? this.amount + magicNumber : magicNumber;
     }
 
     @Override
     public int onModifyAnotherMagicNumber(int magicNumber, AbstractCard card) {
         if (card instanceof AbstractLightLemonCard) {
-            return card.hasTag(CardTagEnum.MAGIC) ? this.amount + magicNumber : magicNumber;
+            return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? this.amount + magicNumber : magicNumber;
         }
         return magicNumber;
     }

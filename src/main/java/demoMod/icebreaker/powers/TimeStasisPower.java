@@ -3,7 +3,6 @@ package demoMod.icebreaker.powers;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,7 +19,7 @@ public class TimeStasisPower extends AbstractPower {
     public static final String[] DESC;
 
     public TimeStasisPower(AbstractCreature owner, int amount) {
-        this.owner = AbstractDungeon.player;
+        this.owner = owner;
         this.amount = amount;
         this.ID = POWER_ID;
         this.name = NAME;
@@ -31,30 +30,24 @@ public class TimeStasisPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
+        this.description = DESC[0];
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        if (this.amount >= 12) {
             this.flashWithoutSound();
             CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
             AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
             AbstractDungeon.topLevelEffectsQueue.add(new TimeWarpTurnEndEffect());
             AbstractDungeon.getCurrRoom().skipMonsterTurn = true;
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (!c.isEthereal) {
-                    c.retain = true;
-                }
+            this.addToTop(new ApplyPowerAction(this.owner, this.owner, new ExtraTurnPower(this.owner)));
+            this.amount %= 12;
+            if (this.amount <= 0) {
+                this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
             }
         }
-    }
-
-    @Override
-    public void atStartOfTurnPostDraw() {
-        this.flash();
-        addToBot(new ApplyPowerAction(this.owner, this.owner, new ExtraTurnPower(this.owner, this.amount)));
-        addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 
     static {

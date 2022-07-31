@@ -2,19 +2,19 @@
   "IceBreaker:TimeStasisPower": {
     "NAME": "时间凝滞",
     "DESCRIPTIONS": [
-      "在你的当前回合结束时， #y保留 所有手牌、能量、 #y格挡 ，获得一个能出 #b%d 张牌的 #y额外回合 。"
+      "当层数增加到 #b12 层及以上时， 失去 #b12 层 #y时间凝滞 并进入 #y狭隙 。"
     ]
   },
   "IceBreaker:ExtraTurnPower": {
-    "NAME": "额外回合",
+    "NAME": "狭隙",
     "DESCRIPTIONS": [
-      "你无法抽牌、获得能量。 NL 无视敌人的出牌、受伤时触发的效果。 NL 打出 #b%d 张牌后，结束此回合。"
+      "进入时， #y保留 所有手牌、能量、 #y格挡 ，获得一个能出 #b%d 张牌的 #y额外回合 。 NL 无视敌人的出牌、受伤时触发的效果。"
     ]
   },
   "IceBreaker:ResonancePower": {
     "NAME": "共鸣",
     "DESCRIPTIONS": [
-      "提升 #y魔法 牌卡牌描述中的所有数值 #b%d 点。"
+      "当你处于 #y狭隙 时，提升 #y魔法 牌卡牌描述中的所有数值 #b%d 点。"
     ]
   },
   "IceBreaker:DoubleBlockPower": {
