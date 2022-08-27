@@ -18,6 +18,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public abstract class AbstractLightLemonCard extends CustomCard implements CardAddToDeckSubscriber, CustomSavable<List<String>>, TriggerFetterSubscriber {
@@ -28,6 +29,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public boolean isFetter = false;
     public List<UUID> fetterTarget = new ArrayList<>();
     private List<AbstractCard> myCardsToPreview = new ArrayList<>();
+    protected Predicate<AbstractCard> fetterFilter = card -> true;
     private float previewTimer = 0.0F;
 
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
@@ -55,7 +57,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     @Override
     public void onAddToMasterDeck() {
         if (isFetter) {
-            IceBreaker.addToBot(new SelectCardInCardGroupAction(1, card -> card != this, card -> {
+            IceBreaker.addToBot(new SelectCardInCardGroupAction(1, card -> card != this && this.fetterFilter.test(card), card -> {
                 this.fetterTarget.add(card.uuid);
                 this.myCardsToPreview.add(card);
             }, AbstractDungeon.player.masterDeck));

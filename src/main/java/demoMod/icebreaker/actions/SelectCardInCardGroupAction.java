@@ -14,7 +14,6 @@ import java.util.function.Predicate;
 
 public class SelectCardInCardGroupAction extends AbstractGameAction {
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(IceBreaker.makeID("SelectCardInCardGroupAction")).TEXT;
-    private final AbstractPlayer player;
     private final Predicate<AbstractCard> condition;
     private final Consumer<AbstractCard> action;
     private final CardGroup cardGroup;
@@ -22,7 +21,6 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
     public SelectCardInCardGroupAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action, CardGroup cardGroup) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = (this.startDuration = Settings.ACTION_DUR_FAST);
-        this.player = AbstractDungeon.player;
         this.condition = condition;
         this.action = action;
         this.cardGroup = cardGroup;
@@ -40,6 +38,10 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             temp = new CardGroup(com.megacrit.cardcrawl.cards.CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractCard c : this.cardGroup.group) {
                 if (this.condition.test(c)) temp.addToTop(c);
+            }
+            if (temp.isEmpty()) {
+                this.isDone = true;
+                return;
             }
             temp.sortAlphabetically(true);
             temp.sortByRarityPlusStatusCardType(false);
