@@ -26,6 +26,7 @@ public class CardCrawlGamePatch {
                 try {
                     Reader reader = new FileReader(cardUuidSave);
                     List<String> uuidList = CustomSavable.saveFileGson.fromJson(reader, new TypeToken<List<String>>(){}.getType());
+                    if (uuidList == null) return;
                     int index = 0;
                     for (AbstractCard card : p.masterDeck.group) {
                         if (index < uuidList.size()) {

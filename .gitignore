@@ -31,3 +31,4 @@ src/test/
 .idea/vcs.xml
 *.xls
 *.xlsx
+*.docx

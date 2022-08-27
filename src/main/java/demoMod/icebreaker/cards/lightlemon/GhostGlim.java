@@ -3,6 +3,7 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,7 +25,7 @@ public class GhostGlim extends AbstractLightLemonCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG_PATH = "cards/strike_I.png";
 
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
@@ -32,31 +33,26 @@ public class GhostGlim extends AbstractLightLemonCard {
 
     public GhostGlim() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
-        this.block = this.baseBlock = 3;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 4;
+        this.baseM2 = this.m2 = 1;
         this.cardsToPreview = new Spark();
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(1);
-            this.upgradeBlock(1);
+            this.upgradeMagicNumber(3);
+            this.upgradeM2(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new GainBlockAction(p, this.block));
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
-        }
+        addToBot(new LoseHPAction(m, p, this.magicNumber));
+        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.m2, true, true, false));
     }
 }

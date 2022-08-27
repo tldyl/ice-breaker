@@ -8,8 +8,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
+import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 
-public class OtherPartyOfMissing extends AbstractLightLemonCard {
+public class OtherPartyOfMissing extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
     public static final String ID = IceBreaker.makeID("OtherPartyOfMissing");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -49,6 +50,17 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard {
 
     @Override
     public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
         this.baseBlock += this.magicNumber;
+    }
+
+    @Override
+    public void onEnterExtraTurn() {
+        this.baseBlock += this.magicNumber;
+    }
+
+    @Override
+    public void onExitExtraTurn() {
+
     }
 }

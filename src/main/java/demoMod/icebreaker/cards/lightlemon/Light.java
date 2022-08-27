@@ -31,6 +31,7 @@ public class Light extends AbstractLightLemonCard {
     public Light() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
@@ -49,7 +50,7 @@ public class Light extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new DrawCardAction(1));
+            addToBot(new DrawCardAction(this.magicNumber));
         }
     }
 }

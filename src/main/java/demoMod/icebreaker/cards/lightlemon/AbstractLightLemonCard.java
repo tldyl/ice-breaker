@@ -2,6 +2,9 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
@@ -11,6 +14,7 @@ import demoMod.icebreaker.interfaces.CardAddToDeckSubscriber;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +27,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public boolean extraEffectOnExtraTurn = false;
     public boolean isFetter = false;
     public List<UUID> fetterTarget = new ArrayList<>();
+    private List<AbstractCard> myCardsToPreview = new ArrayList<>();
+    private float previewTimer = 0.0F;
 
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, AbstractCardEnum.ICEBREAKER, rarity, target);
@@ -49,7 +55,10 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     @Override
     public void onAddToMasterDeck() {
         if (isFetter) {
-            IceBreaker.addToBot(new SelectCardInCardGroupAction(1, card -> card != this, card -> this.fetterTarget.add(card.uuid), AbstractDungeon.player.masterDeck));
+            IceBreaker.addToBot(new SelectCardInCardGroupAction(1, card -> card != this, card -> {
+                this.fetterTarget.add(card.uuid);
+                this.myCardsToPreview.add(card);
+            }, AbstractDungeon.player.masterDeck));
         }
     }
 
@@ -66,5 +75,50 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     @Override
     public void onLoad(List<String> s) {
         fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
+        for (UUID uuid : this.fetterTarget) {
+            for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
+                if (card1.uuid.equals(uuid)) {
+                    this.myCardsToPreview.add(card1);
+                }
+            }
+        }
+    }
+
+    @Override
+    public Type savedType() {
+        return new TypeToken<List<String>>(){}.getType();
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        if (card instanceof AbstractLightLemonCard) {
+            AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;
+            lightLemonCard.fetterTarget = this.fetterTarget;
+            for (UUID uuid : AbstractLightLemonCard.this.fetterTarget) {
+                for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
+                    if (card1.uuid.equals(uuid)) {
+                        lightLemonCard.myCardsToPreview.add(card1);
+                    }
+                }
+            }
+        }
+        return card;
+    }
+
+    @Override
+    public void renderCardTip(SpriteBatch sb) {
+        super.renderCardTip(sb);
+        previewTimer += Gdx.graphics.getDeltaTime();
+        if (previewTimer > 1.0F) {
+            previewTimer = 0.0F;
+            if (this.cardsToPreview != null) {
+                this.myCardsToPreview.add(this.cardsToPreview);
+                this.cardsToPreview = null;
+            }
+            if (!this.myCardsToPreview.isEmpty()) {
+                this.cardsToPreview = this.myCardsToPreview.remove(0);
+            }
+        }
     }
 }

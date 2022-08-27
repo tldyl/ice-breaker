@@ -145,6 +145,8 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new AirCut());
         BaseMod.addCard(new Light());
         BaseMod.addCard(new EarthCollapse());
+        BaseMod.addCard(new BloodyPath());
+        BaseMod.addCard(new RedMoon());
         BaseMod.addCard(new SoulTremor());
         BaseMod.addCard(new GhostGlim());
         BaseMod.addCard(new SilverDoor());
@@ -165,6 +167,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new EliminateDistractions());
         BaseMod.addCard(new MagicExtraction());
         BaseMod.addCard(new OtherPartyOfMissing());
+        BaseMod.addCard(new Leap());
         BaseMod.addCard(new GhostStar());
         BaseMod.addCard(new IceShield());
         BaseMod.addCard(new CascadeIceWall());
@@ -176,6 +179,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new TimeLetter());
         BaseMod.addCard(new MaterialDecomposition());
         BaseMod.addCard(new MaterialCreation());
+        BaseMod.addCard(new TriggerLightning());
 
         BaseMod.addCard(new Spark());
     }

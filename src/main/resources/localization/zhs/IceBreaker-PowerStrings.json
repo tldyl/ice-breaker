@@ -5,6 +5,12 @@
       "累加到 #b12 层及以上时，失去 #b12 层 #y时间凝滞 并进入 #y狭隙 。"
     ]
   },
+  "IceBreaker:NextTurnTimeStasisPower": {
+    "NAME": "下回合时间凝滞",
+    "DESCRIPTIONS": [
+      "在下回合开始时，获得 #b%s 层 #y时间凝滞。"
+    ]
+  },
   "IceBreaker:ExtraTurnPower": {
     "NAME": "狭隙",
     "DESCRIPTIONS": [
@@ -39,6 +45,12 @@
     "NAME": "炎川",
     "DESCRIPTIONS": [
       "本回合你每打出一张 #y火花 ，获得 #b%d 点 #y格挡 。"
+    ]
+  },
+  "IceBreaker:IcyBurstPower": {
+    "NAME": "冰爆",
+    "DESCRIPTIONS": [
+      "在这个回合，你的 #y火花 将额外使目标失去 #b%s 点 #y力量 一回合 。"
     ]
   }
 }

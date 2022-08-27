@@ -22,15 +22,16 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/SoulTremor.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 2;
 
     public CascadeIceWall() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = this.block = 8;
+        this.baseBlock = this.block = 3;
         this.baseMagicNumber = this.magicNumber = 4;
+        this.baseM2 = this.m2 = 5;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
@@ -40,8 +41,8 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
+            this.upgradeM2(2);
         }
     }
 
@@ -55,9 +56,11 @@ public class CascadeIceWall extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, this.block));
+        for (int i=0;i<this.magicNumber;i++) {
+            addToBot(new GainBlockAction(p, p, this.block));
+        }
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.m2)));
         }
     }
 }

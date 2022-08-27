@@ -43,16 +43,13 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
             this.upgradeBlock(3);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this && AbstractDungeon.gridSelectScreen.upgradePreviewCard != this) {
-                onAddToMasterDeck();
-            }
         }
     }
 
     @Override
     public void update() {
         super.update();
-        if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck) {
+        if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck && AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this && AbstractDungeon.gridSelectScreen.upgradePreviewCard != this) {
             onAddToMasterDeck();
             updateCheck = true;
         }
@@ -69,6 +66,5 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-
     }
 }

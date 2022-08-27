@@ -25,7 +25,6 @@ public class GhostStar extends AbstractLightLemonCard {
     public GhostStar() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
-        this.isFetter = true;
     }
 
     @Override

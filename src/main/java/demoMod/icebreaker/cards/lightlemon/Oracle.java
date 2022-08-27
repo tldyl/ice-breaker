@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.powers.LoseResonancePower;
-import demoMod.icebreaker.powers.ResonancePower;
+import demoMod.icebreaker.actions.SelectCardInHandAction;
+import demoMod.icebreaker.powers.ExtraTurnPower;
+import demoMod.icebreaker.powers.TimeStasisPower;
 
 public class Oracle extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Oracle");
@@ -21,11 +22,12 @@ public class Oracle extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public Oracle() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
+        this.baseM2 = this.m2 = 1;
     }
 
     @Override
@@ -33,12 +35,15 @@ public class Oracle extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.upgradeM2(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new LoseResonancePower(p)));
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new SelectCardInHandAction(this.m2, card -> true, card -> card.selfRetain = true));
+        }
     }
 }

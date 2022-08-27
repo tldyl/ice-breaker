@@ -31,7 +31,7 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (this.duration == this.startDuration && AbstractDungeon.screen != AbstractDungeon.CurrentScreen.GRID) {
             CardGroup temp;
             if (this.cardGroup.isEmpty()) {
                 this.isDone = true;
@@ -54,7 +54,7 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
+            isDone = true;
         }
-        tickDuration();
     }
 }

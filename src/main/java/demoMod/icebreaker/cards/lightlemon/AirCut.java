@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,11 +17,10 @@ import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import com.megacrit.cardcrawl.vfx.combat.AnimatedSlashEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 
 import java.util.ArrayList;
 
-public class AirCut extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
+public class AirCut extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("AirCut");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -32,16 +32,15 @@ public class AirCut extends AbstractLightLemonCard implements EnterOrExitExtraTu
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public AirCut() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.extraEffectOnExtraTurn = true;
+        this.damage = this.baseDamage = 5;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
+        this.isFetter = true;
     }
 
     @Override
@@ -62,12 +61,7 @@ public class AirCut extends AbstractLightLemonCard implements EnterOrExitExtraTu
     }
 
     @Override
-    public void onEnterExtraTurn() {
-        this.modifyCostForCombat(0);
-    }
-
-    @Override
-    public void onExitExtraTurn() {
-        this.modifyCostForCombat(COST);
+    public void onTriggerFetter() {
+        addToBot(new DrawCardAction(1));
     }
 }

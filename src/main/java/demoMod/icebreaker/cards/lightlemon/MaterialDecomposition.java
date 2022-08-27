@@ -1,17 +1,16 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.powers.ResonancePower;
 
-import java.util.ArrayList;
-
-public class MaterialDecomposition extends AbstractLightLemonCard {
+public class MaterialDecomposition extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
     public static final String ID = IceBreaker.makeID("MaterialDecomposition");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,25 +27,36 @@ public class MaterialDecomposition extends AbstractLightLemonCard {
     public MaterialDecomposition() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 1;
+        this.baseM2 = this.m2 = 2;
         this.exhaust = true;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeM2(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ExhaustAction(this.magicNumber, false));
-        if (this.upgraded) {
-            addToBot(new GainEnergyAction(this.magicNumber));
-        }
+        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.m2)));
+    }
+
+    @Override
+    public void onEnterExtraTurn() {
+        this.exhaust = false;
+        this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
+    }
+
+    @Override
+    public void onExitExtraTurn() {
+        this.exhaust = true;
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
     }
 }
