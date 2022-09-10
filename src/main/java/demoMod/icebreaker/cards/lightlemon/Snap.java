@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInHandAction;
+import demoMod.icebreaker.actions.SnapAction;
 
 public class Snap extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Snap");
@@ -15,11 +16,11 @@ public class Snap extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/strike_I.png";
+    public static final String IMG_PATH = "cards/Snap.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
 
@@ -38,16 +39,19 @@ public class Snap extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("SNAP", 0.1F));
-        addToBot(new SelectCardInHandAction(1, card -> card.type == CardType.ATTACK, card -> {
-            Snap.this.tags.addAll(card.tags);
-            card.use(p, m);
-        }));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                Snap.this.tags.clear();
-                isDone = true;
-            }
-        });
+//        addToBot(new SelectCardInHandAction(1, card -> card.type == CardType.ATTACK, card -> {
+//            Snap.this.tags.addAll(card.tags);
+//            card.use(p, m);
+//        }));
+//        addToBot(new AbstractGameAction() {
+//            @Override
+//            public void update() {
+//                Snap.this.tags.clear();
+//                isDone = true;
+//            }
+//        });
+
+        // vodka: 响指效果变为: 从卡组选1张攻击牌打出。
+        addToBot(new SnapAction());
     }
 }

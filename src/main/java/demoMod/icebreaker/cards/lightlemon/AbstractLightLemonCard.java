@@ -27,6 +27,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public boolean isM2Upgraded = false;
     public boolean extraEffectOnExtraTurn = false;
     public boolean isFetter = false;
+    public boolean isBottom = false;
     public List<UUID> fetterTarget = new ArrayList<>();
     private List<AbstractCard> myCardsToPreview = new ArrayList<>();
     protected Predicate<AbstractCard> fetterFilter = card -> true;

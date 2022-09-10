@@ -118,7 +118,7 @@
   },
   "IceBreaker:Snap": {
     "NAME": "响指",
-    "DESCRIPTION": "选择手牌中的一张攻击牌 im:触发效果 。"
+    "DESCRIPTION": "选择抽牌堆中的1张攻击牌打出。"
   },
   "IceBreaker:HauntHell": {
     "NAME": "幽灵地狱",
@@ -223,5 +223,14 @@
   "IceBreaker:TriggerLightning": {
     "NAME": "引雷",
     "DESCRIPTION": "im:羁绊 。 NL 这张牌被 升级 时， im:羁绊 。 NL 可被多次 升级 。"
+  },
+  "IceBreaker:HolyZone": {
+    "NAME": "圣域",
+    "DESCRIPTION": "击晕所有生命值低于一半的敌人。 消耗 。"
+  },
+  "IceBreaker:MemoriesFloodBack": {
+    "NAME": "星霜奇想",
+    "DESCRIPTION": " 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。"
   }
 }
