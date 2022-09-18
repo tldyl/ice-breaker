@@ -29,10 +29,10 @@
       "下 #b%d 次获得的 #y格挡量翻倍。"
     ]
   },
-  "IceBreaker:DodgePower": {
-    "NAME": "闪避",
+  "IceBreaker:SilverDoorPower": {
+    "NAME": "银之扉",
     "DESCRIPTIONS": [
-      "受到的 #y攻击 伤害减半。 NL 持续 #b%d 回合。"
+      "本回合你的 #y共鸣 生效时不会消耗层数。"
     ]
   },
   "IceBreaker:LoseResonancePower": {
@@ -50,7 +50,13 @@
   "IceBreaker:IcyBurstPower": {
     "NAME": "冰爆",
     "DESCRIPTIONS": [
-      "在这个回合，你的 #y火花 将额外使目标失去 #b%s 点 #y力量 一回合 。"
+      "在这个回合，你的 #y火花 将额外使目标失去 #b%d 点 #y力量 一回合 。"
+    ]
+  },
+  "IceBreaker:NegatePower": {
+    "NAME": "否定",
+    "DESCRIPTIONS": [
+      "本回合你的 #y羁绊 不会生效，每次 #y羁绊 失败时对所有敌人造成 #b%d 点伤害。"
     ]
   }
 }

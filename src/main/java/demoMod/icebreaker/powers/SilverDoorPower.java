@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.utils.PowerRegionLoader;
 
-public class DodgePower extends AbstractPower {
-    public static final String POWER_ID = IceBreaker.makeID("DodgePower");
+public class SilverDoorPower extends AbstractPower {
+    public static final String POWER_ID = IceBreaker.makeID("SilverDoorPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
 
-    public DodgePower(AbstractCreature owner, int amount) {
+    public SilverDoorPower(AbstractCreature owner, int amount) {
         this.owner = owner;
         this.amount = amount;
         this.ID = POWER_ID;
@@ -28,15 +28,7 @@ public class DodgePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
-    }
-
-    @Override
-    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
-        if (type != DamageInfo.DamageType.NORMAL) {
-            return damage;
-        }
-        return damage / 2.0F;
+        this.description = DESC[0];
     }
 
     @Override

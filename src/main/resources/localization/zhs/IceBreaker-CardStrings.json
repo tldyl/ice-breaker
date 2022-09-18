@@ -72,7 +72,7 @@
   },
   "IceBreaker:SilverDoor": {
     "NAME": "银之扉",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL im:狭隙 ：获得 !M! 层 im:闪避 。 NL 造成 !D! 点伤害。"
+    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 在这个回合， im:共鸣 生效时不会减少层数。"
   },
   "IceBreaker:Blizzard": {
     "NAME": "暴风雪",
@@ -112,9 +112,8 @@
     "DESCRIPTION": "im:魔法 。 NL 在这个回合，你的 *火花 将额外使目标失去 !M! 点 力量 一回合 。"
   },
   "IceBreaker:ManaAgitation": {
-    "NAME": "法力暴动",
-    "DESCRIPTION": "im:远程 。 NL 受到 !M! 点伤害。 NL 造成 !D! 点伤害。 NL 获得 !IM2! 层 im:共鸣 。 NL 在下回合， 获得 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "im:远程 。 NL 受到 !M! 点伤害。 NL 造成 !D! 点伤害。 NL 获得 !IM2! 层 im:共鸣 。 NL 在下回合， 获得 [E] [E] [E] 。"
+    "NAME": "魔能暴走",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL im:羁绊 触发失败时，如果本牌未被 消耗，则回到手牌。"
   },
   "IceBreaker:Snap": {
     "NAME": "响指",
@@ -134,7 +133,7 @@
   },
   "IceBreaker:Perception": {
     "NAME": "感知",
-    "DESCRIPTION": "在你的回合开始时，获得1点 im:共鸣 。"
+    "DESCRIPTION": "预见 !M! 。 NL 其中每有一张能力牌，获得 [E] 。 NL im:狭隙 ：抽一张牌。"
   },
   "IceBreaker:FakeParley": {
     "NAME": "时之鸣",
@@ -232,5 +231,17 @@
     "NAME": "星霜奇想",
     "DESCRIPTION": " 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。",
     "UPGRADE_DESCRIPTION": " 保留 。 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。"
+  },
+  "IceBreaker:TimeCreation": {
+    "NAME": "时间创造",
+    "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 im:时间凝滞 。"
+  },
+  "IceBreaker:Overgrow": {
+    "NAME": "丛生",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的数值加二的复制加入手牌 。"
+  },
+  "IceBreaker:Negate": {
+    "NAME": "否定",
+    "DESCRIPTION": "在这个回合， im:羁绊 不会生效。 NL 每次 im:羁绊 失败时，对所有敌人造成 !D! 点伤害。"
   }
 }

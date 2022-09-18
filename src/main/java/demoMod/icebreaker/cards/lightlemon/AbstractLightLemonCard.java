@@ -71,6 +71,11 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     @Override
+    public void onTriggerFetterFailed() {
+
+    }
+
+    @Override
     public List<String> onSave() {
         return fetterTarget.stream().map(UUID::toString).collect(Collectors.toList());
     }

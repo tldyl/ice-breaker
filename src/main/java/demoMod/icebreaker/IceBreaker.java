@@ -182,6 +182,9 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new TriggerLightning());
         BaseMod.addCard(new MemoriesFloodBack());
         BaseMod.addCard(new HolyZone());
+        BaseMod.addCard(new TimeCreation());
+        BaseMod.addCard(new Overgrow());
+        BaseMod.addCard(new Negate());
 
         BaseMod.addCard(new Spark());
     }

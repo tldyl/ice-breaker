@@ -75,7 +75,7 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID)) {
+        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) && !owner.hasPower(SilverDoorPower.POWER_ID)) {
             addToBot(new ReducePowerAction(owner, owner, this, 1));
         }
     }
