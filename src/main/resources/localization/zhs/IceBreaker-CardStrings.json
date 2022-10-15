@@ -76,7 +76,7 @@
   },
   "IceBreaker:Blizzard": {
     "NAME": "暴风雪",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果目标敌人有 虚弱 状态，再造成一次 !D! 点伤害。"
+    "DESCRIPTION": "im:魔法 。 NL 所有敌人失去 !M! 点 力量 。 NL 消耗 。 NL im:狭隙 ：再打出一次。"
   },
   "IceBreaker:WheelOfHeat": {
     "NAME": "炎轮",
@@ -87,11 +87,12 @@
   },
   "IceBreaker:Electrospark": {
     "NAME": "时之炎",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL 你每次进入 im:狭隙 时，将这张牌从弃牌堆放回你的手牌。"
+    "DESCRIPTION": "获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 。"
   },
   "IceBreaker:SeaOfLanterns": {
     "NAME": "火树银花",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 对所有敌人造成 !D! 点伤害。 NL im:狭隙 ：将 !M! 张 *火花 加入抽牌堆。",
+    "DESCRIPTION": "im:魔法 。 NL im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 将 !M! 张 *火花 加入抽牌堆。",
     "EXTENDED_DESCRIPTION": [
       "一同走过的灯海"
     ]
@@ -106,6 +107,10 @@
     "EXTENDED_DESCRIPTION": [
       "(造成!D!点伤害)"
     ]
+  },
+  "IceBreaker:Flarier": {
+    "NAME": "炎川",
+    "DESCRIPTION": "im:魔法 。 NL 将一张 *火花 加入手牌。 NL 在这个回合，你每打出一张 *火花 ，获得 !M! 点 格挡 。"
   },
   "IceBreaker:IcyBurst": {
     "NAME": "冰爆",
@@ -154,7 +159,8 @@
   },
   "IceBreaker:MagicExtraction": {
     "NAME": "法力萃取",
-    "DESCRIPTION": "目标失去至多 !M! 层 虚弱 ，获得失去层数等量的 [E] 。"
+    "DESCRIPTION": "将所有 im:共鸣 层数转换为等量的 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将所有 im:共鸣 层数转换为等量的 [E] 。"
   },
   "IceBreaker:OtherPartyOfMissing": {
     "NAME": "思念的彼方",
@@ -198,7 +204,7 @@
       "冰结之绊"
     ]
   },
-  "IceBreaker:Flarier": {
+  "IceBreaker:TimeRing": {
     "NAME": "时之环",
     "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 im:时间凝滞 。 NL 每打出一次，此牌的 im:时间凝滞 获得量在本场战斗内增加 !IM2! 。"
   },
@@ -243,5 +249,13 @@
   "IceBreaker:Negate": {
     "NAME": "否定",
     "DESCRIPTION": "在这个回合， im:羁绊 不会生效。 NL 每次 im:羁绊 失败时，对所有敌人造成 !D! 点伤害。"
+  },
+  "IceBreaker:TimeShadow": {
+    "NAME": "时之影",
+    "DESCRIPTION": "获得 !M! 层 im:时间凝滞 。 NL 预见 !M! 。 NL 抽一张牌。"
+  },
+  "IceBreaker:TimeLeap": {
+    "NAME": "时间跳跃",
+    "DESCRIPTION": "在你的回合开始时，获得 !M! 层 im:时间凝滞 。"
   }
 }

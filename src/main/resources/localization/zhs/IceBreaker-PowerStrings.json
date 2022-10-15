@@ -58,5 +58,11 @@
     "DESCRIPTIONS": [
       "本回合你的 #y羁绊 不会生效，每次 #y羁绊 失败时对所有敌人造成 #b%d 点伤害。"
     ]
+  },
+  "IceBreaker:TimeLeapPower": {
+    "NAME": "时间跳跃",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，获得 #b%d 层 #y时间凝滞 。"
+    ]
   }
 }

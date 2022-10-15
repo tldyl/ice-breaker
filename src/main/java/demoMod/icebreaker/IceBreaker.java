@@ -150,11 +150,13 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SoulTremor());
         BaseMod.addCard(new GhostGlim());
         BaseMod.addCard(new SilverDoor());
+        BaseMod.addCard(new Blizzard());
         BaseMod.addCard(new WheelOfHeat());
         BaseMod.addCard(new Electrospark());
         BaseMod.addCard(new SeaOfLanterns());
         BaseMod.addCard(new ThunderBlasting());
         BaseMod.addCard(new Pyroblast());
+        BaseMod.addCard(new Flarier());
         BaseMod.addCard(new IcyBurst());
         BaseMod.addCard(new ManaAgitation());
         BaseMod.addCard(new Snap());
@@ -174,7 +176,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SnowWalk());
         BaseMod.addCard(new CoordinateMovement());
         BaseMod.addCard(new DeepColdSwamp());
-        BaseMod.addCard(new Flarier());
+        BaseMod.addCard(new TimeRing());
         BaseMod.addCard(new DistortReality());
         BaseMod.addCard(new TimeLetter());
         BaseMod.addCard(new MaterialDecomposition());
@@ -185,6 +187,8 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new TimeCreation());
         BaseMod.addCard(new Overgrow());
         BaseMod.addCard(new Negate());
+        BaseMod.addCard(new TimeShadow());
+        BaseMod.addCard(new TimeLeap());
 
         BaseMod.addCard(new Spark());
     }

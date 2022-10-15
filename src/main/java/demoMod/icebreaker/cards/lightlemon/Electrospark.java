@@ -1,22 +1,16 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
-import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.powers.TimeStasisPower;
 
-import java.util.ArrayList;
-
-public class Electrospark extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
+public class Electrospark extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Electrospark");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -24,19 +18,14 @@ public class Electrospark extends AbstractLightLemonCard implements EnterOrExitE
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG_PATH = "cards/strike_I.png";
 
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 0;
+    private static final int COST = 2;
 
     public Electrospark() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
-        this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
     }
 
@@ -44,23 +33,15 @@ public class Electrospark extends AbstractLightLemonCard implements EnterOrExitE
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.selfRetain = true;
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, false, false));
-    }
-
-    @Override
-    public void onEnterExtraTurn() {
-        addToBot(new DiscardToHandAction(this));
-    }
-
-    @Override
-    public void onExitExtraTurn() {
-
+        int ctr = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ctr)));
     }
 }
