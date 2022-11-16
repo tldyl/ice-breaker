@@ -150,8 +150,8 @@
   },
   "IceBreaker:OverloadEmulate": {
     "NAME": "过载演算",
-    "DESCRIPTION": "获得 [E] [E] 。 NL 如果不处于 im:狭隙 ，下回合开始少抽一张牌 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] [E] 。 NL 如果不处于 im:狭隙 ，下回合开始少抽一张牌 。"
+    "DESCRIPTION": "将你的 im:共鸣 层数翻倍。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将你的 im:共鸣 层数翻三倍。 NL 消耗 。"
   },
   "IceBreaker:EliminateDistractions": {
     "NAME": "摒除杂念",
@@ -210,7 +210,7 @@
   },
   "IceBreaker:DistortReality": {
     "NAME": "扭曲现实",
-    "DESCRIPTION": "im:魔法 。 NL 升级 手牌中的所有牌。 NL im:狭隙 ：获得 !B! 点 格挡 。"
+    "DESCRIPTION": "获得 !M! 层 im:共鸣 。 NL 消耗 。"
   },
   "IceBreaker:TimeLetter": {
     "NAME": "时间交信",
@@ -257,5 +257,21 @@
   "IceBreaker:TimeLeap": {
     "NAME": "时间跳跃",
     "DESCRIPTION": "在你的回合开始时，获得 !M! 层 im:时间凝滞 。"
+  },
+  "IceBreaker:SpaceOfChaos": {
+    "NAME": "混沌空间",
+    "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 缓冲 。 NL 如果不处于 im:狭隙 ， 消耗 。"
+  },
+  "IceBreaker:StarDust": {
+    "NAME": "星尘",
+    "DESCRIPTION": "每回合前 !M! 次触发 im:羁绊 时获得 [E] 。"
+  },
+  "IceBreaker:DiffuseFuture": {
+    "NAME": "漫射未来",
+    "DESCRIPTION": "进入 im:狭隙 。 NL im:狭隙 ：结束你的回合，获得一个额外回合并在回合开始时进入 im:狭隙 。 NL 消耗 。"
+  },
+  "IceBreaker:InfinityFortress": {
+    "NAME": "不落壁垒",
+    "DESCRIPTION": "im:魔法 。 NL 打出此牌时，你每有一点 [E] ，获得 !M! 层 多层护甲 。"
   }
 }

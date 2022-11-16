@@ -1,18 +1,21 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
+import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.ExtraTurnPower;
-import demoMod.icebreaker.powers.ResonancePower;
+import demoMod.icebreaker.powers.NextTurnTimeStasisPower;
 
-public class OverloadEmulate extends AbstractLightLemonCard {
-    public static final String ID = IceBreaker.makeID("OverloadEmulate");
+public class DiffuseFuture extends AbstractLightLemonCard {
+    public static final String ID = IceBreaker.makeID("DiffuseFuture");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
@@ -21,34 +24,33 @@ public class OverloadEmulate extends AbstractLightLemonCard {
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 1;
+    private static final int COST = 3;
 
-    public OverloadEmulate() {
+    public DiffuseFuture() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.exhaust = true;
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeBaseCost(2);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int powerAmount;
-        if (p.hasPower(ResonancePower.POWER_ID)) {
-            powerAmount = p.getPower(ResonancePower.POWER_ID).amount;
-            if (!this.upgraded) {
-                addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, powerAmount)));
-            } else {
-                addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, powerAmount * 2)));
-            }
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new VFXAction(new WhirlwindEffect(new Color(1.0F, 0.9F, 0.4F, 1.0F), true)));
+            addToBot(new SkipEnemiesTurnAction());
+            addToBot(new ApplyPowerAction(p, p, new NextTurnTimeStasisPower(p, 12)));
+            addToBot(new PressEndTurnButtonAction());
+        } else {
+            addToBot(new ApplyPowerAction(p, p, new ExtraTurnPower(p)));
         }
     }
 }

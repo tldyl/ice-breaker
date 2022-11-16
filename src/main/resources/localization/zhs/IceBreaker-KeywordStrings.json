@@ -5,7 +5,7 @@
       "共鸣"
     ],
     "PROPER_NAME": "共鸣",
-    "DESCRIPTION": "在 #y狭隙 内时，提升 #y魔法 牌卡牌描述中的所有数值。 NL 增强充能球的效果。"
+    "DESCRIPTION": "在 #y狭隙 内时，提升 #y魔法 牌卡牌描述中的所有数值。 NL 每结算一次，减少一层 #y共鸣 。 NL 增强充能球的效果。"
   },
   {
     "NAMES": [
@@ -13,7 +13,7 @@
       "远程"
     ],
     "PROPER_NAME": "远程",
-    "DESCRIPTION": "无视目标与受击相关的效果。"
+    "DESCRIPTION": "无视 #y荆棘 与 #y飞行 。"
   },
   {
     "NAMES": [

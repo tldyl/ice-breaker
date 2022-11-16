@@ -64,5 +64,11 @@
     "DESCRIPTIONS": [
       "在你的回合开始时，获得 #b%d 层 #y时间凝滞 。"
     ]
+  },
+  "IceBreaker:StarDustPower": {
+    "NAME": "星尘",
+    "DESCRIPTIONS": [
+      "本回合前 #b%d 次触发 #y羁绊 时获得 [E] 。"
+    ]
   }
 }
