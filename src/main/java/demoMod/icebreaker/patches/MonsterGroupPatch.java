@@ -17,13 +17,13 @@ public class MonsterGroupPatch {
     )
     public static class PatchUpdate {
         public static void Prefix(MonsterGroup group) {
-            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) && !group.areMonstersBasicallyDead()) {
                 ReflectionHacks.setPrivate(Gdx.graphics, LwjglGraphics.class, "deltaTime", Gdx.graphics.getDeltaTime() / 10.0F);
             }
         }
 
         public static void Postfix(MonsterGroup group) {
-            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) && !group.areMonstersBasicallyDead()) {
                 ReflectionHacks.setPrivate(Gdx.graphics, LwjglGraphics.class, "deltaTime", Gdx.graphics.getDeltaTime() * 10.0F);
             }
         }
@@ -35,13 +35,13 @@ public class MonsterGroupPatch {
     )
     public static class PatchRender {
         public static void Prefix(AbstractMonster monster, SpriteBatch sb) {
-            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 ReflectionHacks.setPrivate(Gdx.graphics, LwjglGraphics.class, "deltaTime", Gdx.graphics.getDeltaTime() / 10.0F);
             }
         }
 
         public static void Postfix(AbstractMonster monster, SpriteBatch sb) {
-            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 ReflectionHacks.setPrivate(Gdx.graphics, LwjglGraphics.class, "deltaTime", Gdx.graphics.getDeltaTime() * 10.0F);
             }
         }

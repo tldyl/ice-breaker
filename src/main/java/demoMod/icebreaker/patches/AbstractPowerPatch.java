@@ -15,7 +15,7 @@ import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 public class AbstractPowerPatch {
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(IceBreaker.makeID("ApplyStrengthNotice"));
+    static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(IceBreaker.makeID("ApplyStrengthNotice"));
 
     @SpirePatch(
             clz = AbstractPower.class,
@@ -76,7 +76,7 @@ public class AbstractPowerPatch {
     )
     public static class PatchStackPower {
         public static void Postfix(StrengthPower power, int amount) {
-            if (power.amount > 0) {
+            if (power.amount > 0 && power.owner == AbstractDungeon.player) {
                 power.amount = 0;
                 AbstractPlayer p = AbstractDungeon.player;
                 AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, uiStrings.TEXT[0], true));

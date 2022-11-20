@@ -7,7 +7,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
+
+import java.util.ArrayList;
 
 public class SpaceOfChaos extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("SpaceOfChaos");
@@ -28,6 +31,8 @@ public class SpaceOfChaos extends AbstractLightLemonCard {
         this.baseMagicNumber = this.magicNumber = 1;
         this.exhaust = true;
         this.extraEffectOnExtraTurn = true;
+        this.tags = new ArrayList<>();
+        this.tags.add(CardTagEnum.MAGIC);
     }
 
     @Override
