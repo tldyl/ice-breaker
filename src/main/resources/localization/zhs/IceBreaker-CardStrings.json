@@ -248,7 +248,7 @@
   },
   "IceBreaker:Negate": {
     "NAME": "否定",
-    "DESCRIPTION": "在这个回合， im:羁绊 不会生效。 NL 每次 im:羁绊 失败时，对所有敌人造成 !D! 点伤害。"
+    "DESCRIPTION": "在这个回合， im:羁绊 不会生效。 NL 每次 im:羁绊 失败时，对所有敌人造成 !M! 点伤害。"
   },
   "IceBreaker:TimeShadow": {
     "NAME": "时之影",

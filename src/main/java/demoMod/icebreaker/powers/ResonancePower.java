@@ -52,7 +52,7 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) ? damage + this.amount : damage;
+        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? damage + this.amount : damage;
     }
 
     @Override

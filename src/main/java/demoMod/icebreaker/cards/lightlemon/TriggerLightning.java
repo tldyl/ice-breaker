@@ -38,6 +38,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        if (AbstractDungeon.player == null) return;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card.uuid.equals(this.uuid)) {
                 onAddToMasterDeck();

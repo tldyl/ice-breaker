@@ -51,7 +51,7 @@ public class Blizzard extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (!monster.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber)));
+                addToBot(new ApplyPowerAction(monster, p, new StrengthPower(monster, -this.magicNumber)));
             }
         }
         if (p.hasPower(ExtraTurnPower.POWER_ID) && !this.purgeOnUse) {
