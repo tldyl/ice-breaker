@@ -40,7 +40,6 @@ public class TimeStasisPower extends AbstractPower {
             CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
             AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
             AbstractDungeon.topLevelEffectsQueue.add(new TimeWarpTurnEndEffect());
-            AbstractDungeon.getCurrRoom().skipMonsterTurn = true;
             this.addToTop(new ApplyPowerAction(this.owner, this.owner, new ExtraTurnPower(this.owner)));
             this.amount %= 12;
             if (this.amount <= 0) {

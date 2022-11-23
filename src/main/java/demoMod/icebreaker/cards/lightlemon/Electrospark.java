@@ -44,4 +44,13 @@ public class Electrospark extends AbstractLightLemonCard {
         int ctr = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ctr)));
     }
+
+    @Override
+    public void applyPowers() {
+        this.baseMagicNumber = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
+        super.applyPowers();
+        this.rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
+        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
 }

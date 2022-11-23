@@ -37,7 +37,9 @@ public class RemotePatch {
     )
     public static class PatchOnAttacked {
         public static SpireReturn<Integer> Prefix(AbstractPower power, DamageInfo info, int damageAmount) {
-            if (AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1).hasTag(CardTagEnum.REMOTE)) {
+            if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty() &&
+                    info.type == DamageInfo.DamageType.NORMAL &&
+                    AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1).hasTag(CardTagEnum.REMOTE)) {
                 return SpireReturn.Return(damageAmount);
             }
             return SpireReturn.Continue();

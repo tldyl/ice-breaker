@@ -88,7 +88,10 @@
   "IceBreaker:Electrospark": {
     "NAME": "时之炎",
     "DESCRIPTION": "获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 。"
+    "UPGRADE_DESCRIPTION": "保留 。 NL 获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 。",
+    "EXTENDED_DESCRIPTION": [
+      "(获得 !M! 层 im:时间凝滞 )"
+    ]
   },
   "IceBreaker:SeaOfLanterns": {
     "NAME": "火树银花",
@@ -273,5 +276,9 @@
   "IceBreaker:InfinityFortress": {
     "NAME": "不落壁垒",
     "DESCRIPTION": "im:魔法 。 NL 打出此牌时，你每有一点 [E] ，获得 !M! 层 多层护甲 。"
+  },
+  "IceBreaker:AscendersBane": {
+    "NAME": "进阶之灾",
+    "DESCRIPTION": ""
   }
 }

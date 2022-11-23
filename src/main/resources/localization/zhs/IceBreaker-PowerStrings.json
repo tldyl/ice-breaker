@@ -14,7 +14,7 @@
   "IceBreaker:ExtraTurnPower": {
     "NAME": "狭隙",
     "DESCRIPTIONS": [
-      "进入时，获得一个额外回合。 NL 无视敌人的出牌、受伤时触发的效果。"
+      "进入时，获得 [E] [E] 。 NL 无视敌人的出牌、受伤时触发的效果。"
     ]
   },
   "IceBreaker:ResonancePower": {

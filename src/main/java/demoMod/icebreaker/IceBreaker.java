@@ -9,8 +9,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.*;
 import demoMod.icebreaker.cards.lightlemon.*;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
@@ -35,7 +37,8 @@ public class IceBreaker implements EditStringsSubscriber,
                                    EditRelicsSubscriber,
                                    PostInitializeSubscriber,
                                    AddAudioSubscriber,
-                                   PostUpdateSubscriber {
+                                   PostUpdateSubscriber,
+                                   PostDungeonInitializeSubscriber {
 
     private static final String ATTACK_CARD = "512/bg_attack_icebreaker.png";
     private static final String SKILL_CARD = "512/bg_skill_icebreaker.png";
@@ -224,6 +227,7 @@ public class IceBreaker implements EditStringsSubscriber,
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("SNAP", "IceAudio/sfx/snap.wav");
+        BaseMod.addAudio("EARTH_COLLAPSE", "IceAudio/sfx/earthCollapse.wav");
     }
 
     @Override
@@ -242,5 +246,16 @@ public class IceBreaker implements EditStringsSubscriber,
 
     public static void addToTop(AbstractGameAction action) {
         actionQueue.add(0, action);
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        if (AbstractDungeon.player instanceof IceBreakerCharacter) {
+            AbstractDungeon.commonRelicPool.remove(Vajra.ID);
+            AbstractDungeon.uncommonRelicPool.remove(Shuriken.ID);
+            AbstractDungeon.rareRelicPool.remove(Girya.ID);
+            AbstractDungeon.rareRelicPool.remove(DuVuDoll.ID);
+            AbstractDungeon.shopRelicPool.remove(Sling.ID);
+        }
     }
 }

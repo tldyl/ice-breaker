@@ -46,8 +46,8 @@ public class DiffuseFuture extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new VFXAction(new WhirlwindEffect(new Color(1.0F, 0.9F, 0.4F, 1.0F), true)));
-            addToBot(new SkipEnemiesTurnAction());
             addToBot(new ApplyPowerAction(p, p, new NextTurnTimeStasisPower(p, 12)));
+            addToBot(new SkipEnemiesTurnAction());
             addToBot(new PressEndTurnButtonAction());
         } else {
             addToBot(new ApplyPowerAction(p, p, new ExtraTurnPower(p)));

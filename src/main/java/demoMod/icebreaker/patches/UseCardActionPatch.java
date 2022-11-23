@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.actions.PutSpecifiedCardToHandAction;
@@ -20,6 +21,29 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class UseCardActionPatch {
+
+    @SpirePatch(
+            clz = UseCardAction.class,
+            method = SpirePatch.CONSTRUCTOR,
+            paramtypez = {
+                    AbstractCard.class,
+                    AbstractCreature.class
+            }
+    )
+    public static class PatchConstructor {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                public void edit(MethodCall m) throws CannotCompileException {
+                    String clsName = m.getClassName();
+                    String methodName = m.getMethodName();
+                    if (clsName.equals("com.megacrit.cardcrawl.powers.AbstractPower") && methodName.equals("onUseCard")) {
+                        m.replace("if (!(p.owner instanceof com.megacrit.cardcrawl.monsters.AbstractMonster) || !com.megacrit.cardcrawl.dungeons.AbstractDungeon.player.hasPower(\"IceBreaker:ExtraTurnPower\")) {$_ = $proceed($$);}");
+                    }
+                }
+            };
+        }
+    }
+
     @SpirePatch(
             clz = UseCardAction.class,
             method = "update"

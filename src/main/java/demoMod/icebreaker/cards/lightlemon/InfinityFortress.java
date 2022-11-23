@@ -13,7 +13,7 @@ import demoMod.icebreaker.enums.CardTagEnum;
 import java.util.ArrayList;
 
 public class InfinityFortress extends AbstractLightLemonCard {
-    public static final String ID = IceBreaker.makeID("DiffuseFuture");
+    public static final String ID = IceBreaker.makeID("InfinityFortress");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
