@@ -13,7 +13,8 @@
   },
   "IceBreaker:Spark": {
     "NAME": "火花",
-    "DESCRIPTION": "im:远程 。 造成 !D! 点伤害。 NL 预见 !M! 。 NL 抽一张牌。 消耗 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 抽一张牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 抽两张牌。 消耗 。"
   },
   "IceBreaker:StaffStrike": {
     "NAME": "法杖打击",
@@ -54,8 +55,8 @@
   },
   "IceBreaker:BloodyPath": {
     "NAME": "血路",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成二倍于 im:共鸣 层数的伤害。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成三倍于 im:共鸣 层数的伤害。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成二倍于 im:共鸣 层数的伤害。 NL im:狭隙 ：对所有敌人造成伤害。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成三倍于 im:共鸣 层数的伤害。 NL im:狭隙 ：对所有敌人造成伤害。"
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
@@ -121,11 +122,11 @@
   },
   "IceBreaker:ManaAgitation": {
     "NAME": "魔能暴走",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL im:羁绊 触发失败时，如果本牌未被 消耗，则回到手牌。"
+    "DESCRIPTION": "im:魔法 。 NL 抽 !M! 张牌。 NL 受到等同于手牌数的伤害。"
   },
   "IceBreaker:Snap": {
     "NAME": "响指",
-    "DESCRIPTION": "选择抽牌堆中的1张攻击牌打出。"
+    "DESCRIPTION": "选择抽牌堆中的一张攻击牌打出。"
   },
   "IceBreaker:HauntHell": {
     "NAME": "幽灵地狱",
@@ -149,7 +150,7 @@
   },
   "IceBreaker:Oracle": {
     "NAME": "神谕",
-    "DESCRIPTION": "获得 !M! 层 im:时间凝滞 。 NL im:狭隙 ：选择至多 !IM2! 张手牌，本场战斗获得 保留 。"
+    "DESCRIPTION": "im:羁绊 。 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。 NL im:狭隙 ：选择的牌在本场战斗获得 保留 。"
   },
   "IceBreaker:OverloadEmulate": {
     "NAME": "过载演算",
@@ -197,7 +198,7 @@
   },
   "IceBreaker:CoordinateMovement": {
     "NAME": "坐标移动",
-    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 当 im:羁绊 触发时，获得 [E] 。"
+    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:羁绊 触发时，获得 [E] 。"
   },
   "IceBreaker:DeepColdSwamp": {
     "NAME": "因果",
@@ -280,5 +281,10 @@
   "IceBreaker:AscendersBane": {
     "NAME": "进阶之灾",
     "DESCRIPTION": ""
+  },
+  "IceBreaker:Niflheimr": {
+    "NAME": "雾霜之国",
+    "DESCRIPTION": "在你的回合开始时，所有敌人失去 !M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "在你的回合开始或进入 im:狭隙 时，所有敌人失去 !M! 点 力量 。"
   }
 }

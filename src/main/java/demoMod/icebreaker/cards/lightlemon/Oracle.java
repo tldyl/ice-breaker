@@ -1,14 +1,14 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInHandAction;
 import demoMod.icebreaker.powers.ExtraTurnPower;
-import demoMod.icebreaker.powers.TimeStasisPower;
 
 public class Oracle extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Oracle");
@@ -26,24 +26,30 @@ public class Oracle extends AbstractLightLemonCard {
 
     public Oracle() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
-        this.baseM2 = this.m2 = 1;
+        this.baseBlock = this.block = 5;
+        this.baseMagicNumber = this.magicNumber = 1;
+        this.extraEffectOnExtraTurn = true;
+        this.isFetter = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
-            this.upgradeM2(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
+        addToBot(new GainBlockAction(p, p, this.block));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new SelectCardInHandAction(this.m2, card -> true, card -> card.selfRetain = true));
+            addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.selfRetain = true));
+        } else {
+            if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
+                addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.retain = true));
+            }
         }
     }
 }

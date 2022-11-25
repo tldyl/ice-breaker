@@ -14,7 +14,7 @@
   "IceBreaker:ExtraTurnPower": {
     "NAME": "狭隙",
     "DESCRIPTIONS": [
-      "进入时，获得 [E] [E] 。 NL 无视敌人的出牌、受伤时触发的效果。"
+      "进入时，获得 [E] [E] 并抽 #b2 张牌。 NL 无视敌人的出牌、受伤时触发的效果。"
     ]
   },
   "IceBreaker:ResonancePower": {
@@ -32,7 +32,7 @@
   "IceBreaker:SilverDoorPower": {
     "NAME": "银之扉",
     "DESCRIPTIONS": [
-      "本回合你的 #y共鸣 生效时不会消耗层数。"
+      "你的 #y共鸣 生效时不会消耗层数。"
     ]
   },
   "IceBreaker:LoseResonancePower": {
@@ -69,6 +69,13 @@
     "NAME": "星尘",
     "DESCRIPTIONS": [
       "本回合前 #b%d 次触发 #y羁绊 时获得 [E] 。"
+    ]
+  },
+  "IceBreaker:NiflheimrPower": {
+    "NAME": "雾霜之国",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，所有敌人失去 #b%d 点 力量 。",
+      "在你的回合开始或进入 #y狭隙 时，所有敌人失去 #b%d 点 力量 。"
     ]
   }
 }

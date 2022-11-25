@@ -196,6 +196,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new StarDust());
         BaseMod.addCard(new DiffuseFuture());
         BaseMod.addCard(new InfinityFortress());
+        BaseMod.addCard(new Niflheimr());
 
         BaseMod.addCard(new Spark());
     }
@@ -228,6 +229,7 @@ public class IceBreaker implements EditStringsSubscriber,
     public void receiveAddAudio() {
         BaseMod.addAudio("SNAP", "IceAudio/sfx/snap.wav");
         BaseMod.addAudio("EARTH_COLLAPSE", "IceAudio/sfx/earthCollapse.wav");
+        BaseMod.addAudio("SOUL_TREMOR", "IceAudio/sfx/soulTremor.wav");
     }
 
     @Override

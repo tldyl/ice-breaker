@@ -4,7 +4,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.powers.InvinciblePower;
 import com.megacrit.cardcrawl.powers.ReactivePower;
 import com.megacrit.cardcrawl.powers.ShiftingPower;
 import demoMod.icebreaker.powers.ExtraTurnPower;
@@ -30,7 +29,6 @@ public class AbstractMonsterPatch {
                     String methodName = m.getMethodName();
                     if (whiteList.isEmpty()) {
                         whiteList.add(IntangiblePower.POWER_ID);
-                        whiteList.add(InvinciblePower.POWER_ID);
                         whiteList.add(ShiftingPower.POWER_ID);
                         whiteList.add(ReactivePower.POWER_ID);
                     }

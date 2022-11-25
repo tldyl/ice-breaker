@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.FlightPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import demoMod.icebreaker.IceBreaker;
@@ -35,7 +34,7 @@ public class EarthCollapse extends AbstractLightLemonCard {
 
     public EarthCollapse() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 16;
+        this.damage = this.baseDamage = 10;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);

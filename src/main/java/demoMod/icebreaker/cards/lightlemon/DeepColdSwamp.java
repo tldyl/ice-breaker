@@ -52,7 +52,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck &&
                 AbstractDungeon.getCurrMapNode() != null &&
                 AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this &&
-                AbstractDungeon.gridSelectScreen.upgradePreviewCard != this &&
+                AbstractDungeon.gridSelectScreen.targetGroup.contains(this) &&
                 !AbstractDungeon.cardRewardScreen.rewardGroup.contains(this)) {
             onAddToMasterDeck();
             updateCheck = true;

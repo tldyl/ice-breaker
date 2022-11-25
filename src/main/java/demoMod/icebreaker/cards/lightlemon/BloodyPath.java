@@ -54,16 +54,20 @@ public class BloodyPath extends AbstractLightLemonCard implements EnterOrExitExt
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.isMultiDamage = false;
             if (m != null) {
                 this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
             }
+            this.calculateCardDamage(m);
             addToBot(new DamageAction(p, new DamageInfo(m, this.damage, this.damageTypeForTurn)));
         } else {
+            this.isMultiDamage = true;
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                 if (!mo.isDeadOrEscaped()) {
                     this.addToBot(new VFXAction(new VerticalImpactEffect(mo.hb.cX + mo.hb.width / 4.0F, mo.hb.cY - mo.hb.height / 4.0F)));
                 }
             }
+            this.calculateCardDamage(null);
             addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         }
     }
