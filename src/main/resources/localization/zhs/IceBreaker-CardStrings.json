@@ -9,7 +9,7 @@
   },
   "IceBreaker:MagicFlame": {
     "NAME": "幻炎",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL 给予所有敌人 !M! 层 易伤 。 NL 将 !IM2! 张 *火花 放入抽牌堆。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。"
   },
   "IceBreaker:Spark": {
     "NAME": "火花",
