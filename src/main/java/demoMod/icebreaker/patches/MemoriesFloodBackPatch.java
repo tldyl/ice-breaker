@@ -23,29 +23,25 @@ public class MemoriesFloodBackPatch {
 
     static {
         cards = new ArrayList<>();
-
-        activated = false;
     }
 
-    @SpireInsertPatch(rloc = 317 - 252)
+    @SpireInsertPatch(rloc = 299 - 252)
     public static void Insert(AbstractRoom self) {
-        if (!activated) {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
             AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
                 @Override
                 public void update() {
-                    AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-                        @Override
-                        public void update() {
-                            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                                cards.add(c.makeCopy());
-                            }
-                            this.isDone = true;
-                        }
-                    });
+                    cards.clear();
+                    for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                        cards.add(c.makeCopy());
+                    }
                     this.isDone = true;
                 }
             });
-            activated = true;
-        }
+            this.isDone = true;
+            }
+        });
     }
 }
