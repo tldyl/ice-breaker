@@ -29,6 +29,7 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
         PowerRegionLoader.load(this);
     }
 
+    @Override
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
@@ -52,7 +53,7 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) ? damage + this.amount : damage;
+        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? damage + this.amount : damage;
     }
 
     @Override
@@ -75,7 +76,7 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID)) {
+        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) && !owner.hasPower(SilverDoorPower.POWER_ID)) {
             addToBot(new ReducePowerAction(owner, owner, this, 1));
         }
     }

@@ -20,7 +20,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public TriggerLightning() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -38,6 +38,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
+        if (AbstractDungeon.player == null) return;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card.uuid.equals(this.uuid)) {
                 onAddToMasterDeck();

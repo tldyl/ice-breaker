@@ -1,5 +1,7 @@
 package demoMod.icebreaker.powers;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -34,6 +36,13 @@ public class ExtraTurnPower extends AbstractPower {
     }
 
     @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        addToBot(new GainEnergyAction(2));
+        addToBot(new DrawCardAction(2));
+    }
+
+    @Override
     public void onInitialApplication() {
         for (EnterOrExitExtraTurnSubscriber subscriber : subscribers) {
             subscriber.onEnterExtraTurn();
@@ -62,6 +71,14 @@ public class ExtraTurnPower extends AbstractPower {
                 subscriber.onEnterExtraTurn();
             }
         }
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof EnterOrExitExtraTurnSubscriber) {
+                EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) power;
+                subscriber.onEnterExtraTurn();
+            }
+        }
+        addToBot(new GainEnergyAction(2));
+        addToBot(new DrawCardAction(2));
     }
 
     @Override
@@ -99,6 +116,12 @@ public class ExtraTurnPower extends AbstractPower {
         for (AbstractCard card : AbstractDungeon.player.exhaustPile.group) {
             if (card instanceof EnterOrExitExtraTurnSubscriber) {
                 EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) card;
+                subscriber.onExitExtraTurn();
+            }
+        }
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof EnterOrExitExtraTurnSubscriber) {
+                EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) power;
                 subscriber.onExitExtraTurn();
             }
         }

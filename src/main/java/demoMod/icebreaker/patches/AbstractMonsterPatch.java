@@ -4,10 +4,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.powers.InvinciblePower;
 import com.megacrit.cardcrawl.powers.ReactivePower;
 import com.megacrit.cardcrawl.powers.ShiftingPower;
-import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
@@ -31,7 +29,6 @@ public class AbstractMonsterPatch {
                     String methodName = m.getMethodName();
                     if (whiteList.isEmpty()) {
                         whiteList.add(IntangiblePower.POWER_ID);
-                        whiteList.add(InvinciblePower.POWER_ID);
                         whiteList.add(ShiftingPower.POWER_ID);
                         whiteList.add(ReactivePower.POWER_ID);
                     }
@@ -48,13 +45,13 @@ public class AbstractMonsterPatch {
                         m.replace(String.format("if (!%s.ignoreAttackedEffectLogic()) {$_ = $proceed($$);}", PatchDamage.class.getName()));
                     }
                     if (clsName.equals("com.megacrit.cardcrawl.powers.AbstractPower") && methodName.equals("wasHPLost")) {
-                        m.replace(String.format("if (!(%s.ignoreAttackedEffectLogic() || %s.exceptPowers(p.ID))) {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
+                        m.replace(String.format("if (%s.ignoreAttackedEffectLogic() && !%s.exceptPowers(p.ID)) {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
                     }
                     if (clsName.equals("com.megacrit.cardcrawl.powers.AbstractPower") && methodName.equals("onAttack")) {
-                        m.replace(String.format("if (!(%s.ignoreAttackedEffectLogic() || %s.exceptPowers(p.ID))) {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
+                        m.replace(String.format("if (%s.ignoreAttackedEffectLogic() && !%s.exceptPowers(p.ID)) {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
                     }
                     if (clsName.equals("com.megacrit.cardcrawl.powers.AbstractPower") && methodName.equals("onAttacked")) {
-                        m.replace(String.format("if (%s.ignoreAttackedEffectLogic() || !%s.exceptPowers(p.ID)) {$_ = damageAmount;} else {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
+                        m.replace(String.format("if (%s.ignoreAttackedEffectLogic() && !%s.exceptPowers(p.ID)) {$_ = damageAmount;} else {$_ = $proceed($$);}", PatchDamage.class.getName(), PatchDamage.class.getName()));
                     }
                     if (clsName.equals("com.megacrit.cardcrawl.monsters.AbstractMonster") && methodName.equals("useStaggerAnimation")) {
                         m.replace("if (!com.megacrit.cardcrawl.dungeons.AbstractDungeon.player.hasPower(\"IceBreaker:ExtraTurnPower\")) {$_ = $proceed($$);}");
@@ -64,11 +61,7 @@ public class AbstractMonsterPatch {
         }
 
         public static boolean ignoreAttackedEffectLogic() {
-            return AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID) || containsRemote();
-        }
-
-        public static boolean containsRemote() {
-            return AbstractDungeon.actionManager.cardsPlayedThisTurn.get(AbstractDungeon.actionManager.cardsPlayedThisTurn.size() - 1).tags.contains(CardTagEnum.REMOTE);
+            return AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID);
         }
 
         public static boolean exceptPowers(String powerId) {

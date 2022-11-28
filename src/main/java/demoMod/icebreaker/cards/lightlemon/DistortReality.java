@@ -1,16 +1,12 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.powers.ExtraTurnPower;
-
-import java.util.ArrayList;
+import demoMod.icebreaker.powers.ResonancePower;
 
 public class DistortReality extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("DistortReality");
@@ -21,40 +17,27 @@ public class DistortReality extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/SoulTremor.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
 
     public DistortReality() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.baseBlock = this.block = 9;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
-        this.extraEffectOnExtraTurn = true;
+        this.baseMagicNumber = this.magicNumber = 4;
+        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
-            this.upgradeBlock(3);
+            this.upgradeMagicNumber(3);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractCard card : p.hand.group) {
-            if (card.canUpgrade()) {
-                card.upgrade();
-                card.superFlash();
-                card.applyPowers();
-            }
-        }
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new GainBlockAction(p, p, this.block));
-        }
+        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
     }
 }

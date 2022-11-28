@@ -8,11 +8,6 @@
     <artifactId>ice-breaker</artifactId>
     <version>1.0</version>
 
-    <properties>
-        <!-- steam游戏安装路径，不是steam本体的安装路径 -->
-        <steam.path>E:/Steam/steamapps</steam.path>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
@@ -65,7 +60,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target\ice-breaker.jar" tofile="E:\Steam\steamapps\common\SlayTheSpire\mods\ice-breaker.jar"/>
+                                <copy file="target\ice-breaker.jar" tofile="${steam.path}\common\SlayTheSpire\mods\ice-breaker.jar"/>
                             </target>
                         </configuration>
                         <goals>
@@ -80,6 +75,7 @@
                 <directory>src/main/resources</directory>
                 <excludes>
                     <exclude>**/*.psd</exclude>
+                    <exclude>**/*.docx</exclude>
                     <exclude>**/cardToCut</exclude>
                 </excludes>
             </resource>

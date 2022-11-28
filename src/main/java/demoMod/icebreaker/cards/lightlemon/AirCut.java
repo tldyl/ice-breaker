@@ -29,7 +29,7 @@ public class AirCut extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/AirCut.png";
 
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 0;
@@ -57,7 +57,6 @@ public class AirCut extends AbstractLightLemonCard {
         addToBot(new SFXAction("ATTACK_FAST", 0.2F));
         addToBot(new VFXAction(new AnimatedSlashEffect(m.hb.cX, m.hb.cY - 30.0F * Settings.scale, 500.0F, 200.0F, 290.0F, 3.0F, Color.VIOLET, Color.PINK)));
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, this.magicNumber)));
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.ExtraTurnPower;
+import demoMod.icebreaker.powers.ResonancePower;
 
 public class OverloadEmulate extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("OverloadEmulate");
@@ -19,14 +20,14 @@ public class OverloadEmulate extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/AirCut.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public OverloadEmulate() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.extraEffectOnExtraTurn = true;
+        this.exhaust = true;
     }
 
     @Override
@@ -40,13 +41,14 @@ public class OverloadEmulate extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.upgraded) {
-            addToBot(new GainEnergyAction(2));
-        } else {
-            addToBot(new GainEnergyAction(3));
-        }
-        if (!p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(p, p, new DrawReductionPower(p, 1)));
+        int powerAmount;
+        if (p.hasPower(ResonancePower.POWER_ID)) {
+            powerAmount = p.getPower(ResonancePower.POWER_ID).amount;
+            if (!this.upgraded) {
+                addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, powerAmount)));
+            } else {
+                addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, powerAmount * 2)));
+            }
         }
     }
 }

@@ -9,8 +9,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.*;
 import demoMod.icebreaker.cards.lightlemon.*;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
@@ -35,7 +37,8 @@ public class IceBreaker implements EditStringsSubscriber,
                                    EditRelicsSubscriber,
                                    PostInitializeSubscriber,
                                    AddAudioSubscriber,
-                                   PostUpdateSubscriber {
+                                   PostUpdateSubscriber,
+                                   PostDungeonInitializeSubscriber {
 
     private static final String ATTACK_CARD = "512/bg_attack_icebreaker.png";
     private static final String SKILL_CARD = "512/bg_skill_icebreaker.png";
@@ -150,11 +153,13 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SoulTremor());
         BaseMod.addCard(new GhostGlim());
         BaseMod.addCard(new SilverDoor());
+        BaseMod.addCard(new Blizzard());
         BaseMod.addCard(new WheelOfHeat());
         BaseMod.addCard(new Electrospark());
         BaseMod.addCard(new SeaOfLanterns());
         BaseMod.addCard(new ThunderBlasting());
         BaseMod.addCard(new Pyroblast());
+        BaseMod.addCard(new Flarier());
         BaseMod.addCard(new IcyBurst());
         BaseMod.addCard(new ManaAgitation());
         BaseMod.addCard(new Snap());
@@ -174,7 +179,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SnowWalk());
         BaseMod.addCard(new CoordinateMovement());
         BaseMod.addCard(new DeepColdSwamp());
-        BaseMod.addCard(new Flarier());
+        BaseMod.addCard(new TimeRing());
         BaseMod.addCard(new DistortReality());
         BaseMod.addCard(new TimeLetter());
         BaseMod.addCard(new MaterialDecomposition());
@@ -182,6 +187,16 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new TriggerLightning());
         BaseMod.addCard(new MemoriesFloodBack());
         BaseMod.addCard(new HolyZone());
+        BaseMod.addCard(new TimeCreation());
+        BaseMod.addCard(new Overgrow());
+        BaseMod.addCard(new Negate());
+        BaseMod.addCard(new TimeShadow());
+        BaseMod.addCard(new TimeLeap());
+        BaseMod.addCard(new SpaceOfChaos());
+        BaseMod.addCard(new StarDust());
+        BaseMod.addCard(new DiffuseFuture());
+        BaseMod.addCard(new InfinityFortress());
+        BaseMod.addCard(new Niflheimr());
 
         BaseMod.addCard(new Spark());
     }
@@ -213,6 +228,8 @@ public class IceBreaker implements EditStringsSubscriber,
     @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("SNAP", "IceAudio/sfx/snap.wav");
+        BaseMod.addAudio("EARTH_COLLAPSE", "IceAudio/sfx/earthCollapse.wav");
+        BaseMod.addAudio("SOUL_TREMOR", "IceAudio/sfx/soulTremor.wav");
     }
 
     @Override
@@ -231,5 +248,16 @@ public class IceBreaker implements EditStringsSubscriber,
 
     public static void addToTop(AbstractGameAction action) {
         actionQueue.add(0, action);
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        if (AbstractDungeon.player instanceof IceBreakerCharacter) {
+            AbstractDungeon.commonRelicPool.remove(Vajra.ID);
+            AbstractDungeon.uncommonRelicPool.remove(Shuriken.ID);
+            AbstractDungeon.rareRelicPool.remove(Girya.ID);
+            AbstractDungeon.rareRelicPool.remove(DuVuDoll.ID);
+            AbstractDungeon.shopRelicPool.remove(Sling.ID);
+        }
     }
 }

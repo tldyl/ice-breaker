@@ -37,8 +37,7 @@ public class Spark extends AbstractLightLemonCard {
     public Spark() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.color = CardColor.COLORLESS;
-        this.baseDamage = 2;
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseDamage = 4;
         this.exhaust = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -50,7 +49,8 @@ public class Spark extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(2);
-            this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -64,7 +64,10 @@ public class Spark extends AbstractLightLemonCard {
                 addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, power.amount)));
             }
         }
-        addToBot(new ScryAction(this.magicNumber));
-        addToBot(new DrawCardAction(1));
+        if (this.upgraded) {
+            addToBot(new DrawCardAction(2));
+        } else {
+            addToBot(new DrawCardAction(1));
+        }
     }
 }

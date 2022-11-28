@@ -33,6 +33,21 @@ public class TimeStasisPower extends AbstractPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        if (this.amount >= 12) {
+            this.flashWithoutSound();
+            CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
+            AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
+            AbstractDungeon.topLevelEffectsQueue.add(new TimeWarpTurnEndEffect());
+            this.addToTop(new ApplyPowerAction(this.owner, this.owner, new ExtraTurnPower(this.owner)));
+            this.amount %= 12;
+            if (this.amount <= 0) {
+                this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            }
+        }
+    }
+
+    @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
         if (this.amount >= 12) {
@@ -40,7 +55,6 @@ public class TimeStasisPower extends AbstractPower {
             CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
             AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
             AbstractDungeon.topLevelEffectsQueue.add(new TimeWarpTurnEndEffect());
-            AbstractDungeon.getCurrRoom().skipMonsterTurn = true;
             this.addToTop(new ApplyPowerAction(this.owner, this.owner, new ExtraTurnPower(this.owner)));
             this.amount %= 12;
             if (this.amount <= 0) {

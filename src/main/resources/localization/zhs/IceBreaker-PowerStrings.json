@@ -14,7 +14,7 @@
   "IceBreaker:ExtraTurnPower": {
     "NAME": "狭隙",
     "DESCRIPTIONS": [
-      "进入时，获得一个额外回合。 NL 无视敌人的出牌、受伤时触发的效果。"
+      "进入时，获得 [E] [E] 并抽 #b2 张牌。 NL 无视敌人的出牌、受伤时触发的效果。"
     ]
   },
   "IceBreaker:ResonancePower": {
@@ -29,10 +29,10 @@
       "下 #b%d 次获得的 #y格挡量翻倍。"
     ]
   },
-  "IceBreaker:DodgePower": {
-    "NAME": "闪避",
+  "IceBreaker:SilverDoorPower": {
+    "NAME": "银之扉",
     "DESCRIPTIONS": [
-      "受到的 #y攻击 伤害减半。 NL 持续 #b%d 回合。"
+      "你的 #y共鸣 生效时不会消耗层数。"
     ]
   },
   "IceBreaker:LoseResonancePower": {
@@ -50,7 +50,32 @@
   "IceBreaker:IcyBurstPower": {
     "NAME": "冰爆",
     "DESCRIPTIONS": [
-      "在这个回合，你的 #y火花 将额外使目标失去 #b%s 点 #y力量 一回合 。"
+      "在这个回合，你的 #y火花 将额外使目标失去 #b%d 点 #y力量 一回合 。"
+    ]
+  },
+  "IceBreaker:NegatePower": {
+    "NAME": "否定",
+    "DESCRIPTIONS": [
+      "本回合你的 #y羁绊 不会生效，每次 #y羁绊 失败时对所有敌人造成 #b%d 点伤害。"
+    ]
+  },
+  "IceBreaker:TimeLeapPower": {
+    "NAME": "时间跳跃",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，获得 #b%d 层 #y时间凝滞 。"
+    ]
+  },
+  "IceBreaker:StarDustPower": {
+    "NAME": "星尘",
+    "DESCRIPTIONS": [
+      "本回合前 #b%d 次触发 #y羁绊 时获得 [E] 。"
+    ]
+  },
+  "IceBreaker:NiflheimrPower": {
+    "NAME": "雾霜之国",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，所有敌人失去 #b%d 点 力量 。",
+      "在你的回合开始或进入 #y狭隙 时，所有敌人失去 #b%d 点 力量 。"
     ]
   }
 }

@@ -1,21 +1,26 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class SoulTremor extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("SoulTremor");
@@ -54,26 +59,27 @@ public class SoulTremor extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.HIGH, ScreenShake.ShakeDur.LONG, true);
+            addToBot(new SFXAction("SOUL_TREMOR", -0.1F, true));
+            for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters.stream().filter(monster -> !monster.isDeadOrEscaped()).collect(Collectors.toList())) {
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        mo.maxHealth -= SoulTremor.this.m2;
+                        if (mo.currentHealth < 0) mo.currentHealth = 0;
+                        if (mo.maxHealth < 1) mo.maxHealth = 1;
+                        mo.damage(new DamageInfo(null, SoulTremor.this.m2, DamageInfo.DamageType.HP_LOSS));
+                        isDone = true;
+                    }
+                });
+            }
+            addToBot(new VFXAction(p, new ShockWaveEffect(this.hb.cX, this.hb.cY, Settings.BLUE_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.5F));
+        }
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             if (!mo.isDeadOrEscaped()) {
                 addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
                 addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false)));
-            }
-        }
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        mo.maxHealth -= SoulTremor.this.magicNumber;
-                        mo.currentHealth -= SoulTremor.this.magicNumber;
-                        if (mo.currentHealth < 0) mo.currentHealth = 0;
-                        if (mo.maxHealth < 1) mo.maxHealth = 1;
-                        mo.healthBarUpdatedEvent();
-                        mo.damage(new DamageInfo(null, 0, DamageInfo.DamageType.HP_LOSS));
-                        isDone = true;
-                    }
-                });
             }
         }
     }
