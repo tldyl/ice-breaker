@@ -258,6 +258,7 @@ public class IceBreaker implements EditStringsSubscriber,
             AbstractDungeon.rareRelicPool.remove(Girya.ID);
             AbstractDungeon.rareRelicPool.remove(DuVuDoll.ID);
             AbstractDungeon.shopRelicPool.remove(Sling.ID);
+            AbstractDungeon.commonRelicPool.remove(PenNib.ID);
         }
     }
 }
