@@ -107,7 +107,7 @@ public class IceBreakerCharacter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike_IceBreaker(); //TODO
+        return new MagicFlame();
     }
 
     @Override
