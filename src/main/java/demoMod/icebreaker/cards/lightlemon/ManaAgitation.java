@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.actions.PutSpecifiedCardToHandAction;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class ManaAgitation extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(this.magicNumber));
+        int magicsInDrawPile = (int) p.drawPile.group.stream().filter(card -> card.hasTag(CardTagEnum.MAGIC)).count();
+        addToBot(new PutSpecifiedCardToHandAction(this.magicNumber, card -> card.hasTag(CardTagEnum.MAGIC)));
+        if (magicsInDrawPile < this.magicNumber) {
+            addToBot(new PutSpecifiedCardToHandAction(this.magicNumber - magicsInDrawPile, p.discardPile, card -> card.hasTag(CardTagEnum.MAGIC)));
+        }
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {

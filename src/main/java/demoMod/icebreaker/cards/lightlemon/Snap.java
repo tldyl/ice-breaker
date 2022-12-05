@@ -1,13 +1,11 @@
 package demoMod.icebreaker.cards.lightlemon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.actions.SelectCardInHandAction;
 import demoMod.icebreaker.actions.SnapAction;
 
 public class Snap extends AbstractLightLemonCard {

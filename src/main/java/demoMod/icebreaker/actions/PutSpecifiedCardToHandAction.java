@@ -10,28 +10,34 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.function.Predicate;
 
 public class PutSpecifiedCardToHandAction extends AbstractGameAction {
-    private AbstractPlayer p;
-    private Predicate<AbstractCard> condition;
+    private final AbstractPlayer p;
+    private final Predicate<AbstractCard> condition;
+    private final CardGroup targetGroup;
 
     public PutSpecifiedCardToHandAction(int amount, Predicate<AbstractCard> condition) {
+        this(amount, AbstractDungeon.player.drawPile, condition);
+    }
+
+    public PutSpecifiedCardToHandAction(int amount, CardGroup targetGroup, Predicate<AbstractCard> condition) {
         this.p = AbstractDungeon.player;
         this.setValues(this.p, this.p, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
         this.condition = condition;
+        this.targetGroup = targetGroup;
     }
 
     @Override
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED) {
-            if (this.p.drawPile.isEmpty()) {
+            if (this.targetGroup.isEmpty()) {
                 this.isDone = true;
                 return;
             }
 
             CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-            for (AbstractCard card : this.p.drawPile.group) {
+            for (AbstractCard card : this.targetGroup.group) {
                 if (condition.test(card)) {
                     tmp.addToRandomSpot(card);
                 }
@@ -48,7 +54,7 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
                     AbstractCard card = tmp.getBottomCard();
                     tmp.removeCard(card);
                     if (this.p.hand.size() == 10) {
-                        this.p.drawPile.moveToDiscardPile(card);
+                        this.targetGroup.moveToDiscardPile(card);
                         this.p.createHandIsFullDialog();
                     } else {
                         card.unhover();
@@ -58,7 +64,7 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
                         card.targetDrawScale = 0.75F;
                         card.current_x = CardGroup.DRAW_PILE_X;
                         card.current_y = CardGroup.DRAW_PILE_Y;
-                        this.p.drawPile.removeCard(card);
+                        this.targetGroup.removeCard(card);
                         AbstractDungeon.player.hand.addToTop(card);
                         AbstractDungeon.player.hand.refreshHandLayout();
                         AbstractDungeon.player.hand.applyPowers();

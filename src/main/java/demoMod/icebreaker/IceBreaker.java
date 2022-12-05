@@ -177,7 +177,6 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new IceShield());
         BaseMod.addCard(new CascadeIceWall());
         BaseMod.addCard(new SnowWalk());
-        BaseMod.addCard(new CoordinateMovement());
         BaseMod.addCard(new DeepColdSwamp());
         BaseMod.addCard(new TimeRing());
         BaseMod.addCard(new DistortReality());
@@ -197,6 +196,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new DiffuseFuture());
         BaseMod.addCard(new InfinityFortress());
         BaseMod.addCard(new Niflheimr());
+        BaseMod.addCard(new DemonDeLaplace());
 
         BaseMod.addCard(new Spark());
     }

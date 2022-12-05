@@ -6,39 +6,37 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
-import demoMod.icebreaker.powers.WheelOfHeatPower;
+import demoMod.icebreaker.powers.DemonDeLaplacePower;
 
-public class WheelOfHeat extends AbstractLightLemonCard {
-    public static final String ID = IceBreaker.makeID("WheelOfHeat");
+public class DemonDeLaplace extends AbstractLightLemonCard {
+    public static final String ID = IceBreaker.makeID("DemonDeLaplace");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/WheelOfHeat.png";
+    public static final String IMG_PATH = "cards/SeaOfLanterns.png";
 
     private static final CardType TYPE = CardType.POWER;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
+    private static final int COST = 3;
 
-    public WheelOfHeat() {
+    public DemonDeLaplace() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
-        this.cardsToPreview = new Spark();
+        this.baseMagicNumber = this.magicNumber = 1;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeBaseCost(2);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new WheelOfHeatPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DemonDeLaplacePower(p, this.magicNumber)));
     }
 }

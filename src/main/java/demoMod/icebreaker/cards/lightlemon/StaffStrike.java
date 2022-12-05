@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 
 import java.util.ArrayList;
@@ -53,8 +52,6 @@ public class StaffStrike extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         addToBot(new GainBlockAction(p, this.block));
-        if (m.hasPower(WeakPower.POWER_ID)) {
-            addToBot(new DrawCardAction(this.magicNumber));
-        }
+        addToBot(new DrawCardAction(this.magicNumber));
     }
 }

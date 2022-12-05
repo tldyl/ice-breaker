@@ -2,21 +2,23 @@ package demoMod.icebreaker.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 
-public class NegatePower extends AbstractPower implements TriggerFetterSubscriber {
-    public static final String POWER_ID = IceBreaker.makeID("NegatePower");
+public class WheelOfHeatPower extends AbstractPower {
+    public static final String POWER_ID = IceBreaker.makeID("WheelOfHeatPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
 
-    public NegatePower(AbstractCreature owner, int amount) {
+    public WheelOfHeatPower(AbstractCreature owner, int amount) {
         this.owner = owner;
         this.amount = amount;
         this.ID = POWER_ID;
@@ -31,14 +33,11 @@ public class NegatePower extends AbstractPower implements TriggerFetterSubscribe
     }
 
     @Override
-    public void onTriggerFetter() {
-
-    }
-
-    @Override
-    public void onTriggerFetterFailed() {
-        this.flash();
-        addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card instanceof Spark) {
+            this.flash();
+            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+        }
     }
 
     static {

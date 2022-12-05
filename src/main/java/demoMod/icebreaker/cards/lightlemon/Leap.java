@@ -1,9 +1,9 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
@@ -48,6 +48,6 @@ public class Leap extends AbstractLightLemonCard {
 
     @Override
     public void onTriggerFetter() {
-        addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.block));
+        addToBot(new GainEnergyAction(1));
     }
 }

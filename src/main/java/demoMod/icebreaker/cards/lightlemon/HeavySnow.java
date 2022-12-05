@@ -2,19 +2,19 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.effects.HeavySnowEffect;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class HeavySnow extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("HeavySnow");
@@ -32,8 +32,8 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public HeavySnow() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.damage = this.baseDamage = 3;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -44,7 +44,7 @@ public class HeavySnow extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(2);
+            this.upgradeDamage(1);
             this.upgradeMagicNumber(1);
         }
     }
@@ -53,10 +53,32 @@ public class HeavySnow extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new VFXAction(p, new HeavySnowEffect(p.flipHorizontal), 0.7F, true));
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-            if (!monster.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false)));
-            }
-        }
+    }
+
+    public int countCards() {
+        long count = 0;
+        AbstractPlayer p = AbstractDungeon.player;
+        Predicate<AbstractCard> filter = card -> (card instanceof AbstractLightLemonCard) && ((AbstractLightLemonCard) card).fetterTarget.contains(this.uuid);
+        count += p.drawPile.group.stream().filter(filter).count();
+        count += p.hand.group.stream().filter(filter).count();
+        count += p.discardPile.group.stream().filter(filter).count();
+        count += p.exhaustPile.group.stream().filter(filter).count();
+        return (int) count;
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber * countCards();
+        super.calculateCardDamage(mo);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
+
+    public void applyPowers() {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber * countCards();
+        super.applyPowers();
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 }

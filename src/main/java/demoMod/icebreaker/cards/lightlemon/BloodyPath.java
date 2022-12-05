@@ -40,6 +40,7 @@ public class BloodyPath extends AbstractLightLemonCard implements EnterOrExitExt
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
+        this.isFetter = true;
     }
 
     @Override

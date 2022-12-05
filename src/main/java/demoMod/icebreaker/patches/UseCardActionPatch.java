@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.actions.PutSpecifiedCardToHandAction;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
-import demoMod.icebreaker.powers.NegatePower;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
@@ -68,16 +67,15 @@ public class UseCardActionPatch {
                 AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) targetCard;
                 if (lightLemonCard.isFetter) {
                     boolean containsFetter = false;
-                    if (!AbstractDungeon.player.hasPower(NegatePower.POWER_ID)) {
-                        for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
-                            if (lightLemonCard.fetterTarget.contains(card.uuid)) {
-                                containsFetter = true;
-                                if (card instanceof TriggerFetterSubscriber) {
-                                    ((TriggerFetterSubscriber) card).onTriggerFetter();
-                                }
+                    for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                        if (lightLemonCard.fetterTarget.contains(card.uuid)) {
+                            containsFetter = true;
+                            if (card instanceof TriggerFetterSubscriber) {
+                                ((TriggerFetterSubscriber) card).onTriggerFetter();
                             }
                         }
                     }
+
 
                     for (AbstractPower power : AbstractDungeon.player.powers.stream().filter(power -> power instanceof TriggerFetterSubscriber).collect(Collectors.toList())) {
                         if (containsFetter) {
@@ -100,9 +98,7 @@ public class UseCardActionPatch {
                             }
                         }
                     }
-                    if (!AbstractDungeon.player.hasPower(NegatePower.POWER_ID)) {
-                        AbstractDungeon.actionManager.addToBottom(new PutSpecifiedCardToHandAction(lightLemonCard.fetterTarget.size(), card -> lightLemonCard.fetterTarget.contains(card.uuid)));
-                    }
+                    AbstractDungeon.actionManager.addToBottom(new PutSpecifiedCardToHandAction(lightLemonCard.fetterTarget.size(), card -> lightLemonCard.fetterTarget.contains(card.uuid)));
                 }
             }
         }

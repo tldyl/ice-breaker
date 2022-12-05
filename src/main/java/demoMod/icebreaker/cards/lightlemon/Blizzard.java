@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
@@ -51,6 +52,7 @@ public class Blizzard extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (!monster.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false)));
                 addToBot(new ApplyPowerAction(monster, p, new StrengthPower(monster, -this.magicNumber)));
             }
         }

@@ -28,9 +28,7 @@ public class InfinityFortress extends AbstractLightLemonCard {
 
     public InfinityFortress() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 4;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
+        this.baseMagicNumber = this.magicNumber = 3;
     }
 
     @Override

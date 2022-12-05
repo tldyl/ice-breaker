@@ -3,8 +3,6 @@ package demoMod.icebreaker.actions;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import demoMod.icebreaker.characters.IceBreakerCharacter;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -12,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
 
@@ -75,7 +74,7 @@ public class SnapAction extends AbstractGameAction {
             }
             CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractCard c : this.player.drawPile.group) {
-                if (c.type == AbstractCard.CardType.ATTACK) {
+                if (c.hasTag(CardTagEnum.MAGIC)) { //更改为选择一张魔法牌打出 Temple9
                     temp.group.add(c);
                 }
             }

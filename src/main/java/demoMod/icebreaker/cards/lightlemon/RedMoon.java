@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -29,6 +30,7 @@ public class RedMoon extends AbstractLightLemonCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
+    private AbstractMonster lastTarget;
 
     public RedMoon() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -39,6 +41,7 @@ public class RedMoon extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
+        this.isFetter = true;
     }
 
     @Override
@@ -52,7 +55,15 @@ public class RedMoon extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.m2, false)));
         addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.m2, false, false, false));
+        lastTarget = m;
+    }
+
+    @Override
+    public void onTriggerFetter() {
+        if (lastTarget != null) {
+            addToBot(new ApplyPowerAction(lastTarget, AbstractDungeon.player, new VulnerablePower(lastTarget, this.m2, false)));
+            lastTarget = null;
+        }
     }
 }

@@ -11,6 +11,7 @@ import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class CoordinateMovement extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("CoordinateMovement");
 
