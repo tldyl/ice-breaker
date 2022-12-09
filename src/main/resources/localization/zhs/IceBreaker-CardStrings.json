@@ -60,7 +60,7 @@
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
-    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !IM2! 张 *火花 加入抽牌堆。 NL im:羁绊 触发时，给予 !M! 层 易伤 。"
+    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:羁绊 触发时，给予 !M! 层 易伤 。"
   },
   "IceBreaker:SoulTremor": {
     "NAME": "灵魂震颤",
@@ -270,7 +270,7 @@
   },
   "IceBreaker:InfinityFortress": {
     "NAME": "不落壁垒",
-    "DESCRIPTION": "打出此牌时，你每有一点 [E] ，获得 !M! 层 多层护甲 。"
+    "DESCRIPTION": "打出此牌时，你每有一点 [E] ，获得 !M! 层 多层护甲 。 NL 消耗 。"
   },
   "IceBreaker:AscendersBane": {
     "NAME": "进阶之灾",

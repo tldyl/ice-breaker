@@ -36,7 +36,6 @@ public class RedMoon extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 8;
         this.baseMagicNumber = this.magicNumber = 1;
-        this.baseM2 = this.m2 = 2;
         this.cardsToPreview = new Spark();
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -48,21 +47,21 @@ public class RedMoon extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeM2(1);
+            this.upgradeMagicNumber(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.m2, false, false, false));
+        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, false, false, false));
         lastTarget = m;
     }
 
     @Override
     public void onTriggerFetter() {
         if (lastTarget != null) {
-            addToBot(new ApplyPowerAction(lastTarget, AbstractDungeon.player, new VulnerablePower(lastTarget, this.m2, false)));
+            addToBot(new ApplyPowerAction(lastTarget, AbstractDungeon.player, new VulnerablePower(lastTarget, this.magicNumber, false)));
             lastTarget = null;
         }
     }

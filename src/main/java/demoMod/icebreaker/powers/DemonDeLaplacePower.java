@@ -33,12 +33,16 @@ public class DemonDeLaplacePower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        boolean flag = false;
         for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
             if (card.uuid.equals(card1.uuid)) {
-                this.flash();
-                addToBot(new ApplyPowerAction(this.owner, this.owner, new ResonancePower(this.owner, this.amount)));
+                flag = true;
                 break;
             }
+        }
+        if (!flag) {
+            this.flash();
+            addToBot(new ApplyPowerAction(this.owner, this.owner, new ResonancePower(this.owner, this.amount)));
         }
     }
 

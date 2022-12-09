@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -67,6 +68,7 @@ public class FreezeKing extends AbstractLightLemonCard {
             p.discardPile.removeCard(card);
             p.discardPile.moveToDeck(card, true);
         }, p.discardPile));
+        AbstractDungeon.overlayMenu.cancelButton.show(AbstractDungeon.overlayMenu.cancelButton.buttonText);
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new GainBlockAction(p, p, this.block));
         }

@@ -60,7 +60,7 @@ public class BloodyPath extends AbstractLightLemonCard implements EnterOrExitExt
                 this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
             }
             this.calculateCardDamage(m);
-            addToBot(new DamageAction(p, new DamageInfo(m, this.damage, this.damageTypeForTurn)));
+            addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         } else {
             this.isMultiDamage = true;
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {

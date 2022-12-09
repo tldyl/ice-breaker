@@ -44,7 +44,7 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard implements Enter
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
         if (p instanceof IceBreakerCharacter) {
-            addToBot(new TalkAction(p, cardStrings.EXTENDED_DESCRIPTION[0]));
+            addToBot(new TalkAction(true, cardStrings.EXTENDED_DESCRIPTION[0], 1.0F, 1.0F));
         }
     }
 

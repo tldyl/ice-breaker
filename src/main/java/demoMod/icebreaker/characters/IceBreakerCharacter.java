@@ -2,20 +2,19 @@ package demoMod.icebreaker.characters;
 
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.Circlet;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.Defend_IceBreaker;
@@ -51,14 +50,17 @@ public class IceBreakerCharacter extends CustomPlayer {
 
     public IceBreakerCharacter(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures, IceBreaker.getResourcePath("char/orb/vfx.png"), null, (String) null);
-        this.initializeClass(IceBreaker.getResourcePath("char/character.png"), IceBreaker.getResourcePath("char/shoulder2.png"), IceBreaker.getResourcePath("char/shoulder.png"), IceBreaker.getResourcePath("char/corpse.png"), this.getLoadout(), 0.0F, -10F, 258.0F, 282.0F, new EnergyManager(3));
+        this.initializeClass(IceBreaker.getResourcePath("char/character.png"), IceBreaker.getResourcePath("char/shoulder2.png"), IceBreaker.getResourcePath("char/shoulder.png"), IceBreaker.getResourcePath("char/corpse.png"), this.getLoadout(), 0.0F, -20F, 251.2F, 304.0F, new EnergyManager(3));
         if (ModHelper.enabledMods.size() > 0 && (ModHelper.isModEnabled("Diverse") || ModHelper.isModEnabled("Chimera") || ModHelper.isModEnabled("Blue Cards"))) {
             this.masterMaxOrbs = 1;
         }
-        Pixmap pixmap = new Pixmap(258, 282, Pixmap.Format.RGBA8888);
-        pixmap.setColor(IceBreaker.mainIceBreakerColor.cpy());
-        pixmap.fill();
-        this.img = new Texture(pixmap); //TODO
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        this.drawY -= 20.0F * Settings.scale;
+        super.render(sb);
+        this.drawY += 20.0F * Settings.scale;
     }
 
     @Override

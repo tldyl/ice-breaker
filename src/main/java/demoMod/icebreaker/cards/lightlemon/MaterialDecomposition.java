@@ -37,6 +37,8 @@ public class MaterialDecomposition extends AbstractLightLemonCard implements Ent
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeM2(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
