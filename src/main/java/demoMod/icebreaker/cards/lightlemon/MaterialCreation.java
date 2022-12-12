@@ -29,7 +29,7 @@ public class MaterialCreation extends AbstractLightLemonCard {
 
     public MaterialCreation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseMagicNumber = this.magicNumber = 3;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;

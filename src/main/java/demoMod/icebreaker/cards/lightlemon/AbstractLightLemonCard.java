@@ -31,6 +31,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public List<UUID> fetterTarget = new ArrayList<>();
     private List<AbstractCard> myCardsToPreview = new ArrayList<>();
     protected Predicate<AbstractCard> fetterFilter = card -> true;
+    protected int fetterAmount = 1;
     private float previewTimer = 0.0F;
 
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
@@ -58,7 +59,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     @Override
     public void onAddToMasterDeck() {
         if (isFetter) {
-            IceBreaker.addToBot(new SelectCardInCardGroupAction(1, card -> card != this && this.fetterFilter.test(card), card -> {
+            IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()), card -> card != this && this.fetterFilter.test(card), card -> {
                 this.fetterTarget.add(card.uuid);
                 this.myCardsToPreview.add(card);
             }, AbstractDungeon.player.masterDeck));
@@ -67,6 +68,11 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
     @Override
     public void onTriggerFetter() {
+
+    }
+
+    @Override
+    public void onOtherCardTriggerFetter(AbstractCard playedCard, List<AbstractCard> fetterCards) {
 
     }
 

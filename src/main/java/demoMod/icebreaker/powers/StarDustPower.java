@@ -1,12 +1,15 @@
 package demoMod.icebreaker.powers;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+
+import java.util.List;
 
 public class StarDustPower extends AbstractPower implements TriggerFetterSubscriber {
     public static final String POWER_ID = IceBreaker.makeID("StarDustPower");
@@ -48,6 +51,11 @@ public class StarDustPower extends AbstractPower implements TriggerFetterSubscri
             this.flash();
             addToBot(new GainEnergyAction(1));
         }
+    }
+
+    @Override
+    public void onOtherCardTriggerFetter(AbstractCard playedCard, List<AbstractCard> fetterCards) {
+
     }
 
     @Override

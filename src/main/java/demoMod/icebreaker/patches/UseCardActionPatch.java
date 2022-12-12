@@ -17,6 +17,7 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class UseCardActionPatch {
@@ -67,11 +68,13 @@ public class UseCardActionPatch {
                 AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) targetCard;
                 if (lightLemonCard.isFetter) {
                     boolean containsFetter = false;
+                    List<AbstractCard> fetterCards = new ArrayList<>();
                     for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
                         if (lightLemonCard.fetterTarget.contains(card.uuid)) {
                             containsFetter = true;
                             if (card instanceof TriggerFetterSubscriber) {
                                 ((TriggerFetterSubscriber) card).onTriggerFetter();
+                                fetterCards.add(card);
                             }
                         }
                     }
@@ -82,6 +85,9 @@ public class UseCardActionPatch {
                             ((TriggerFetterSubscriber) power).onTriggerFetter();
                         } else {
                             ((TriggerFetterSubscriber) power).onTriggerFetterFailed();
+                        }
+                        if (!fetterCards.isEmpty()) {
+                            ((TriggerFetterSubscriber) power).onOtherCardTriggerFetter(lightLemonCard, fetterCards);
                         }
                     }
                     if (containsFetter) {
@@ -95,6 +101,23 @@ public class UseCardActionPatch {
                         for (AbstractCard card : AbstractDungeon.player.discardPile.group) {
                             if (card instanceof TriggerFetterSubscriber) {
                                 ((TriggerFetterSubscriber) card).onTriggerFetterFailed();
+                            }
+                        }
+                    }
+                    if (!fetterCards.isEmpty()) {
+                        for (AbstractCard card1 : AbstractDungeon.player.drawPile.group) {
+                            if (card1 instanceof TriggerFetterSubscriber && !fetterCards.contains(card1) && !fetterCards.contains(lightLemonCard)) {
+                                ((TriggerFetterSubscriber) card1).onOtherCardTriggerFetter(lightLemonCard, fetterCards);
+                            }
+                        }
+                        for (AbstractCard card1 : AbstractDungeon.player.hand.group) {
+                            if (card1 instanceof TriggerFetterSubscriber && !fetterCards.contains(card1) && !fetterCards.contains(lightLemonCard)) {
+                                ((TriggerFetterSubscriber) card1).onOtherCardTriggerFetter(lightLemonCard, fetterCards);
+                            }
+                        }
+                        for (AbstractCard card1 : AbstractDungeon.player.discardPile.group) {
+                            if (card1 instanceof TriggerFetterSubscriber && !fetterCards.contains(card1) && !fetterCards.contains(lightLemonCard)) {
+                                ((TriggerFetterSubscriber) card1).onOtherCardTriggerFetter(lightLemonCard, fetterCards);
                             }
                         }
                     }

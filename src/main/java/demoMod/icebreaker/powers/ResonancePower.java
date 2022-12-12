@@ -53,30 +53,30 @@ public class ResonancePower extends AbstractPower implements ModifyMagicNumberSu
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? damage + this.amount : damage;
+        return type == DamageInfo.DamageType.NORMAL && card.hasTag(CardTagEnum.MAGIC) && (owner.hasPower(ExtraTurnPower.POWER_ID) || owner.hasPower(ChronoChimePower.POWER_ID)) ? damage + this.amount : damage;
     }
 
     @Override
     public float modifyBlock(float blockAmount, AbstractCard card) {
-        return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? blockAmount + this.amount : blockAmount;
+        return card.hasTag(CardTagEnum.MAGIC) && (owner.hasPower(ExtraTurnPower.POWER_ID) || owner.hasPower(ChronoChimePower.POWER_ID)) ? blockAmount + this.amount : blockAmount;
     }
 
     @Override
     public int onModifyMagicNumber(int magicNumber, AbstractCard card) {
-        return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? this.amount + magicNumber : magicNumber;
+        return card.hasTag(CardTagEnum.MAGIC) && (owner.hasPower(ExtraTurnPower.POWER_ID) || owner.hasPower(ChronoChimePower.POWER_ID)) ? this.amount + magicNumber : magicNumber;
     }
 
     @Override
     public int onModifyAnotherMagicNumber(int magicNumber, AbstractCard card) {
         if (card instanceof AbstractLightLemonCard) {
-            return card.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) ? this.amount + magicNumber : magicNumber;
+            return card.hasTag(CardTagEnum.MAGIC) && (owner.hasPower(ExtraTurnPower.POWER_ID) || owner.hasPower(ChronoChimePower.POWER_ID)) ? this.amount + magicNumber : magicNumber;
         }
         return magicNumber;
     }
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        if (usedCard.hasTag(CardTagEnum.MAGIC) && owner.hasPower(ExtraTurnPower.POWER_ID) && !owner.hasPower(SilverDoorPower.POWER_ID)) {
+        if (usedCard.hasTag(CardTagEnum.MAGIC) && (owner.hasPower(ExtraTurnPower.POWER_ID) || owner.hasPower(ChronoChimePower.POWER_ID)) && !owner.hasPower(SilverDoorPower.POWER_ID)) {
             addToBot(new ReducePowerAction(owner, owner, this, 1));
         }
     }

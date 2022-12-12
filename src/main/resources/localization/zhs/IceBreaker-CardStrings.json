@@ -9,7 +9,7 @@
   },
   "IceBreaker:MagicFlame": {
     "NAME": "幻炎",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。 NL im:狭隙 ： 升级 加入的 *火花 。"
   },
   "IceBreaker:Spark": {
     "NAME": "火花",
@@ -22,7 +22,7 @@
   },
   "IceBreaker:SwingStaff": {
     "NAME": "挥舞法杖",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将抽牌堆中随机一张 im:魔法 牌加入手牌。"
+    "DESCRIPTION": "im:羁绊 !M! 张牌。"
   },
   "IceBreaker:FrostWind": {
     "NAME": "霜风",
@@ -38,8 +38,8 @@
     "UPGRADE_DESCRIPTION": "im:远程 。 NL 造成 !D! 点伤害。 NL 若没有剩余的 [E] ，获得 [E] [E] 。"
   },
   "IceBreaker:Thunder": {
-    "NAME": "雷鸣",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL im:狭隙 ：给予所有敌人 !M! 层 易伤 。"
+    "NAME": "雷鸣火花",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 每当有 im:羁绊 触发时，将这张牌放入手牌。"
   },
   "IceBreaker:AirCut": {
     "NAME": "风切",
@@ -55,12 +55,12 @@
   },
   "IceBreaker:BloodyPath": {
     "NAME": "血路",
-    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成二倍于 im:共鸣 层数的伤害。 NL im:狭隙 ：对所有敌人造成伤害。",
-    "UPGRADE_DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 。 NL 额外造成三倍于 im:共鸣 层数的伤害。 NL im:狭隙 ：对所有敌人造成伤害。"
+    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害 。 NL im:共鸣 在这张牌上发挥两倍效果。 NL im:狭隙 ：给予所有敌人 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害 。 NL im:共鸣 在这张牌上发挥三倍效果。 NL im:狭隙 ：给予所有敌人 !M! 层 易伤 。"
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
-    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:羁绊 触发时，给予 !M! 层 易伤 。"
+    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆顶部。 NL im:羁绊 触发时，给予随机一名敌人 !M! 层 易伤 。"
   },
   "IceBreaker:SoulTremor": {
     "NAME": "灵魂震颤",
@@ -73,7 +73,7 @@
   },
   "IceBreaker:SilverDoor": {
     "NAME": "银之扉",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 在这个回合， im:共鸣 生效时不会减少层数。"
+    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL !M! 回合内， im:共鸣 生效时不会减少层数。"
   },
   "IceBreaker:Blizzard": {
     "NAME": "暴风雪",
@@ -127,8 +127,8 @@
   },
   "IceBreaker:HauntHell": {
     "NAME": "幽灵地狱",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害 !M! 次。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL im:狭隙 ：获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害 !M! 次。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL im:狭隙 ：获得 [E] [E] 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害六次。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL im:狭隙 ：获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害六次。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL im:狭隙 ：获得 [E] [E] 。"
   },
   "IceBreaker:FreezeKing": {
     "NAME": "冰封之王",
@@ -143,7 +143,7 @@
   },
   "IceBreaker:FakeParley": {
     "NAME": "时之鸣",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 im:时间凝滞 。"
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !M! 层 im:时间凝滞 和 im:共鸣 。 NL 如果处于 im:狭隙 ，抽 !M! 张牌。 NL 否则，你打出的下一张 im:魔法 受 im:共鸣 影响。"
   },
   "IceBreaker:Oracle": {
     "NAME": "神谕",
@@ -160,8 +160,8 @@
   },
   "IceBreaker:MagicExtraction": {
     "NAME": "法力萃取",
-    "DESCRIPTION": "将所有 im:共鸣 层数转换为等量的 [E] 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将所有 im:共鸣 层数转换为等量的 [E] 。"
+    "DESCRIPTION": "消耗一名敌人身上至多 !M! 层 虚弱 ，转换为等量的 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗一名敌人身上至多 !M! 层 虚弱 ，转换为等量的 [E] 。"
   },
   "IceBreaker:OtherPartyOfMissing": {
     "NAME": "思念的彼方",
@@ -176,7 +176,7 @@
   },
   "IceBreaker:GhostStar": {
     "NAME": "幽灵星体",
-    "DESCRIPTION": "获得 !M! 点 im:共鸣 。"
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择一张牌放入抽牌堆底部。"
   },
   "IceBreaker:IceShield": {
     "NAME": "雪域",
@@ -195,8 +195,8 @@
   },
   "IceBreaker:DeepColdSwamp": {
     "NAME": "因果",
-    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:羁绊 。",
+    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:狭隙 ：此牌耗能为0。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:羁绊 。 NL im:狭隙 ：此牌耗能为0。",
     "EXTENDED_DESCRIPTION": [
       "冰结之绊"
     ]
@@ -215,8 +215,7 @@
   },
   "IceBreaker:MaterialDecomposition": {
     "NAME": "物质分解",
-    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。"
+    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL 如果不处于 im:狭隙 ： 消耗 。"
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "物质创造",
@@ -228,7 +227,8 @@
   },
   "IceBreaker:HolyZone": {
     "NAME": "圣域",
-    "DESCRIPTION": "击晕所有生命值低于一半的敌人。 消耗 。"
+    "DESCRIPTION": "击晕所有生命值低于一半的敌人。 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 击晕所有生命值低于一半的敌人。 消耗 。"
   },
   "IceBreaker:MemoriesFloodBack": {
     "NAME": "星霜奇想",

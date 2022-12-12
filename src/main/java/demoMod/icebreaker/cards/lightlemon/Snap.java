@@ -36,7 +36,6 @@ public class Snap extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SFXAction("SNAP", 0.1F));
 //        addToBot(new SelectCardInHandAction(1, card -> card.type == CardType.ATTACK, card -> {
 //            Snap.this.tags.addAll(card.tags);
 //            card.use(p, m);
@@ -51,5 +50,6 @@ public class Snap extends AbstractLightLemonCard {
 
         // vodka: 响指效果变为: 从卡组选1张攻击牌打出。
         addToBot(new SnapAction());
+        addToBot(new SFXAction("SNAP", 0.1F));
     }
 }
