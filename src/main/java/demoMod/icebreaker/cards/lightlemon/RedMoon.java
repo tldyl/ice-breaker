@@ -30,7 +30,6 @@ public class RedMoon extends AbstractLightLemonCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
-    private AbstractMonster lastTarget;
 
     public RedMoon() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -55,14 +54,13 @@ public class RedMoon extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, false, false, false));
-        lastTarget = m;
     }
 
     @Override
     public void onTriggerFetter() {
+        AbstractMonster lastTarget = AbstractDungeon.getRandomMonster();
         if (lastTarget != null) {
             addToBot(new ApplyPowerAction(lastTarget, AbstractDungeon.player, new VulnerablePower(lastTarget, this.magicNumber, false)));
-            lastTarget = null;
         }
     }
 }

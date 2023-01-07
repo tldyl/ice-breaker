@@ -3,6 +3,7 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,7 @@ public class MagicFlame extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -44,12 +47,17 @@ public class MagicFlame extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(4);
+            this.upgradeMagicNumber(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
+        AbstractCard spark = new Spark();
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            spark.upgrade();
+        }
+        addToBot(new MakeTempCardInDrawPileAction(spark, this.magicNumber, true, true, false));
     }
 }

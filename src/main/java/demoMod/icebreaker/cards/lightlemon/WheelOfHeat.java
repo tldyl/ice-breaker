@@ -25,7 +25,7 @@ public class WheelOfHeat extends AbstractLightLemonCard {
 
     public WheelOfHeat() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 3;
         this.cardsToPreview = new Spark();
     }
 
@@ -33,7 +33,7 @@ public class WheelOfHeat extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
         }
     }
 

@@ -1,12 +1,16 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.powers.ChronoChimePower;
+import demoMod.icebreaker.powers.ExtraTurnPower;
+import demoMod.icebreaker.powers.ResonancePower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 
 public class FakeParley extends AbstractLightLemonCard {
@@ -21,12 +25,13 @@ public class FakeParley extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ALL;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public FakeParley() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
-        this.baseBlock = this.block = 4;
+        this.isFetter = true;
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -39,7 +44,12 @@ public class FakeParley extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, this.block));
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new DrawCardAction(this.magicNumber));
+        } else {
+            addToBot(new ApplyPowerAction(p, p, new ChronoChimePower(p, 1)));
+        }
     }
 }

@@ -30,7 +30,7 @@ public class IceShield extends AbstractLightLemonCard {
 
     public IceShield() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = this.block = 12;
+        this.baseBlock = this.block = 9;
         this.baseMagicNumber = this.magicNumber = 3;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -40,7 +40,7 @@ public class IceShield extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(4);
+            this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
         }
     }

@@ -57,10 +57,10 @@ public class HauntHell extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         calculateCardDamage(m);
         addToBot(new VFXAction(p, new ScreenOnFireEffect(), 1.0F));
-        for (int i=0;i<this.baseMagicNumber;i++) {
+        for (int i=0;i<6;i++) {
             addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         }
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), 6, true, true, false));
+        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             if (this.upgraded) {
                 addToBot(new GainEnergyAction(2));

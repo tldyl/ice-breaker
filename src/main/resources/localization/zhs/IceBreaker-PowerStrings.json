@@ -89,5 +89,11 @@
     "DESCRIPTIONS": [
       "每当你打出战斗中加入的牌时，获得 #b%d 层 #y共鸣 。"
     ]
+  },
+  "IceBreaker:ChronoChimePower": {
+    "NAME": "时之鸣",
+    "DESCRIPTIONS": [
+      "你打出的下 #b%d 张 #y魔法 在 #y狭隙 外仍然受 #y共鸣 影响。"
+    ]
   }
 }

@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -14,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.DamageNumberEffect;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
@@ -67,9 +67,10 @@ public class SoulTremor extends AbstractLightLemonCard {
                     @Override
                     public void update() {
                         mo.maxHealth -= SoulTremor.this.m2;
+                        mo.currentHealth -= SoulTremor.this.m2;
                         if (mo.currentHealth < 0) mo.currentHealth = 0;
                         if (mo.maxHealth < 1) mo.maxHealth = 1;
-                        mo.damage(new DamageInfo(null, SoulTremor.this.m2, DamageInfo.DamageType.HP_LOSS));
+                        AbstractDungeon.effectsQueue.add(new DamageNumberEffect(mo, mo.hb.cX, mo.hb.cY, SoulTremor.this.m2));
                         isDone = true;
                     }
                 });

@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
-public class DeepColdSwamp extends AbstractLightLemonCard {
+public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
     public static final String ID = IceBreaker.makeID("DeepColdSwamp");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,6 +36,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.isFetter = true;
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -70,5 +73,22 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.setCostForTurn(0);
+        }
+    }
+
+    @Override
+    public void onEnterExtraTurn() {
+        this.setCostForTurn(0);
+    }
+
+    @Override
+    public void onExitExtraTurn() {
+        this.modifyCostForCombat(this.cost);
     }
 }
