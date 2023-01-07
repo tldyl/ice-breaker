@@ -48,6 +48,9 @@ public class CutscenePatch {
                 cutscenePanels.add(
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice9.png"))
                 );
+                cutscenePanels.add(
+                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice10.png"))
+                );
                 ArrayList<CutscenePanel> panels = ReflectionHacks.getPrivate(cutscene, Cutscene.class, "panels");
                 panels.clear();
                 panels.addAll(cutscenePanels);
