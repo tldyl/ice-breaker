@@ -215,7 +215,8 @@
   },
   "IceBreaker:MaterialDecomposition": {
     "NAME": "物质分解",
-    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL 如果不处于 im:狭隙 ： 消耗 。"
+    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。"
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "物质创造",

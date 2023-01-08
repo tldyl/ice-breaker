@@ -34,7 +34,7 @@ public class FrostWind extends AbstractLightLemonCard {
     public FrostWind() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
-        this.baseBlock = 6;
+        this.baseBlock = this.block = 6;
         this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -60,6 +60,7 @@ public class FrostWind extends AbstractLightLemonCard {
 
     @Override
     public void onTriggerFetter() {
+        applyPowersToBlock();
         addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.block));
     }
 }

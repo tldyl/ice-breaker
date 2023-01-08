@@ -28,6 +28,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     private static final int COST = 1;
 
     private boolean updateCheck = false;
+    private boolean inExtraTurn = false;
 
     public DeepColdSwamp() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -84,11 +85,17 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
 
     @Override
     public void onEnterExtraTurn() {
-        this.setCostForTurn(0);
+        if (!inExtraTurn) {
+            this.setCostForTurn(0);
+            inExtraTurn = true;
+        }
     }
 
     @Override
     public void onExitExtraTurn() {
-        this.modifyCostForCombat(this.cost);
+        if (inExtraTurn) {
+            this.modifyCostForCombat(this.cost);
+            inExtraTurn = false;
+        }
     }
 }
