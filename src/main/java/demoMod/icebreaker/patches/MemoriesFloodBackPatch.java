@@ -35,7 +35,8 @@ public class MemoriesFloodBackPatch {
                 public void update() {
                     cards.clear();
                     for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                        cards.add(c.makeCopy());
+                        AbstractCard cp = c.makeStatEquivalentCopy();
+                        cards.add(cp);
                     }
                     this.isDone = true;
                 }

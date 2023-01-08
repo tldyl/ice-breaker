@@ -25,7 +25,7 @@ public class MemoriesFloodBack extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // todo: 等链接卡的copy完成后进行链接的copy测试。(包括本家卡和非本家卡)
     public MemoriesFloodBack() {
