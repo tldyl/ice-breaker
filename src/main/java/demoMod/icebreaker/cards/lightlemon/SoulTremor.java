@@ -3,6 +3,7 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -68,7 +69,10 @@ public class SoulTremor extends AbstractLightLemonCard {
                     public void update() {
                         mo.maxHealth -= SoulTremor.this.m2;
                         mo.currentHealth -= SoulTremor.this.m2;
-                        if (mo.currentHealth < 0) mo.currentHealth = 0;
+                        if (mo.currentHealth < 0) {
+                            mo.currentHealth = 0;
+                            addToBot(new InstantKillAction(mo));
+                        }
                         if (mo.maxHealth < 1) mo.maxHealth = 1;
                         AbstractDungeon.effectsQueue.add(new DamageNumberEffect(mo, mo.hb.cX, mo.hb.cY, SoulTremor.this.m2));
                         isDone = true;
