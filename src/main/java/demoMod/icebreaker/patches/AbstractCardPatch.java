@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,7 +21,27 @@ import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
 import demoMod.icebreaker.interfaces.ModifyMagicNumberSubscriber;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AbstractCardPatch {
+    @SpirePatch(clz = CardGroup.class, method = "initializeDeck")
+    public static class PatchInitializeDeck {
+        public static void Postfix(CardGroup drawPile, CardGroup masterDeck) {
+            List<AbstractCard> tmp = new ArrayList<>();
+            for (AbstractCard card : drawPile.group) {
+                if (card instanceof AbstractLightLemonCard) {
+                    AbstractLightLemonCard c = (AbstractLightLemonCard) card;
+                    if (c.isBottom) {
+                        tmp.add(c);
+                    }
+                }
+            }
+            drawPile.group.removeAll(tmp);
+            drawPile.group.addAll(0, tmp);
+        }
+    }
+
     @SpirePatch(
             clz = AbstractCard.class,
             method = "calculateCardDamage"

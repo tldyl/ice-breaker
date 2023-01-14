@@ -27,7 +27,6 @@ public class MemoriesFloodBack extends AbstractLightLemonCard {
 
     private static final int COST = 0;
 
-    // todo: 等链接卡的copy完成后进行链接的copy测试。(包括本家卡和非本家卡)
     public MemoriesFloodBack() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
 
