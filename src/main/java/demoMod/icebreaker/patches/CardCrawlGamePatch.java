@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 
 import java.io.*;
 import java.util.List;
@@ -34,6 +35,15 @@ public class CardCrawlGamePatch {
                             index++;
                         }
                     }
+
+                    // MODIFIED BY AKDREAM10086
+                    for (AbstractCard card : p.masterDeck.group) {
+                        if (card instanceof AbstractLightLemonCard) {
+                            ((AbstractLightLemonCard) card).loadCardsToPreview();
+                        }
+                    }
+                    // load cardsToPreview after uuid is loaded so that it's correctly loaded
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

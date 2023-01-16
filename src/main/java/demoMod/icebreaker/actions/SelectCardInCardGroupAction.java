@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -45,18 +47,21 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             }
             temp.sortAlphabetically(true);
             temp.sortByRarityPlusStatusCardType(false);
-            AbstractDungeon.gridSelectScreen.open(temp, this.amount, String.format(TEXT[0], this.amount), false);
-            tickDuration();
-            return;
+            AbstractDungeon.gridSelectScreen.open(temp, this.amount, true, String.format(TEXT[0], this.amount));
+            tickDuration(); return;
         }
 
-        if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+        // modified here
+        if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.GRID) {
+            // logger.info(AbstractDungeon.gridSelectScreen.selectedCards.size() + "!!!!!!!!!!!!");
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 this.action.accept(c);
+                // logger.info(c.cardID + " " + c.uuid);
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
-            isDone = true;
+            isDone = true; return;
         }
+
     }
 }

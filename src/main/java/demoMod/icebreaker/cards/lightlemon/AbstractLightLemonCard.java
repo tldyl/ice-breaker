@@ -3,16 +3,21 @@ package demoMod.icebreaker.cards.lightlemon;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.interfaces.CardAddToDeckSubscriber;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
 import demoMod.icebreaker.powers.ExtraTurnPower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,15 +61,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
         }
     }
 
-    @Override
-    public void onAddToMasterDeck() {
-        if (isFetter) {
-            IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()), card -> card != this && this.fetterFilter.test(card), card -> {
-                this.fetterTarget.add(card.uuid);
-                this.myCardsToPreview.add(card);
-            }, AbstractDungeon.player.masterDeck));
-        }
-    }
+
 
     @Override
     public void onTriggerFetter() {
@@ -87,44 +84,93 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     @Override
-    public void onLoad(List<String> s) {
-        fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
-        for (UUID uuid : this.fetterTarget) {
-            for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
-                if (card1.uuid.equals(uuid)) {
-                    this.myCardsToPreview.add(card1);
-                }
-            }
-        }
-    }
-
-    @Override
     public Type savedType() {
         return new TypeToken<List<String>>(){}.getType();
     }
 
+    // MODIFIED BY AKDREAM10086
+    // SEE ALSO CardCrawlGamePatch.PatchLoadPlayerSave
+    Logger logger = LogManager.getLogger("test");
+
+    @Override
+    public void onLoad(List<String> s) {
+        fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
+    }
+    public void loadCardsToPreview() {
+        for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
+            if (fetterTarget.contains(card1.uuid)) {
+                this.myCardsToPreview.add(card1.makeSameInstanceOf());
+            }
+        }
+    }
     @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard card = super.makeStatEquivalentCopy();
         if (card instanceof AbstractLightLemonCard) {
             AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;
             lightLemonCard.fetterTarget = this.fetterTarget;
-            for (UUID uuid : AbstractLightLemonCard.this.fetterTarget) {
-                for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
-                    if (card1.uuid.equals(uuid)) {
-                        lightLemonCard.myCardsToPreview.add(card1);
-                    }
-                }
-            }
+
+            // modified to simplify the code
+            lightLemonCard.loadCardsToPreview();
+
         }
         return card;
     }
 
     @Override
+    public void onAddToMasterDeck() {
+        if (isFetter) {
+            IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()),
+                    card -> {
+                        return card != this && this.fetterFilter.test(card)
+                                && !this.fetterTarget.contains(card.uuid); // don't add duplicated cards
+                    },
+                    card -> {
+                        this.fetterTarget.add(card.uuid);
+                        this.myCardsToPreview.add(card.makeSameInstanceOf());
+                        // add its copy, not the card itself
+                        // same uuid just for convenience
+                        card.stopGlowing();
+                    },
+                    AbstractDungeon.player.masterDeck));
+        }
+    }
+
+    private boolean hovered = false;
+    @Override
+    public void hover() {
+        if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+            // make fettered cards glow when viewing master deck
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                if (fetterTarget.contains(c.uuid)) {
+                    logger.info("Start Glowing: " + c.cardID);
+                    c.beginGlowing();
+                }
+            }
+        }
+        if (!this.hovered) {
+            this.hovered = true;
+        }
+        super.hover();
+    }
+    @Override
+    public void unhover() {
+        if (this.hovered) {
+            // stop glowing
+            if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
+                for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                    c.stopGlowing();
+                }
+            }
+            this.hovered = false;
+        }
+        super.unhover();
+    }
+    @Override
     public void renderCardTip(SpriteBatch sb) {
         super.renderCardTip(sb);
         previewTimer += Gdx.graphics.getDeltaTime();
-        if (previewTimer > 1.0F) {
+        if (previewTimer > 0.75F) {
             previewTimer = 0.0F;
             if (this.cardsToPreview != null) {
                 this.myCardsToPreview.add(this.cardsToPreview);
@@ -132,7 +178,19 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
             }
             if (!this.myCardsToPreview.isEmpty()) {
                 this.cardsToPreview = this.myCardsToPreview.remove(0);
+                this.cardsToPreview.stopGlowing();
+                if (AbstractDungeon.player != null && AbstractDungeon.player.hoveredCard == this) {
+                    // set glow color of the previewing card to gold if you can successfully grab it from draw pile
+                    for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                        if (c.uuid.equals(this.cardsToPreview.uuid)) {
+                            this.cardsToPreview.glowColor = Color.GOLD.cpy();
+                            this.cardsToPreview.beginGlowing();
+                        }
+                    }
+                }
             }
         }
     }
+    //
+
 }
