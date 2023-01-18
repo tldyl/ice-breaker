@@ -32,3 +32,5 @@ src/test/
 *.xls
 *.xlsx
 *.docx
+/src/main/resources/IceImages/cards/cardsToCut/
+/src/main/resources/IceImages/cards/cardsToReplace/

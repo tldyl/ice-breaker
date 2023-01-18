@@ -1,5 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -24,13 +26,14 @@ public class FreezeKing extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/strike_I.png";
+    public static final String IMG_PATH = "cards/FreezeKing.png";
 
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
+    private static final TextureAtlas.AtlasRegion UPGRADE_IMG = new TextureAtlas.AtlasRegion(new Texture(IceBreaker.getResourcePath("cards/FreezeKing+.png")), 0, 0, 250, 190);
 
     public FreezeKing() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -48,6 +51,7 @@ public class FreezeKing extends AbstractLightLemonCard {
         this.timesUpgraded += 1;
         this.upgraded = true;
         this.name = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.portrait = UPGRADE_IMG;
         initializeTitle();
     }
 

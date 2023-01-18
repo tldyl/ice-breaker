@@ -19,7 +19,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/SoulTremor.png";
+    public static final String IMG_PATH = "cards/DeepColdSwamp.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;

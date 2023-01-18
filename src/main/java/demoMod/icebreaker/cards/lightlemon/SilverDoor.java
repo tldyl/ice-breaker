@@ -18,7 +18,7 @@ public class SilverDoor extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/defend_I.png";
+    public static final String IMG_PATH = "cards/SilverDoor.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -31,6 +31,7 @@ public class SilverDoor extends AbstractLightLemonCard {
         this.block = this.baseBlock = 8;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override

@@ -97,6 +97,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
         fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
     }
     public void loadCardsToPreview() {
+        if (AbstractDungeon.player == null) return;
         for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
             if (fetterTarget.contains(card1.uuid)) {
                 this.myCardsToPreview.add(card1.makeSameInstanceOf());

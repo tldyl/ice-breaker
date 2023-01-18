@@ -123,7 +123,7 @@
   },
   "IceBreaker:Snap": {
     "NAME": "响指",
-    "DESCRIPTION": "选择抽牌堆中的一张魔法牌打出。"
+    "DESCRIPTION": "选择抽牌堆中的一张 im:魔法 牌打出。"
   },
   "IceBreaker:HauntHell": {
     "NAME": "幽灵地狱",
@@ -233,8 +233,8 @@
   },
   "IceBreaker:MemoriesFloodBack": {
     "NAME": "星霜奇想",
-    "DESCRIPTION": " 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。 消耗 所有手牌，将战斗开始时的初始手牌置入手牌。洗牌时置于抽牌堆底端。 消耗 。"
+    "DESCRIPTION": "消耗 所有手牌。 NL 将战斗开始时的初始手牌置入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 消耗 所有手牌。 NL 将战斗开始时的初始手牌置入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。"
   },
   "IceBreaker:TimeCreation": {
     "NAME": "时间创造",
@@ -267,7 +267,7 @@
   },
   "IceBreaker:DiffuseFuture": {
     "NAME": "漫射未来",
-    "DESCRIPTION": "进入 im:狭隙 。 NL im:狭隙 ：结束你的回合，获得一个额外回合并在回合开始时进入 im:狭隙 。 NL 消耗 。"
+    "DESCRIPTION": "如果处于 im:狭隙，结束你的回合，获得一个额外回合并在回合开始时进入 im:狭隙 ； NL 否则，进入 im:狭隙 。 NL 消耗 。"
   },
   "IceBreaker:InfinityFortress": {
     "NAME": "不落壁垒",

@@ -14,7 +14,7 @@ public class DemonDeLaplace extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/SeaOfLanterns.png";
+    public static final String IMG_PATH = "cards/DemonDeLaplace.png";
 
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.RARE;
