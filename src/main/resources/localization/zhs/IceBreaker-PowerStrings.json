@@ -113,5 +113,11 @@
     "DESCRIPTIONS": [
       "在下回合开始时，对所有敌人造成 #b%d 点伤害。"
     ]
+  },
+  "IceBreaker:ChaseTheLightPower": {
+    "NAME": "追逐光芒",
+    "DESCRIPTIONS": [
+      "每次 #y羁绊 成功时，抽 #b%d 张牌。"
+    ]
   }
 }

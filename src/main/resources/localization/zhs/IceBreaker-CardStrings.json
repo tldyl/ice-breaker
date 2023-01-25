@@ -284,7 +284,8 @@
   },
   "IceBreaker:DemonDeLaplace": {
     "NAME": "世界函数",
-    "DESCRIPTION": "每当你打出战斗中加入的牌时，获得 !M! 层 im:共鸣 。"
+    "DESCRIPTION": "虚无 。 NL 每当你打出战斗中加入的牌时，获得 !M! 层 im:共鸣 。",
+    "UPGRADE_DESCRIPTION": "每当你打出战斗中加入的牌时，获得 !M! 层 im:共鸣 。"
   },
   "IceBreaker:DeepCalculate": {
     "NAME": "深度演算",
@@ -310,5 +311,27 @@
     "EXTENDED_DESCRIPTION": [
       "(造成 !D! 点伤害 !M! 次。)"
     ]
+  },
+  "IceBreaker:CTL": {
+    "NAME": "追逐光芒",
+    "DESCRIPTION": "每次 im:羁绊 成功时，抽一张牌。"
+  },
+  "IceBreaker:OnChronosBehalf": {
+    "NAME": "代行神权",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL 斩杀 时， im:羁绊 。 NL 如果不处于 im:狭隙 ， 消耗 。"
+  },
+  "IceBreaker:GhostFantasy": {
+    "NAME": "幽灵幻想",
+    "DESCRIPTION": "当手牌数不大于1时才能打出。 NL 从三张随机牌中选择一张加入手牌，重复 !M! 次。",
+    "UPGRADE_DESCRIPTION": "当手牌数不大于1时才能打出。 NL 从三张 升级 过的随机牌中选择一张加入手牌，重复 !M! 次。 NL 其耗能在本场战斗变为0。",
+    "EXTENDED_DESCRIPTION": [
+      "往事如梦",
+      "我的手牌数必须要少于2张！"
+    ]
+  },
+  "IceBreaker:AllInAsh": {
+    "NAME": "燃烬",
+    "DESCRIPTION": "消耗 手牌中的所有牌。 NL 向手牌中加入 X 张 *火花 。 NL im:狭隙 :获得 X [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗 手牌中的所有牌。 NL 向手牌中加入 X+1 张 *火花 。 NL im:狭隙 :获得 X+1 [E] 。 NL 消耗 。"
   }
 }

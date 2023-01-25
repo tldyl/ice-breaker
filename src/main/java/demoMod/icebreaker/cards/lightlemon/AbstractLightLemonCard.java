@@ -57,8 +57,6 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
         }
     }
 
-
-
     @Override
     public void onTriggerFetter() {
 
@@ -83,18 +81,34 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public Type savedType() {
         return new TypeToken<List<String>>(){}.getType();
     }
+
     @Override
     public void onLoad(List<String> s) {
         fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
     }
+
     public void loadCardsToPreview() {
         if (AbstractDungeon.player == null) return;
         for (AbstractCard card1 : AbstractDungeon.player.masterDeck.group) {
             if (fetterTarget.contains(card1.uuid)) {
-                this.myCardsToPreview.add(card1.makeSameInstanceOf());
+                if (card1 instanceof AbstractLightLemonCard) {
+                    this.myCardsToPreview.add(((AbstractLightLemonCard) card1).makeStatEquivalentCopyWithoutPreviewCard());
+                } else {
+                    this.myCardsToPreview.add(card1.makeSameInstanceOf());
+                }
             }
         }
     }
+
+    private AbstractCard makeStatEquivalentCopyWithoutPreviewCard() { //防止两张牌互相羁绊时出现递归调用的情况
+        AbstractCard card = super.makeStatEquivalentCopy();
+        if (card instanceof AbstractLightLemonCard) {
+            AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;
+            lightLemonCard.fetterTarget = this.fetterTarget;
+        }
+        return card;
+    }
+
     @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard card = super.makeStatEquivalentCopy();

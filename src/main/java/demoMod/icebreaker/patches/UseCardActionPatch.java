@@ -67,7 +67,7 @@ public class UseCardActionPatch {
             AbstractCard targetCard = ReflectionHacks.getPrivate(action, UseCardAction.class, "targetCard");
             if (targetCard instanceof AbstractLightLemonCard) {
                 AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) targetCard;
-                if (lightLemonCard.isFetter) {
+                if (!lightLemonCard.fetterTarget.isEmpty()) {
                     boolean containsFetter = false;
                     List<AbstractCard> fetterCards = new ArrayList<>();
                     CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);

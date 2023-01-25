@@ -168,7 +168,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new Perception());
         BaseMod.addCard(new FakeParley());
         BaseMod.addCard(new Oracle());
-        BaseMod.addCard(new OverloadEmulate());
+        //BaseMod.addCard(new OverloadEmulate());
         BaseMod.addCard(new EliminateDistractions());
         BaseMod.addCard(new MagicExtraction());
         BaseMod.addCard(new OtherPartyOfMissing());
@@ -202,6 +202,10 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new ExtraTrigger());
         BaseMod.addCard(new Detonate());
         BaseMod.addCard(new IceDebrisSplashed());
+        BaseMod.addCard(new CTL());
+        BaseMod.addCard(new OnChronosBehalf());
+        BaseMod.addCard(new GhostFantasy());
+        BaseMod.addCard(new AllInAsh());
 
         BaseMod.addCard(new Spark());
     }

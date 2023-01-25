@@ -101,8 +101,33 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     @Override
     public void onExitExtraTurn() {
         if (inExtraTurn) {
-            this.modifyCostForCombat(this.cost);
+            this.setCostForCombat(this.cost);
             inExtraTurn = false;
+        }
+    }
+
+    public void setCostForCombat(int amt) {
+        if (this.costForTurn > 0) {
+            this.costForTurn = amt;
+            if (this.costForTurn < 0) {
+                this.costForTurn = 0;
+            }
+
+            if (this.cost != this.costForTurn) {
+                this.isCostModified = true;
+            }
+
+            this.cost = this.costForTurn;
+        } else if (this.cost >= 0) {
+            this.cost = amt;
+            if (this.cost < 0) {
+                this.cost = 0;
+            }
+
+            this.costForTurn = 0;
+            if (this.cost != this.costForTurn) {
+                this.isCostModified = true;
+            }
         }
     }
 }
