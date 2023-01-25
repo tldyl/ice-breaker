@@ -1,6 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -53,6 +54,12 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     @Override
     public void update() {
         super.update();
+        if (AbstractDungeon.gridSelectScreen.targetGroup == null) {
+            AbstractDungeon.gridSelectScreen.targetGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        }
+        if (AbstractDungeon.cardRewardScreen.rewardGroup == null) {
+            AbstractDungeon.cardRewardScreen.rewardGroup = new ArrayList<>();
+        }
         if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck &&
                 AbstractDungeon.getCurrMapNode() != null &&
                 AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this &&

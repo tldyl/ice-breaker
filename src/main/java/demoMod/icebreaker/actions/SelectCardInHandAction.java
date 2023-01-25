@@ -16,14 +16,20 @@ public class SelectCardInHandAction extends AbstractGameAction {
     private final Consumer<AbstractCard> action;
     private final AbstractPlayer p;
     private final List<AbstractCard> filteredCards = new ArrayList<>();
+    private final boolean anyNumber;
 
     public SelectCardInHandAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action) {
+        this(amount, condition, action, false);
+    }
+
+    public SelectCardInHandAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action, boolean anyNumber) {
         setValues(AbstractDungeon.player, AbstractDungeon.player, amount);
         this.actionType = AbstractGameAction.ActionType.DRAW;
         this.duration = 0.25F;
         this.p = AbstractDungeon.player;
         this.condition = condition;
         this.action = action;
+        this.anyNumber = anyNumber;
     }
 
     @Override
@@ -38,7 +44,7 @@ public class SelectCardInHandAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            if (this.p.hand.group.size() - this.filteredCards.size() == 1) {
+            if (this.p.hand.group.size() - this.filteredCards.size() == 1 && !this.anyNumber) {
                 for (AbstractCard c : this.p.hand.group) {
                     if (condition.test(c)) {
                         action.accept(c);
@@ -48,8 +54,8 @@ public class SelectCardInHandAction extends AbstractGameAction {
                 }
             }
             this.p.hand.group.removeAll(this.filteredCards);
-            if (this.p.hand.group.size() > 1) {
-                AbstractDungeon.handCardSelectScreen.open(SelectSpecifiedCardInHandAction.TEXT[0], this.amount, false, false, false, false);
+            if (this.p.hand.group.size() > 1 || this.anyNumber) {
+                AbstractDungeon.handCardSelectScreen.open(SelectSpecifiedCardInHandAction.TEXT[0], this.amount, this.anyNumber, this.anyNumber, false, false);
                 tickDuration();
                 return;
             }

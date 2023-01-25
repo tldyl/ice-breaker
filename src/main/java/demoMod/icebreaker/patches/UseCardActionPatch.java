@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.actions.PutSpecifiedCardToHandAction;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.powers.DeepCalculatePower;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
@@ -69,7 +70,12 @@ public class UseCardActionPatch {
                 if (lightLemonCard.isFetter) {
                     boolean containsFetter = false;
                     List<AbstractCard> fetterCards = new ArrayList<>();
-                    for (AbstractCard card : AbstractDungeon.player.drawPile.group) {
+                    CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                    tmp.group.addAll(AbstractDungeon.player.drawPile.group);
+                    if (AbstractDungeon.player.hasPower(DeepCalculatePower.POWER_ID)) {
+                        tmp.group.addAll(AbstractDungeon.player.discardPile.group);
+                    }
+                    for (AbstractCard card : tmp.group) {
                         if (lightLemonCard.fetterTarget.contains(card.uuid)) {
                             containsFetter = true;
                             if (card instanceof TriggerFetterSubscriber) {
@@ -121,7 +127,13 @@ public class UseCardActionPatch {
                             }
                         }
                     }
-                    AbstractDungeon.actionManager.addToBottom(new PutSpecifiedCardToHandAction(lightLemonCard.fetterTarget.size(), card -> lightLemonCard.fetterTarget.contains(card.uuid)));
+                    AbstractDungeon.actionManager.addToTop(new PutSpecifiedCardToHandAction(lightLemonCard.fetterTarget.size(), tmp, card -> lightLemonCard.fetterTarget.contains(card.uuid), card -> {
+                        if (AbstractDungeon.player.drawPile.contains(card)) {
+                            AbstractDungeon.player.drawPile.removeCard(card);
+                        } else if (AbstractDungeon.player.discardPile.contains(card)) {
+                            AbstractDungeon.player.discardPile.removeCard(card);
+                        }
+                    }));
                 }
             }
         }

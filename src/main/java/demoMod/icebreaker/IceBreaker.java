@@ -197,6 +197,11 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new InfinityFortress());
         BaseMod.addCard(new Niflheimr());
         BaseMod.addCard(new DemonDeLaplace());
+        BaseMod.addCard(new DeepCalculate());
+        BaseMod.addCard(new Chronover());
+        BaseMod.addCard(new ExtraTrigger());
+        BaseMod.addCard(new Detonate());
+        BaseMod.addCard(new IceDebrisSplashed());
 
         BaseMod.addCard(new Spark());
     }
@@ -230,6 +235,8 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addAudio("SNAP", "IceAudio/sfx/snap.wav");
         BaseMod.addAudio("EARTH_COLLAPSE", "IceAudio/sfx/earthCollapse.wav");
         BaseMod.addAudio("SOUL_TREMOR", "IceAudio/sfx/soulTremor.wav");
+        BaseMod.addAudio("SFX_CARNAGE", "IceAudio/sfx/carnage.wav");
+        BaseMod.addAudio("SFX_ICE_SPLASH", "IceAudio/sfx/ice_blast_projectile_spell_01.wav");
     }
 
     @Override

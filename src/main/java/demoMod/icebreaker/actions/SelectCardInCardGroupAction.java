@@ -48,7 +48,8 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             temp.sortAlphabetically(true);
             temp.sortByRarityPlusStatusCardType(false);
             AbstractDungeon.gridSelectScreen.open(temp, this.amount, true, String.format(TEXT[0], this.amount));
-            tickDuration(); return;
+            tickDuration();
+            return;
         }
 
         // modified here
@@ -60,7 +61,7 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
-            isDone = true; return;
+            isDone = true;
         }
 
     }

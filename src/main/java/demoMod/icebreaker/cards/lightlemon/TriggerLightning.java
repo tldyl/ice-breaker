@@ -25,6 +25,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
     public TriggerLightning() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.isFetter = true;
+        this.fetterFilter = card -> !card.uuid.equals(this.uuid);
     }
 
     @Override

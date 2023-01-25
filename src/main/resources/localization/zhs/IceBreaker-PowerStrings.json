@@ -95,5 +95,23 @@
     "DESCRIPTIONS": [
       "你打出的下 #b%d 张 #y魔法 在 #y狭隙 外仍然受 #y共鸣 影响。"
     ]
+  },
+  "IceBreaker:DeepCalculatePower": {
+    "NAME": "深度演算",
+    "DESCRIPTIONS": [
+      "#y羁绊 对象存在于弃牌堆时也能 #y羁绊 成功。"
+    ]
+  },
+  "IceBreaker:NextTurnPlayCardPower": {
+    "NAME": "下回合打出",
+    "DESCRIPTIONS": [
+      "在下回合开始时，将 #y%s 打出 #b%d 次。"
+    ]
+  },
+  "IceBreaker:NextTurnDamageAllEnemiesPower": {
+    "NAME": "起爆",
+    "DESCRIPTIONS": [
+      "在下回合开始时，对所有敌人造成 #b%d 点伤害。"
+    ]
   }
 }

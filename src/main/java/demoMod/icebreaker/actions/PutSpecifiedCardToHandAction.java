@@ -7,11 +7,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class PutSpecifiedCardToHandAction extends AbstractGameAction {
     private final AbstractPlayer p;
     private final Predicate<AbstractCard> condition;
+    private final Consumer<AbstractCard> extraAction;
     private final CardGroup targetGroup;
 
     public PutSpecifiedCardToHandAction(int amount, Predicate<AbstractCard> condition) {
@@ -19,12 +21,17 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
     }
 
     public PutSpecifiedCardToHandAction(int amount, CardGroup targetGroup, Predicate<AbstractCard> condition) {
+        this(amount, targetGroup, condition, card -> {});
+    }
+
+    public PutSpecifiedCardToHandAction(int amount, CardGroup targetGroup, Predicate<AbstractCard> condition, Consumer<AbstractCard> extraAction) {
         this.p = AbstractDungeon.player;
         this.setValues(this.p, this.p, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
         this.condition = condition;
         this.targetGroup = targetGroup;
+        this.extraAction = extraAction;
     }
 
     @Override
@@ -62,16 +69,20 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
                         card.setAngle(0.0F);
                         card.drawScale = 0.12F;
                         card.targetDrawScale = 0.75F;
-                        card.current_x = CardGroup.DRAW_PILE_X;
+                        if (AbstractDungeon.player.drawPile.contains(card)) {
+                            card.current_x = CardGroup.DRAW_PILE_X;
+                        } else {
+                            card.current_x = CardGroup.DISCARD_PILE_X;
+                        }
                         card.current_y = CardGroup.DRAW_PILE_Y;
                         this.targetGroup.removeCard(card);
                         AbstractDungeon.player.hand.addToTop(card);
-                        AbstractDungeon.player.hand.refreshHandLayout();
-                        AbstractDungeon.player.hand.applyPowers();
+                        this.extraAction.accept(card);
                     }
                 }
             }
-
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.applyPowers();
             this.isDone = true;
         }
 

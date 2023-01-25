@@ -31,7 +31,7 @@ public class CutscenePatch {
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice3.png"))
                 );
                 cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice4.png"))
+                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice4.png"), "SFX_CARNAGE")
                 );
                 cutscenePanels.add(
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice5.png"))

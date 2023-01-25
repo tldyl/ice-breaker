@@ -7,17 +7,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.interfaces.CardAddToDeckSubscriber;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
 import demoMod.icebreaker.powers.ExtraTurnPower;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -34,7 +30,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public boolean isFetter = false;
     public boolean isBottom = false;
     public List<UUID> fetterTarget = new ArrayList<>();
-    private List<AbstractCard> myCardsToPreview = new ArrayList<>();
+    private final List<AbstractCard> myCardsToPreview = new ArrayList<>();
     protected Predicate<AbstractCard> fetterFilter = card -> true;
     protected int fetterAmount = 1;
     private float previewTimer = 0.0F;
@@ -87,11 +83,6 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public Type savedType() {
         return new TypeToken<List<String>>(){}.getType();
     }
-
-    // MODIFIED BY AKDREAM10086
-    // SEE ALSO CardCrawlGamePatch.PatchLoadPlayerSave
-    Logger logger = LogManager.getLogger("test");
-
     @Override
     public void onLoad(List<String> s) {
         fetterTarget = s.stream().map(UUID::fromString).collect(Collectors.toList());
@@ -144,7 +135,6 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
             // make fettered cards glow when viewing master deck
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                 if (fetterTarget.contains(c.uuid)) {
-                    logger.info("Start Glowing: " + c.cardID);
                     c.beginGlowing();
                 }
             }
@@ -192,6 +182,4 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
             }
         }
     }
-    //
-
 }

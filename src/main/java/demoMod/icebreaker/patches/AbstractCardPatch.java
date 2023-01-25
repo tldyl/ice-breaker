@@ -99,6 +99,9 @@ public class AbstractCardPatch {
             method = "loadPortraitImg"
     )
     public static class PatchLoadPortraitImg {
+        private static Texture portraitImg = null;
+        private static String lastLoadedImgPath = null;
+
         public static SpireReturn<Void> Prefix(SingleCardViewPopup popup) {
             if (AbstractDungeon.player instanceof IceBreakerCharacter) {
                 AbstractCard card = ReflectionHacks.getPrivate(popup, SingleCardViewPopup.class, "card");
@@ -106,11 +109,17 @@ public class AbstractCardPatch {
                     int endingIndex = card.assetUrl.lastIndexOf(".");
                     if (endingIndex == -1) return SpireReturn.Continue();
                     String newPath = card.assetUrl.substring(0, endingIndex) + "_p" + card.assetUrl.substring(endingIndex);
-                    Texture portraitImg = ImageMaster.loadImage(newPath);
+                    if (portraitImg == null) {
+                        portraitImg = ImageMaster.loadImage(newPath);
+                    } else if (!newPath.equals(lastLoadedImgPath)) {
+                        portraitImg.dispose();
+                        portraitImg = ImageMaster.loadImage(newPath);
+                    }
+                    lastLoadedImgPath = newPath;
                     if (portraitImg != null) {
                         ReflectionHacks.setPrivate(popup, SingleCardViewPopup.class, "portraitImg", portraitImg);
-                        return SpireReturn.Return(null);
                     }
+                    return SpireReturn.Return(null);
                 }
             }
             return SpireReturn.Continue();

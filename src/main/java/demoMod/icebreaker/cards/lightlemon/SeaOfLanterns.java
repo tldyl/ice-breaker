@@ -35,7 +35,6 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
-        this.extraEffectOnExtraTurn = true;
         this.isFetter = true;
     }
 
