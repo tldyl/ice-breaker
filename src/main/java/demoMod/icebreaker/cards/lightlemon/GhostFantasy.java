@@ -30,6 +30,7 @@ public class GhostFantasy extends AbstractLightLemonCard {
     public GhostFantasy() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 6;
+        this.tags.add(CardTags.HEALING);
     }
 
     @Override

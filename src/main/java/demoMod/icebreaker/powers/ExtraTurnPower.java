@@ -1,6 +1,5 @@
 package demoMod.icebreaker.powers;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,9 +8,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
-import demoMod.icebreaker.relics.Letter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,13 +76,13 @@ public class ExtraTurnPower extends AbstractPower {
                 subscriber.onEnterExtraTurn();
             }
         }
-        addToTop(new GainEnergyAction(2));
-        // Relic: Letter
-        if (AbstractDungeon.player.hasRelic(Letter.ID)) {
-            AbstractDungeon.player.getRelic(Letter.ID).flash();
-            addToTop(new GainEnergyAction(1));
-            addToTop(new DrawCardAction(1));
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic instanceof EnterOrExitExtraTurnSubscriber) {
+                EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) relic;
+                subscriber.onEnterExtraTurn();
+            }
         }
+        addToTop(new GainEnergyAction(2));
     }
 
     @Override
@@ -127,6 +126,12 @@ public class ExtraTurnPower extends AbstractPower {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof EnterOrExitExtraTurnSubscriber) {
                 EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) power;
+                subscriber.onExitExtraTurn();
+            }
+        }
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic instanceof EnterOrExitExtraTurnSubscriber) {
+                EnterOrExitExtraTurnSubscriber subscriber = (EnterOrExitExtraTurnSubscriber) relic;
                 subscriber.onExitExtraTurn();
             }
         }
