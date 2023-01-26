@@ -7,17 +7,17 @@
     ]
   },
   "IceBreaker:StaffMidwinter": {
-    "NAME": "法杖“暴雪”",
+    "NAME": "法杖“隆冬”",
     "FLAVOR": "注入时间之神的神力，从而创造出绝无仅有的法杖 —— 库罗诺斯的赠礼。",
     "DESCRIPTIONS": [
-      "替换 #y法杖”暴雪“ 。每场战斗第一次获得 #y格挡 时，将获得量翻倍。每回合开始时获得等同于当前回合数的 #y时间停滞 。"
+      "替换 #y法杖\"暴雪\" 。每场战斗第一次获得 #y格挡 时，将获得量翻倍。每回合开始时获得等同于当前回合数的 #yim:时间凝滞 。"
     ]
   },
   "IceBreaker:MagicalScroll": {
     "NAME": "魔法卷轴",
     "FLAVOR": "好像是一张菜谱 —— 雨的赠礼。",
     "DESCRIPTIONS": [
-      "战斗开始时，从 #b3 张随机 #y魔法 牌 中选择 #b1 张加入手牌，其本回合耗能为 #b0 。"
+      "战斗开始时，从 #b3 张随机 #yim:魔法 牌 中选择 #b1 张加入手牌，其本回合耗能为 #b0 。"
     ]
   },
   "IceBreaker:Amulet": {
@@ -38,35 +38,35 @@
     "NAME": "星宿",
     "FLAVOR": "我与幽灵共舞，化身星辰，竞逐朝阳。",
     "DESCRIPTIONS": [
-      "每经过 #b7 个回合，在回合开始时进入 #b狭隙 。"
+      "每经过 #b7 个回合，在回合开始时进入 #yim:狭隙 。"
     ]
   },
   "IceBreaker:CrystalOfRadiance": {
     "NAME": "光芒结晶",
     "FLAVOR": "一小块凝固的光……混杂了凝固的时间 —— 白兰地的赠礼。",
     "DESCRIPTIONS": [
-      "每打出一张 #y火花 ，获得 #b1 层 #y时间停滞。"
+      "每打出一张 #y火花 ，获得 #b1 层 #yim:时间凝滞 。"
     ]
   },
   "IceBreaker:EyeOfSpiritualView": {
     "NAME": "灵视眼",
     "FLAVOR": "形似眼球标本的石头，能通过它看到魔力的流动 —— 方越违的赠礼。",
     "DESCRIPTIONS": [
-      "战斗开始时，获得 #b5 点 #y共鸣 。"
+      "战斗开始时，获得 #b5 点 #yim:共鸣 。"
     ]
   },
   "IceBreaker:Letter": {
     "NAME": "信",
     "FLAVOR": "“这座塔会散布腐化的力量。” —— 无比熟悉的字迹。",
     "DESCRIPTIONS": [
-      "进入 #y狭隙 时，额外获得 [E] ，抽 #b1 张牌。"
+      "进入 #yim:狭隙 时，额外获得 [E] ，抽 #b1 张牌。"
     ]
   },
   "IceBreaker:ConnectionOfMeteor": {
     "NAME": "流星之绊",
     "FLAVOR": "流星划过夜空，彼时的愿望是“永远的陪伴”。",
     "DESCRIPTIONS": [
-      "拾起时，为卡组中 #b1 张本角色的无羁绊牌附加 #y羁绊 。",
+      "拾起时，为卡组中 #b1 张本角色的无羁绊牌附加 #yim:羁绊 。",
       "选择 1 张牌来附加 羁绊 。"
     ]
   }

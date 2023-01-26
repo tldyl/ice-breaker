@@ -24,6 +24,17 @@ public class StaffMidwinter extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
+    @Override
+    public void obtain() {
+        this.instantObtain(AbstractDungeon.player, 0, true);
+        this.flash();
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player.hasRelic(StaffBlizzard.ID);
+    }
+
     public int turns;
     @Override
     public void atBattleStart() { turns = 0; }
