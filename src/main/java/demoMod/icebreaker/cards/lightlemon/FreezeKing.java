@@ -72,7 +72,8 @@ public class FreezeKing extends AbstractLightLemonCard {
             p.discardPile.removeCard(card);
             p.discardPile.moveToDeck(card, true);
         }, p.discardPile));
-        AbstractDungeon.overlayMenu.cancelButton.show(AbstractDungeon.overlayMenu.cancelButton.buttonText);
+        // 这个应该不需要吧
+        // AbstractDungeon.overlayMenu.cancelButton.show(AbstractDungeon.overlayMenu.cancelButton.buttonText);
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new GainBlockAction(p, p, this.block));
         }

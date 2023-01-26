@@ -1,6 +1,7 @@
 package demoMod.icebreaker;
 
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -8,6 +9,7 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
@@ -19,15 +21,18 @@ import demoMod.icebreaker.characters.IceBreakerCharacter;
 import demoMod.icebreaker.dynamicVariables.AnotherMagicNumber;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.enums.AbstractPlayerEnum;
+import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 import demoMod.icebreaker.powers.TimeStasisPower;
-import demoMod.icebreaker.relics.StaffBlizzard;
+import demoMod.icebreaker.relics.*;
 
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 
 @SpireInitializer
 public class IceBreaker implements EditStringsSubscriber,
@@ -235,6 +240,15 @@ public class IceBreaker implements EditStringsSubscriber,
     @Override
     public void receiveEditRelics() {
         BaseMod.addRelicToCustomPool(new StaffBlizzard(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new StaffMidwinter(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new MagicalScroll(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelic(new Amulet(), RelicType.SHARED);
+        BaseMod.addRelic(new Telescope(), RelicType.SHARED);
+        BaseMod.addRelicToCustomPool(new ConnectionOfMeteor(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new Constellation(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new CrystalOfRadiance(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new EyeOfSpiritualView(), AbstractCardEnum.ICEBREAKER);
+        BaseMod.addRelicToCustomPool(new Letter(), AbstractCardEnum.ICEBREAKER);
     }
 
     @Override

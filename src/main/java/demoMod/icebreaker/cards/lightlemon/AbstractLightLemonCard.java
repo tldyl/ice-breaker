@@ -32,7 +32,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public List<UUID> fetterTarget = new ArrayList<>();
     private final List<AbstractCard> myCardsToPreview = new ArrayList<>();
     protected Predicate<AbstractCard> fetterFilter = card -> true;
-    protected int fetterAmount = 1;
+    public int fetterAmount = 1; // 要不还是public吧？
     private float previewTimer = 0.0F;
 
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
@@ -101,7 +101,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     private AbstractCard makeStatEquivalentCopyWithoutPreviewCard() { //防止两张牌互相羁绊时出现递归调用的情况
-        AbstractCard card = super.makeStatEquivalentCopy();
+        AbstractCard card = super.makeSameInstanceOf();
+        // 复制的uuid相同来触发"发光显示目前在抽牌堆中的牌的效果"
         if (card instanceof AbstractLightLemonCard) {
             AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;
             lightLemonCard.fetterTarget = this.fetterTarget;

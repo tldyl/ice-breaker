@@ -11,8 +11,8 @@ import demoMod.icebreaker.powers.DoubleBlockPower;
 
 public class StaffBlizzard extends CustomRelic {
     public static final String ID = IceBreaker.makeID("StaffBlizzard");
-    private static final Texture IMG = new Texture(IceBreaker.getResourcePath("relics/staffBlizzard.png"));
-    private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/staffBlizzard_outLine.png"));
+    private static final Texture IMG = new Texture(IceBreaker.getResourcePath("relics/StaffBlizzard.png"));
+    private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/StaffBlizzard_outline.png"));
 
     public StaffBlizzard() {
         super(ID, IMG, IMG_OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
