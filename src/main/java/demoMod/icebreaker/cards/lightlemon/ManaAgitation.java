@@ -30,7 +30,7 @@ public class ManaAgitation extends AbstractLightLemonCard {
 
     public ManaAgitation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
     }

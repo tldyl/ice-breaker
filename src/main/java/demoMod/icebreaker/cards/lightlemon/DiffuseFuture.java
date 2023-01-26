@@ -7,8 +7,11 @@ import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.TimeWarpTurnEndEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.ExtraTurnPower;
@@ -50,6 +53,9 @@ public class DiffuseFuture extends AbstractLightLemonCard {
             addToBot(new SkipEnemiesTurnAction());
             addToBot(new PressEndTurnButtonAction());
         } else {
+            CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
+            AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));
+            AbstractDungeon.topLevelEffectsQueue.add(new TimeWarpTurnEndEffect());
             addToBot(new ApplyPowerAction(p, p, new ExtraTurnPower(p)));
         }
     }

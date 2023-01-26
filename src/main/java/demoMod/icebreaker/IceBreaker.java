@@ -153,11 +153,11 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SoulTremor());
         BaseMod.addCard(new GhostGlim());
         BaseMod.addCard(new SilverDoor());
-        BaseMod.addCard(new Blizzard());
+        //BaseMod.addCard(new Blizzard());
         BaseMod.addCard(new WheelOfHeat());
         BaseMod.addCard(new Electrospark());
         BaseMod.addCard(new SeaOfLanterns());
-        BaseMod.addCard(new ThunderBlasting());
+        //BaseMod.addCard(new ThunderBlasting());
         BaseMod.addCard(new Pyroblast());
         BaseMod.addCard(new Flarier());
         BaseMod.addCard(new IcyBurst());
@@ -206,6 +206,9 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new OnChronosBehalf());
         BaseMod.addCard(new GhostFantasy());
         BaseMod.addCard(new AllInAsh());
+        BaseMod.addCard(new Inspire());
+        BaseMod.addCard(new MagicalFlood());
+        BaseMod.addCard(new SeeYouTomorrow());
 
         BaseMod.addCard(new Spark());
     }
@@ -270,6 +273,7 @@ public class IceBreaker implements EditStringsSubscriber,
             AbstractDungeon.rareRelicPool.remove(DuVuDoll.ID);
             AbstractDungeon.shopRelicPool.remove(Sling.ID);
             AbstractDungeon.commonRelicPool.remove(PenNib.ID);
+            AbstractDungeon.commonRelicPool.remove(Akabeko.ID);
         }
     }
 }

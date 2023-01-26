@@ -17,6 +17,7 @@ import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class Blizzard extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Blizzard");
 

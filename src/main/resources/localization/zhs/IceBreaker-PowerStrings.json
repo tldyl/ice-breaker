@@ -14,7 +14,7 @@
   "IceBreaker:ExtraTurnPower": {
     "NAME": "狭隙",
     "DESCRIPTIONS": [
-      "进入时，获得 [E] [E] 并抽 #b2 张牌。 NL 无视敌人的出牌、受伤时触发的效果。"
+      "进入时，获得 [E] [E] 。 NL 无视敌人的出牌时触发的效果。"
     ]
   },
   "IceBreaker:ResonancePower": {
@@ -118,6 +118,24 @@
     "NAME": "追逐光芒",
     "DESCRIPTIONS": [
       "每次 #y羁绊 成功时，抽 #b%d 张牌。"
+    ]
+  },
+  "IceBreaker:FreeMagicPower": {
+    "NAME": "免费魔法牌",
+    "DESCRIPTIONS": [
+      "你的下 #b%d 张 #y魔法 牌耗能变为 #b0 。 NL 如果处于 #y狭隙 ，再将其打出两次。"
+    ]
+  },
+  "IceBreaker:MagicalFloodPower": {
+    "NAME": "法力涌动",
+    "DESCRIPTIONS": [
+      "每当你进入 #y狭隙 时，抽 #b%d 张牌。"
+    ]
+  },
+  "IceBreaker:SeeYouTomorrowPower": {
+    "NAME": "明朝会",
+    "DESCRIPTIONS": [
+      "每次 #y羁绊 成功时，获得 #b%d 点 #y格挡 。"
     ]
   }
 }

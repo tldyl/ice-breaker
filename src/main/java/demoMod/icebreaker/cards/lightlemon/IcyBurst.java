@@ -24,7 +24,7 @@ public class IcyBurst extends AbstractLightLemonCard {
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.NONE;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 1;
 
@@ -46,11 +46,11 @@ public class IcyBurst extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int amount = 1;
+        int amount = 0;
         if (m != null && m.hasPower(WeakPower.POWER_ID)) {
             amount += m.getPower(WeakPower.POWER_ID).amount;
+            addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -amount)));
+            addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview, amount, true, true, false));
         }
-        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -amount)));
-        addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview, amount, true, true, false));
     }
 }

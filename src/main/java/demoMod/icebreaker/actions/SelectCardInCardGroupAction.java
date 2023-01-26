@@ -61,6 +61,7 @@ public class SelectCardInCardGroupAction extends AbstractGameAction {
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.overlayMenu.cancelButton.hide();
             isDone = true;
         }
 

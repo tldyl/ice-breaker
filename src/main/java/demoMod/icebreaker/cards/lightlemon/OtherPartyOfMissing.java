@@ -28,7 +28,6 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard implements Enter
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.block = this.baseBlock = 4;
         this.baseMagicNumber = this.magicNumber = 4;
-        this.isFetter = true;
     }
 
     @Override

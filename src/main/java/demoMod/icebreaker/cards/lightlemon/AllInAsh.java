@@ -74,5 +74,9 @@ public class AllInAsh extends AbstractLightLemonCard {
                 this.addToTop(new ExhaustAction(1, true, true));
             }
         }
+
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
     }
 }

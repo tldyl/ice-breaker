@@ -39,7 +39,6 @@ public class MagicFlame extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -55,9 +54,6 @@ public class MagicFlame extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         AbstractCard spark = new Spark();
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            spark.upgrade();
-        }
         addToBot(new MakeTempCardInDrawPileAction(spark, this.magicNumber, true, true, false));
     }
 }

@@ -38,8 +38,7 @@ public class ExtraTurnPower extends AbstractPower {
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        addToBot(new GainEnergyAction(2));
-        addToBot(new DrawCardAction(2));
+        onInitialApplication();
     }
 
     @Override
@@ -77,8 +76,7 @@ public class ExtraTurnPower extends AbstractPower {
                 subscriber.onEnterExtraTurn();
             }
         }
-        addToBot(new GainEnergyAction(2));
-        addToBot(new DrawCardAction(2));
+        addToTop(new GainEnergyAction(2));
     }
 
     @Override

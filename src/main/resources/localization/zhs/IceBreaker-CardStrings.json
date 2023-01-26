@@ -9,7 +9,7 @@
   },
   "IceBreaker:MagicFlame": {
     "NAME": "幻炎",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。 NL im:狭隙 ： 升级 加入的 *火花 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。"
   },
   "IceBreaker:Spark": {
     "NAME": "火花",
@@ -156,7 +156,7 @@
   },
   "IceBreaker:EliminateDistractions": {
     "NAME": "摒除杂念",
-    "DESCRIPTION": "从抽牌堆中选择 !M! 张牌 消耗 并加入等量 *晕眩 。"
+    "DESCRIPTION": "从抽牌堆中选择 !M! 张牌 消耗 并加入一张 *晕眩 。"
   },
   "IceBreaker:MagicExtraction": {
     "NAME": "法力萃取",
@@ -242,8 +242,7 @@
   },
   "IceBreaker:Overgrow": {
     "NAME": "丛生",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的数值加一的复制加入手牌 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的数值加二的复制加入手牌 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的复制加入手牌。"
   },
   "IceBreaker:Negate": {
     "NAME": "否定",
@@ -333,5 +332,23 @@
     "NAME": "燃烬",
     "DESCRIPTION": "消耗 手牌中的所有牌。 NL 向手牌中加入 X 张 *火花 。 NL im:狭隙 :获得 X [E] 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "消耗 手牌中的所有牌。 NL 向手牌中加入 X+1 张 *火花 。 NL im:狭隙 :获得 X+1 [E] 。 NL 消耗 。"
+  },
+  "IceBreaker:Inspire": {
+    "NAME": "灵感",
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点格挡。 NL 你打出的下一张 im:魔法 牌耗能变为0。 NL im:狭隙 :你打出的下一张 im:魔法 牌将打出两次。",
+    "EXTENDED_DESCRIPTION": [
+      "幻听"
+    ]
+  },
+  "IceBreaker:MagicalFlood": {
+    "NAME": "法力涌动",
+    "DESCRIPTION": "每当你进入 im:狭隙 时，抽 !M! 张牌。",
+    "EXTENDED_DESCRIPTION": [
+      "幽灵法则"
+    ]
+  },
+  "IceBreaker:SeeYouTomorrow": {
+    "NAME": "明朝会",
+    "DESCRIPTION": "每次 im:羁绊 成功时，获得 !M! 点 格挡 。"
   }
 }

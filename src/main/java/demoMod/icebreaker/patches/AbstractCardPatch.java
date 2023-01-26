@@ -19,7 +19,9 @@ import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
+import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.interfaces.ModifyMagicNumberSubscriber;
+import demoMod.icebreaker.powers.FreeMagicPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +123,19 @@ public class AbstractCardPatch {
                     }
                     return SpireReturn.Return(null);
                 }
+            }
+            return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "freeToPlay"
+    )
+    public static class PatchFreeToPlay {
+        public static SpireReturn<Boolean> Prefix(AbstractCard card) {
+            if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(FreeMagicPower.POWER_ID) && card.tags.contains(CardTagEnum.MAGIC)) {
+                return SpireReturn.Return(true);
             }
             return SpireReturn.Continue();
         }

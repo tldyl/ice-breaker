@@ -41,8 +41,8 @@ public class EliminateDistractions extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SelectCardInCardGroupAction(this.magicNumber, c -> true, c -> {
-            addToTop(new MakeTempCardInDrawPileAction(new Dazed(), 1, true, true, false));
             addToTop(new ExhaustSpecificCardAction(c, p.drawPile, true));
         }, p.drawPile));
+        addToBot(new MakeTempCardInDrawPileAction(new Dazed(), 1, true, true, false));
     }
 }

@@ -19,6 +19,7 @@ import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class ThunderBlasting extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("ThunderBlasting");
 
