@@ -44,7 +44,6 @@ public class ConnectionOfMeteor extends CustomRelic {
             }
         }
         AbstractDungeon.gridSelectScreen.open(group, 1, DESCRIPTIONS[1], false, false, false, false);
-        AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
     }
     @Override
     public void update() {
@@ -57,6 +56,7 @@ public class ConnectionOfMeteor extends CustomRelic {
                 card1.isFetter = true; card1.fetterAmount = 1;
                 card1.onAddToMasterDeck();
             }
+            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
     }
