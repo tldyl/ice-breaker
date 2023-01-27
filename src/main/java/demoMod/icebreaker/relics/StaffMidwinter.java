@@ -37,14 +37,21 @@ public class StaffMidwinter extends CustomRelic {
 
     public int turns;
     @Override
-    public void atBattleStart() { turns = 0; }
-
-    @Override
-    public void atTurnStart() {
+    public void atBattleStart() {
+        turns = 0;
         this.flash();
         AbstractPlayer p = AbstractDungeon.player;
         this.addToBot(new RelicAboveCreatureAction(p, this));
         this.addToBot(new ApplyPowerAction(p, p, new DoubleBlockPower(p, 1)));
-        this.addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ++this.turns)));
+    }
+
+    @Override
+    public void atTurnStart() {
+        if (this.turns > 0) {
+            this.flash();
+            AbstractPlayer p = AbstractDungeon.player;
+            this.addToBot(new RelicAboveCreatureAction(p, this));
+            this.addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ++this.turns)));
+        }
     }
 }

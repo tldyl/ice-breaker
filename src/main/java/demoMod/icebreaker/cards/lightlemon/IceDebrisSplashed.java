@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.effects.IceShardSplashEffect;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 import demoMod.icebreaker.powers.ResonancePower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 
@@ -56,12 +57,13 @@ public class IceDebrisSplashed extends AbstractLightLemonCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        if (AbstractDungeon.player.hasPower(ResonancePower.POWER_ID)) {
-            this.baseDamage -= AbstractDungeon.player.getPower(ResonancePower.POWER_ID).amount;
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.baseDamage -= p.getPower(ResonancePower.POWER_ID).amount;
         }
         super.calculateCardDamage(mo);
-        if (AbstractDungeon.player.hasPower(ResonancePower.POWER_ID)) {
-            this.baseDamage += AbstractDungeon.player.getPower(ResonancePower.POWER_ID).amount;
+        if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.baseDamage += p.getPower(ResonancePower.POWER_ID).amount;
         }
         this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];
@@ -77,12 +79,12 @@ public class IceDebrisSplashed extends AbstractLightLemonCard {
         } else {
             this.baseDamage = 0;
         }
-        if (AbstractDungeon.player.hasPower(ResonancePower.POWER_ID)) {
-            this.baseDamage -= AbstractDungeon.player.getPower(ResonancePower.POWER_ID).amount;
+        if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.baseDamage -= p.getPower(ResonancePower.POWER_ID).amount;
         }
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(ResonancePower.POWER_ID)) {
-            this.baseDamage += AbstractDungeon.player.getPower(ResonancePower.POWER_ID).amount;
+        if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.baseDamage += p.getPower(ResonancePower.POWER_ID).amount;
         }
         this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];

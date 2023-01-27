@@ -1,5 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,8 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.ChooseOneCardWrapper;
+import demoMod.icebreaker.effects.GhostFantasyEffect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +70,8 @@ public class GhostFantasy extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new VFXAction(new BorderFlashEffect(new Color(0.5F, 1.0F, 0.8F, 1.0F))));
+        addToBot(new VFXAction(new GhostFantasyEffect(p.hb.cX, p.hb.cY), 1.5F));
         for (int i=0;i<this.magicNumber;i++) {
             List<AbstractCard> cards = new ArrayList<>();
             while (cards.size() < 3) {
