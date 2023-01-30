@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class DeepCalculatePower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("DeepCalculatePower");
@@ -17,7 +18,7 @@ public class DeepCalculatePower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this, "DeepCalculation");
     }
 
     @Override

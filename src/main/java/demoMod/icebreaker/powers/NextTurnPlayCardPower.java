@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class NextTurnPlayCardPower extends AbstractPower {
         this.card = card;
         this.ID = POWER_ID + UUID.randomUUID();
         this.updateDescription();
-        this.loadRegion("draw");
+        PowerRegionLoader.load(this, "AppendTrigger");
     }
 
     @Override

@@ -30,9 +30,10 @@ public class Constellation extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        if (++this.counter == 7) {
+        if (++this.counter == 6) {
             AbstractPlayer p = AbstractDungeon.player;
-            this.flash(); this.counter = 0;
+            this.flash();
+            this.counter = 0;
             this.addToBot(new RelicAboveCreatureAction(p, this));
             CardCrawlGame.sound.play("POWER_TIME_WARP", 0.05F);
             AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.GOLD, true));

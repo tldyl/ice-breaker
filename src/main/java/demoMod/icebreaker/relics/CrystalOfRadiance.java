@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
+import demoMod.icebreaker.powers.ExtraTurnPower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
@@ -18,7 +19,7 @@ public class CrystalOfRadiance extends CustomRelic {
     private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/CrystalOfRadiance_outline.png"));
 
     public CrystalOfRadiance() {
-        super(ID, IMG, IMG_OUTLINE, RelicTier.RARE, LandingSound.CLINK);
+        super(ID, IMG, IMG_OUTLINE, RelicTier.RARE, LandingSound.SOLID);
     }
 
     @Override
@@ -28,9 +29,9 @@ public class CrystalOfRadiance extends CustomRelic {
 
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {
-        if (c instanceof Spark) {
+        AbstractPlayer p = player;
+        if (c instanceof Spark && !p.hasPower(ExtraTurnPower.POWER_ID)) {
             this.flash();
-            AbstractPlayer p = player;
             this.addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, 1)));
         }
     }

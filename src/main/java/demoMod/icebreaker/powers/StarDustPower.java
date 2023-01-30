@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class StarDustPower extends AbstractPower implements TriggerFetterSubscri
         this.name = NAME;
         this.updateDescription();
         this.initialAmount = amount;
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

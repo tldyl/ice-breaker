@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class NiflheimrPower extends AbstractPower implements EnterOrExitExtraTur
         this.name = NAME;
         this.upgraded = upgraded;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this, "FrostCountry");
         if (this.upgraded) {
             this.name += "+";
         }

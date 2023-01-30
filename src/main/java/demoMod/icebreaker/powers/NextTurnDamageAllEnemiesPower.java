@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class NextTurnDamageAllEnemiesPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("NextTurnDamageAllEnemiesPower");
@@ -22,7 +23,7 @@ public class NextTurnDamageAllEnemiesPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.updateDescription();
-        this.loadRegion("the_bomb");
+        PowerRegionLoader.load(this, "Detonation");
     }
 
     @Override

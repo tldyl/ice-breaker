@@ -16,7 +16,7 @@ public class EyeOfSpiritualView extends CustomRelic {
     private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/EyeOfSpiritualView_outline.png"));
 
     public EyeOfSpiritualView() {
-        super(ID, IMG, IMG_OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, IMG, IMG_OUTLINE, RelicTier.UNCOMMON, LandingSound.SOLID);
     }
 
     @Override

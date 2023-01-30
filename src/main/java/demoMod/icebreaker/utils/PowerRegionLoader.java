@@ -12,8 +12,12 @@ public class PowerRegionLoader {
     private static final Map<String, Texture> powerRegionMap = new HashMap<>();
 
     public static void load(AbstractPower power) {
-        String region48 = power.getClass().getSimpleName().replace("Power", "") + "48";
-        String region128 = power.getClass().getSimpleName().replace("Power", "") + "128";
+        load(power, power.getClass().getSimpleName());
+    }
+
+    public static void load(AbstractPower power, String id) {
+        String region48 = id.replace("Power", "48");
+        String region128 = id.replace("Power", "128");
         if (!powerRegionMap.containsKey(region48)) {
             powerRegionMap.put(region48, new Texture(IceBreaker.getResourcePath("powers/" + region48 + ".png")));
         }
