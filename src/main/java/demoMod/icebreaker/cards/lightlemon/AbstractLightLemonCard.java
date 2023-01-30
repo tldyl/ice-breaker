@@ -35,6 +35,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public int fetterAmount = 1; // 要不还是public吧？
     private float previewTimer = 0.0F;
 
+    public boolean ConnectionOfMeteor = false;
+
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, AbstractCardEnum.ICEBREAKER, rarity, target);
     }
@@ -119,7 +121,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
             // modified to simplify the code
             lightLemonCard.loadCardsToPreview();
-
+            lightLemonCard.ConnectionOfMeteor = this.ConnectionOfMeteor;
         }
         return card;
     }
