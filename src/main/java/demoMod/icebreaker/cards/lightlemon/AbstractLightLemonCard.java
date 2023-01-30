@@ -35,6 +35,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     public int fetterAmount = 1; // 要不还是public吧？
     private float previewTimer = 0.0F;
 
+    public boolean ConnectionOfMeteor = false;
+
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, AbstractCardEnum.ICEBREAKER, rarity, target);
     }
@@ -101,7 +103,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     private AbstractCard makeStatEquivalentCopyWithoutPreviewCard() { //防止两张牌互相羁绊时出现递归调用的情况
-        AbstractCard card = super.makeSameInstanceOf();
+        AbstractCard card = super.makeStatEquivalentCopy();
+        card.uuid = this.uuid;
         // 复制的uuid相同来触发"发光显示目前在抽牌堆中的牌的效果"
         if (card instanceof AbstractLightLemonCard) {
             AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;
@@ -119,7 +122,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
             // modified to simplify the code
             lightLemonCard.loadCardsToPreview();
-
+            lightLemonCard.ConnectionOfMeteor = this.ConnectionOfMeteor;
         }
         return card;
     }

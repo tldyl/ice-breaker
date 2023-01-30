@@ -11,6 +11,7 @@ import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
@@ -18,6 +19,10 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 public class DiscoverMagicCardAction extends DiscoveryAction {
     // 从3张随机魔法牌中选择一张加入手牌，其本回合耗能为0
     // 遗物：魔法卷轴
+
+    public DiscoverMagicCardAction(AbstractCard.CardType type, int amount) {
+        super(type, amount);
+    }
 
     @SpirePatch(clz = DiscoveryAction.class, method = "generateCardChoices")
     public static class MagicCardPatch {

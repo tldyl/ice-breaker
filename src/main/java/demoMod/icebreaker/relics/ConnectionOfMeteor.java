@@ -1,6 +1,8 @@
 package demoMod.icebreaker.relics;
 
+import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomRelic;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -8,14 +10,19 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.function.Predicate;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
-public class ConnectionOfMeteor extends CustomRelic {
+// 使用basemod的CustomBottleRelic接口，这样在查看牌组时被这个遗物选择的牌右上角会有遗物标志
+public class ConnectionOfMeteor extends CustomRelic implements CustomBottleRelic, CustomSavable<Integer> {
     public static final String ID = IceBreaker.makeID("ConnectionOfMeteor");
     private static final Texture IMG = new Texture(IceBreaker.getResourcePath("relics/ConnectionOfMeteor.png"));
     private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/ConnectionOfMeteor_outline.png"));
-
+    private static AbstractCard card;
     public ConnectionOfMeteor() {
         super(ID, IMG, IMG_OUTLINE, RelicTier.COMMON, LandingSound.MAGICAL);
     }
@@ -25,6 +32,32 @@ public class ConnectionOfMeteor extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
+    @Override
+    public Predicate<AbstractCard> isOnCard() {
+        return c -> c instanceof AbstractLightLemonCard && ((AbstractLightLemonCard) c).ConnectionOfMeteor;
+    }
+
+    @Override
+    public Integer onSave() {
+        if (card != null) {
+            return AbstractDungeon.player.masterDeck.group.indexOf(card);
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public void onLoad(Integer cardIndex) {
+        if (cardIndex == null) {
+            return;
+        }
+        if (cardIndex >= 0 && cardIndex < AbstractDungeon.player.masterDeck.group.size()) {
+            card = AbstractDungeon.player.masterDeck.group.get(cardIndex);
+            if (card instanceof AbstractLightLemonCard) {
+                ((AbstractLightLemonCard) card).ConnectionOfMeteor = true;
+            }
+        }
+    }
 
     private boolean cardSelected = true;
 
@@ -39,7 +72,9 @@ public class ConnectionOfMeteor extends CustomRelic {
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : player.masterDeck.group) {
-            if (c instanceof AbstractLightLemonCard && !((AbstractLightLemonCard) c).isFetter) {
+            if (c instanceof AbstractLightLemonCard &&
+                    !((AbstractLightLemonCard) c).isFetter &&
+                    !((AbstractLightLemonCard) c).ConnectionOfMeteor) {
                 group.addToBottom(c);
             }
         }
@@ -50,9 +85,11 @@ public class ConnectionOfMeteor extends CustomRelic {
         super.update();
         if (!cardSelected && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             cardSelected = true;
-            AbstractCard card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-            if (card instanceof AbstractLightLemonCard) {
-                AbstractLightLemonCard card1 = (AbstractLightLemonCard)card;
+            AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+            if (c instanceof AbstractLightLemonCard) {
+                card = c;
+                AbstractLightLemonCard card1 = (AbstractLightLemonCard)c;
+                card1.ConnectionOfMeteor = true;
                 card1.isFetter = true; card1.fetterAmount = 1;
                 card1.onAddToMasterDeck();
             }
