@@ -103,7 +103,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     private AbstractCard makeStatEquivalentCopyWithoutPreviewCard() { //防止两张牌互相羁绊时出现递归调用的情况
-        AbstractCard card = super.makeSameInstanceOf();
+        AbstractCard card = super.makeStatEquivalentCopy();
+        card.uuid = this.uuid;
         // 复制的uuid相同来触发"发光显示目前在抽牌堆中的牌的效果"
         if (card instanceof AbstractLightLemonCard) {
             AbstractLightLemonCard lightLemonCard = (AbstractLightLemonCard) card;

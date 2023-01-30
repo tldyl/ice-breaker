@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.function.Predicate;
 
@@ -20,7 +22,6 @@ public class ConnectionOfMeteor extends CustomRelic implements CustomBottleRelic
     public static final String ID = IceBreaker.makeID("ConnectionOfMeteor");
     private static final Texture IMG = new Texture(IceBreaker.getResourcePath("relics/ConnectionOfMeteor.png"));
     private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/ConnectionOfMeteor_outline.png"));
-
     private static AbstractCard card;
     public ConnectionOfMeteor() {
         super(ID, IMG, IMG_OUTLINE, RelicTier.COMMON, LandingSound.MAGICAL);
@@ -71,7 +72,9 @@ public class ConnectionOfMeteor extends CustomRelic implements CustomBottleRelic
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : player.masterDeck.group) {
-            if (c instanceof AbstractLightLemonCard && !((AbstractLightLemonCard) c).isFetter) {
+            if (c instanceof AbstractLightLemonCard &&
+                    !((AbstractLightLemonCard) c).isFetter &&
+                    !((AbstractLightLemonCard) c).ConnectionOfMeteor) {
                 group.addToBottom(c);
             }
         }
@@ -82,9 +85,10 @@ public class ConnectionOfMeteor extends CustomRelic implements CustomBottleRelic
         super.update();
         if (!cardSelected && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             cardSelected = true;
-            AbstractCard card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-            if (card instanceof AbstractLightLemonCard) {
-                AbstractLightLemonCard card1 = (AbstractLightLemonCard)card;
+            AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
+            if (c instanceof AbstractLightLemonCard) {
+                card = c;
+                AbstractLightLemonCard card1 = (AbstractLightLemonCard)c;
                 card1.ConnectionOfMeteor = true;
                 card1.isFetter = true; card1.fetterAmount = 1;
                 card1.onAddToMasterDeck();
