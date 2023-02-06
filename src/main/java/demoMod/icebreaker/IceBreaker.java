@@ -9,7 +9,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
@@ -19,9 +18,9 @@ import demoMod.icebreaker.cards.lightlemon.*;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
 import demoMod.icebreaker.dynamicVariables.AnotherMagicNumber;
+import demoMod.icebreaker.effects.VictoryClockEffect;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.enums.AbstractPlayerEnum;
-import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 import demoMod.icebreaker.relics.*;
@@ -31,8 +30,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.*;
 
 @SpireInitializer
 public class IceBreaker implements EditStringsSubscriber,
@@ -136,6 +133,7 @@ public class IceBreaker implements EditStringsSubscriber,
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
+        VictoryClockEffect.initialize();
     }
 
     @Override

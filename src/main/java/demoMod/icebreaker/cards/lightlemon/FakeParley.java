@@ -22,7 +22,7 @@ public class FakeParley extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/FakeParley.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL;
 
     private static final int COST = 1;
@@ -45,7 +45,6 @@ public class FakeParley extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, this.magicNumber)));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new DrawCardAction(this.magicNumber));
         } else {

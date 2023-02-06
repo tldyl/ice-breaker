@@ -143,7 +143,7 @@
   },
   "IceBreaker:FakeParley": {
     "NAME": "时之鸣",
-    "DESCRIPTION": "im:羁绊 。 NL 获得 !M! 层 im:时间凝滞 和 im:共鸣 。 NL 如果处于 im:狭隙 ，抽 !M! 张牌。 NL 否则，你打出的下一张 im:魔法 受 im:共鸣 影响。"
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !M! 层 im:时间凝滞 。 NL 如果处于 im:狭隙 ，抽 !M! 张牌。 NL 否则，你打出的下一张 im:魔法 受 im:共鸣 影响。"
   },
   "IceBreaker:Oracle": {
     "NAME": "神谕",
@@ -238,7 +238,7 @@
   },
   "IceBreaker:TimeCreation": {
     "NAME": "时间创造",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 im:时间凝滞 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 im:时间凝滞 。"
   },
   "IceBreaker:Overgrow": {
     "NAME": "丛生",

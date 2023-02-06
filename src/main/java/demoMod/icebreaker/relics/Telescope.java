@@ -22,7 +22,7 @@ public class Telescope extends CustomRelic {
     }
 
     @Override
-    public void atTurnStart() {
+    public void atTurnStartPostDraw() {
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         this.addToBot(new BetterDrawPileToHandAction(1));
