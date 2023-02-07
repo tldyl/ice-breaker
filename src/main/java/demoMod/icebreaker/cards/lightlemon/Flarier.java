@@ -8,7 +8,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
+import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.FlarierPower;
+
+import java.util.ArrayList;
 
 public class Flarier extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Flarier");
@@ -28,6 +31,8 @@ public class Flarier extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 3;
         this.cardsToPreview = new Spark();
+        this.tags = new ArrayList<>();
+        this.tags.add(CardTagEnum.MAGIC);
     }
 
     @Override
