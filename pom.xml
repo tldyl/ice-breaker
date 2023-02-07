@@ -76,8 +76,8 @@
                 <excludes>
                     <exclude>**/*.psd</exclude>
                     <exclude>**/*.docx</exclude>
-                    <exclude>**/cardsToCut</exclude>
-                    <exclude>**/cardsToReplace</exclude>
+                    <exclude>**/cardsToCut/</exclude>
+                    <exclude>**/cardsToReplace/</exclude>
                 </excludes>
             </resource>
         </resources>

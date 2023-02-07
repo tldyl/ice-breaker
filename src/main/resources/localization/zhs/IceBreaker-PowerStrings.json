@@ -137,5 +137,11 @@
     "DESCRIPTIONS": [
       "每次 #y羁绊 成功时，获得 #b%d 点 #y格挡 。"
     ]
+  },
+  "IceBreaker:NightOfFireworksPower": {
+    "NAME": "花火",
+    "DESCRIPTIONS": [
+      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。"
+    ]
   }
 }

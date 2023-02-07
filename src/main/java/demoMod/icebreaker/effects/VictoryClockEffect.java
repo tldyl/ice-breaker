@@ -46,7 +46,7 @@ public class VictoryClockEffect extends AbstractGameEffect {
 
     private float effectScale;
     private float bgScale;
-    private List<AbstractGameEffect> effectList;
+    private final List<AbstractGameEffect> effectList;
 
     public static void initialize() {
         if (!loaded) {

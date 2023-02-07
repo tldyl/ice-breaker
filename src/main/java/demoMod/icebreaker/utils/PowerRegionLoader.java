@@ -16,8 +16,8 @@ public class PowerRegionLoader {
     }
 
     public static void load(AbstractPower power, String id) {
-        String region48 = id.replace("Power", "48");
-        String region128 = id.replace("Power", "128");
+        String region48 = id.replace("Power", "") + "48";
+        String region128 = id.replace("Power", "") + "128";
         if (!powerRegionMap.containsKey(region48)) {
             powerRegionMap.put(region48, new Texture(IceBreaker.getResourcePath("powers/" + region48 + ".png")));
         }
