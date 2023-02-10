@@ -238,7 +238,7 @@
   },
   "IceBreaker:TimeCreation": {
     "NAME": "时间创造",
-    "DESCRIPTION": "获得 !M! 层 im:时间凝滞 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 im:时间凝滞 。"
   },
   "IceBreaker:Overgrow": {
     "NAME": "丛生",
