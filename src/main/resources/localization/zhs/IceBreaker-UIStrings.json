@@ -8,5 +8,10 @@
     "TEXT": [
       "选择 %d 张牌。"
     ]
+  },
+  "IceBreaker:DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "选择至多%d张牌放到你抽牌堆的顶端。"
+    ]
   }
 }

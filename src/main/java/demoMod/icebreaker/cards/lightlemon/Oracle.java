@@ -26,6 +26,7 @@ public class Oracle extends AbstractLightLemonCard {
 
     public Oracle() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        this.tags.add(CardTags.HEALING);
         this.baseBlock = this.block = 5;
         this.baseMagicNumber = this.magicNumber = 1;
         this.extraEffectOnExtraTurn = true;

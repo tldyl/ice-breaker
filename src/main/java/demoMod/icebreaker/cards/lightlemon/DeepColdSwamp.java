@@ -37,6 +37,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
         this.baseBlock = this.block = 7;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
+        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
         this.extraEffectOnExtraTurn = true;
     }

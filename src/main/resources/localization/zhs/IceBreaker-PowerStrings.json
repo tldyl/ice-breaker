@@ -143,5 +143,11 @@
     "DESCRIPTIONS": [
       "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。"
     ]
+  },
+  "IceBreaker:VitalLoopPower": {
+    "NAME": "生命循环",
+    "DESCRIPTIONS": [
+      "回合开始或进入 #y狭隙 时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。"
+    ]
   }
 }

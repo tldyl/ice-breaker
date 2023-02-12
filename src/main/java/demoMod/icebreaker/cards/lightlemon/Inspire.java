@@ -26,6 +26,7 @@ public class Inspire extends AbstractLightLemonCard {
     public Inspire() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseBlock = 8;
+        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
         this.extraEffectOnExtraTurn = true;
     }

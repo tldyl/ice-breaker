@@ -354,5 +354,9 @@
   "IceBreaker:NightOfFireworks": {
     "NAME": "花火",
     "DESCRIPTION": "回合开始或进入 im:狭隙 时，将 !M! 张 *火花 加入抽牌堆。"
+  },
+  "IceBreaker:VitalLoop": {
+    "NAME": "生命循环",
+    "DESCRIPTION": "回合开始或进入 im:狭隙 时，将弃牌堆中的至多 !M! 张牌放到抽牌堆的顶部。"
   }
 }

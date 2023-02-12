@@ -2,7 +2,9 @@ package demoMod.icebreaker.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
@@ -17,6 +19,16 @@ public class Telescope extends CustomRelic {
     }
 
     @Override
+    public void onEquip() {
+        AbstractDungeon.player.masterHandSize--;
+    }
+
+    @Override
+    public void onUnequip() {
+        AbstractDungeon.player.masterHandSize++;
+    }
+
+    @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
     }
@@ -24,6 +36,15 @@ public class Telescope extends CustomRelic {
     @Override
     public void atTurnStartPostDraw() {
         this.flash();
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (AbstractDungeon.player.drawPile.isEmpty()) {
+                    addToTop(new EmptyDeckShuffleAction());
+                }
+                isDone = true;
+            }
+        });
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         this.addToBot(new BetterDrawPileToHandAction(1));
     }

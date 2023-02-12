@@ -39,6 +39,7 @@ public class FrostWind extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
+        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
     }
 
