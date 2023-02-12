@@ -23,7 +23,7 @@ public class HolyZone extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     public HolyZone() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -35,7 +35,6 @@ public class HolyZone extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
             this.selfRetain = true;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();

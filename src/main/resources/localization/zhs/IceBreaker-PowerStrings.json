@@ -147,7 +147,27 @@
   "IceBreaker:VitalLoopPower": {
     "NAME": "生命循环",
     "DESCRIPTIONS": [
+      "回合开始时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。",
       "回合开始或进入 #y狭隙 时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。"
+    ]
+  },
+  "IceBreaker:FantasyDreamPower": {
+    "NAME": "一夜幻梦",
+    "DESCRIPTIONS": [
+      "战斗中临时增加的非 #y消耗 牌打出时将被 #y消耗 并 #y触发效果 #b%d 次。"
+    ]
+  },
+  "IceBreaker:HarshTemperamentPower": {
+    "NAME": "肃杀",
+    "DESCRIPTIONS": [
+      "每当你进入 #y狭隙 时，你打出的下一张 #y魔法 牌将额外打出 #b%d 次。"
+    ]
+  },
+  "IceBreaker:AsterismFormPower": {
+    "NAME": "群星形态",
+    "DESCRIPTIONS": [
+      "回合开始或进入 #y狭隙 时，从 #b15 张来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。",
+      "回合开始或进入 #y狭隙 时，从 #b15 张 #y升级 过的来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。"
     ]
   }
 }

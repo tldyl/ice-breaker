@@ -357,6 +357,20 @@
   },
   "IceBreaker:VitalLoop": {
     "NAME": "生命循环",
-    "DESCRIPTION": "回合开始或进入 im:狭隙 时，将弃牌堆中的至多 !M! 张牌放到抽牌堆的顶部。"
+    "DESCRIPTION": "回合开始时，将弃牌堆中的至多 !M! 张牌放到抽牌堆的顶部。",
+    "UPGRADE_DESCRIPTION": "回合开始或进入 im:狭隙 时，将弃牌堆中的至多 !M! 张牌放到抽牌堆的顶部。"
+  },
+  "IceBreaker:FantasyDream": {
+    "NAME": "一夜幻梦",
+    "DESCRIPTION": "战斗中临时增加的非 消耗 牌打出时将被 消耗 并 im:触发效果 一次。"
+  },
+  "IceBreaker:HarshTemperament": {
+    "NAME": "肃杀",
+    "DESCRIPTION": "每当你进入 im:狭隙 时，你打出的下一张 im:魔法 牌将打出两次。"
+  },
+  "IceBreaker:AsterismForm": {
+    "NAME": "群星形态",
+    "DESCRIPTION": "回合开始或进入 im:狭隙 时，从15张来自所有颜色的随机牌中选择一张打出。",
+    "UPGRADE_DESCRIPTION": "回合开始或进入 im:狭隙 时，从15张 升级 过的来自所有颜色的随机牌中选择一张打出。"
   }
 }

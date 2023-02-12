@@ -29,11 +29,11 @@ public class GhostFantasy extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public GhostFantasy() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 6;
+        this.baseMagicNumber = this.magicNumber = 4;
         this.tags.add(CardTags.HEALING);
     }
 
@@ -84,7 +84,7 @@ public class GhostFantasy extends AbstractLightLemonCard {
                     }
                 }
                 if (!skip) {
-                    cards.add(tmp);
+                    cards.add(tmp.makeCopy());
                 }
             }
             ArrayList<AbstractCard> wrappedCards = new ArrayList<>();
@@ -95,7 +95,7 @@ public class GhostFantasy extends AbstractLightLemonCard {
                 }
                 wrappedCard.setCard(card);
                 if (this.upgraded) {
-                    card.modifyCostForCombat(-9);
+                    card.setCostForTurn(0);
                 }
                 wrappedCards.add(wrappedCard);
             }

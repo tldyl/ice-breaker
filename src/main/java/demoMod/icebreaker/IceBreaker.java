@@ -214,6 +214,9 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new SeeYouTomorrow());
         BaseMod.addCard(new NightOfFireworks());
         BaseMod.addCard(new VitalLoop());
+        BaseMod.addCard(new FantasyDream());
+        BaseMod.addCard(new HarshTemperament());
+        BaseMod.addCard(new AsterismForm());
 
         BaseMod.addCard(new Spark());
     }

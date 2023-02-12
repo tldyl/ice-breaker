@@ -14,19 +14,25 @@ public class VitalLoopPower extends AbstractPower implements EnterOrExitExtraTur
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
+    private final boolean upgraded;
 
-    public VitalLoopPower(AbstractCreature owner, int amount) {
+    public VitalLoopPower(AbstractCreature owner, int amount, boolean upgraded) {
         this.owner = owner;
         this.amount = amount;
         this.ID = POWER_ID;
         this.name = NAME;
+        this.upgraded = upgraded;
+        if (this.upgraded) {
+            this.ID += "+";
+            this.name += "+";
+        }
         this.updateDescription();
-        PowerRegionLoader.load(this, "FrostCountry");
+        PowerRegionLoader.load(this, "LifeCycle");
     }
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
+        this.description = String.format(this.upgraded ? DESC[1] : DESC[0], this.amount);
     }
 
     @Override
@@ -36,7 +42,9 @@ public class VitalLoopPower extends AbstractPower implements EnterOrExitExtraTur
 
     @Override
     public void onEnterExtraTurn() {
-        triggerPower();
+        if (this.upgraded) {
+            triggerPower();
+        }
     }
 
     @Override
