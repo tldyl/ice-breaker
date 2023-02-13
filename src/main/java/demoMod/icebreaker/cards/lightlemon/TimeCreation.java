@@ -29,7 +29,7 @@ public class TimeCreation extends AbstractLightLemonCard {
     public TimeCreation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
+        // 不是魔法牌
         this.baseMagicNumber = this.magicNumber = 3;
         this.baseBlock = 4;
     }

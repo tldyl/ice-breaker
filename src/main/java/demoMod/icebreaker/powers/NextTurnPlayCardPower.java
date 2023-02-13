@@ -1,5 +1,6 @@
 package demoMod.icebreaker.powers;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -40,26 +41,29 @@ public class NextTurnPlayCardPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         this.flash();
+        AbstractCard c = card.makeStatEquivalentCopy();
+        c.freeToPlayOnce = true;
+        this.addToBot(new MakeTempCardInHandAction(c, this.amount));
 
-        for (int i=0;i<this.amount;i++) {
-            AbstractMonster m = null;
-            if (this.card.target == AbstractCard.CardTarget.ENEMY) {
-                m = AbstractDungeon.getRandomMonster();
-            }
-
-            AbstractCard tmp = card.makeSameInstanceOf();
-            AbstractDungeon.player.limbo.addToBottom(tmp);
-            tmp.current_x = card.current_x;
-            tmp.current_y = card.current_y;
-            tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-            tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-            if (m != null) {
-                tmp.calculateCardDamage(m);
-            }
-
-            tmp.purgeOnUse = true;
-            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
-        }
+//        for (int i=0;i<this.amount;i++) {
+//            AbstractMonster m = null;
+//            if (this.card.target == AbstractCard.CardTarget.ENEMY) {
+//                m = AbstractDungeon.getRandomMonster();
+//            }
+//
+//            AbstractCard tmp = card.makeSameInstanceOf();
+//            AbstractDungeon.player.limbo.addToBottom(tmp);
+//            tmp.current_x = card.current_x;
+//            tmp.current_y = card.current_y;
+//            tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+//            tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+//            if (m != null) {
+//                tmp.calculateCardDamage(m);
+//            }
+//
+//            tmp.purgeOnUse = true;
+//            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+//        }
 
         addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }

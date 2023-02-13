@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -61,10 +62,8 @@ public class ExtraTrigger extends AbstractLightLemonCard {
 
                 if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                     for (AbstractCard card : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                        p.hand.moveToDiscardPile(card);
-                        card.triggerOnManualDiscard();
+                        p.hand.moveToExhaustPile(card);
                         addToBot(new ApplyPowerAction(p, p, new NextTurnPlayCardPower(p, card, 1)));
-                        GameActionManager.incrementDiscard(false);
                     }
 
                     AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
