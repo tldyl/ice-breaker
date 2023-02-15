@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -24,14 +25,14 @@ public class IceShield extends AbstractLightLemonCard {
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 2;
 
     public IceShield() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseBlock = this.block = 9;
-        this.baseMagicNumber = this.magicNumber = 3;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
     }
@@ -42,12 +43,19 @@ public class IceShield extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, 3 + (upgraded ? 1 : 0))));
+        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
+            if (!mo.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
+            }
+        }
     }
 }

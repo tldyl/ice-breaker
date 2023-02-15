@@ -141,7 +141,8 @@
   "IceBreaker:NightOfFireworksPower": {
     "NAME": "花火",
     "DESCRIPTIONS": [
-      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。"
+      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。",
+      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花+ 加入抽牌堆。"
     ]
   },
   "IceBreaker:VitalLoopPower": {

@@ -21,7 +21,7 @@ public class NightOfFireworks extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     public NightOfFireworks() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -33,12 +33,15 @@ public class NightOfFireworks extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.isInnate = true;
+            this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new NightOfFireworksPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new NightOfFireworksPower(p, this.magicNumber, this.upgraded)));
     }
 }

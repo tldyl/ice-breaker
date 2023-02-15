@@ -7,13 +7,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
+import demoMod.icebreaker.cards.lightlemon.AsterismForm;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
 import demoMod.icebreaker.utils.PowerRegionLoader;
 
@@ -72,6 +72,10 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
                 m = AbstractDungeon.getRandomMonster();
             }
 
+            if (!(card.rarity == AbstractCard.CardRarity.BASIC)) {
+                AsterismForm.cardPool.removeIf(card1 -> card1.cardID.equals(card.cardID));
+            }
+
             AbstractCard tmp = card.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = card.current_x;
@@ -89,7 +93,7 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
 
     private CardGroup getRandomCards() {
         CardGroup ret = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        ArrayList<AbstractCard> allCards = CardLibrary.getAllCards();
+        ArrayList<AbstractCard> allCards = new ArrayList<>(AsterismForm.cardPool);
         Collections.shuffle(allCards, new Random(AbstractDungeon.cardRandomRng.random.nextLong()));
         ret.group.addAll(allCards.subList(0, 15).stream().map(card -> {
             AbstractCard tmp = card.makeCopy();

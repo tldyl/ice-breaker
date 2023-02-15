@@ -163,7 +163,7 @@ public class IceBreaker implements EditStringsSubscriber,
         //BaseMod.addCard(new ThunderBlasting());
         BaseMod.addCard(new Pyroblast());
         BaseMod.addCard(new Flarier());
-        BaseMod.addCard(new IcyBurst());
+        //BaseMod.addCard(new IcyBurst());
         BaseMod.addCard(new ManaAgitation());
         BaseMod.addCard(new Snap());
         BaseMod.addCard(new HauntHell());

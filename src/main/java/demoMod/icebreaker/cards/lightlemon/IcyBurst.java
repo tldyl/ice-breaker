@@ -14,6 +14,7 @@ import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class IcyBurst extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("IcyBurst");
 

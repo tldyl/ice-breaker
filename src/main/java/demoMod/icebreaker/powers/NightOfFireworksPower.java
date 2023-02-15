@@ -1,6 +1,7 @@
 package demoMod.icebreaker.powers;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -15,19 +16,25 @@ public class NightOfFireworksPower extends AbstractPower implements EnterOrExitE
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
+    private final boolean upgraded;
 
-    public NightOfFireworksPower(AbstractCreature owner, int amount) {
+    public NightOfFireworksPower(AbstractCreature owner, int amount, boolean upgraded) {
         this.owner = owner;
         this.amount = amount;
         this.ID = POWER_ID;
         this.name = NAME;
+        this.upgraded = upgraded;
+        if (upgraded) {
+            this.ID += "+";
+            this.name += "+";
+        }
         this.updateDescription();
         PowerRegionLoader.load(this, "FrostCountry");
     }
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
+        this.description = String.format(this.upgraded ? DESC[1] : DESC[0], this.amount);
     }
 
     @Override
@@ -47,7 +54,11 @@ public class NightOfFireworksPower extends AbstractPower implements EnterOrExitE
 
     private void triggerPower() {
         this.flash();
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.amount, true, true, false));
+        AbstractCard spark = new Spark();
+        if (this.upgraded) {
+            spark.upgrade();
+        }
+        addToBot(new MakeTempCardInDrawPileAction(spark, this.amount, true, true, false));
     }
 
     static {

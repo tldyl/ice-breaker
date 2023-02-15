@@ -1,5 +1,6 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -46,10 +47,23 @@ public class Oracle extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.selfRetain = true));
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.selfRetain = true));
+                    isDone = true;
+                }
+            });
+
         } else {
             if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
-                addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.retain = true));
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true));
+                        isDone = true;
+                    }
+                });
             }
         }
     }
