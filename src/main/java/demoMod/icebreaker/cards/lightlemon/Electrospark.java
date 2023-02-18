@@ -42,12 +42,18 @@ public class Electrospark extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int ctr = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
+        if (ctr > 23) {
+            ctr = 23;
+        }
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ctr)));
     }
 
     @Override
     public void applyPowers() {
         this.baseMagicNumber = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
+        if (this.baseMagicNumber > 23) {
+            this.baseMagicNumber = 23;
+        }
         super.applyPowers();
         this.rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];

@@ -29,15 +29,13 @@ public class TimeRing extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 1;
         this.baseM2 = this.m2 = 1;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeM2(1);
+            this.upgradeMagicNumber(2);
         }
     }
 
@@ -45,5 +43,8 @@ public class TimeRing extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
         this.baseMagicNumber += this.m2;
+        if (this.baseMagicNumber > 12) {
+             this.baseMagicNumber = 12;
+        }
     }
 }

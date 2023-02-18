@@ -3,7 +3,6 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,13 +42,7 @@ public class Pyroblast extends AbstractLightLemonCard {
     }
 
     private int getSparksPlayedThisCombat() {
-        int sparksPlayedThisTurn = 0;
-        for (AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-            if (card instanceof Spark) {
-                sparksPlayedThisTurn++;
-            }
-        }
-        return sparksPlayedThisTurn;
+        return (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
     }
 
     @Override
@@ -65,7 +58,7 @@ public class Pyroblast extends AbstractLightLemonCard {
         if (this.damage >= 50) {
             addToBot(new VFXAction(p, new ScreenOnFireEffect(), 0.5F));
         }
-        for (AbstractMonster m1 : com.megacrit.cardcrawl.dungeons.AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster m1 : AbstractDungeon.getMonsters().monsters) {
             if (!m1.isDeadOrEscaped()) {
                 addToBot(new VFXAction(new ExplosionSmallEffect(m1.hb.cX, m1.hb.cY), 0.1F));
             }

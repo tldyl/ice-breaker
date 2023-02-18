@@ -27,6 +27,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
         this.isFetter = true;
         this.tags.add(CardTags.HEALING);
         this.fetterFilter = card -> !card.uuid.equals(this.uuid);
+        this.fetterAmount = 2;
     }
 
     @Override
