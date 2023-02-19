@@ -23,6 +23,7 @@ public class SwingStaff extends AbstractLightLemonCard {
 
     public SwingStaff() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
         this.fetterAmount = 3;
         this.baseMagicNumber = this.magicNumber = 3;
