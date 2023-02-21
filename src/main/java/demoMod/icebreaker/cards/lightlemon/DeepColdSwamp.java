@@ -49,7 +49,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
             this.upgradeBlock(3);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-
+            //
             // Copied from SwingStaff
             this.upgradeMagicNumber(1);
             this.fetterAmount = this.baseMagicNumber;

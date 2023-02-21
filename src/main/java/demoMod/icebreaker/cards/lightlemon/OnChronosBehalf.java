@@ -67,7 +67,7 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
                 for (AbstractMonster mo : aliveMonsters) {
                     if (mo.isDeadOrEscaped()) ++cnt;
                 }
-
+                //
                 // 找到主牌组中的对应牌
                 AbstractLightLemonCard card = null;
                 for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
