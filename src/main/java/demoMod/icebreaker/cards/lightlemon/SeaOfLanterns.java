@@ -54,6 +54,8 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(4);
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
