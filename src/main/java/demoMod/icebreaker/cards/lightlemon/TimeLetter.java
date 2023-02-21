@@ -39,7 +39,7 @@ public class TimeLetter extends AbstractLightLemonCard {
 
     public TimeLetter() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseDamage = 5;
+        this.baseDamage = 7;
         this.baseMagicNumber = this.magicNumber = 4;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -50,7 +50,7 @@ public class TimeLetter extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(2);
+            this.upgradeDamage(3);
             this.upgradeMagicNumber(1);
             this.portrait = UPGRADE_IMG;
         }
@@ -61,9 +61,9 @@ public class TimeLetter extends AbstractLightLemonCard {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (p.hasPower(TimeStasisPower.POWER_ID)) {
             AbstractPower power = p.getPower(TimeStasisPower.POWER_ID);
-            if (power.amount >= 3) {
+            if (power.amount >= 2) {
                 addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                addToBot(new ReducePowerAction(p, p, power, 3));
+                addToBot(new ReducePowerAction(p, p, power, 2));
                 addToBot(new ApplyPowerAction(p, p, new NextTurnTimeStasisPower(p, this.magicNumber)));
             }
         }

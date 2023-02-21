@@ -64,8 +64,6 @@ public class Thunder extends AbstractLightLemonCard {
         AbstractPlayer p = AbstractDungeon.player;
         if (p.drawPile.contains(this)) {
             addToBot(new PutSpecifiedCardToHandAction(1, card -> card == this));
-        } else if (p.discardPile.contains(this)) {
-            addToBot(new PutSpecifiedCardToHandAction(1, p.discardPile, card -> card == this));
         }
     }
 }

@@ -1,5 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,6 +22,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG_PATH = "cards/CascadeIceWall.png";
+    private static final TextureAtlas.AtlasRegion UPGRADE_IMG = new TextureAtlas.AtlasRegion(new Texture(IceBreaker.getResourcePath("cards/CascadeIceWall+.png")), 0, 0, 250, 190);
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -43,6 +46,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeMagicNumber(1);
             this.upgradeM2(2);
+            this.portrait = UPGRADE_IMG;
         }
     }
 

@@ -15,17 +15,17 @@ public class NightOfFireworks extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/Niflheimr.png";
+    public static final String IMG_PATH = "cards/NightOfFireworks.png";
 
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
 
     public NightOfFireworks() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.cardsToPreview = new Spark();
     }
 
@@ -33,12 +33,15 @@ public class NightOfFireworks extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.isInnate = true;
+            this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new NightOfFireworksPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new NightOfFireworksPower(p, this.magicNumber, this.upgraded)));
     }
 }

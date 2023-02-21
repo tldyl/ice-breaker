@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
+import demoMod.icebreaker.cards.lightlemon.AsterismForm;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public class SaveAndContinuePatch {
             if (cardUuidSave.exists()) {
                 cardUuidSave.delete();
             }
+            AsterismForm.cardPool.clear();
         }
     }
 }

@@ -2,6 +2,7 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -29,7 +30,7 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
     public SeaOfLanterns() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseBlock = 10;
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -53,6 +54,8 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(4);
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -60,5 +63,14 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
         addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
+    }
+
+    @Override
+    public void onTriggerFetter() {
+        AbstractCard spark = new Spark();
+        if (this.upgraded) {
+            spark.upgrade();
+        }
+        addToBot(new MakeTempCardInDrawPileAction(spark, this.magicNumber, true, true, false));
     }
 }

@@ -27,6 +27,7 @@ public class GhostStar extends AbstractLightLemonCard {
         this.tags.add(CardTags.HEALING);
         this.baseMagicNumber = this.magicNumber = 2;
         this.baseBlock = this.block = 9;
+        this.isFetter = true;
     }
 
     @Override

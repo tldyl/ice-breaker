@@ -1,5 +1,6 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,7 +17,7 @@ public class Oracle extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/AirCut.png";
+    public static final String IMG_PATH = "cards/Oracle.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -46,10 +47,23 @@ public class Oracle extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.selfRetain = true));
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.selfRetain = true));
+                    isDone = true;
+                }
+            });
+
         } else {
             if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
-                addToBot(new SelectCardInHandAction(this.magicNumber, card -> true, card -> card.retain = true));
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true));
+                        isDone = true;
+                    }
+                });
             }
         }
     }

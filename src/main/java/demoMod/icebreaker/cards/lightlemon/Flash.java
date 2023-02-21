@@ -48,8 +48,14 @@ public class Flash extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if (EnergyPanel.getCurrentEnergy() == 0) {
-            addToBot(new GainEnergyAction(this.upgraded ? 2 : 1));
-        }
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (EnergyPanel.getCurrentEnergy() == 0) {
+                    addToTop(new GainEnergyAction(Flash.this.upgraded ? 2 : 1));
+                }
+                isDone = true;
+            }
+        });
     }
 }

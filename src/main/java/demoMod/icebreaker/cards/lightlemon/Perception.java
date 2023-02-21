@@ -32,7 +32,7 @@ public class Perception extends AbstractLightLemonCard {
     public Perception() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.extraEffectOnExtraTurn = true;
-        this.baseMagicNumber = this.magicNumber = 3;
+        this.baseMagicNumber = this.magicNumber = 4;
     }
 
     @Override

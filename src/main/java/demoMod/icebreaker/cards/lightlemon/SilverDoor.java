@@ -31,20 +31,20 @@ public class SilverDoor extends AbstractLightLemonCard {
         this.block = this.baseBlock = 8;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
-        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new ApplyPowerAction(p, p, new SilverDoorPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new SilverDoorPower(p, 1 + (this.upgraded ? 1 : 0))));
     }
 }

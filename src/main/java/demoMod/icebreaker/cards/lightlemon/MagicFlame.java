@@ -32,7 +32,7 @@ public class MagicFlame extends AbstractLightLemonCard {
 
     public MagicFlame() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseDamage = 8;
+        this.baseDamage = 6;
         this.damage = this.baseDamage;
         this.baseMagicNumber = this.magicNumber = 2;
         this.tags = new ArrayList<>();
@@ -45,7 +45,7 @@ public class MagicFlame extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(4);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
         }
     }
