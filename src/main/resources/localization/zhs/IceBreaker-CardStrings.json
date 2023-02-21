@@ -299,7 +299,7 @@
   },
   "IceBreaker:ExtraTrigger": {
     "NAME": "追加触发",
-    "DESCRIPTION": "丢弃至多 !M! 张牌。 NL 在下回合开始时依次打出它们的复制。"
+    "DESCRIPTION": "消耗至多 !M! 张手牌。 NL 在下回合开始时将它们的复制加入手牌，且首次打出前耗能为0。"
   },
   "IceBreaker:Detonate": {
     "NAME": "起爆",
@@ -319,7 +319,7 @@
   },
   "IceBreaker:OnChronosBehalf": {
     "NAME": "代行神权",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL 斩杀 时， im:羁绊 。 NL 如果不处于 im:狭隙 ， 消耗 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL 斩杀 时， im:羁绊 。"
   },
   "IceBreaker:GhostFantasy": {
     "NAME": "幽灵幻想",

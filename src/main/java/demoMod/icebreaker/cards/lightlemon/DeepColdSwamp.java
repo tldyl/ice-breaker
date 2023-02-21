@@ -49,25 +49,15 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
             this.upgradeBlock(3);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-        }
-    }
+            //
+            // Copied from SwingStaff
+            this.upgradeMagicNumber(1);
+            this.fetterAmount = this.baseMagicNumber;
+            if (AbstractDungeon.player!= null && AbstractDungeon.player.masterDeck.contains(this)) {
+                this.fetterAmount = 1;
+                onAddToMasterDeck();
+            }
 
-    @Override
-    public void update() {
-        super.update();
-        if (AbstractDungeon.gridSelectScreen.targetGroup == null) {
-            AbstractDungeon.gridSelectScreen.targetGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        }
-        if (AbstractDungeon.cardRewardScreen.rewardGroup == null) {
-            AbstractDungeon.cardRewardScreen.rewardGroup = new ArrayList<>();
-        }
-        if (this.upgraded && this.fetterTarget.size() < 2 && !updateCheck &&
-                AbstractDungeon.getCurrMapNode() != null &&
-                AbstractDungeon.handCardSelectScreen.upgradePreviewCard != this &&
-                AbstractDungeon.gridSelectScreen.targetGroup.contains(this) &&
-                !AbstractDungeon.cardRewardScreen.rewardGroup.contains(this)) {
-            onAddToMasterDeck();
-            updateCheck = true;
         }
     }
 

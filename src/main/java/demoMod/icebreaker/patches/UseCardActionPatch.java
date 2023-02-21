@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -62,7 +63,7 @@ public class UseCardActionPatch {
             };
         }
 
-        @SpireInsertPatch(locator = Locator.class)
+        @SpireInsertPatch(rloc = 40)
         public static void Insert(UseCardAction action) {
             AbstractCard targetCard = ReflectionHacks.getPrivate(action, UseCardAction.class, "targetCard");
             if (targetCard instanceof AbstractLightLemonCard) {
@@ -138,12 +139,16 @@ public class UseCardActionPatch {
             }
         }
 
-        private static final class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "moveToDiscardPile");
-                return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
-            }
-        }
+        // 插入到 moveToDiscardPile 之前的话，消耗牌就不触发羁绊了
+
+//        private static final class Locator extends SpireInsertLocator {
+//            @Override
+//            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+//
+//                Matcher finalMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "moveToDiscardPile");
+//
+//                return LineFinder.findInOrder(ctMethodToPatch, new ArrayList<>(), finalMatcher);
+//            }
+//        }
     }
 }

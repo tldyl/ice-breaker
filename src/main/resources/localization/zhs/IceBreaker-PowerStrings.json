@@ -103,9 +103,9 @@
     ]
   },
   "IceBreaker:NextTurnPlayCardPower": {
-    "NAME": "下回合打出",
+    "NAME": "追加触发",
     "DESCRIPTIONS": [
-      "在下回合开始时，将 #y%s 打出 #b%d 次。"
+      "在下回合开始时，将 #y%s 的 #b%d 张复制加入手牌。"
     ]
   },
   "IceBreaker:NextTurnDamageAllEnemiesPower": {

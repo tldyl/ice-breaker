@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,7 +40,6 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
         this.tags.add(CardTags.HEALING);
         this.baseDamage = 10;
         this.isMultiDamage = true;
-        this.exhaust = true;
         this.extraEffectOnExtraTurn = true;
     }
 
@@ -53,7 +53,6 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.exhaust = !p.hasPower(ExtraTurnPower.POWER_ID);
         calculateCardDamage(null);
         final List<AbstractMonster> aliveMonsters = new ArrayList<>();
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
@@ -64,13 +63,22 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
         AbstractGameAction action = new AbstractGameAction() {
             @Override
             public void update() {
+                int cnt = 0;
                 for (AbstractMonster mo : aliveMonsters) {
-                    if (mo.isDeadOrEscaped()) {
-                        OnChronosBehalf.this.isFetter = true;
-                        OnChronosBehalf.this.onAddToMasterDeck();
-                        OnChronosBehalf.this.isFetter = false;
-                        break;
+                    if (mo.isDeadOrEscaped()) ++cnt;
+                }
+                //
+                // 找到主牌组中的对应牌
+                AbstractLightLemonCard card = null;
+                for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                    if (c.uuid.equals(OnChronosBehalf.this.uuid)) {
+                        card = (AbstractLightLemonCard)c; break;
                     }
+                }
+                if (cnt > 0 && card != null) {
+                    card.isFetter = true;
+                    card.fetterAmount = cnt;
+                    card.onAddToMasterDeck();
                 }
                 isDone = true;
             }
