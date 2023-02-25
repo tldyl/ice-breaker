@@ -176,5 +176,47 @@
     "DESCRIPTIONS": [
       "每当 #y羁绊 触发时，获得 #b%d 层 #y时间凝滞 。"
     ]
+  },
+  "IceBreaker:TsukishiRinPower": {
+    "NAME": "月白翎",
+    "DESCRIPTIONS": [
+      "你每打出一张指向性攻击牌，目标失去 #b%d 点 #y力量 。"
+    ]
+  },
+  "IceBreaker:ShiroikumoPower": {
+    "NAME": "白云",
+    "DESCRIPTIONS": [
+      "你每打出一张牌，抽 #b%d 张牌。"
+    ]
+  },
+  "IceBreaker:FukuhiPower": {
+    "NAME": "福天",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，清除你的所有负面效果并回复 #b%d 点生命。"
+    ]
+  },
+  "IceBreaker:AmePower": {
+    "NAME": "雨",
+    "DESCRIPTIONS": [
+      "每当触发卡牌的 #y狭隙 效果时，获得 #b%d 点 #y金属化 。"
+    ]
+  },
+  "IceBreaker:BrandyPower": {
+    "NAME": "白兰地",
+    "DESCRIPTIONS": [
+      "你每打出一张 #y火花 ，获得 #b%d [E] 。"
+    ]
+  },
+  "IceBreaker:DisobeyPower": {
+    "NAME": "方越违",
+    "DESCRIPTIONS": [
+      "回合结束时，如果你没有 #y缓冲 ，获得 #b%d 层 #y缓冲 。"
+    ]
+  },
+  "IceBreaker:TsukishiRitsuPower": {
+    "NAME": "月白律",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，进入 #y狭隙 。"
+    ]
   }
 }

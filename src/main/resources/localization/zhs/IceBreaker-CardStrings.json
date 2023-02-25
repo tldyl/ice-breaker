@@ -380,5 +380,38 @@
     "NAME": "昨日重现",
     "DESCRIPTION": "每当 im:羁绊 触发时，获得 !M! 层 im:时间凝滞 。",
     "UPGRADE_DESCRIPTION": "固有 。 NL 每当 im:羁绊 触发时，获得 !M! 层 im:时间凝滞 。"
+  },
+  "IceBreaker:RainbowViolet": {
+    "NAME": "七色堇",
+    "DESCRIPTION": "失去 !M! 点生命和最大生命，借助一位已故友人的力量。 NL 使用7次后从牌组中移除。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 失去 !M! 点生命和最大生命，借助一位已故友人的力量。 NL 使用7次后从牌组中移除。 NL 消耗 。"
+  },
+  "IceBreaker:TsukishiRin": {
+    "NAME": "月白翎",
+    "DESCRIPTION": "你每打出一张指向性攻击牌，目标失去1点 力量 。"
+  },
+  "IceBreaker:Shiroikumo": {
+    "NAME": "白云",
+    "DESCRIPTION": "你每打出一张牌，抽一张牌。"
+  },
+  "IceBreaker:Fukuhi": {
+    "NAME": "福天",
+    "DESCRIPTION": "在你的回合开始时，清除你的所有负面效果并回复8点生命。"
+  },
+  "IceBreaker:Ame": {
+    "NAME": "雨",
+    "DESCRIPTION": "每当触发卡牌的 im:狭隙 效果时，获得8点 金属化 。"
+  },
+  "IceBreaker:Brandy": {
+    "NAME": "白兰地",
+    "DESCRIPTION": "你每打出一张 *火花 ，获得 [E] 。"
+  },
+  "IceBreaker:Disobey": {
+    "NAME": "方越违",
+    "DESCRIPTION": "回合结束时，如果你没有 缓冲 ，获得一层 缓冲 。"
+  },
+  "IceBreaker:TsukishiRitsu": {
+    "NAME": "月白律",
+    "DESCRIPTION": "进入 im:狭隙 。 NL 在你的回合开始时，进入 im:狭隙 。"
   }
 }
