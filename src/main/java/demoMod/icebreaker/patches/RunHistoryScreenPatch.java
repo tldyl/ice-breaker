@@ -21,8 +21,16 @@ public class RunHistoryScreenPatch {
     )
     public static class PatchCardForName {
         public static SpireReturn<AbstractCard> Prefix(RunHistoryScreen screen, RunData runData, String cardID) {
-            if (RainbowViolet.ID.equals(cardID)) {
-                return SpireReturn.Return(new RainbowViolet());
+            if (cardID != null && cardID.startsWith(RainbowViolet.ID)) {
+                AbstractCard card = new RainbowViolet();
+                if (cardID.contains("+")) {
+                    String[] tokens = cardID.split("\\+");
+                    int upgradeTimes = Integer.parseInt(tokens[1]);
+                    for (int i=0;i<upgradeTimes;i++) {
+                        card.upgrade();
+                    }
+                }
+                return SpireReturn.Return(card);
             }
             return SpireReturn.Continue();
         }
@@ -34,8 +42,15 @@ public class RunHistoryScreenPatch {
     )
     public static class PatchApplyCardModsToCards {
         public static SpireReturn<Void> Prefix(RunData runData, String[] cardID, AbstractCard card) {
-            if (cardID[0].equals(RainbowViolet.ID)) {
+            if (cardID[0].contains(RainbowViolet.ID)) {
                 card = new RainbowViolet();
+                if (cardID[0].contains("+")) {
+                    String[] tokens = cardID[0].split("\\+");
+                    int upgradeTimes = Integer.parseInt(tokens[1]);
+                    for (int i=0;i<upgradeTimes;i++) {
+                        card.upgrade();
+                    }
+                }
                 ModSaves.ArrayListOfJsonElement cardmodData = ReflectionHacks.getPrivateStatic(CardModifierPatches.ApplyCardModsToCards.class, "cardmodData");
                 ArrayList<AbstractCardModifier> loadedMods = ReflectionHacks.getPrivateStatic(CardModifierPatches.ApplyCardModsToCards.class, "loadedMods");
                 if (cardmodData != null) {
