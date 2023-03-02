@@ -71,6 +71,6 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
         if (this.upgraded) {
             spark.upgrade();
         }
-        addToBot(new MakeTempCardInDrawPileAction(spark, this.magicNumber, true, true, false));
+        addToBot(new MakeTempCardInDrawPileAction(spark, 1, true, true, false));
     }
 }
