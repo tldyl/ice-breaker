@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
 import demoMod.icebreaker.cards.lightlemon.AsterismForm;
@@ -87,7 +88,10 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
             }
 
             tmp.purgeOnUse = true;
-            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+            if (tmp.cost == -1) {
+                tmp.energyOnUse = EnergyPanel.totalCount;
+            }
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
         }, getRandomCards()));
     }
 
@@ -95,7 +99,7 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
         CardGroup ret = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         ArrayList<AbstractCard> allCards = new ArrayList<>(AsterismForm.cardPool);
         Collections.shuffle(allCards, new Random(AbstractDungeon.cardRandomRng.random.nextLong()));
-        ret.group.addAll(allCards.subList(0, 15).stream().map(card -> {
+        ret.group.addAll(allCards.subList(0, Math.min(15, allCards.size())).stream().map(card -> {
             AbstractCard tmp = card.makeCopy();
             if (upgraded || AbstractDungeon.player.hasPower(MasterRealityPower.POWER_ID)) {
                 tmp.upgrade();
