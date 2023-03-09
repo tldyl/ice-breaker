@@ -63,7 +63,7 @@ public class UseCardActionPatch {
             };
         }
 
-        @SpireInsertPatch(rloc = 40)
+        @SpireInsertPatch(rloc = 25)
         public static void Insert(UseCardAction action) {
             AbstractCard targetCard = ReflectionHacks.getPrivate(action, UseCardAction.class, "targetCard");
             if (targetCard instanceof AbstractLightLemonCard) {
