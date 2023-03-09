@@ -26,7 +26,7 @@
   },
   "IceBreaker:FrostWind": {
     "NAME": "霜风",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害，给予 !M! 层虚弱。 im:羁绊 触发时，获得 !B! 点 格挡 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害，给予 !M! 层虚弱。 im:回应 ：获得 !B! 点 格挡 。"
   },
   "IceBreaker:HeavySnow": {
     "NAME": "白雪纷纷",
@@ -39,11 +39,11 @@
   },
   "IceBreaker:Thunder": {
     "NAME": "雷鸣火花",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 每当有 im:羁绊 触发时，如果这张牌在抽牌堆，将这张牌放入手牌。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 每当有 im:回应 触发时，如果这张牌在抽牌堆，将这张牌放入手牌。"
   },
   "IceBreaker:AirCut": {
     "NAME": "风切",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 im:羁绊 触发时，抽一张牌。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 im:回应 ：抽一张牌。"
   },
   "IceBreaker:Light": {
     "NAME": "光",
@@ -59,7 +59,7 @@
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
-    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆顶部。 NL im:羁绊 触发时，给予随机一名敌人 !M! 层 易伤 。"
+    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 加入抽牌堆顶部。 NL im:回应 ：给予随机一名敌人 !M! 层 易伤 。"
   },
   "IceBreaker:SoulTremor": {
     "NAME": "灵魂震颤",
@@ -93,8 +93,8 @@
   },
   "IceBreaker:SeaOfLanterns": {
     "NAME": "火树银花",
-    "DESCRIPTION": "im:魔法 。 NL im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:羁绊 成功时，额外加入一张 *火花 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 NL im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:羁绊 成功时，额外加入一张 *火花+ 。",
+    "DESCRIPTION": "im:魔法 。 NL im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:回应 ：额外加入一张 *火花 。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 NL im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 将 !M! 张 *火花 加入抽牌堆。 NL im:回应 ：额外加入一张 *火花+ 。",
     "EXTENDED_DESCRIPTION": [
       "一同走过的灯海"
     ]
@@ -248,7 +248,7 @@
   },
   "IceBreaker:Negate": {
     "NAME": "否定",
-    "DESCRIPTION": "每次 im:羁绊 失败时，对所有敌人造成 !M! 点伤害。"
+    "DESCRIPTION": "每次 im:回应 失败时，对所有敌人造成 !M! 点伤害。"
   },
   "IceBreaker:TimeShadow": {
     "NAME": "时之影",
@@ -264,7 +264,7 @@
   },
   "IceBreaker:StarDust": {
     "NAME": "星尘",
-    "DESCRIPTION": "每回合前 !M! 次触发 im:羁绊 时获得 [E] 。"
+    "DESCRIPTION": "每回合前 !M! 次触发 im:回应 获得 [E] 。"
   },
   "IceBreaker:DiffuseFuture": {
     "NAME": "漫射未来",
@@ -315,7 +315,7 @@
   },
   "IceBreaker:CTL": {
     "NAME": "追逐光芒",
-    "DESCRIPTION": "每次 im:羁绊 成功时，抽一张牌。"
+    "DESCRIPTION": "每次触发 im:回应 时，抽一张牌。"
   },
   "IceBreaker:OnChronosBehalf": {
     "NAME": "代行神权",
@@ -351,7 +351,7 @@
   },
   "IceBreaker:SeeYouTomorrow": {
     "NAME": "明朝会",
-    "DESCRIPTION": "每次 im:羁绊 成功时，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "每次触发 im:回应 时，获得 !M! 点 格挡 。"
   },
   "IceBreaker:NightOfFireworks": {
     "NAME": "花火",
@@ -378,8 +378,8 @@
   },
   "IceBreaker:YesterdayOnceMore": {
     "NAME": "昨日重现",
-    "DESCRIPTION": "每当 im:羁绊 触发时，获得 !M! 层 im:时间凝滞 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每当 im:羁绊 触发时，获得 !M! 层 im:时间凝滞 。"
+    "DESCRIPTION": "每次触发 im:回应 时，获得 !M! 层 im:时间凝滞 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每次触发 im:回应 时，获得 !M! 层 im:时间凝滞 。"
   },
   "IceBreaker:RainbowViolet": {
     "NAME": "七色堇",
@@ -400,7 +400,7 @@
   },
   "IceBreaker:Ame": {
     "NAME": "雨",
-    "DESCRIPTION": "每当触发卡牌的 im:狭隙 效果时，获得8点 金属化 。"
+    "DESCRIPTION": "每当触发卡牌的 im:狭隙 效果时，获得8层 金属化 。"
   },
   "IceBreaker:Brandy": {
     "NAME": "白兰地",

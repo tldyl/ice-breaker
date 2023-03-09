@@ -20,7 +20,7 @@ public class MagicExtraction extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/MagicExtraction.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     private static final int COST = 0;
@@ -28,6 +28,7 @@ public class MagicExtraction extends AbstractLightLemonCard {
     public MagicExtraction() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
+        this.exhaust = true;
     }
 
     @Override
@@ -37,6 +38,7 @@ public class MagicExtraction extends AbstractLightLemonCard {
             this.upgradeMagicNumber(1);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.exhaust = false;
         }
     }
 
