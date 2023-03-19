@@ -186,7 +186,7 @@
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "层积式冰墙",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 !M! 次。 NL im:狭隙 ：获得 !IM2! 层 多层护甲 。",
+    "DESCRIPTION": "im:魔法 。 im:羁绊 。  NL 获得 !B! 点 格挡。 NL im:狭隙 ：打出并消耗抽牌堆、手牌和弃牌堆所有同名卡。若不在 im:狭隙 ，将1张复制加入弃牌堆",
     "EXTENDED_DESCRIPTION": [
       "雪染千年"
     ]
@@ -235,8 +235,13 @@
   },
   "IceBreaker:MemoriesFloodBack": {
     "NAME": "星霜奇想",
+<<<<<<< HEAD
+    "DESCRIPTION": " 消耗 所有手牌，用战斗开始时的手牌代替(除这张卡)。洗牌时置于抽牌堆底端。 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 消耗 所有手牌，用战斗开始时的手牌代替(除这张卡)。洗牌时置于抽牌堆底端。 消耗 。"
+=======
     "DESCRIPTION": "消耗 所有手牌。 NL 将战斗开始时的初始手牌置入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。",
     "UPGRADE_DESCRIPTION": "保留 。 NL 消耗 所有手牌。 NL 将战斗开始时的初始手牌置入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。"
+>>>>>>> a5a7631da31541ef7bed03679d522c1106c0be00
   },
   "IceBreaker:TimeCreation": {
     "NAME": "时间创造",
