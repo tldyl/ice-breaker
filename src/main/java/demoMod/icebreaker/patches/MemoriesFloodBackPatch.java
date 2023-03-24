@@ -2,13 +2,11 @@ package demoMod.icebreaker.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import demoMod.icebreaker.IceBreaker;
 
 import java.util.ArrayList;
 
@@ -35,6 +33,9 @@ public class MemoriesFloodBackPatch {
                 public void update() {
                     cards.clear();
                     for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                        if (c.cardID.equals(IceBreaker.makeID("MemoriesFloodBack"))) {
+                            continue;
+                        }
                         AbstractCard cp = c.makeStatEquivalentCopy();
                         cards.add(cp);
                     }

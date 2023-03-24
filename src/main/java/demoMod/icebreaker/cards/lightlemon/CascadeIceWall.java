@@ -2,18 +2,23 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.actions.CascadeIceWallAction;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
+
+<<<<<<<HEAD
+=======
+        >>>>>>>a5a7631da31541ef7bed03679d522c1106c0be00
 
 public class CascadeIceWall extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("CascadeIceWall");
@@ -28,25 +33,31 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 2;
+    public boolean isTemp;
+
+    private static final int COST = 1;
 
     public CascadeIceWall() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = this.block = 3;
-        this.baseMagicNumber = this.magicNumber = 4;
-        this.baseM2 = this.m2 = 5;
+        this.baseBlock = this.block = 7;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
+        this.isFetter = true;
+        this.isTemp = false;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+<<<<<<< HEAD
+            this.upgradeBlock(3);
+=======
             this.upgradeMagicNumber(1);
             this.upgradeM2(2);
             this.portrait = UPGRADE_IMG;
+>>>>>>> a5a7631da31541ef7bed03679d522c1106c0be00
         }
     }
 
@@ -60,11 +71,12 @@ public class CascadeIceWall extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i=0;i<this.magicNumber;i++) {
-            addToBot(new GainBlockAction(p, p, this.block));
-        }
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.m2)));
+        addToBot(new GainBlockAction(p, p, this.block));
+        System.out.print("CASSSSSSSSSSSSSCADE");
+        if (p.hasPower(ExtraTurnPower.POWER_ID) && !this.isTemp) {
+            addToBot(new CascadeIceWallAction(p));
+        } else {
+            addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
         }
     }
 }
