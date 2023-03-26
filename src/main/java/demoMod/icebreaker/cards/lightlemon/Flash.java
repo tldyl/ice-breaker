@@ -30,7 +30,7 @@ public class Flash extends AbstractLightLemonCard {
 
     public Flash() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.REMOTE);
@@ -40,6 +40,7 @@ public class Flash extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeDamage(2);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

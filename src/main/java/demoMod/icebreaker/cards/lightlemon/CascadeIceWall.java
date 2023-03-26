@@ -2,7 +2,6 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,10 +14,6 @@ import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
-
-<<<<<<<HEAD
-=======
-        >>>>>>>a5a7631da31541ef7bed03679d522c1106c0be00
 
 public class CascadeIceWall extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("CascadeIceWall");
@@ -33,8 +28,6 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public boolean isTemp;
-
     private static final int COST = 1;
 
     public CascadeIceWall() {
@@ -44,20 +37,14 @@ public class CascadeIceWall extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
         this.isFetter = true;
-        this.isTemp = false;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-<<<<<<< HEAD
             this.upgradeBlock(3);
-=======
-            this.upgradeMagicNumber(1);
-            this.upgradeM2(2);
             this.portrait = UPGRADE_IMG;
->>>>>>> a5a7631da31541ef7bed03679d522c1106c0be00
         }
     }
 
@@ -72,11 +59,10 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        System.out.print("CASSSSSSSSSSSSSCADE");
-        if (p.hasPower(ExtraTurnPower.POWER_ID) && !this.isTemp) {
+        if (p.hasPower(ExtraTurnPower.POWER_ID) && !this.exhaustOnUseOnce) {
             addToBot(new CascadeIceWallAction(p));
-        } else {
-            addToBot((AbstractGameAction)new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
+        } else if (!this.isInAutoplay) {
+            addToBot(new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
         }
     }
 }

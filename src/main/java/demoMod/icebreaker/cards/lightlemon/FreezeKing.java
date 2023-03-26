@@ -61,6 +61,7 @@ public class FreezeKing extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeDamage(4);
             this.upgradeBlock(4);
+            this.upgradeMagicNumber(1);
         }
     }
 

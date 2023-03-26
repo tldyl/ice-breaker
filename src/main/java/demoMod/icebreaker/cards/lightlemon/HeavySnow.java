@@ -34,7 +34,7 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public HeavySnow() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 3;
         this.m2 = this.baseM2 = 1;
         this.isMultiDamage = true;
@@ -47,7 +47,7 @@ public class HeavySnow extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(1);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
             this.upgradeM2(1);
         }

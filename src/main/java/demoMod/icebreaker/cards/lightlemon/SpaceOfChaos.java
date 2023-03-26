@@ -24,7 +24,7 @@ public class SpaceOfChaos extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
 
     public SpaceOfChaos() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -39,7 +39,7 @@ public class SpaceOfChaos extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(2);
+            this.upgradeMagicNumber(1);
         }
     }
 

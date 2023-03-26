@@ -47,6 +47,7 @@ public class RedMoon extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
         }
     }

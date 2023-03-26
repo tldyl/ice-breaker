@@ -32,7 +32,7 @@ public class Pyroblast extends AbstractLightLemonCard {
 
     public Pyroblast() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 3;
         this.baseMagicNumber = this.magicNumber = 3;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
@@ -49,6 +49,7 @@ public class Pyroblast extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeDamage(1);
             this.upgradeMagicNumber(1);
         }
     }

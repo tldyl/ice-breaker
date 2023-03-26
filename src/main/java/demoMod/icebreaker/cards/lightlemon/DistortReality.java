@@ -25,7 +25,6 @@ public class DistortReality extends AbstractLightLemonCard {
     public DistortReality() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 4;
-        this.exhaust = true;
     }
 
     @Override

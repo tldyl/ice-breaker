@@ -27,7 +27,7 @@ public class Leap extends AbstractLightLemonCard {
 
     public Leap() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = 6;
+        this.baseBlock = 4;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTags.HEALING);
@@ -38,7 +38,7 @@ public class Leap extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
+            this.upgradeBaseCost(0);
         }
     }
 

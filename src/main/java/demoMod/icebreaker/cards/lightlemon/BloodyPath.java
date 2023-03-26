@@ -30,7 +30,7 @@ public class BloodyPath extends AbstractLightLemonCard {
 
     public BloodyPath() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseDamage = 10;
+        this.baseDamage = 6;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTagEnum.MAGIC);
@@ -42,7 +42,7 @@ public class BloodyPath extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(4);
+            this.upgradeDamage(2);
         }
     }
 

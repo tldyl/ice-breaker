@@ -27,23 +27,22 @@ public class Electrospark extends AbstractLightLemonCard {
     public Electrospark() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.cardsToPreview = new Spark();
+        this.selfRetain = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-            this.selfRetain = true;
+            this.upgradeBaseCost(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int ctr = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
-        if (ctr > 23) {
-            ctr = 23;
+        if (ctr > 12) {
+            ctr = 12;
         }
         addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, ctr)));
     }

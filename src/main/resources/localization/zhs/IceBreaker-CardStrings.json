@@ -55,7 +55,7 @@
   },
   "IceBreaker:BloodyPath": {
     "NAME": "断罪血流",
-    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 移除你的所有效果。 NL 每移除一种，造成 !D! 点伤害。"
+    "DESCRIPTION": "im:羁绊 。 im:魔法 。 im:远程 。 NL 造成 !D! 点伤害 NL 你每有一种效果， NL 造成 !D! 点伤害一次。"
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
@@ -85,8 +85,7 @@
   },
   "IceBreaker:Electrospark": {
     "NAME": "时之炎",
-    "DESCRIPTION": "获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 (最多23层)。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 (最多23层)。",
+    "DESCRIPTION": "保留 。 NL 获得与本场战斗打出 *火花 数量相同层数的 im:时间凝滞 (最多12层)。",
     "EXTENDED_DESCRIPTION": [
       "(获得 !M! 层 im:时间凝滞 )"
     ]
@@ -173,7 +172,7 @@
   },
   "IceBreaker:Leap": {
     "NAME": "折跃",
-    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:羁绊 触发时，获得 [E] 。"
+    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:回应 ：获得 [E] 。"
   },
   "IceBreaker:GhostStar": {
     "NAME": "幽灵星体",
@@ -186,7 +185,7 @@
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "层积式冰墙",
-    "DESCRIPTION": "im:魔法 。 im:羁绊 。  NL 获得 !B! 点 格挡。 NL 如果你处于 im:狭隙 ，打出并 消耗 抽牌堆、手牌和弃牌堆所有同名卡；否则，将一张复制加入弃牌堆。",
+    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡。 NL 如果你处于 im:狭隙 ，打出并 消耗 抽牌堆、手牌和弃牌堆所有同名卡；否则，将一张复制加入弃牌堆。",
     "EXTENDED_DESCRIPTION": [
       "雪染千年"
     ]
@@ -213,12 +212,12 @@
   },
   "IceBreaker:TimeLetter": {
     "NAME": "时间交信",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 若有至少三层 im:时间凝滞 ，消耗三层，再造成 !D! 点伤害，下回合开始时获得 !M! 层 im:时间凝滞 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 若有至少二层 im:时间凝滞 ，消耗二层，再造成 !D! 点伤害，下回合开始时获得 !M! 层 im:时间凝滞 。"
   },
   "IceBreaker:MaterialDecomposition": {
     "NAME": "物质分解",
-    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。"
+    "DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL im:狭隙 外：消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗 !M! 张手牌。 获得 !IM2! 层 im:共鸣 。 NL im:狭隙 外：消耗 。"
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "物质创造",
@@ -235,8 +234,8 @@
   },
   "IceBreaker:MemoriesFloodBack": {
     "NAME": "星霜奇想",
-    "DESCRIPTION": " 消耗 所有手牌，用战斗开始时的手牌代替(除这张卡)。洗牌时置于抽牌堆底端。 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。 消耗 所有手牌，用战斗开始时的手牌代替(除这张卡)。洗牌时置于抽牌堆底端。 消耗 。"
+    "DESCRIPTION": "消耗 所有手牌。 NL 将战斗开始时的手牌放入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 消耗 所有手牌。 NL 将战斗开始时的手牌放入手牌。 NL 洗牌时置于抽牌堆底端。 消耗 。"
   },
   "IceBreaker:TimeCreation": {
     "NAME": "时间创造",

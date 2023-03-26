@@ -25,7 +25,7 @@ public class CascadeIceWallAction extends AbstractGameAction {
         this.target = target;
     }
 
-    private class CardAndFrom {
+    private static class CardAndFrom {
         public CardAndFrom(AbstractCard c, ArrayList<AbstractCard> cl) {
             this.c = c;
             this.cl = cl;
@@ -55,8 +55,7 @@ public class CascadeIceWallAction extends AbstractGameAction {
                     cards.add(new CardAndFrom(c, AbstractDungeon.player.discardPile.group));
                 }
             }
-            for (CardAndFrom c: cards) {
-                ((CascadeIceWall)(c.c)).isTemp = false;
+            for (CardAndFrom c : cards) {
                 c.cl.remove(c.c);
                 (AbstractDungeon.getCurrRoom()).souls.remove(c.c);
                 c.c.exhaustOnUseOnce = true;
@@ -69,7 +68,7 @@ public class CascadeIceWallAction extends AbstractGameAction {
                 c.c.drawScale = 0.12F;
                 c.c.targetDrawScale = 0.75F;
                 c.c.applyPowers();
-                addToTop(new NewQueueCardAction(c.c, p, false, true));
+                addToTop(new NewQueueCardAction(c.c, null, false, true));
                 addToTop(new UnlimboAction(c.c));
                 if (!Settings.FAST_MODE) {
                     addToTop(new WaitAction(Settings.ACTION_DUR_MED));

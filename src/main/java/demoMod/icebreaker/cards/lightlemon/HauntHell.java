@@ -33,7 +33,7 @@ public class HauntHell extends AbstractLightLemonCard {
 
     public HauntHell() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 2;
+        this.damage = this.baseDamage = 3;
         this.baseMagicNumber = this.magicNumber = 6;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
