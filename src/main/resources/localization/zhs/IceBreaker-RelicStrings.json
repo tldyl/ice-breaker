@@ -10,7 +10,7 @@
     "NAME": "法杖“隆冬”",
     "FLAVOR": "注入时间之神的神力，从而创造出绝无仅有的法杖 —— 库罗诺斯的赠礼。",
     "DESCRIPTIONS": [
-      "替换 #y法杖\"暴雪\" 。 每场战斗第一次获得 #y格挡 时，将获得量翻倍。 NL 每回合开始时获得等同于当前回合数的 #yim:时间凝滞 。"
+      "替换 #y法杖\"暴雪\" 。 每场战斗第一次获得 #y格挡 时，将获得量翻倍。 NL 每回合开始时获得等同于当前回合数的 #yim:时间停滞 。"
     ]
   },
   "IceBreaker:MagicalScroll": {
@@ -38,14 +38,14 @@
     "NAME": "星宿",
     "FLAVOR": "我与幽灵共舞，化身星辰，竞逐朝阳。",
     "DESCRIPTIONS": [
-      "每经过 #b6 个回合，在回合开始时进入 #yim:狭隙 。"
+      "每经过 #b6 个回合，在回合开始时进入 #yim:时之狭隙 。"
     ]
   },
   "IceBreaker:CrystalOfRadiance": {
     "NAME": "光芒结晶",
     "FLAVOR": "一小块凝固的光……混杂了凝固的时间 —— 白兰地的赠礼。",
     "DESCRIPTIONS": [
-      "每在 #yim:狭隙 外打出一张 #y火花 ，获得 #b1 层 #yim:时间凝滞 。"
+      "每在 #yim:时之狭隙 外打出一张 #y火花 ，获得 #b1 层 #yim:时间停滞 。"
     ]
   },
   "IceBreaker:EyeOfSpiritualView": {
@@ -59,7 +59,7 @@
     "NAME": "信",
     "FLAVOR": "“这座塔会散布腐化的力量。” —— 无比熟悉的字迹。",
     "DESCRIPTIONS": [
-      "进入 #yim:狭隙 时，额外获得 [E] ，抽 #b1 张牌。"
+      "进入 #yim:时之狭隙 时，额外获得 [E] ，抽 #b1 张牌。"
     ]
   },
   "IceBreaker:ConnectionOfMeteor": {

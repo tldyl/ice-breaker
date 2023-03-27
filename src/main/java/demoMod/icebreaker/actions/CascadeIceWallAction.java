@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.cards.lightlemon.CascadeIceWall;
 
 import java.util.ArrayList;
 

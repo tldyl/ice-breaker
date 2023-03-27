@@ -45,7 +45,6 @@ public class SpaceOfChaos extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BufferPower(p, this.magicNumber)));
-        this.exhaust = !p.hasPower(ExtraTurnPower.POWER_ID);
+        addToBot(new ApplyPowerAction(p, p, new BufferPower(p, this.magicNumber + (p.hasPower(ExtraTurnPower.POWER_ID) ? 1 : 0))));
     }
 }

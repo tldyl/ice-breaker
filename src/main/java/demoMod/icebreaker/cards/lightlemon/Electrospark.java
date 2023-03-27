@@ -50,8 +50,8 @@ public class Electrospark extends AbstractLightLemonCard {
     @Override
     public void applyPowers() {
         this.baseMagicNumber = (int) AbstractDungeon.actionManager.cardsPlayedThisCombat.stream().filter(card -> card instanceof Spark).count();
-        if (this.baseMagicNumber > 23) {
-            this.baseMagicNumber = 23;
+        if (this.baseMagicNumber > 12) {
+            this.baseMagicNumber = 12;
         }
         super.applyPowers();
         this.rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;

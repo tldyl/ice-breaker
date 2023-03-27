@@ -35,7 +35,6 @@ public class BloodyPath extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTags.HEALING);
-        this.isFetter = true;
     }
 
     @Override

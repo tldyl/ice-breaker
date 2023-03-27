@@ -1,18 +1,18 @@
 {
   "IceBreaker:TimeStasisPower": {
-    "NAME": "时间凝滞",
+    "NAME": "时间停滞",
     "DESCRIPTIONS": [
-      "累加到 #b12 层及以上时，失去 #b12 层 #y时间凝滞 并进入 #y狭隙 。"
+      "累加到 #b12 层及以上时，失去 #b12 层 #y时间停滞 并进入 #y时之狭隙 。"
     ]
   },
   "IceBreaker:NextTurnTimeStasisPower": {
-    "NAME": "下回合时间凝滞",
+    "NAME": "下回合时间停滞",
     "DESCRIPTIONS": [
-      "在下回合开始时，获得 #b%s 层 #y时间凝滞。"
+      "在下回合开始时，获得 #b%s 层 #y时间停滞。"
     ]
   },
   "IceBreaker:ExtraTurnPower": {
-    "NAME": "狭隙",
+    "NAME": "时之狭隙",
     "DESCRIPTIONS": [
       "进入时，获得 [E] [E] 。 NL 无视敌人的出牌时触发的效果。"
     ]
@@ -20,7 +20,7 @@
   "IceBreaker:ResonancePower": {
     "NAME": "共鸣",
     "DESCRIPTIONS": [
-      "当你处于 #y狭隙 时，提升 #y魔法 牌卡牌描述中的所有数值 #b%d 点。 NL 每触发一次，层数减少 #b1 。"
+      "当你处于 #y时之狭隙 时，提升 #y魔法 牌卡牌描述中的所有数值 #b%d 点。 NL 每触发一次，层数减少 #b1 。"
     ]
   },
   "IceBreaker:DoubleBlockPower": {
@@ -62,7 +62,7 @@
   "IceBreaker:TimeLeapPower": {
     "NAME": "时间跳跃",
     "DESCRIPTIONS": [
-      "在你的回合开始时，获得 #b%d 层 #y时间凝滞 。"
+      "在你的回合开始时，获得 #b%d 层 #y时间停滞 。"
     ]
   },
   "IceBreaker:StarDustPower": {
@@ -75,7 +75,7 @@
     "NAME": "雾霜之国",
     "DESCRIPTIONS": [
       "在你的回合开始时，所有敌人失去 #b%d 点 力量 。",
-      "在你的回合开始或进入 #y狭隙 时，所有敌人失去 #b%d 点 力量 。"
+      "在你的回合开始或进入 #y时之狭隙 时，所有敌人失去 #b%d 点 力量 。"
     ]
   },
   "IceBreaker:WheelOfHeatPower": {
@@ -93,7 +93,7 @@
   "IceBreaker:ChronoChimePower": {
     "NAME": "时之鸣",
     "DESCRIPTIONS": [
-      "你打出的下 #b%d 张 #y魔法 在 #y狭隙 外仍然受 #y共鸣 影响。"
+      "你打出的下 #b%d 张 #y魔法 在 #y时之狭隙 外仍然受 #y共鸣 影响。"
     ]
   },
   "IceBreaker:DeepCalculatePower": {
@@ -123,13 +123,13 @@
   "IceBreaker:FreeMagicPower": {
     "NAME": "免费魔法牌",
     "DESCRIPTIONS": [
-      "你的下 #b%d 张 #y魔法 牌耗能变为 #b0 。 NL 如果处于 #y狭隙 ，再将其打出两次。"
+      "你的下 #b%d 张 #y魔法 牌耗能变为 #b0 。 NL 如果处于 #y时之狭隙 ，再将其打出两次。"
     ]
   },
   "IceBreaker:MagicalFloodPower": {
     "NAME": "法力涌动",
     "DESCRIPTIONS": [
-      "每当你进入 #y狭隙 时，抽 #b%d 张牌。"
+      "每当你进入 #y时之狭隙 时，抽 #b%d 张牌。"
     ]
   },
   "IceBreaker:SeeYouTomorrowPower": {
@@ -141,15 +141,15 @@
   "IceBreaker:NightOfFireworksPower": {
     "NAME": "花火",
     "DESCRIPTIONS": [
-      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。",
-      "回合开始或进入 #y狭隙 时，将 #b%d 张 #y火花+ 加入抽牌堆。"
+      "回合开始或进入 #y时之狭隙 时，将 #b%d 张 #y火花 加入抽牌堆。",
+      "回合开始或进入 #y时之狭隙 时，将 #b%d 张 #y火花+ 加入抽牌堆。"
     ]
   },
   "IceBreaker:VitalLoopPower": {
     "NAME": "生命循环",
     "DESCRIPTIONS": [
       "回合开始时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。",
-      "回合开始或进入 #y狭隙 时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。"
+      "回合开始或进入 #y时之狭隙 时，将弃牌堆中的至多 #b%d 张牌放到抽牌堆的顶部。"
     ]
   },
   "IceBreaker:FantasyDreamPower": {
@@ -161,20 +161,20 @@
   "IceBreaker:HarshTemperamentPower": {
     "NAME": "肃杀",
     "DESCRIPTIONS": [
-      "每当你进入 #y狭隙 时，你打出的下一张 #y魔法 牌将额外打出 #b%d 次。"
+      "每当你进入 #y时之狭隙 时，你打出的下一张 #y魔法 牌将额外打出 #b%d 次。"
     ]
   },
   "IceBreaker:AsterismFormPower": {
     "NAME": "群星形态",
     "DESCRIPTIONS": [
-      "回合开始或进入 #y狭隙 时，从 #b15 张来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。",
-      "回合开始或进入 #y狭隙 时，从 #b15 张 #y升级 过的来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。"
+      "回合开始或进入 #y时之狭隙 时，从 #b15 张来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。",
+      "回合开始或进入 #y时之狭隙 时，从 #b15 张 #y升级 过的来自所有颜色的随机牌中选择一张打出，重复 #b%d 次。"
     ]
   },
   "IceBreaker:YesterdayOnceMorePower": {
     "NAME": "昨日重现",
     "DESCRIPTIONS": [
-      "每当 #y羁绊 触发时，获得 #b%d 层 #y时间凝滞 。"
+      "每当 #y羁绊 触发时，获得 #b%d 层 #y时间停滞 。"
     ]
   },
   "IceBreaker:TsukishiRinPower": {
@@ -216,7 +216,7 @@
   "IceBreaker:TsukishiRitsuPower": {
     "NAME": "月白律",
     "DESCRIPTIONS": [
-      "在你的回合开始时，进入 #y狭隙 。"
+      "在你的回合开始时，进入 #y时之狭隙 。"
     ]
   }
 }
