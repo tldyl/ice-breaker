@@ -307,7 +307,7 @@
   },
   "IceBreaker:IceDebrisSplashed": {
     "NAME": "冰屑飞溅",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成等同于 im:时间停滞 层数的伤害 !M! 次。 NL im:狭隙 ：伤害固定为十二。",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成等同于 im:时间停滞 层数的伤害 !M! 次。 NL im:狭隙 ：伤害固定为十二。",
     "EXTENDED_DESCRIPTION": [
       "(造成 !D! 点伤害 !M! 次。)"
     ]

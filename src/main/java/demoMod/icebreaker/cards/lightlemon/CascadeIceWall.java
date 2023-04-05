@@ -62,7 +62,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
         if (p.hasPower(ExtraTurnPower.POWER_ID) && !this.exhaustOnUseOnce) {
             addToBot(new CascadeIceWallAction(p));
         } else if (!this.isInAutoplay) {
-            addToBot(new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
+            addToBot(new MakeTempCardInDiscardAction(makeSameInstanceOf(), true));
         }
     }
 }

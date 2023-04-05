@@ -39,7 +39,6 @@ public class IceDebrisSplashed extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
-        this.isFetter = true;
     }
 
     @Override

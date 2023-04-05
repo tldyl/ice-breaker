@@ -1,10 +1,8 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -54,7 +52,7 @@ public class ExtraTrigger extends AbstractLightLemonCard {
                 }
 
                 if (firstFrame) {
-                    AbstractDungeon.handCardSelectScreen.open(DiscardAction.TEXT[0], ExtraTrigger.this.magicNumber, true, true);
+                    AbstractDungeon.handCardSelectScreen.open(ExhaustAction.TEXT[0], ExtraTrigger.this.magicNumber, true, true);
                     AbstractDungeon.player.hand.applyPowers();
                     firstFrame = false;
                     return;
