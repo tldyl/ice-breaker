@@ -41,9 +41,12 @@ public class NextTurnPlayCardPower extends AbstractPower {
     @Override
     public void atStartOfTurn() {
         this.flash();
-        AbstractCard c = card.makeStatEquivalentCopy();
+        AbstractCard c = card.makeSameInstanceOf();
         c.freeToPlayOnce = true;
-        this.addToBot(new MakeTempCardInHandAction(c, this.amount));
+        for (int i = 0; i < this.amount; i++) {
+            this.addToBot(new MakeTempCardInHandAction(c, true, true));
+        }
+
 
 //        for (int i=0;i<this.amount;i++) {
 //            AbstractMonster m = null;
