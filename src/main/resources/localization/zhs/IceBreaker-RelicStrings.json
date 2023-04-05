@@ -3,7 +3,7 @@
     "NAME": "法杖“暴雪”",
     "FLAVOR": "完全由固态冰属性魔力构成。",
     "DESCRIPTIONS": [
-      "每场战斗第一次获得 #y格挡 时，将获得量翻倍。"
+      "每场战斗第一次获得 #y格挡 时，将获得量翻倍。 NL 每场战斗开始时，获得 #b4 层 #yim:时间停滞 。"
     ]
   },
   "IceBreaker:StaffMidwinter": {

@@ -99,7 +99,7 @@
   "IceBreaker:DeepCalculatePower": {
     "NAME": "深度演算",
     "DESCRIPTIONS": [
-      "#y羁绊 对象存在于弃牌堆时也能 #y羁绊 成功。"
+      "每次打出 #y羁绊 牌时，额外触发其 #y羁绊 效果 #b%d 次。"
     ]
   },
   "IceBreaker:NextTurnPlayCardPower": {
@@ -173,7 +173,7 @@
   "IceBreaker:YesterdayOnceMorePower": {
     "NAME": "昨日重现",
     "DESCRIPTIONS": [
-      "每当 #y羁绊 触发时，获得 #b%d 层 #y时间停滞 。"
+      "每当打出 #y羁绊 牌时，获得 #b%d 层 #y时间停滞 。"
     ]
   },
   "IceBreaker:TsukishiRinPower": {
@@ -197,7 +197,7 @@
   "IceBreaker:AmePower": {
     "NAME": "雨",
     "DESCRIPTIONS": [
-      "每当触发卡牌的 #y狭隙 效果时，获得 #b%d 点 #y金属化 。"
+      "每当进入 #y狭隙 时，获得 #b%d 点 #y金属化 。"
     ]
   },
   "IceBreaker:BrandyPower": {
@@ -209,7 +209,7 @@
   "IceBreaker:DisobeyPower": {
     "NAME": "方越违",
     "DESCRIPTIONS": [
-      "回合结束时，如果你没有 #y缓冲 ，获得 #b%d 层 #y缓冲 。"
+      "#y羁绊 对象存在于弃牌堆时也能 #y羁绊 成功。"
     ]
   },
   "IceBreaker:TsukishiRitsuPower": {

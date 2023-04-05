@@ -40,6 +40,6 @@ public class Disobey extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DisobeyPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new DisobeyPower(p)));
     }
 }

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.DoubleBlockPower;
+import demoMod.icebreaker.powers.TimeStasisPower;
 
 public class StaffBlizzard extends CustomRelic {
     public static final String ID = IceBreaker.makeID("StaffBlizzard");
@@ -29,5 +30,6 @@ public class StaffBlizzard extends CustomRelic {
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new RelicAboveCreatureAction(p, this));
         addToBot(new ApplyPowerAction(p, p, new DoubleBlockPower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, 4)));
     }
 }

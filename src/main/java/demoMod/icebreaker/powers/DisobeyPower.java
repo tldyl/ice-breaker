@@ -15,26 +15,17 @@ public class DisobeyPower extends AbstractPower {
     public static final String NAME;
     public static final String[] DESC;
 
-    public DisobeyPower(AbstractCreature owner, int amount) {
+    public DisobeyPower(AbstractCreature owner) {
         this.owner = owner;
         this.ID = POWER_ID;
         this.name = NAME;
-        this.amount = amount;
         this.updateDescription();
-        this.loadRegion("draw");
+        this.loadRegion("DeepCalculation");
     }
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
-    }
-
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (owner instanceof AbstractPlayer == isPlayer && !owner.hasPower(BufferPower.POWER_ID)) {
-            this.flash();
-            addToBot(new ApplyPowerAction(owner, owner, new BufferPower(owner, this.amount)));
-        }
+        this.description = DESC[0];
     }
 
     static {

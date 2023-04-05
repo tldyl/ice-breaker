@@ -11,6 +11,11 @@
     "NAME": "幻炎",
     "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。 NL im:狭隙 ：给予 !IM2! 层 易伤 。"
   },
+  "IceBreaker:IceShield": {
+    "NAME": "雪域",
+    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。"
+  },
   "IceBreaker:Spark": {
     "NAME": "火花",
     "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 抽一张牌。 消耗 。",
@@ -180,11 +185,6 @@
     "NAME": "幽灵星体",
     "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择一张牌放入抽牌堆底部。"
   },
-  "IceBreaker:IceShield": {
-    "NAME": "雪域",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 获得三层 im:时间停滞 。 NL 给予所有敌人 !M! 层 虚弱 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 获得四层 im:时间停滞 。 NL 给予所有敌人 !M! 层 虚弱 。"
-  },
   "IceBreaker:CascadeIceWall": {
     "NAME": "层积式冰墙",
     "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡。 NL im:狭隙 外：向弃牌堆中加入一张本牌的复制。 NL  im:狭隙 ：打出并 消耗 抽牌堆、手牌和弃牌堆所有同名卡。",
@@ -290,7 +290,8 @@
   },
   "IceBreaker:DeepCalculate": {
     "NAME": "深度演算",
-    "DESCRIPTION": "im:羁绊 对象存在于弃牌堆时也能 im:羁绊 成功。"
+    "DESCRIPTION": "每次打出 im:羁绊 牌时，额外触发其 im:羁绊 效果。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，额外触发其 im:羁绊 效果。"
   },
   "IceBreaker:Chronover": {
     "NAME": "超越时间",
@@ -385,8 +386,8 @@
   },
   "IceBreaker:YesterdayOnceMore": {
     "NAME": "昨日重现",
-    "DESCRIPTION": "每次触发 im:回应 时，获得 !M! 层 im:时间停滞 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每次触发 im:回应 时，获得 !M! 层 im:时间停滞 。"
+    "DESCRIPTION": "每次打出 im:羁绊 牌时，获得 !M! 层 im:时间停滞 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，获得 !M! 层 im:时间停滞 。"
   },
   "IceBreaker:RainbowViolet": {
     "NAME": "七色堇",
@@ -407,7 +408,7 @@
   },
   "IceBreaker:Ame": {
     "NAME": "雨",
-    "DESCRIPTION": "每当触发卡牌的 im:狭隙 效果时，获得8层 金属化 。"
+    "DESCRIPTION": "每当进入 im:狭隙 时，获得8层 金属化 。"
   },
   "IceBreaker:Brandy": {
     "NAME": "白兰地",
@@ -415,7 +416,7 @@
   },
   "IceBreaker:Disobey": {
     "NAME": "方越违",
-    "DESCRIPTION": "回合结束时，如果你没有 缓冲 ，获得一层 缓冲 。"
+    "DESCRIPTION": "im:羁绊 对象存在于弃牌堆时也能 im:羁绊 成功。"
   },
   "IceBreaker:TsukishiRitsu": {
     "NAME": "月白律",

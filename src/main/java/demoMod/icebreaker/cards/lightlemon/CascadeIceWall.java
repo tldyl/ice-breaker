@@ -32,7 +32,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
 
     public CascadeIceWall() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = this.block = 7;
+        this.baseBlock = this.block = 8;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
@@ -43,7 +43,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
+            this.upgradeBlock(4);
             this.portrait = UPGRADE_IMG;
         }
     }

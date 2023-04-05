@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.AbstractCardEnum;
 
 public class Embers extends CustomCard {
     public static final String ID = IceBreaker.makeID("Embers");
@@ -24,7 +23,7 @@ public class Embers extends CustomCard {
     private static final int COST = 1;
 
     public Embers() {
-        super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.ICEBREAKER, RARITY, TARGET);
+        super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, CardColor.COLORLESS, RARITY, TARGET);
         this.cardsToPreview = new Spark();
         this.selfRetain = true;
         this.baseMagicNumber = this.magicNumber = 0;

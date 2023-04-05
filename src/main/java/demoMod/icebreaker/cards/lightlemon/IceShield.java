@@ -51,7 +51,6 @@ public class IceShield extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, 3 + (upgraded ? 1 : 0))));
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             if (!mo.isDeadOrEscaped()) {
                 addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));

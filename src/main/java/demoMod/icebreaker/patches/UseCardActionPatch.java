@@ -1,20 +1,19 @@
 package demoMod.icebreaker.patches;
 
 import basemod.ReflectionHacks;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.actions.PutSpecifiedCardToHandAction;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
-import demoMod.icebreaker.powers.DeepCalculatePower;
+import demoMod.icebreaker.powers.DisobeyPower;
 import javassist.CannotCompileException;
-import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
@@ -73,7 +72,7 @@ public class UseCardActionPatch {
                     List<AbstractCard> fetterCards = new ArrayList<>();
                     CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                     tmp.group.addAll(AbstractDungeon.player.drawPile.group);
-                    if (AbstractDungeon.player.hasPower(DeepCalculatePower.POWER_ID)) {
+                    if (AbstractDungeon.player.hasPower(DisobeyPower.POWER_ID)) {
                         tmp.group.addAll(AbstractDungeon.player.discardPile.group);
                     }
                     for (AbstractCard card : tmp.group) {
