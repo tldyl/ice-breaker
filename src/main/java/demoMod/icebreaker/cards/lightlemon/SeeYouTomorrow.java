@@ -24,7 +24,7 @@ public class SeeYouTomorrow extends AbstractLightLemonCard {
 
     public SeeYouTomorrow() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 6;
+        this.baseMagicNumber = this.magicNumber = 4;
     }
 
     @Override

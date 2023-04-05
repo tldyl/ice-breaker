@@ -50,7 +50,7 @@ public class Oracle extends AbstractLightLemonCard {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
-                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.selfRetain = true));
+                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.selfRetain = true, true));
                     isDone = true;
                 }
             });
@@ -60,7 +60,7 @@ public class Oracle extends AbstractLightLemonCard {
                 addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true));
+                        addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true, true));
                         isDone = true;
                     }
                 });

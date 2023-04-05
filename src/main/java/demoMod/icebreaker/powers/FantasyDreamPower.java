@@ -33,7 +33,7 @@ public class FantasyDreamPower extends AbstractPower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!cardFromDeck(card) && !action.exhaustCard) {
+        if (!cardFromDeck(card) && !action.exhaustCard && card.type != AbstractCard.CardType.POWER) {
             this.flash();
             action.exhaustCard = true;
             card.exhaust = true;

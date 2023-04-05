@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
@@ -30,7 +31,7 @@ public class FakeParley extends AbstractLightLemonCard {
     public FakeParley() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.tags.add(CardTags.HEALING);
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 1;
         this.isFetter = true;
         this.extraEffectOnExtraTurn = true;
     }
@@ -40,6 +41,13 @@ public class FakeParley extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.fetterAmount = 2;
+            if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
+                this.fetterAmount = 1;
+                onAddToMasterDeck();
+            }
         }
     }
 
@@ -49,7 +57,7 @@ public class FakeParley extends AbstractLightLemonCard {
         if (p.hasPower(ExtraTurnPower.POWER_ID)) {
             addToBot(new DrawCardAction(this.magicNumber));
         } else {
-            addToBot(new ApplyPowerAction(p, p, new ChronoChimePower(p, 1)));
+            addToBot(new ApplyPowerAction(p, p, new ChronoChimePower(p, this.magicNumber)));
         }
     }
 }

@@ -2,17 +2,19 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.actions.PlayCardInCardGroupAction;
+import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Light extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Light");
@@ -35,7 +37,7 @@ public class Light extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
-        this.extraEffectOnExtraTurn = true;
+        this.cardsToPreview = new Spark();
     }
 
     @Override
@@ -43,14 +45,16 @@ public class Light extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(2);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new DrawCardAction(this.magicNumber));
+        for (AbstractCard card : p.drawPile.group.stream().filter(card -> card instanceof Spark).limit(this.upgraded ? 2 : 1).collect(Collectors.toList())) {
+            addToBot(new PlayCardInCardGroupAction(card, p.drawPile, m, null));
         }
     }
 }

@@ -16,7 +16,7 @@ import demoMod.icebreaker.effects.HeavySnowEffect;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
+import java.util.List;
 
 public class HeavySnow extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("HeavySnow");
@@ -31,6 +31,7 @@ public class HeavySnow extends AbstractLightLemonCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     private static final int COST = 1;
+    private int fetterTriggerCount = 0;
 
     public HeavySnow() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -64,15 +65,18 @@ public class HeavySnow extends AbstractLightLemonCard {
         }
     }
 
+    @Override
+    public void onTriggerFetter() {
+        fetterTriggerCount++;
+    }
+
+    @Override
+    public void onOtherCardTriggerFetter(AbstractCard playedCard, List<AbstractCard> fetterCards) {
+        fetterTriggerCount++;
+    }
+
     public int countCards() {
-        long count = 0;
-        AbstractPlayer p = AbstractDungeon.player;
-        Predicate<AbstractCard> filter = card -> (card instanceof AbstractLightLemonCard) && ((AbstractLightLemonCard) card).fetterTarget.contains(this.uuid);
-        count += p.drawPile.group.stream().filter(filter).count();
-        count += p.hand.group.stream().filter(filter).count();
-        count += p.discardPile.group.stream().filter(filter).count();
-        count += p.exhaustPile.group.stream().filter(filter).count();
-        return (int) count;
+        return fetterTriggerCount;
     }
 
     public void calculateCardDamage(AbstractMonster mo) {

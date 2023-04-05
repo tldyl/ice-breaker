@@ -30,8 +30,6 @@ public class MaterialCreation extends AbstractLightLemonCard {
     public MaterialCreation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 2;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
         this.extraEffectOnExtraTurn = true;
     }
 
@@ -47,8 +45,9 @@ public class MaterialCreation extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i=0;i<this.magicNumber;i++) {
             AbstractCard randomCard = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
+            randomCard.setCostForTurn(0);
             if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-                randomCard.setCostForTurn(0);
+                randomCard.upgrade();
             }
             addToBot(new MakeTempCardInHandAction(randomCard, false));
         }

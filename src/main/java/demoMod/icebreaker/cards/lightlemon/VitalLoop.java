@@ -38,6 +38,6 @@ public class VitalLoop extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new VitalLoopPower(p, this.magicNumber, this.upgraded)));
+        addToBot(new ApplyPowerAction(p, p, new VitalLoopPower(p, this.magicNumber)));
     }
 }

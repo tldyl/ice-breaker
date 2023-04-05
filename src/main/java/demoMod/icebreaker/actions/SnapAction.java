@@ -63,7 +63,7 @@ public class SnapAction extends AbstractGameAction {
             if (this.player.drawPile.size() <= 1 && !this.optional) {
                 ArrayList<AbstractCard> cardsToMove = new ArrayList<>();
                 for (AbstractCard c : this.player.drawPile.group)
-                    if (c.type == AbstractCard.CardType.ATTACK) {
+                    if (c.hasTag(CardTagEnum.MAGIC)) {
                         cardsToMove.add(c);
                     }
                 for (AbstractCard c : cardsToMove) {

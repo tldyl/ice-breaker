@@ -39,7 +39,7 @@ public class HarshTemperamentPower extends AbstractPower implements EnterOrExitE
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.tags.contains(CardTagEnum.MAGIC) && this.activated && !card.purgeOnUse) {
+        if (card.tags.contains(CardTagEnum.MAGIC) && this.activated && !card.purgeOnUse && card.costForTurn > 0) {
             this.flash();
             for (int i=0;i<this.amount;i++) {
                 addToBot(new AbstractGameAction() {

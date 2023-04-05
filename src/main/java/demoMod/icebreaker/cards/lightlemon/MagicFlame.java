@@ -1,6 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.enums.CardTagEnum;
@@ -35,10 +37,12 @@ public class MagicFlame extends AbstractLightLemonCard {
         this.baseDamage = 9;
         this.damage = this.baseDamage;
         this.baseMagicNumber = this.magicNumber = 1;
+        this.baseM2 = this.m2 = 2;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
+        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -55,5 +59,8 @@ public class MagicFlame extends AbstractLightLemonCard {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         AbstractCard spark = new Spark();
         addToBot(new MakeTempCardInDrawPileAction(spark, this.magicNumber, true, true, false));
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.m2, false)));
+        }
     }
 }

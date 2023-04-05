@@ -59,6 +59,9 @@ public class IceDebrisSplashed extends AbstractLightLemonCard {
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         AbstractPlayer p = AbstractDungeon.player;
+        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+            this.baseDamage = 12;
+        }
         if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
             this.baseDamage -= p.getPower(ResonancePower.POWER_ID).amount;
         }
@@ -74,11 +77,15 @@ public class IceDebrisSplashed extends AbstractLightLemonCard {
     @Override
     public void applyPowers() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(TimeStasisPower.POWER_ID)) {
-            AbstractPower power = p.getPower(TimeStasisPower.POWER_ID);
-            this.baseDamage = power.amount;
+        if (!p.hasPower(ExtraTurnPower.POWER_ID)) {
+            if (p.hasPower(TimeStasisPower.POWER_ID)) {
+                AbstractPower power = p.getPower(TimeStasisPower.POWER_ID);
+                this.baseDamage = power.amount;
+            } else {
+                this.baseDamage = 0;
+            }
         } else {
-            this.baseDamage = 0;
+            this.baseDamage = 12;
         }
         if (p.hasPower(ResonancePower.POWER_ID) && p.hasPower(ExtraTurnPower.POWER_ID)) {
             this.baseDamage -= p.getPower(ResonancePower.POWER_ID).amount;

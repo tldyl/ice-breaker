@@ -34,7 +34,6 @@ public class NightOfFireworks extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.isInnate = true;
             this.initializeDescription();
             this.cardsToPreview.upgrade();
         }

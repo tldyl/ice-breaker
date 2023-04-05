@@ -5,11 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -38,7 +36,6 @@ public class FreezeKing extends AbstractLightLemonCard {
     public FreezeKing() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 10;
-        this.block = this.baseBlock = 10;
         this.baseMagicNumber = this.magicNumber = 2;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -60,7 +57,6 @@ public class FreezeKing extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(4);
-            this.upgradeBlock(4);
             this.upgradeMagicNumber(1);
         }
     }
@@ -72,11 +68,11 @@ public class FreezeKing extends AbstractLightLemonCard {
         addToBot(new SelectCardInCardGroupAction(this.magicNumber, card -> true, card -> {
             p.discardPile.removeCard(card);
             p.discardPile.moveToDeck(card, true);
+            if (p.hasPower(ExtraTurnPower.POWER_ID) && card.cost > 0) {
+                card.freeToPlayOnce = true;
+            }
         }, p.discardPile));
         // 这个应该不需要吧
         // AbstractDungeon.overlayMenu.cancelButton.show(AbstractDungeon.overlayMenu.cancelButton.buttonText);
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            addToBot(new GainBlockAction(p, p, this.block));
-        }
     }
 }

@@ -1,7 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,12 +9,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
-import demoMod.icebreaker.powers.ExtraTurnPower;
+import demoMod.icebreaker.powers.TimeStasisPower;
 
 import java.util.ArrayList;
 
-public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExitExtraTurnSubscriber {
+public class DeepColdSwamp extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("DeepColdSwamp");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,9 +26,6 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     private static final CardTarget TARGET = CardTarget.NONE;
 
     private static final int COST = 1;
-
-    private boolean updateCheck = false;
-    private boolean inExtraTurn = false;
 
     public DeepColdSwamp() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
@@ -47,17 +43,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(3);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
-            //
-            // Copied from SwingStaff
             this.upgradeMagicNumber(1);
-            this.fetterAmount = this.baseMagicNumber;
-            if (AbstractDungeon.player!= null && AbstractDungeon.player.masterDeck.contains(this)) {
-                this.fetterAmount = 1;
-                onAddToMasterDeck();
-            }
-
         }
     }
 
@@ -75,50 +61,9 @@ public class DeepColdSwamp extends AbstractLightLemonCard implements EnterOrExit
     }
 
     @Override
-    public void triggerWhenDrawn() {
-        if (AbstractDungeon.player.hasPower(ExtraTurnPower.POWER_ID)) {
-            this.setCostForTurn(0);
-        }
-    }
-
-    @Override
-    public void onEnterExtraTurn() {
-        if (!inExtraTurn) {
-            this.setCostForTurn(0);
-            inExtraTurn = true;
-        }
-    }
-
-    @Override
-    public void onExitExtraTurn() {
-        if (inExtraTurn) {
-            this.setCostForCombat(this.cost);
-            inExtraTurn = false;
-        }
-    }
-
-    public void setCostForCombat(int amt) {
-        if (this.costForTurn > 0) {
-            this.costForTurn = amt;
-            if (this.costForTurn < 0) {
-                this.costForTurn = 0;
-            }
-
-            if (this.cost != this.costForTurn) {
-                this.isCostModified = true;
-            }
-
-            this.cost = this.costForTurn;
-        } else if (this.cost >= 0) {
-            this.cost = amt;
-            if (this.cost < 0) {
-                this.cost = 0;
-            }
-
-            this.costForTurn = 0;
-            if (this.cost != this.costForTurn) {
-                this.isCostModified = true;
-            }
-        }
+    public void onTriggerFetter() {
+        AbstractPlayer p = AbstractDungeon.player;
+        calculateCardDamage(null);
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
     }
 }
