@@ -1,22 +1,22 @@
 {
-  "Scapegoat:LiquidSequin": {
-    "NAME": "液态亮片",
+  "IceBreaker:BottledInspire": {
+    "NAME": "瓶装灵感",
     "DESCRIPTIONS": [
-      "获得 #b",
-      " 层 #y赋还 。"
+      "从 #b3",
+      " 张 #y魔法 牌中选择一张加入手牌，本回合内其耗能为 #b0 。"
     ]
   },
-  "Scapegoat:BottledRedemption": {
-    "NAME": "瓶装救赎",
+  "IceBreaker:BottledLight": {
+    "NAME": "瓶装光芒",
     "DESCRIPTIONS": [
-      "#y回溯 #b",
+      "所有手牌耗能降低 #b1 ",
       " 。"
     ]
   },
-  "Scapegoat:DevilInAJar": {
-    "NAME": "罐装恶魔",
+  "IceBreaker:BottledTime": {
+    "NAME": "瓶装时间",
     "DESCRIPTIONS": [
-      "本回合内，每当你从一张牌失去生命时，获得等量 #y再生 。"
+      "结束你的回合，获得一个额外回合。"
     ]
   }
 }
