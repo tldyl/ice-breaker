@@ -24,7 +24,7 @@ public class MagicalFlood extends AbstractLightLemonCard {
 
     public MagicalFlood() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseMagicNumber = this.magicNumber = 2;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class MagicalFlood extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
         }
     }
 

@@ -20,7 +20,7 @@ public class BloodyPath extends AbstractLightLemonCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/strike_I.png";
+    public static final String IMG_PATH = "cards/BloodyPath.png";
 
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -31,10 +31,10 @@ public class BloodyPath extends AbstractLightLemonCard {
     public BloodyPath() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseDamage = 8;
+        this.selfRetain = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTagEnum.MAGIC);
-        this.tags.add(CardTags.HEALING);
     }
 
     @Override

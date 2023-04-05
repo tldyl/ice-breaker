@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import demoMod.icebreaker.IceBreaker;
 
 import java.util.function.Predicate;
 
@@ -61,7 +62,7 @@ public class SelectSpecifiedCardInHandAction extends AbstractGameAction {
 
                 this.isDone = true;
             } else {
-                AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
+                AbstractDungeon.gridSelectScreen.open(tmp, this.amount, String.format(TEXT[0], this.amount), false);
                 this.tickDuration();
             }
         } else {
@@ -91,7 +92,7 @@ public class SelectSpecifiedCardInHandAction extends AbstractGameAction {
     }
 
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString("BetterToHandAction");
+        uiStrings = CardCrawlGame.languagePack.getUIString(IceBreaker.makeID("SelectSpecifiedCardInHandAction"));
         TEXT = uiStrings.TEXT;
     }
 }

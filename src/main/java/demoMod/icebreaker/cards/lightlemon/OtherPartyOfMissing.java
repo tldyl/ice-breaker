@@ -54,6 +54,11 @@ public class OtherPartyOfMissing extends AbstractLightLemonCard implements Enter
     }
 
     @Override
+    public void onRetained() {
+        triggerOnEndOfPlayerTurn();
+    }
+
+    @Override
     public void onEnterExtraTurn() {
         this.baseBlock += this.magicNumber;
     }

@@ -55,7 +55,7 @@ public class SelectCardInHandAction extends AbstractGameAction {
             }
             this.p.hand.group.removeAll(this.filteredCards);
             if (this.p.hand.group.size() > 1 || this.anyNumber) {
-                AbstractDungeon.handCardSelectScreen.open(SelectSpecifiedCardInHandAction.TEXT[0], this.amount, this.anyNumber, this.anyNumber, false, false);
+                AbstractDungeon.handCardSelectScreen.open(String.format(SelectSpecifiedCardInHandAction.TEXT[0], this.amount), this.amount, this.anyNumber, this.anyNumber, false, false);
                 tickDuration();
                 return;
             }

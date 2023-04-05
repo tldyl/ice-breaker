@@ -56,7 +56,7 @@
   },
   "IceBreaker:BloodyPath": {
     "NAME": "断罪血流",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 移除你的所有效果。 NL 每移除一种，造成 !D! 点伤害一次。"
+    "DESCRIPTION": "保留 。 im:魔法 。 im:远程 。 NL 移除你的所有效果。 NL 每移除一种，造成 !D! 点伤害一次。"
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
@@ -133,7 +133,7 @@
   },
   "IceBreaker:FreezeKing": {
     "NAME": "冰封之王",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 从弃牌堆中选择至多 !M! 张牌放入抽牌堆。 NL im:狭隙 ：选择的牌在下次打出前的耗能为0。",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 从弃牌堆中选择至多 !M! 张牌放入抽牌堆。 NL im:狭隙 ：选择的牌在下次打出前的耗能为零。",
     "EXTENDED_DESCRIPTION": [
       "悲叹冥河"
     ]
@@ -209,7 +209,7 @@
   },
   "IceBreaker:DistortReality": {
     "NAME": "扭曲现实",
-    "DESCRIPTION": "获得 !M! 层 im:共鸣 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !M! 层 im:共鸣 。"
   },
   "IceBreaker:TimeLetter": {
     "NAME": "时间交信",
@@ -260,7 +260,7 @@
   },
   "IceBreaker:SpaceOfChaos": {
     "NAME": "混沌空间",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 缓冲 。消耗。 NL im:狭隙 ： 额外获得一层 缓冲 。"
+    "DESCRIPTION": "im:魔法 。 NL 获得 !M! 层 缓冲 。 消耗 。 NL im:狭隙 ： 额外获得一层 缓冲 。"
   },
   "IceBreaker:StarDust": {
     "NAME": "星尘",
