@@ -54,7 +54,7 @@ public class Electrospark extends AbstractLightLemonCard {
             this.baseMagicNumber = 12;
         }
         super.applyPowers();
-        this.rawDescription = upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
+        this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }

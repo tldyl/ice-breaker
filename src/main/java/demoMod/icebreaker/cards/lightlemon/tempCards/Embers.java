@@ -2,6 +2,7 @@ package demoMod.icebreaker.cards.lightlemon.tempCards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -48,5 +49,13 @@ public class Embers extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.baseMagicNumber));
+    }
+
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard ret = super.makeStatEquivalentCopy();
+        ret.rawDescription = this.rawDescription;
+        ret.initializeDescription();
+        return ret;
     }
 }

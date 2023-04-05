@@ -1,13 +1,11 @@
 package demoMod.icebreaker.powers;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.BufferPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class DisobeyPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("DisobeyPower");
@@ -20,7 +18,7 @@ public class DisobeyPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("DeepCalculation");
+        PowerRegionLoader.load(this, "DeepCalculation");
     }
 
     @Override
