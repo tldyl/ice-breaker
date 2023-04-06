@@ -15,7 +15,7 @@ public class Embers extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG_PATH = "cards/AllInAsh.png";
+    public static final String IMG_PATH = "cards/Embers.png";
 
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,6 +28,7 @@ public class Embers extends CustomCard {
         this.cardsToPreview = new Spark();
         this.selfRetain = true;
         this.baseMagicNumber = this.magicNumber = 0;
+        this.exhaust = true;
     }
 
     @Override
