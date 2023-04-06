@@ -45,18 +45,12 @@ public class AllInAsh extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new XCostAction(this, effect -> {
+            Embers embers = new Embers();
             if (this.upgraded) {
-                effect++;
+                embers.upgrade();
             }
-
-            if (effect > 0) {
-                Embers embers = new Embers();
-                if (this.upgraded) {
-                    embers.upgrade();
-                }
-                embers.setAmount(effect);
-                addToTop(new MakeTempCardInHandAction(embers));
-            }
+            embers.setAmount(effect);
+            addToTop(new MakeTempCardInHandAction(embers));
 
             for(int i = 0; i < p.hand.size(); i++) {
                 if (Settings.FAST_MODE) {
