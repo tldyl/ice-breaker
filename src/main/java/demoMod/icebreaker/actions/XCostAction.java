@@ -22,7 +22,12 @@ public class XCostAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if (this.isDone) {
+            return;
+        }
+
         int effect = EnergyPanel.totalCount;
+
         if (card.costForTurn != -1) {
             effect = card.energyOnUse;
         }
