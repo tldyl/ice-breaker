@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.characters.IceBreakerCharacter;
 import demoMod.icebreaker.enums.CardTagEnum;
 
 public class AbstractPowerPatch {
@@ -76,7 +77,7 @@ public class AbstractPowerPatch {
     )
     public static class PatchStackPower {
         public static void Postfix(StrengthPower power, int amount) {
-            if (power.amount > 0 && power.owner == AbstractDungeon.player) {
+            if (power.amount > 0 && power.owner == AbstractDungeon.player && power.owner instanceof IceBreakerCharacter) {
                 power.amount = 0;
                 AbstractPlayer p = AbstractDungeon.player;
                 AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, uiStrings.TEXT[0], true));

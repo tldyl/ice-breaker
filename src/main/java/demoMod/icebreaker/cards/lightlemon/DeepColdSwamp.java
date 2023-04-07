@@ -32,7 +32,6 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         this.baseMagicNumber = this.magicNumber = 1;
         this.baseBlock = this.block = 7;
         this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTags.HEALING);
         this.isFetter = true;
         this.extraEffectOnExtraTurn = true;

@@ -198,7 +198,7 @@
   },
   "IceBreaker:DeepColdSwamp": {
     "NAME": "因果",
-    "DESCRIPTION": "im:魔法 。 im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:回应 ：获得 !M! 层 im:时间停滞 。",
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:回应 ：获得 !M! 层 im:时间停滞 。",
     "EXTENDED_DESCRIPTION": [
       "冰结之绊"
     ]
@@ -300,7 +300,7 @@
   },
   "IceBreaker:ExtraTrigger": {
     "NAME": "追加触发",
-    "DESCRIPTION": "消耗至多 !M! 张手牌。 NL 在下回合开始时将它们的复制加入手牌，且首次打出前耗能为0。"
+    "DESCRIPTION": "从手牌中选择至多 !M! 张牌 消耗 。 NL 在下回合开始时将它们的复制加入手牌，且首次打出前耗能为0。"
   },
   "IceBreaker:Detonate": {
     "NAME": "起爆",
