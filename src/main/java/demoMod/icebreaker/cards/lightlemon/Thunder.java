@@ -40,7 +40,6 @@ public class Thunder extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTags.HEALING);
         this.isMultiDamage = true;
-        this.extraEffectOnExtraTurn = true;
         this.isFetter = true;
     }
 
