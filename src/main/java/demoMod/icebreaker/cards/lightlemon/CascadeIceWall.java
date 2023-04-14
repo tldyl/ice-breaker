@@ -45,6 +45,7 @@ public class CascadeIceWall extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(4);
             this.portrait = UPGRADE_IMG;
+            this.textureImg = IceBreaker.getResourcePath("cards/CascadeIceWall+.png");
         }
     }
 

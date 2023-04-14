@@ -42,9 +42,9 @@ public class IceBreaker implements EditStringsSubscriber,
                                    PostUpdateSubscriber,
                                    PostDungeonInitializeSubscriber {
 
-    private static final String ATTACK_CARD = "512/bg_attack_icebreaker.png";
-    private static final String SKILL_CARD = "512/bg_skill_icebreaker.png";
-    private static final String POWER_CARD = "512/bg_power_icebreaker.png";
+    public static final String ATTACK_CARD = "512/bg_attack_icebreaker.png";
+    public static final String SKILL_CARD = "512/bg_skill_icebreaker.png";
+    public static final String POWER_CARD = "512/bg_power_icebreaker.png";
     private static final String ENERGY_ORB = "512/card_icebreaker_orb.png";
     private static final String CARD_ENERGY_ORB = "512/card_small_orb.png";
     private static final String ATTACK_CARD_PORTRAIT = "1024/bg_attack_icebreaker.png";

@@ -58,6 +58,7 @@ public class FreezeKing extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeDamage(4);
             this.upgradeMagicNumber(1);
+            this.textureImg = IceBreaker.getResourcePath("cards/FreezeKing+.png");
         }
     }
 

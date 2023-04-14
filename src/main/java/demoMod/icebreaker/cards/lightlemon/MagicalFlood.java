@@ -44,6 +44,7 @@ public class MagicalFlood extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBaseCost(0);
             this.portrait = UPGRADE_IMG;
+            this.textureImg = IceBreaker.getResourcePath("cards/MagicalFlood+.png");
         }
     }
 

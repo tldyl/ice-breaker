@@ -48,6 +48,7 @@ public class Inspire extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(4);
             this.portrait = UPGRADE_IMG;
+            this.textureImg = IceBreaker.getResourcePath("cards/Inspire+.png");
         }
     }
 

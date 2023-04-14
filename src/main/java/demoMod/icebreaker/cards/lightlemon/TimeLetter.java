@@ -9,12 +9,9 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.NextTurnTimeStasisPower;
@@ -53,6 +50,7 @@ public class TimeLetter extends AbstractLightLemonCard {
             this.upgradeDamage(3);
             this.upgradeMagicNumber(1);
             this.portrait = UPGRADE_IMG;
+            this.textureImg = IceBreaker.getResourcePath("cards/TimeLetter+.png");
         }
     }
 

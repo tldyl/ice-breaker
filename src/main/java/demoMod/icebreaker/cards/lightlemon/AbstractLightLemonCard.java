@@ -1,20 +1,29 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.modthespire.lib.SpireOverride;
+import com.evacipated.cardcrawl.modthespire.lib.SpireSuper;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
 import demoMod.icebreaker.enums.AbstractCardEnum;
+import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.interfaces.CardAddToDeckSubscriber;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +46,26 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
     public boolean ConnectionOfMeteor = false;
 
+    public static final Texture MAGIC_ATTACK_CARD_BG_TEXTURE_512 = new Texture(IceBreaker.getResourcePath("512/bg_attack_icebreaker_magic.png"));
+    public static final Texture MAGIC_SKILL_CARD_BG_TEXTURE_512 = new Texture(IceBreaker.getResourcePath("512/bg_skill_icebreaker_magic.png"));
+    public static final Texture MAGIC_CARD_BG_TEXTURE_512 = new Texture(IceBreaker.getResourcePath("512/bg_magic_icebreaker.png"));
+    public static final Texture MAGIC_ATTACK_CARD_BG_TEXTURE_1024 = new Texture(IceBreaker.getResourcePath("1024/bg_attack_icebreaker_magic.png"));
+    public static final Texture MAGIC_SKILL_CARD_BG_TEXTURE_1024 = new Texture(IceBreaker.getResourcePath("1024/bg_skill_icebreaker_magic.png"));
+    public static final Texture MAGIC_CARD_BG_TEXTURE_1024 = new Texture(IceBreaker.getResourcePath("1024/bg_magic_icebreaker.png"));
+
     public AbstractLightLemonCard(String id, String name, String img, int cost, String rawDescription, CardType type, CardRarity rarity, CardTarget target) {
         super(id, name, img, cost, rawDescription, type, AbstractCardEnum.ICEBREAKER, rarity, target);
+        switch (type) {
+            case ATTACK:
+                this.textureBackgroundSmallImg = IceBreaker.getResourcePath(IceBreaker.ATTACK_CARD);
+                break;
+            case POWER:
+                this.textureBackgroundSmallImg = IceBreaker.getResourcePath(IceBreaker.POWER_CARD);
+                break;
+            default:
+                this.textureBackgroundSmallImg = IceBreaker.getResourcePath(IceBreaker.SKILL_CARD);
+                break;
+        }
     }
 
     public boolean isM2Buffed() {
@@ -199,5 +226,56 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
                 }
             }
         }
+    }
+
+    @Override
+    public Texture getBackgroundSmallTexture() {
+        if (this.hasTag(CardTagEnum.MAGIC)) {
+            switch (this.type) {
+                case ATTACK:
+                    return MAGIC_ATTACK_CARD_BG_TEXTURE_512;
+                case SKILL:
+                    return MAGIC_SKILL_CARD_BG_TEXTURE_512;
+            }
+        }
+        return super.getBackgroundSmallTexture();
+    }
+
+    @Override
+    public Texture getBackgroundLargeTexture() {
+        if (this.hasTag(CardTagEnum.MAGIC)) {
+            switch (this.type) {
+                case ATTACK:
+                    return MAGIC_ATTACK_CARD_BG_TEXTURE_1024;
+                case SKILL:
+                    return MAGIC_SKILL_CARD_BG_TEXTURE_1024;
+            }
+        }
+        return super.getBackgroundLargeTexture();
+    }
+
+    @SpireOverride
+    public void renderCard(SpriteBatch sb, boolean hovered, boolean selected) {
+        SpireSuper.call(sb, hovered, selected);
+        if (!Settings.hideCards) {
+            if (this.hasTag(CardTagEnum.MAGIC)) {
+                if (!this.isOnScreen()) {
+                    return;
+                }
+
+                if (!this.isFlipped) {
+                    Method method = ReflectionHacks.getCachedMethod(AbstractCard.class, "renderHelper", SpriteBatch.class, Color.class, TextureAtlas.AtlasRegion.class, float.class, float.class);
+                    try {
+                        method.invoke(this, sb, ReflectionHacks.getPrivate(this, AbstractCard.class, "renderColor"), new TextureAtlas.AtlasRegion(MAGIC_CARD_BG_TEXTURE_512, 0, 0, 512, 512), this.current_x, this.current_y);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean isOnScreen() {
+        return !(this.current_y < -200.0F * Settings.scale) && !(this.current_y > (float)Settings.HEIGHT + 200.0F * Settings.scale);
     }
 }
