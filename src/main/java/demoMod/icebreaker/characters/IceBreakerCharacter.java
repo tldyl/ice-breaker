@@ -1,7 +1,9 @@
 package demoMod.icebreaker.characters;
 
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.G3DJAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -24,6 +26,7 @@ import demoMod.icebreaker.cards.lightlemon.Strike_IceBreaker;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.enums.AbstractPlayerEnum;
 import demoMod.icebreaker.relics.StaffBlizzard;
+import demoMod.icebreaker.ui.panels.energyorb.EnergyOrbLightLemon;
 
 import java.util.ArrayList;
 
@@ -31,29 +34,19 @@ public class IceBreakerCharacter extends CustomPlayer {
     private static final CharacterStrings charStrings;
     public static final String NAME;
     public static final String DESCRIPTION;
-
-    private static final String[] orbTextures = {
-            IceBreaker.getResourcePath("char/orb/layer1.png"),
-            IceBreaker.getResourcePath("char/orb/layer2.png"),
-            IceBreaker.getResourcePath("char/orb/layer3.png"),
-            /*
-            "scapegoatImages/char/orb/layer4.png",
-            "scapegoatImages/char/orb/layer5.png",
-            "scapegoatImages/char/orb/layer6.png",
-            "scapegoatImages/char/orb/layer1d.png",
-            "scapegoatImages/char/orb/layer2d.png",
-            "scapegoatImages/char/orb/layer3d.png",
-            "scapegoatImages/char/orb/layer4d.png",
-            "scapegoatImages/char/orb/layer5d.png"
-            */
-    };
+    public static final Texture ORB_FLASH_VFX = new Texture(IceBreaker.getResourcePath("char/orb/vfx.png"));
 
     public IceBreakerCharacter(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures, IceBreaker.getResourcePath("char/orb/vfx.png"), null, (String) null);
+        super(name, setClass, new EnergyOrbLightLemon(), new G3DJAnimation(null, null));
         this.initializeClass(IceBreaker.getResourcePath("char/character.png"), IceBreaker.getResourcePath("char/shoulder2.png"), IceBreaker.getResourcePath("char/shoulder.png"), IceBreaker.getResourcePath("char/corpse.png"), this.getLoadout(), 0.0F, -20F, 251.2F, 304.0F, new EnergyManager(3));
         if (ModHelper.enabledMods.size() > 0 && (ModHelper.isModEnabled("Diverse") || ModHelper.isModEnabled("Chimera") || ModHelper.isModEnabled("Blue Cards"))) {
             this.masterMaxOrbs = 1;
         }
+    }
+
+    @Override
+    public Texture getEnergyImage() {
+        return ORB_FLASH_VFX;
     }
 
     @Override
