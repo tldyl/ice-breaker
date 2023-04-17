@@ -10,8 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.function.Predicate;
 
@@ -96,5 +94,10 @@ public class ConnectionOfMeteor extends CustomRelic implements CustomBottleRelic
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
         }
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return player.masterDeck.group.stream().anyMatch(card -> card.rarity != AbstractCard.CardRarity.BASIC);
     }
 }

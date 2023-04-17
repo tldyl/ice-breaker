@@ -34,7 +34,6 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTags.HEALING);
         this.isFetter = true;
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -43,6 +42,11 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
+                onAddToMasterDeck();
+            }
         }
     }
 

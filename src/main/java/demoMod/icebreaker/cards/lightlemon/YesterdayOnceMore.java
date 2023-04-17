@@ -33,12 +33,11 @@ public class YesterdayOnceMore extends AbstractLightLemonCard {
             this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            this.isInnate = true;
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new YesterdayOnceMorePower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new YesterdayOnceMorePower(p, this.magicNumber, this.upgraded)));
     }
 }

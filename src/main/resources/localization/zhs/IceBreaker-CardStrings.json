@@ -9,7 +9,7 @@
   },
   "IceBreaker:MagicFlame": {
     "NAME": "幻炎",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。 NL im:狭隙 ：给予 !IM2! 层 易伤 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。"
   },
   "IceBreaker:IceShield": {
     "NAME": "雪域",
@@ -52,8 +52,8 @@
   },
   "IceBreaker:Light": {
     "NAME": "光",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，打出至多一张。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，打出至多两张。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，对随机敌人打出至多一张。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，对随机敌人打出至多两张。"
   },
   "IceBreaker:EarthCollapse": {
     "NAME": "大地崩坏",
@@ -133,12 +133,11 @@
   },
   "IceBreaker:HauntHell": {
     "NAME": "幽灵地狱",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人 NL 造成 !D! 点伤害六次。 NL 将 !M! 张 *火花 NL 加入抽牌堆中。 NL im:狭隙 ：获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害六次。 NL 将 !M! 张 *火花 加入抽牌堆中。 NL im:狭隙 ：获得 [E] [E] 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人 NL 造成 !D! 点伤害六次。 NL 将 !M! 张 *火花 NL 加入抽牌堆中。"
   },
   "IceBreaker:FreezeKing": {
     "NAME": "冰封之王",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 从弃牌堆中选择至多 !M! 张牌放入抽牌堆。 NL im:狭隙 ：选择的牌在下次打出前的耗能为零。",
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。 NL 从弃牌堆中选择至多 !M! 张牌放入抽牌堆。",
     "EXTENDED_DESCRIPTION": [
       "悲叹冥河"
     ]
@@ -154,7 +153,8 @@
   },
   "IceBreaker:Oracle": {
     "NAME": "神谕",
-    "DESCRIPTION": "im:羁绊 。 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。 NL im:狭隙 ：选择的牌在本场战斗获得 保留 。"
+    "DESCRIPTION": "im:羁绊 。 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。",
+    "UPGRADE_DESCRIPTION": "im:羁绊 2。 NL 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。"
   },
   "IceBreaker:OverloadEmulate": {
     "NAME": "过载演算",
@@ -199,6 +199,7 @@
   "IceBreaker:DeepColdSwamp": {
     "NAME": "因果",
     "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL im:回应 ：获得 !M! 层 im:时间停滞 。",
+    "UPGRADE_DESCRIPTION": "im:羁绊 2。 NL 获得 !B! 点 格挡 。 NL im:回应 ：获得 !M! 层 im:时间停滞 。",
     "EXTENDED_DESCRIPTION": [
       "冰结之绊"
     ]
@@ -222,7 +223,7 @@
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "物质创造",
-    "DESCRIPTION": "将 !M! 张随机牌加入手牌，其耗能本回合为0。 NL im:狭隙 ： 升级 加入的牌。"
+    "DESCRIPTION": "将 !M! 张随机牌加入手牌。 NL im:狭隙 ： 升级 加入的牌。"
   },
   "IceBreaker:TriggerLightning": {
     "NAME": "引雷",
@@ -290,8 +291,8 @@
   },
   "IceBreaker:DeepCalculate": {
     "NAME": "深度演算",
-    "DESCRIPTION": "每次打出 im:羁绊 牌时，额外触发其 im:羁绊 效果。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，额外触发其 im:羁绊 效果。"
+    "DESCRIPTION": "每次打出 im:羁绊 牌时，额外触发其 im:回应 效果。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，额外触发其 im:回应 效果。"
   },
   "IceBreaker:Chronover": {
     "NAME": "超越时间",
@@ -319,7 +320,7 @@
   },
   "IceBreaker:OnChronosBehalf": {
     "NAME": "代行神权",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人 NL 造成 !D! 点伤害。 NL 斩杀 时， im:羁绊 。"
+    "DESCRIPTION": "im:远程 。 NL 对所有敌人 NL 造成 !D! 点伤害。 NL 斩杀 时， im:羁绊 。"
   },
   "IceBreaker:GhostFantasy": {
     "NAME": "幽灵幻想",
@@ -386,8 +387,8 @@
   },
   "IceBreaker:YesterdayOnceMore": {
     "NAME": "昨日重现",
-    "DESCRIPTION": "每次打出 im:羁绊 牌时，获得 !M! 层 im:时间停滞 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，获得 !M! 层 im:时间停滞 。"
+    "DESCRIPTION": "每次触发 im:羁绊 时，获得 !M! 层 im:时间停滞 。",
+    "UPGRADE_DESCRIPTION": "每次打出 im:羁绊 牌时，获得 !M! 层 im:时间停滞 。"
   },
   "IceBreaker:RainbowViolet": {
     "NAME": "七色堇",

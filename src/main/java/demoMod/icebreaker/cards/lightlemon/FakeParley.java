@@ -43,9 +43,7 @@ public class FakeParley extends AbstractLightLemonCard {
             this.upgradeMagicNumber(1);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            this.fetterAmount = 2;
             if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
-                this.fetterAmount = 1;
                 onAddToMasterDeck();
             }
         }

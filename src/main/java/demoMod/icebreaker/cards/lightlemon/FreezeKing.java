@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -40,7 +39,6 @@ public class FreezeKing extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -69,9 +67,6 @@ public class FreezeKing extends AbstractLightLemonCard {
         addToBot(new SelectCardInCardGroupAction(this.magicNumber, card -> true, card -> {
             p.discardPile.removeCard(card);
             p.discardPile.moveToDeck(card, true);
-            if (p.hasPower(ExtraTurnPower.POWER_ID) && card.cost > 0) {
-                card.freeToPlayOnce = true;
-            }
         }, p.discardPile));
         // 这个应该不需要吧
         // AbstractDungeon.overlayMenu.cancelButton.show(AbstractDungeon.overlayMenu.cancelButton.buttonText);

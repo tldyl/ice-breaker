@@ -173,6 +173,7 @@
   "IceBreaker:YesterdayOnceMorePower": {
     "NAME": "昨日重现",
     "DESCRIPTIONS": [
+      "每当触发 #y羁绊 时，获得 #b%d 层 #y时间停滞 。",
       "每当打出 #y羁绊 牌时，获得 #b%d 层 #y时间停滞 。"
     ]
   },

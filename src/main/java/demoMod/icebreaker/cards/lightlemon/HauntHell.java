@@ -3,7 +3,6 @@ package demoMod.icebreaker.cards.lightlemon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +12,6 @@ import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.effects.ScreenOnFireEffect;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 
@@ -40,7 +38,6 @@ public class HauntHell extends AbstractLightLemonCard {
         this.tags.add(CardTagEnum.REMOTE);
         this.cardsToPreview = new Spark();
         this.isMultiDamage = true;
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override
@@ -48,8 +45,6 @@ public class HauntHell extends AbstractLightLemonCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(1);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
         }
     }
 
@@ -61,12 +56,5 @@ public class HauntHell extends AbstractLightLemonCard {
             addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         }
         addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, true, true, false));
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
-            if (this.upgraded) {
-                addToBot(new GainEnergyAction(2));
-            } else {
-                addToBot(new GainEnergyAction(1));
-            }
-        }
     }
 }

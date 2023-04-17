@@ -58,7 +58,11 @@ public class PlayCardInCardGroupAction extends AbstractGameAction {
                 card.drawScale = 0.12F;
                 card.targetDrawScale = 0.75F;
                 card.applyPowers();
-                this.addToTop(new NewQueueCardAction(card, this.target, false, true));
+                if (this.target == null) {
+                    this.addToTop(new NewQueueCardAction(card, true, false, true));
+                } else {
+                    this.addToTop(new NewQueueCardAction(card, this.target, false, true));
+                }
                 this.addToTop(new UnlimboAction(card));
                 if (!Settings.FAST_MODE) {
                     this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));

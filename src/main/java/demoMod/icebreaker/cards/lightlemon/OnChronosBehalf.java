@@ -30,15 +30,14 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
     public OnChronosBehalf() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTags.HEALING);
-        this.baseDamage = 10;
+        this.baseDamage = 9;
         this.isMultiDamage = true;
         this.extraEffectOnExtraTurn = true;
     }

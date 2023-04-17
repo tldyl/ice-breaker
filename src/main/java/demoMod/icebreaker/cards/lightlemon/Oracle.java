@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInHandAction;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 public class Oracle extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("Oracle");
@@ -30,7 +29,6 @@ public class Oracle extends AbstractLightLemonCard {
         this.tags.add(CardTags.HEALING);
         this.baseBlock = this.block = 5;
         this.baseMagicNumber = this.magicNumber = 1;
-        this.extraEffectOnExtraTurn = true;
         this.isFetter = true;
     }
 
@@ -40,31 +38,25 @@ public class Oracle extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
+                onAddToMasterDeck();
+            }
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        if (p.hasPower(ExtraTurnPower.POWER_ID)) {
+        if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
-                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.selfRetain = true, true));
+                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true, true));
                     isDone = true;
                 }
             });
-
-        } else {
-            if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasRelic("Runic Pyramid") && !AbstractDungeon.player.hasPower("Equilibrium")) {
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true, true));
-                        isDone = true;
-                    }
-                });
-            }
         }
     }
 }
