@@ -45,7 +45,7 @@ public class GhostGlim extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(3);
+            this.upgradeMagicNumber(4);
             this.upgradeM2(1);
         }
     }

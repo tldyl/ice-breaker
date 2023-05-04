@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import demoMod.icebreaker.IceBreaker;
 
 public class TriggerLightning extends AbstractLightLemonCard {
@@ -43,6 +44,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();
         if (AbstractDungeon.player == null) return;
+        if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) return;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card.uuid.equals(this.uuid)) {
                 onAddToMasterDeck();

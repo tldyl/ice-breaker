@@ -1,6 +1,7 @@
 package demoMod.icebreaker.cards.lightlemon.tempCards;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -50,6 +51,7 @@ public class Embers extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new MakeTempCardInHandAction(this.cardsToPreview, this.baseMagicNumber));
+        addToBot(new GainEnergyAction(this.baseMagicNumber));
     }
 
     @Override

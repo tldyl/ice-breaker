@@ -28,10 +28,10 @@ public class CutscenePatch {
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice2.png"))
                 );
                 cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice3.png"))
+                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice3.png"), "SFX_CARNAGE")
                 );
                 cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice4.png"), "SFX_CARNAGE")
+                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice4.png"))
                 );
                 cutscenePanels.add(
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice5.png"))
@@ -41,15 +41,6 @@ public class CutscenePatch {
                 );
                 cutscenePanels.add(
                         new CutscenePanel(IceBreaker.getResourcePath("scenes/ice7.png"))
-                );
-                cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice8.png"))
-                );
-                cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice9.png"))
-                );
-                cutscenePanels.add(
-                        new CutscenePanel(IceBreaker.getResourcePath("scenes/ice10.png"))
                 );
                 ArrayList<CutscenePanel> panels = ReflectionHacks.getPrivate(cutscene, Cutscene.class, "panels");
                 panels.clear();

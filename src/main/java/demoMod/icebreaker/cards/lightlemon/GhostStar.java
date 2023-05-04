@@ -26,7 +26,7 @@ public class GhostStar extends AbstractLightLemonCard {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.tags.add(CardTags.HEALING);
         this.baseMagicNumber = this.magicNumber = 2;
-        this.baseBlock = this.block = 9;
+        this.baseBlock = this.block = 8;
         this.isFetter = true;
     }
 
@@ -34,7 +34,7 @@ public class GhostStar extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
+            this.upgradeBlock(4);
         }
     }
 

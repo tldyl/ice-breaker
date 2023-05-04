@@ -39,7 +39,6 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
         this.tags.add(CardTags.HEALING);
         this.baseDamage = 9;
         this.isMultiDamage = true;
-        this.extraEffectOnExtraTurn = true;
     }
 
     @Override

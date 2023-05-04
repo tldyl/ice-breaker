@@ -33,8 +33,8 @@ public class FrostWind extends AbstractLightLemonCard {
 
     public FrostWind() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.baseBlock = this.block = 6;
+        this.damage = this.baseDamage = 8;
+        this.baseBlock = this.block = 4;
         this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -47,8 +47,8 @@ public class FrostWind extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
-            this.upgradeBlock(3);
+            this.upgradeDamage(2);
+            this.upgradeBlock(1);
             this.upgradeMagicNumber(1);
         }
     }
