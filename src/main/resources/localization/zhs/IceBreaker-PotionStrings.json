@@ -2,14 +2,14 @@
   "IceBreaker:BottledInspire": {
     "NAME": "瓶装灵感",
     "DESCRIPTIONS": [
-      "从 #b3",
-      " 张 #y魔法 牌中选择一张加入手牌，本回合内其耗能为 #b0 。"
+      "从 #b3 张 #y魔法 牌中选择一张加入手牌，本回合内其耗能为 #b0 。",
+      "从 #b3 张 #y魔法 牌中选择一张加入手牌两次，本回合内其耗能为 #b0 。"
     ]
   },
   "IceBreaker:BottledLight": {
     "NAME": "瓶装光芒",
     "DESCRIPTIONS": [
-      "所有手牌耗能降低 #b1 ",
+      "所有手牌耗能降低 #b",
       " 。"
     ]
   },

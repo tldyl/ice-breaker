@@ -25,7 +25,7 @@ public class TimeStasisPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        PowerRegionLoader.load(this);
+        this.loadRegion("time");
     }
 
     @Override

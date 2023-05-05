@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class ExtraTurnPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

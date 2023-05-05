@@ -21,6 +21,9 @@ import demoMod.icebreaker.dynamicVariables.AnotherMagicNumber;
 import demoMod.icebreaker.effects.VictoryClockEffect;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.enums.AbstractPlayerEnum;
+import demoMod.icebreaker.potions.BottledInspire;
+import demoMod.icebreaker.potions.BottledLight;
+import demoMod.icebreaker.potions.BottledTime;
 import demoMod.icebreaker.powers.ExtraTurnPower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 import demoMod.icebreaker.relics.*;
@@ -134,6 +137,9 @@ public class IceBreaker implements EditStringsSubscriber,
             e.printStackTrace();
         }
         VictoryClockEffect.initialize();
+        BaseMod.addPotion(BottledInspire.class, Color.PURPLE, Color.PURPLE, null, BottledInspire.ID, AbstractPlayerEnum.ICEBREAKER);
+        BaseMod.addPotion(BottledLight.class, Color.YELLOW, Color.ORANGE, null, BottledLight.ID, AbstractPlayerEnum.ICEBREAKER);
+        BaseMod.addPotion(BottledTime.class, Color.YELLOW, Color.ORANGE, null, BottledTime.ID, AbstractPlayerEnum.ICEBREAKER);
     }
 
     @Override
