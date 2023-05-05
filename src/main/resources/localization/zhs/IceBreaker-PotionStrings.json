@@ -9,14 +9,14 @@
   "IceBreaker:BottledLight": {
     "NAME": "瓶装光芒",
     "DESCRIPTIONS": [
-      "所有手牌耗能降低 #b",
+      "所有手牌耗能在本回合降低 #b",
       " 。"
     ]
   },
   "IceBreaker:BottledTime": {
     "NAME": "瓶装时间",
     "DESCRIPTIONS": [
-      "结束你的回合，获得一个额外回合。"
+      "获得一个额外回合，结束你的回合。"
     ]
   }
 }
