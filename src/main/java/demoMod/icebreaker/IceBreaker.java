@@ -138,8 +138,8 @@ public class IceBreaker implements EditStringsSubscriber,
         }
         VictoryClockEffect.initialize();
         BaseMod.addPotion(BottledInspire.class, Color.PURPLE, Color.PURPLE, null, BottledInspire.ID, AbstractPlayerEnum.ICEBREAKER);
-        BaseMod.addPotion(BottledLight.class, Color.YELLOW, Color.ORANGE, null, BottledLight.ID, AbstractPlayerEnum.ICEBREAKER);
-        BaseMod.addPotion(BottledTime.class, Color.YELLOW, Color.ORANGE, null, BottledTime.ID, AbstractPlayerEnum.ICEBREAKER);
+        BaseMod.addPotion(BottledLight.class, Color.YELLOW, Color.ORANGE, null, BottledLight.ID);
+        BaseMod.addPotion(BottledTime.class, Color.YELLOW, Color.ORANGE, null, BottledTime.ID);
     }
 
     @Override
