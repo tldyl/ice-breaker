@@ -29,7 +29,7 @@ public class HarshTemperamentPower extends AbstractPower implements EnterOrExitE
         this.name = NAME;
         this.amount = amount;
         this.updateDescription();
-        PowerRegionLoader.load(this, "DeepCalculation");
+        PowerRegionLoader.load(this);
     }
 
     @Override

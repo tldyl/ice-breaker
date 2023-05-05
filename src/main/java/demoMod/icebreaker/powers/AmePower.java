@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class AmePower extends AbstractPower implements EnterOrExitExtraTurnSubscriber {
     public static final String POWER_ID = IceBreaker.makeID("AmePower");
@@ -21,7 +22,7 @@ public class AmePower extends AbstractPower implements EnterOrExitExtraTurnSubsc
         this.name = NAME;
         this.amount = amount;
         this.updateDescription();
-        this.loadRegion("storm");
+        PowerRegionLoader.load(this);
     }
 
     @Override

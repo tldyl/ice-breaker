@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class ShiroikumoPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("ShiroikumoPower");
@@ -21,7 +22,7 @@ public class ShiroikumoPower extends AbstractPower {
         this.name = NAME;
         this.amount = amount;
         this.updateDescription();
-        this.loadRegion("draw");
+        PowerRegionLoader.load(this);
     }
 
     @Override

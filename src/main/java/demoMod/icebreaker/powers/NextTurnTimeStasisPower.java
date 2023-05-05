@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class NextTurnTimeStasisPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("NextTurnTimeStasisPower");
@@ -20,7 +21,7 @@ public class NextTurnTimeStasisPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

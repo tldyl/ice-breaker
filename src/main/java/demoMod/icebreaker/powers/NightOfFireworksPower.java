@@ -29,7 +29,7 @@ public class NightOfFireworksPower extends AbstractPower implements EnterOrExitE
             this.name += "+";
         }
         this.updateDescription();
-        PowerRegionLoader.load(this, "FrostCountry");
+        PowerRegionLoader.load(this);
     }
 
     @Override

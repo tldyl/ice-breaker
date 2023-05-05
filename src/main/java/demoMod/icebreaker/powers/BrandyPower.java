@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class BrandyPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("BrandyPower");
@@ -23,6 +24,7 @@ public class BrandyPower extends AbstractPower {
         this.amount = amount;
         this.updateDescription();
         this.loadRegion("draw");
+        PowerRegionLoader.load(this);
     }
 
     @Override

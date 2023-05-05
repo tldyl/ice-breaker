@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class ChronoChimePower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("ChronoChimePower");
@@ -23,7 +24,7 @@ public class ChronoChimePower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

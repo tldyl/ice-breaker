@@ -23,7 +23,7 @@ public class FantasyDreamPower extends AbstractPower {
         this.name = NAME;
         this.amount = amount;
         this.updateDescription();
-        PowerRegionLoader.load(this, "DeepCalculation");
+        PowerRegionLoader.load(this);
     }
 
     @Override

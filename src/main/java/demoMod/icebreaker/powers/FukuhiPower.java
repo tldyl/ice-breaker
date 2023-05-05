@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class FukuhiPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("FukuhiPower");
@@ -20,7 +21,7 @@ public class FukuhiPower extends AbstractPower {
         this.name = NAME;
         this.amount = amount;
         this.updateDescription();
-        this.loadRegion("regen");
+        PowerRegionLoader.load(this);
     }
 
     @Override

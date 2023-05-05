@@ -18,7 +18,7 @@ public class DisobeyPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        PowerRegionLoader.load(this, "DeepCalculation");
+        PowerRegionLoader.load(this);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.EnterOrExitExtraTurnSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class MagicalFloodPower extends AbstractPower implements EnterOrExitExtraTurnSubscriber {
     public static final String POWER_ID = IceBreaker.makeID("MagicalFloodPower");
@@ -20,7 +21,7 @@ public class MagicalFloodPower extends AbstractPower implements EnterOrExitExtra
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("rushdown");
+        PowerRegionLoader.load(this);
     }
 
     @Override

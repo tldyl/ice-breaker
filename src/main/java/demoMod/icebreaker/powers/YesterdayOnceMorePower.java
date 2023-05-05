@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.AbstractLightLemonCard;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class YesterdayOnceMorePower extends AbstractPower implements TriggerFett
             this.name += "+";
         }
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

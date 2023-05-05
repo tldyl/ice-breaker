@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.interfaces.TriggerFetterSubscriber;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class SeeYouTomorrowPower extends AbstractPower implements TriggerFetterS
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("mental_fortress");
+        PowerRegionLoader.load(this);
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.TimeWarpTurnEndEffect;
 import demoMod.icebreaker.IceBreaker;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class TsukishiRitsuPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("TsukishiRitsuPower");
@@ -22,7 +23,7 @@ public class TsukishiRitsuPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override

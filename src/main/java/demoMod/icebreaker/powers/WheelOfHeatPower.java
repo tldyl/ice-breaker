@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
+import demoMod.icebreaker.utils.PowerRegionLoader;
 
 public class WheelOfHeatPower extends AbstractPower {
     public static final String POWER_ID = IceBreaker.makeID("WheelOfHeatPower");
@@ -24,7 +25,7 @@ public class WheelOfHeatPower extends AbstractPower {
         this.ID = POWER_ID;
         this.name = NAME;
         this.updateDescription();
-        this.loadRegion("time");
+        PowerRegionLoader.load(this);
     }
 
     @Override
