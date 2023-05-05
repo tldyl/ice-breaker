@@ -18,7 +18,7 @@ public class BottledTime extends CustomPotion {
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(ID);
     private static final String NAME = potionStrings.NAME;
     private static final PotionRarity RARITY = PotionRarity.RARE;
-    private static final PotionSize POTION_SIZE = PotionSize.SPHERE;
+    private static final PotionSize POTION_SIZE = PotionSize.BOTTLE;
     private static final PotionColor POTION_COLOR = PotionColor.ELIXIR;
 
     public BottledTime() {
@@ -26,7 +26,7 @@ public class BottledTime extends CustomPotion {
         this.isThrown = false;
         this.targetRequired = false;
         this.labOutlineColor = IceBreaker.mainIceBreakerColor;
-        this.liquidColor = Color.YELLOW.cpy();
+        this.liquidColor = Color.WHITE.cpy();
     }
 
     @Override
