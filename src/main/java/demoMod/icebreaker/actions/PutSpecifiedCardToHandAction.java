@@ -1,5 +1,6 @@
 package demoMod.icebreaker.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -60,7 +61,7 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
                     tmp.shuffle();
                     AbstractCard card = tmp.getBottomCard();
                     tmp.removeCard(card);
-                    if (this.p.hand.size() == 10) {
+                    if (this.p.hand.size() == BaseMod.MAX_HAND_SIZE) {
                         this.targetGroup.moveToDiscardPile(card);
                         this.p.createHandIsFullDialog();
                     } else {
@@ -77,8 +78,8 @@ public class PutSpecifiedCardToHandAction extends AbstractGameAction {
                         card.current_y = CardGroup.DRAW_PILE_Y;
                         this.targetGroup.removeCard(card);
                         AbstractDungeon.player.hand.addToTop(card);
-                        this.extraAction.accept(card);
                     }
+                    this.extraAction.accept(card);
                 }
             }
             AbstractDungeon.player.hand.refreshHandLayout();

@@ -63,7 +63,7 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
             public void update() {
                 int cnt = 0;
                 for (AbstractMonster mo : aliveMonsters) {
-                    if (mo.isDeadOrEscaped()) ++cnt;
+                    if (mo.isDeadOrEscaped() && !AbstractDungeon.getCurrRoom().cannotLose) ++cnt;
                 }
                 //
                 // 找到主牌组中的对应牌
