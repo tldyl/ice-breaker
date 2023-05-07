@@ -84,6 +84,7 @@ public class BeggarPatch {
                                 break;
                             default:
                                 event.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                                ReflectionHacks.setPrivate(event, Beggar.class, "screen", Beggar.CurScreen.LEAVE);
                         }
                         event.imageEventText.clearAllDialogs();
                         event.imageEventText.setDialogOption(OPTIONS[4]);
