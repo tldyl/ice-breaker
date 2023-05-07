@@ -45,6 +45,7 @@ public class TriggerLightning extends AbstractLightLemonCard {
         this.initializeTitle();
         if (AbstractDungeon.player == null) return;
         if (AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) return;
+        this.fetterAmount++;
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
             if (card.uuid.equals(this.uuid)) {
                 onAddToMasterDeck();

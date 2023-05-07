@@ -157,8 +157,8 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
     @Override
     public void onAddToMasterDeck() {
-        if (isFetter) {
-            IceBreaker.addToBot(new WaitGridSelectScreenAction(() -> IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()),
+        if (isFetter && fetterAmount - fetterTarget.size() > 0) {
+            IceBreaker.addToBot(new WaitGridSelectScreenAction(() -> IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount - fetterTarget.size(), AbstractDungeon.player.masterDeck.size()),
                     card -> {
                         return card != this && this.fetterFilter.test(card)
                                 && !this.fetterTarget.contains(card.uuid); // don't add duplicated cards

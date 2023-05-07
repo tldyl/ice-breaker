@@ -36,7 +36,6 @@ public class SwingStaff extends AbstractLightLemonCard {
             this.upgradeMagicNumber(1);
             this.fetterAmount = this.baseMagicNumber;
             if (AbstractDungeon.player!= null && AbstractDungeon.player.masterDeck.contains(this)) {
-                this.fetterAmount = 1;
                 onAddToMasterDeck();
             }
         }

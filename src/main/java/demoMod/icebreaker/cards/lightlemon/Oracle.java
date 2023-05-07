@@ -40,6 +40,7 @@ public class Oracle extends AbstractLightLemonCard {
             this.upgradeMagicNumber(1);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.fetterAmount++;
             if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
                 onAddToMasterDeck();
             }

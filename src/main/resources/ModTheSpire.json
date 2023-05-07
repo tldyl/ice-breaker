@@ -1,10 +1,10 @@
 {
   "modid": "IceBreaker",
   "name": "绝冰的勇者",
-  "author_list": ["Temple9", "akdream10086", "GM_Whitose"],
+  "author_list": ["Temple9", "akdream10086", "GM_Whitose", "很很很喜欢**的银墨", "10000volts"],
   "description": "",
   "credits": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "sts_version": "03-07-2022",
   "mts_version": "3.24.0",
   "dependencies": ["basemod", "stslib"],

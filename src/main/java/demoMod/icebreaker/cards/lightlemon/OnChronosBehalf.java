@@ -75,7 +75,7 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
                 }
                 if (cnt > 0 && card != null) {
                     card.isFetter = true;
-                    card.fetterAmount = cnt;
+                    card.fetterAmount += cnt;
                     card.onAddToMasterDeck();
                 }
                 isDone = true;

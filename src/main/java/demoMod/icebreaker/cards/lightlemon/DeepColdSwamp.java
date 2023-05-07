@@ -49,6 +49,7 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
             this.initializeDescription();
             this.portrait = UPGRADE_IMG;
             this.textureImg = IceBreaker.getResourcePath("cards/DeepColdSwamp+.png");
+            this.fetterAmount++;
             if (AbstractDungeon.player != null && AbstractDungeon.player.masterDeck.contains(this)) {
                 onAddToMasterDeck();
             }
