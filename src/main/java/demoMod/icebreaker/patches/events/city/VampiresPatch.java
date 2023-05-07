@@ -88,10 +88,20 @@ public class VampiresPatch {
                                 AbstractDungeon.player.loseRelic(BloodVial.ID);
                                 prepareDeleteCards();
                                 AbstractEvent.logMetricObtainCardsLoseRelic("Vampires", "Became a vampire (Vial)", new ArrayList<>(), new BloodVial());
-                                ReflectionHacks.setPrivate(event, Vampires.class, "screenNum", 1);
-                                event.imageEventText.updateDialogOption(0, OPTIONS[6]);
-                                event.imageEventText.clearRemainingOptions();
+                            } else {
+                                event.imageEventText.updateBodyText(DESCRIPTIONS[4]);
+                                AbstractEvent.logMetricIgnored("Vampires");
                             }
+                            ReflectionHacks.setPrivate(event, Vampires.class, "screenNum", 1);
+                            event.imageEventText.updateDialogOption(0, OPTIONS[6]);
+                            event.imageEventText.clearRemainingOptions();
+                            break;
+                        default:
+                            event.imageEventText.updateBodyText(DESCRIPTIONS[4]);
+                            AbstractEvent.logMetricIgnored("Vampires");
+                            ReflectionHacks.setPrivate(event, Vampires.class, "screenNum", 1);
+                            event.imageEventText.updateDialogOption(0, OPTIONS[6]);
+                            event.imageEventText.clearRemainingOptions();
                             break;
                     }
                     return SpireReturn.Return(null);
