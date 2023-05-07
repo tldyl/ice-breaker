@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.actions.SelectCardInCardGroupAction;
+import demoMod.icebreaker.actions.WaitGridSelectScreenAction;
 import demoMod.icebreaker.enums.AbstractCardEnum;
 import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.interfaces.CardAddToDeckSubscriber;
@@ -157,7 +158,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     @Override
     public void onAddToMasterDeck() {
         if (isFetter) {
-            IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()),
+            IceBreaker.addToBot(new WaitGridSelectScreenAction(() -> IceBreaker.addToBot(new SelectCardInCardGroupAction(Math.min(fetterAmount, AbstractDungeon.player.masterDeck.size()),
                     card -> {
                         return card != this && this.fetterFilter.test(card)
                                 && !this.fetterTarget.contains(card.uuid); // don't add duplicated cards
@@ -169,7 +170,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
                         // same uuid just for convenience
                         card.stopGlowing();
                     },
-                    AbstractDungeon.player.masterDeck));
+                    AbstractDungeon.player.masterDeck))));
         }
     }
 
