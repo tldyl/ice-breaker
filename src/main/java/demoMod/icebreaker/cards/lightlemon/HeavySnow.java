@@ -35,9 +35,8 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public HeavySnow() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.m2 = this.baseM2 = 1;
+        this.damage = this.baseDamage = 4;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
@@ -50,7 +49,8 @@ public class HeavySnow extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
-            this.upgradeM2(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -60,7 +60,7 @@ public class HeavySnow extends AbstractLightLemonCard {
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
             if (!mo.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.m2, false)));
+                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
             }
         }
     }
@@ -81,7 +81,7 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countCards();
+        this.baseDamage += upgraded ? 3 : 2 * countCards();
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
@@ -89,7 +89,7 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public void applyPowers() {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countCards();
+        this.baseDamage += upgraded ? 3 : 2 * countCards();
         super.applyPowers();
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;

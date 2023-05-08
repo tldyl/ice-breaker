@@ -54,6 +54,8 @@ public class Overgrow extends AbstractLightLemonCard {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new GainBlockAction(p, p, this.block));
         AbstractCard cpy = this.makeStatEquivalentCopy();
+        cpy.freeToPlayOnce = false;
+        cpy.exhaust = true;
         addToBot(new ApplyPowerAction(p, p, new NightmarePower(p, 1, cpy)));
     }
 
@@ -68,6 +70,7 @@ public class Overgrow extends AbstractLightLemonCard {
                 }
             }
         }
+        ret.exhaust = this.exhaust;
         return ret;
     }
 }

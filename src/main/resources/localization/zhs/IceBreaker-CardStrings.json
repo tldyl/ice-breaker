@@ -35,7 +35,8 @@
   },
   "IceBreaker:HeavySnow": {
     "NAME": "白雪纷纷",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !IM2! 层 虚弱 。 NL 每当有 im:羁绊 触发时，这张牌的伤害在本场战斗增加 !M! 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !M! 层 虚弱 。 NL 每当有 im:羁绊 触发时，这张牌的伤害在本场战斗增加二。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !M! 层 虚弱 。 NL 每当有 im:羁绊 触发时，这张牌的伤害在本场战斗增加三。"
   },
   "IceBreaker:Flash": {
     "NAME": "闪烁",
@@ -245,7 +246,7 @@
   },
   "IceBreaker:Overgrow": {
     "NAME": "丛生",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的复制加入手牌。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 下回合开始时，将这张牌的具有 消耗 的复制加入手牌。"
   },
   "IceBreaker:Negate": {
     "NAME": "否定",
