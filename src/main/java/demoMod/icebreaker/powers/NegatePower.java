@@ -47,7 +47,7 @@ public class NegatePower extends AbstractPower implements TriggerFetterSubscribe
     @Override
     public void onTriggerFetterFailed() {
         this.flash();
-        addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
     }
 
     static {
