@@ -1,6 +1,8 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -40,10 +42,37 @@ public class GhostStar extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        for (AbstractCard card : p.discardPile.group) {
+            if (fetterTarget.contains(card.uuid)) {
+                card.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                card.beginGlowing();
+            }
+        }
         addToBot(new GainBlockAction(p, p, this.block));
         addToBot(new SelectCardInCardGroupAction(1, card -> true, card -> {
             p.discardPile.removeCard(card);
             p.hand.moveToBottomOfDeck(card);
         }, p.discardPile));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                for (AbstractCard card : p.drawPile.group) {
+                    card.stopGlowing();
+                }
+                for (AbstractCard card : p.hand.group) {
+                    card.stopGlowing();
+                }
+                for (AbstractCard card : p.discardPile.group) {
+                    card.stopGlowing();
+                }
+                for (AbstractCard card : p.exhaustPile.group) {
+                    card.stopGlowing();
+                }
+                for (AbstractCard card : p.limbo.group) {
+                    card.stopGlowing();
+                }
+                isDone = true;
+            }
+        });
     }
 }
