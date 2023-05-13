@@ -292,8 +292,7 @@
   },
   "IceBreaker:DeepCalculate": {
     "NAME": "深度演算",
-    "DESCRIPTION": "每次打出 im:羁绊 牌时，额外触发其 im:回应 效果。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每次打出 im:羁绊 牌时，额外触发其 im:回应 效果。"
+    "DESCRIPTION": "每次打出 im:羁绊 牌时，额外触发其 im:回应 效果。"
   },
   "IceBreaker:Chronover": {
     "NAME": "超越时间",

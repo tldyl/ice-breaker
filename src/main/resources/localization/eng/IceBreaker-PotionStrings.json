@@ -1,0 +1,22 @@
+{
+  "IceBreaker:BottledInspire": {
+    "NAME": "Bottled Inspiration",
+    "DESCRIPTIONS": [
+      "Choose #b1 of #b3 random #yMagic cards to add to your hand, it cost #b0 this turn.",
+      "Choose #b1 of #b3 random #yMagic cards to add to your hand twice, it cost #b0 this turn."
+    ]
+  },
+  "IceBreaker:BottledLight": {
+    "NAME": "Bottled Light",
+    "DESCRIPTIONS": [
+      "All cards in your hand cost #b",
+      " less in this turn."
+    ]
+  },
+  "IceBreaker:BottledTime": {
+    "NAME": "Bottled Time",
+    "DESCRIPTIONS": [
+      "End your turn and take an extra turn after this one."
+    ]
+  }
+}

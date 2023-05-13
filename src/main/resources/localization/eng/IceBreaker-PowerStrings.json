@@ -1,0 +1,222 @@
+{
+  "IceBreaker:TimeStasisPower": {
+    "NAME": "Chronostasis",
+    "DESCRIPTIONS": [
+      "When you obtain #b12 #yChronostasis, enter #yChronogap."
+    ]
+  },
+  "IceBreaker:NextTurnTimeStasisPower": {
+    "NAME": "Chronostasized",
+    "DESCRIPTIONS": [
+      "Gain #b%s #yChronostasis next turn."
+    ]
+  },
+  "IceBreaker:ExtraTurnPower": {
+    "NAME": "Chronogap",
+    "DESCRIPTIONS": [
+      "When you enter #yChronogap , gain [E] [E]. NL Playing a card in the #Gap will not trigger buffs about playing cards on enemies."
+    ]
+  },
+  "IceBreaker:ResonancePower": {
+    "NAME": "Resonance",
+    "DESCRIPTIONS": [
+      "When you are in #yChronogap ，#yResonance adds additional numerical value to #yMagics by #b%d. NL After it works, you lose #b1 #yResonance."
+    ]
+  },
+  "IceBreaker:DoubleBlockPower": {
+    "NAME": "Double Block",
+    "DESCRIPTIONS": [
+      "Next #b%d times when you gain #yBlock , #bdouble it."
+    ]
+  },
+  "IceBreaker:SilverDoorPower": {
+    "NAME": "Silver Gate",
+    "DESCRIPTIONS": [
+      "you won't lose #yResonance."
+    ]
+  },
+  "IceBreaker:LoseResonancePower": {
+    "NAME": "临Resonance",
+    "DESCRIPTIONS": [
+      "在你的回合结束, 失去所有 #yResonance."
+    ]
+  },
+  "IceBreaker:FlarierPower": {
+    "NAME": "Flarier",
+    "DESCRIPTIONS": [
+      "Within this turn, whenever you play a #ySpark , gain #b%d #yBlock."
+    ]
+  },
+  "IceBreaker:IcyBurstPower": {
+    "NAME": "冰爆",
+    "DESCRIPTIONS": [
+      "在这个回合, 你的 #ySpark 将额外使目标失去 #b%d 点 #yStrength 一回合."
+    ]
+  },
+  "IceBreaker:NegatePower": {
+    "NAME": "Deny",
+    "DESCRIPTIONS": [
+      "Whenever you #yRespond unsuccessfully， deal #b%d damage to ALL enemies."
+    ]
+  },
+  "IceBreaker:TimeLeapPower": {
+    "NAME": "Chronoleap",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b%d #yChronostasis."
+    ]
+  },
+  "IceBreaker:StarDustPower": {
+    "NAME": "Star Dust",
+    "DESCRIPTIONS": [
+      "The first #b%d time you #yConnect Respond successfully within a turn, gain [E]."
+    ]
+  },
+  "IceBreaker:NiflheimrPower": {
+    "NAME": "Niflheimr",
+    "DESCRIPTIONS": [
+      "At the start of your turn, ALL enemies lose #b%d Strength. ",
+      "At the start of your turn or whenever you enter #yChronogap , ALL enemies lose #b%d Strength."
+    ]
+  },
+  "IceBreaker:WheelOfHeatPower": {
+    "NAME": "Flame Wheel",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySpark , deal #b%d damage to ALL enemies."
+    ]
+  },
+  "IceBreaker:DemonDeLaplacePower": {
+    "NAME": "Demon De Laplace",
+    "DESCRIPTIONS": [
+      "Whenever you play a card is created in combat, gain #b%d #yResonance."
+    ]
+  },
+  "IceBreaker:ChronoChimePower": {
+    "NAME": "Chronochime",
+    "DESCRIPTIONS": [
+      "Your next #b%d #yMagic can be affected by #yResonance outside #yChronogap."
+    ]
+  },
+  "IceBreaker:DeepCalculatePower": {
+    "NAME": "Deep Calculate",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yConnect card, additionally trigger its #yRespond #b%d times."
+    ]
+  },
+  "IceBreaker:NextTurnPlayCardPower": {
+    "NAME": "Extra Trigger",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, add #b%d copy of #y%s into your hand."
+    ]
+  },
+  "IceBreaker:NextTurnDamageAllEnemiesPower": {
+    "NAME": "Detonate",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, deal #b%d damage to ALL enemies."
+    ]
+  },
+  "IceBreaker:ChaseTheLightPower": {
+    "NAME": "Catch the Light",
+    "DESCRIPTIONS": [
+      "Whenever you #yRespond successfully, draw #b%d card."
+    ]
+  },
+  "IceBreaker:FreeMagicPower": {
+    "NAME": "Free Magic",
+    "DESCRIPTIONS": [
+      "Your next #b%d #yMagic costs #b0. NL #yGap : Play it twice."
+    ]
+  },
+  "IceBreaker:MagicalFloodPower": {
+    "NAME": "Magical Surge",
+    "DESCRIPTIONS": [
+      "Whenever you enter #yChronogap , draw #b%d cards."
+    ]
+  },
+  "IceBreaker:SeeYouTomorrowPower": {
+    "NAME": "Asahi",
+    "DESCRIPTIONS": [
+      "Whenever you #yRespond successfully, gain #b%d #yBlock."
+    ]
+  },
+  "IceBreaker:NightOfFireworksPower": {
+    "NAME": "Hanabi",
+    "DESCRIPTIONS": [
+      "At the start of your turn or when you enter #yChronogap , shuffle #b%d #ySpark into your draw pile.",
+      "At the start of your turn or when you enter #yChronogap , shuffle #b%d #ySpark+ into your draw pile."
+    ]
+  },
+  "IceBreaker:VitalLoopPower": {
+    "NAME": "Vital Loop",
+    "DESCRIPTIONS": [
+      "After the start of your turn, put no more than #b%d card from your discard pile to shuffle into draw pile."
+    ]
+  },
+  "IceBreaker:FantasyDreamPower": {
+    "NAME": "Fantasy Dream",
+    "DESCRIPTIONS": [
+      "When you play a card which is not #yExhaust or #yPower , #yExhaust it and #yTrigger #b%d times more."
+    ]
+  },
+  "IceBreaker:HarshTemperamentPower": {
+    "NAME": "Harsh",
+    "DESCRIPTIONS": [
+      "Whenever you enter #yChronogap , your next #yMagic with non #b0 cost will played #b%d times."
+    ]
+  },
+  "IceBreaker:AsterismFormPower": {
+    "NAME": "Asterism Form",
+    "DESCRIPTIONS": [
+      "At the start of your turn or when you enter #yChronogap , choose #b1 of #b15 random cards from ALL colors to play, repeat #b%d times.",
+      "At the start of your turn or when you enter #yChronogap , choose #b1 of #b15 random Upgraded cards from ALL colors to play, repeat #b%d times."
+    ]
+  },
+  "IceBreaker:YesterdayOnceMorePower": {
+    "NAME": "Yesterday Once More",
+    "DESCRIPTIONS": [
+      "Whenever you #yRespond successfully, gain #b%d #yChronostasis.",
+      "Whenever you play a #yConnect card, gain #b%d #yChronostasis."
+    ]
+  },
+  "IceBreaker:TsukishiRinPower": {
+    "NAME": "Tsukishi Rin",
+    "DESCRIPTIONS": [
+      "Whenever you play an Attack to an enemy, it lose #b%d #yStrength."
+    ]
+  },
+  "IceBreaker:ShiroikumoPower": {
+    "NAME": "Shiroi Kumo",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, draw #b%d card."
+    ]
+  },
+  "IceBreaker:FukuhiPower": {
+    "NAME": "Fukuhi",
+    "DESCRIPTIONS": [
+      "At the start of your turn, clear all your debuffs and heal #b%d HP."
+    ]
+  },
+  "IceBreaker:AmePower": {
+    "NAME": "Ame",
+    "DESCRIPTIONS": [
+      "Whenever you enter #yChronogap , agin #b%d #yMetallicize."
+    ]
+  },
+  "IceBreaker:BrandyPower": {
+    "NAME": "Brandy",
+    "DESCRIPTIONS": [
+      "Whenever you play a #ySpark , gain #b%d [E]."
+    ]
+  },
+  "IceBreaker:DisobeyPower": {
+    "NAME": "Disobey",
+    "DESCRIPTIONS": [
+      "#yConnect can success when #yConnect target is in discard pile."
+    ]
+  },
+  "IceBreaker:TsukishiRitsuPower": {
+    "NAME": "Tsukishi Ritsu",
+    "DESCRIPTIONS": [
+      "At the start of your turn, enter #yChronogap."
+    ]
+  }
+}
