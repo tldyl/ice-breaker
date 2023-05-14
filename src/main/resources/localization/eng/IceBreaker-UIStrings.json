@@ -1,0 +1,22 @@
+{
+  "IceBreaker:ApplyStrengthNotice": {
+    "TEXT": [
+      "#rI #rcan't #rgain #rstrength!"
+    ]
+  },
+  "IceBreaker:SelectCardInCardGroupAction": {
+    "TEXT": [
+      "Choose %d cards."
+    ]
+  },
+  "IceBreaker:DiscardPileToTopOfDeckAction": {
+    "TEXT": [
+      "Choose no more than %d cards to put them on the top of your draw pile. "
+    ]
+  },
+  "IceBreaker:SelectSpecifiedCardInHandAction": {
+    "TEXT": [
+      "Choose %d cards."
+    ]
+  }
+}

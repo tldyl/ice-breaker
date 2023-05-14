@@ -1,0 +1,92 @@
+[
+  {
+    "NAMES": [
+      "resonance",
+      "共鸣"
+    ],
+    "PROPER_NAME": "Resonance",
+    "DESCRIPTION": "When you are in #yChronogap, #yResonance adds additional numerical value to #yMagics. NL After it works, reduced by #b1."
+  },
+  {
+    "NAMES": [
+      "ranged",
+      "远程"
+    ],
+    "PROPER_NAME": "Ranged",
+    "DESCRIPTION": "Ignore #yThorn and #yFlight."
+  },
+  {
+    "NAMES": [
+      "magic",
+      "魔法"
+    ],
+    "PROPER_NAME": "Magic",
+    "DESCRIPTION": "#yMagics is not affected by most of buffs on #yyourself."
+  },
+  {
+    "NAMES": [
+      "possess",
+      "拥有"
+    ],
+    "PROPER_NAME": "拥有",
+    "DESCRIPTION": "存在于抽牌堆，或弃牌堆，或手牌的牌视为 #y拥有 这张牌。"
+  },
+  {
+    "NAMES": [
+      "trigger",
+      "触发效果"
+    ],
+    "PROPER_NAME": "Trigger",
+    "DESCRIPTION": "Trigger a card's effect but not regarded as play it."
+  },
+  {
+    "NAMES": [
+      "dodge",
+      "闪避"
+    ],
+    "PROPER_NAME": "闪避",
+    "DESCRIPTION": "受到的 #y攻击 伤害减半 。"
+  },
+  {
+    "NAMES": [
+      "flight",
+      "飞行"
+    ],
+    "PROPER_NAME": "飞行",
+    "DESCRIPTION": "有 #y飞行 状态的生物受到的 #y攻击 伤害减半 。"
+  },
+  {
+    "NAMES": [
+      "connect",
+      "羁绊"
+    ],
+    "PROPER_NAME": "Connect",
+    "DESCRIPTION": "Upon pickup, choose a card in your deck to be its target. NL Whenever you play this card while the target is in your draw pile, put it into your hand. NL #yConnect cards won't be created in combat."
+  },
+  {
+    "NAMES": [
+      "respond",
+      "回应"
+    ],
+    "PROPER_NAME": "Respond",
+    "DESCRIPTION": "If a card is putted into your hand as a #yConnect target, or put its #yConnect target into your hand, it is regarded as #yRespond successfully."
+  },
+  {
+    "NAMES": [
+      "chronostasis",
+      "时间停滞"
+    ],
+    "PROPER_NAME": "Chronostasis",
+    "DESCRIPTION": "When you obtain no less than #b12 #yChronostasis , lose #b12 #yChronostasis , enter #yChronogap."
+  },
+  {
+    "NAMES": [
+      "时之狭隙",
+      "狭隙",
+      "chronogap",
+      "gap"
+    ],
+    "PROPER_NAME": "Chronogap",
+    "DESCRIPTION": "Upon entering #yChronogap , gain [E] [E] . NL Playing a card in the #yGap will not trigger buffs about playing cards on enemies. NL Exit at the end of your turn.( You can enter another #yGap when you're in the #yGap)"
+  }
+]
