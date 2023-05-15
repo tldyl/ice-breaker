@@ -5,12 +5,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.CardTagEnum;
-
-import java.util.ArrayList;
 
 public class InfinityFortress extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("InfinityFortress");
@@ -43,6 +40,6 @@ public class InfinityFortress extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int energy = EnergyPanel.getCurrentEnergy();
-        addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber * energy)));
+        addToBot(new ApplyPowerAction(p, p, new MetallicizePower(p, this.magicNumber * energy)));
     }
 }

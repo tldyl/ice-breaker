@@ -274,7 +274,7 @@
   },
   "IceBreaker:InfinityFortress": {
     "NAME": "不落壁垒",
-    "DESCRIPTION": "打出此牌时，你每有一点 [E] ，获得 !M! 层 多层护甲 。 NL 消耗 。"
+    "DESCRIPTION": "打出此牌时，你每有一点 [E] ，获得 !M! 层 金属化 。 NL 消耗 。"
   },
   "IceBreaker:AscendersBane": {
     "NAME": "进阶之灾",
