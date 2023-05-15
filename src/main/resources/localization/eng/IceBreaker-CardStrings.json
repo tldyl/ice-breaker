@@ -53,8 +53,8 @@
   },
   "IceBreaker:Light": {
     "NAME": "Hikari",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile , play one to a random enemy.",
-    "UPGRADE_DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile , play two to random enemies."
+    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile, play one to a random enemy.",
+    "UPGRADE_DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile, play two to random enemies."
   },
   "IceBreaker:EarthCollapse": {
     "NAME": "Earth Collapse",
@@ -62,7 +62,7 @@
   },
   "IceBreaker:BloodyPath": {
     "NAME": "Bloody Execute",
-    "DESCRIPTION": "Retain. im:Magic. im:Ranged. NL Clear ALL your powers. NL Deal !D! damage once for each unique power you removed."
+    "DESCRIPTION": "Retain. im:Magic. im:Ranged. NL Remove ALL of your powers. NL Deal !D! damage for each power removed."
   },
   "IceBreaker:RedMoon": {
     "NAME": "Bloody Moon",
@@ -75,7 +75,7 @@
   },
   "IceBreaker:GhostGlim": {
     "NAME": "Ghost Lantern",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL This enemy lose !M! HP. NL  Shuffle !IM2! *Spark into your draw pile."
+    "DESCRIPTION": "im:Magic. im:Ranged. NL This enemy lose !M! HP. NL Shuffle !IM2! *Spark into your draw pile."
   },
   "IceBreaker:SilverDoor": {
     "NAME": "Silver Gate",
@@ -113,12 +113,12 @@
     "NAME": "Fire Burst",
     "DESCRIPTION": "im:Magic. im:Ranged. NL Deal damage equal to 4 plus the number of *Spark you played this combat multiply !M! to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
-      "(造成!D!点伤害)"
+      "(Deal !D! damage)"
     ]
   },
   "IceBreaker:Flarier": {
     "NAME": "Flarier",
-    "DESCRIPTION": "im:Magic. NL Add a *Spark into your hand. NL Within this turn, 你每打出一张 *Spark , gain !M! Block."
+    "DESCRIPTION": "im:Magic. NL Add a *Spark into your hand. NL Whenever you play a *Spark this turn, gain !M! Block."
   },
   "IceBreaker:IcyBurst": {
     "NAME": "冰爆",
@@ -126,7 +126,7 @@
   },
   "IceBreaker:ManaAgitation": {
     "NAME": "Mana Agitation",
-    "DESCRIPTION": "im:Magic. NL Put !M! Unexhausted im:Magic into your hand ( Draw pile is prior ). NL Take damage equal to number of cards in your hand."
+    "DESCRIPTION": "im:Magic. NL Put !M! im:Magic into your hand (Draw pile is prior). NL Take damage equal to number of cards in your hand."
   },
   "IceBreaker:Snap": {
     "NAME": "Snap",
@@ -138,14 +138,14 @@
   },
   "IceBreaker:FreezeKing": {
     "NAME": "King Freezing!",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL Apply !M! Weak. NL Choose no more than !M! from discard pile to shuffle into your draw pile.",
+    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL Apply !M! Weak. NL Choose at most !M! cards from discard pile to shuffle into your draw pile.",
     "EXTENDED_DESCRIPTION": [
       "Styx"
     ]
   },
   "IceBreaker:Perception": {
     "NAME": "Perception",
-    "DESCRIPTION": "Scry !M!. NL Gain [E] for each Power you Scried. NL im:Gap : draw 1 card.."
+    "DESCRIPTION": "Scry !M!. NL Gain [E] for each Power you Scried. NL im:Gap : draw 1 card."
   },
   "IceBreaker:FakeParley": {
     "NAME": "Chronochime",
@@ -188,7 +188,7 @@
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "Cascaded Icy Wall",
-    "DESCRIPTION": "im:Magic. im:Connect. NL Gain !B! Block. NL Outside im:Gap: Add a copy of this card into your discard pile. NL  im:Gap : Play ALL cards which has the same name of this card in draw pile, hand and discard pile then Exhaust them.",
+    "DESCRIPTION": "im:Magic. im:Connect. NL Gain !B! Block. NL Outside im:Gap: Add a copy of this card into your discard pile. NL  im:Gap : Play ALL copies in draw pile, hand and discard pile then Exhaust them.",
     "EXTENDED_DESCRIPTION": [
       "Wishes at that Time"
     ]
@@ -207,7 +207,7 @@
   },
   "IceBreaker:TimeRing": {
     "NAME": "Chronoring",
-    "DESCRIPTION": "gain !M! im:Chronostasis. NL Increase this card's im:Chronostasis by 1 this combat."
+    "DESCRIPTION": "Gain !M! im:Chronostasis. NL Increase this card's im:Chronostasis by 1 this combat."
   },
   "IceBreaker:DistortReality": {
     "NAME": "Distort Reality",
@@ -238,12 +238,12 @@
   },
   "IceBreaker:MemoriesFloodBack": {
     "NAME": "Frosted Star Fantasy",
-    "DESCRIPTION": "Exhaust your hand. NL Add copies of all cards you start this combat with into your hand. NL This card will only appear at the bottom of your draw pile. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust your hand. NL Add copies of all cards you start this combat with into your hand. NL This card will only appear at the bottom of your draw pile. Exhaust."
+    "DESCRIPTION": "Exhaust your hand. NL Add copies of all cards you start this combat into your hand. NL This card will only appear at the bottom of your draw pile. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust your hand. NL Add copies of all cards you start this combat into your hand. NL This card will only appear at the bottom of your draw pile. Exhaust."
   },
   "IceBreaker:TimeCreation": {
     "NAME": "Chronocreate",
-    "DESCRIPTION": "Gain !B! Block. NL gain !M! im:Chronostasis."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! im:Chronostasis."
   },
   "IceBreaker:Overgrow": {
     "NAME": "Tuft",
@@ -255,7 +255,7 @@
   },
   "IceBreaker:TimeShadow": {
     "NAME": "Chronoshadow",
-    "DESCRIPTION": "gain !M! im:Chronostasis. NL Scry !M!. NL Draw 1 card.."
+    "DESCRIPTION": "gain !M! im:Chronostasis. NL Scry !M!. NL Draw 1 card."
   },
   "IceBreaker:TimeLeap": {
     "NAME": "Chronoleap",
@@ -263,7 +263,7 @@
   },
   "IceBreaker:SpaceOfChaos": {
     "NAME": "Chaospace",
-    "DESCRIPTION": "im:Magic. NL gain !M! Buffer. Exhaust. NL im:Gap :  gain an additional Buffer."
+    "DESCRIPTION": "im:Magic. NL Gain !M! Buffer. Exhaust. NL im:Gap : Gain an additional Buffer."
   },
   "IceBreaker:StarDust": {
     "NAME": "Star Dust",
@@ -302,7 +302,7 @@
   },
   "IceBreaker:ExtraTrigger": {
     "NAME": "Extra Trigger",
-    "DESCRIPTION": "Exhaust no more than !M! cards. NL At the stars of your turn, add their copies into your hand, they cost 0 before you play."
+    "DESCRIPTION": "Exhaust up to !M! cards. NL At the start of your next turn, add their copies into your hand, they cost 0 before you play."
   },
   "IceBreaker:Detonate": {
     "NAME": "Detonate",
@@ -398,7 +398,7 @@
   },
   "IceBreaker:TsukishiRin": {
     "NAME": "Tsukishi Rin",
-    "DESCRIPTION": "Whenever you play an Attack to an enemy, it lose 1 Strength."
+    "DESCRIPTION": "Whenever you play an Attack to an enemy, target lose 1 Strength."
   },
   "IceBreaker:Shiroikumo": {
     "NAME": "Shiroi Kumo",
@@ -406,7 +406,7 @@
   },
   "IceBreaker:Fukuhi": {
     "NAME": "Fukuhi",
-    "DESCRIPTION": "At the start of your turn, clear all your debuffs and heal 8 HP."
+    "DESCRIPTION": "At the start of your turn, remove all of your debuffs and heal 8 HP."
   },
   "IceBreaker:Ame": {
     "NAME": "Ame",

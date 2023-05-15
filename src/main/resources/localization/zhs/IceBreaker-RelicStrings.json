@@ -38,7 +38,7 @@
     "NAME": "星宿",
     "FLAVOR": "我与幽灵共舞，化身星辰，竞逐朝阳。",
     "DESCRIPTIONS": [
-      "每经过 #b6 个回合，在回合开始时进入 #yim:时之狭隙 。"
+      "每 #b6 个回合，在回合开始时进入 #yim:时之狭隙 。"
     ]
   },
   "IceBreaker:CrystalOfRadiance": {
