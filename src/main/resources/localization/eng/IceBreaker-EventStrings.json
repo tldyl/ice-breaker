@@ -2,7 +2,7 @@
   "IceBreaker:MindBloom": {
     "NAME": "MindBloom",
     "DESCRIPTIONS": [
-      "While walking and traversing through the chaos of the Spire, your thoughts suddenly begin to feel very... #p~real...~ NL NL Imaginings of #rmonsters and #yriches begin to manifest themselves into reality. NL The sensation is quickly fleeting. What do you do?",
+      "While walking and traversing through the chaos of the Spire, your thoughts suddenly begin to feel very... #p~ real...~ NL NL Imaginings of #rmonsters and #yriches begin to manifest themselves into reality. NL The sensation is quickly fleeting. What do you do?",
       "Can it really be this easy?",
       "Everything makes sense now. NL Memories of Ancient, Face of Relative, #yNeow in the bottom of the spire. NL NL The infinite spire contains all possibilities. NL As climbing, climbing…… NL NL Overcome any impediment, and climb forever……",
       "You don't lack of money, maybe you will be laughed as an avaricious Warrior.",
@@ -20,9 +20,9 @@
   "IceBreaker:The Cleric": {
     "NAME": "The Cleric",
     "DESCRIPTIONS": [
-      "A strange blue humanoid with a golden helm(?) approaches you with a huge smile. NL “When he saw your face, he began to speak to you @Hello,@ @I'm@ #b@Cleric！@ @May@ @I@ @help@ @you?！@ ”",
-      "A warm #yGold #yLight envelops your body and dissipates. NL “@I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!@”Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
-      "A cold #bBlue #bFire envelops your body and dissipates. NL “@I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!@”Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
+      "A strange blue humanoid with a golden helm(?) approaches you with a huge smile. NL When he saw your face, he began to speak to you @“Hello,@ @I'm@ #b@Cleric！@ @May@ @I@ @help@ @you?！@ ”",
+      "A warm #yGold #yLight envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!”@ Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
+      "A cold #bBlue #bFire envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!”@ Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
       "ou don't trust this #b“Cleric” , so you leave."
     ],
     "OPTIONS": [
@@ -41,13 +41,13 @@
       "You use your magic to analise their power and absorb their power. NL At the same time, countless memories #b~flood~ #b~into~ #b~your~ #b~mind~ , you get a #r@Thumping@ #r@Headache@ , soon you fall down and lose sense. NL  NL When you wake up, the Living Wall had disappeared, left a path forward."
     ],
     "OPTIONS": [
-      "[Forget] #g#gRemove #ga #gcard #gfrom #gyour #gdeck.",
+      "[Forget] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
       "[Change] #gTransform #ga #gcard #gin #gyour #gdeck.",
       "[Grow] #gUpgrade #ga #gcard #gin #gyour #gdeck.",
       "[Absorb Power] #gGain #gALL #greward. #r#rBecome #rCursed——Writhe.",
-      "#gRemove #ga #gcard #gfrom #gyour #gdeck.",
-      "#gTransform #ga #gcard #gin #gyour #gdeck.",
-      "#gUpgrade #ga #gcard #gin #gyour #gdeck.",
+      "Remove a card from your deck.",
+      "Transform a card in your deck.",
+      "Upgrade a card in your deck.",
       "[Leave]",
       "[Locked] Need： Unupgraded card."
     ]
@@ -60,7 +60,7 @@
       "You decide to leave the area. NL The slime pays no attention, content with its meal."
     ],
     "OPTIONS": [
-      "[Expulse] #rFight #ragainst #ra #rrandom #rkind #rof #rLarge #rSlime, #gobtain #ga #grandom #grelic #gafter #gcombat.",
+      "[Expulse] #rFight #ragainst #ra #rLarge #rSlime, #gobtain #ga #grandom #grelic #gafter #gcombat.",
       "#rFight!",
       "[Leave]"
     ]
@@ -69,17 +69,17 @@
     "NAME": "Beggar",
     "DESCRIPTIONS": [
       "An old beggar cloaked in fur reaches his hands out towards you as you pass.“Spare some coin, Mr.Warrior?”",
-      "“I know you are Cleric.”You say with laughter. NL NL The beggar takes off its cloak to reveal that he is Cleric! NL “You are worthy of the Warrior, see through me without difficulty!” NL He holds a blue bright fire on his hand. NL NL “Would you like my assistant?”He says with respect.",
+      "“I know you are #bCleric.”You say with laughter. NL NL The beggar takes off its cloak to reveal that he is Cleric! NL “You are worthy of the Warrior, see through me without difficulty!” NL He holds a #bblue #bbright #bfire on his hand. NL NL “Would you like my assistant?”He says with respect.",
       "You declining his kindness.Cleric wears his cloak,while you leave the place.",
       "“Mr.Warrior, I wish you happy.” Cleric smiles.You wave your hand and say goodbye,then you continue to explore the spire."
     ],
     "OPTIONS": [
-      "[Purify] #g#gRemove #ga #gcard #gfrom #gyour #gdeck.",
+      "[Purify] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
       "[Heal] #gHeal #g",
       " #gHP. ",
       "[Continue]",
       "[Leave]",
-      "#gRemove #ga #gcard #gfrom #gyour #gdeck."
+      "Remove a card from your #gdeck."
     ]
   },
   "IceBreaker:Drug Dealer": {
@@ -138,7 +138,7 @@
       " #rmaxHP.",
       "[Refuse]",
       "[Lose ",
-      "] #g#gfrom #gyour #gdeck. ",
+      "] #gfrom #gyour #gdeck. ",
       "[Continue]",
       "[Leave]",
       "#gfrom #gyour #gdeck."
@@ -153,7 +153,7 @@
       "#g~TRIUMPH..~ NL NL The remains of a #p~ghostly~ #p~creature~ sink slowly into the mud before you, barely visible in the moonlight. NL You have proven yourself amongst your sisters. NL NL Standing victoriously, you wait in silence as the others ceremoniously place #ythe #ycreature's #yskull atop your head. The ritual has concluded. NL NL You head towards the Spire...",
       "#b~CONFUSION..~ NL NL #y[OBJECTIVE] #gBALANCE must be  #gENFORCED NL #y[DEFINE] #gBALANCE NL #y[ERROR] #gBALANCE #gNOT #gFOUND NL #y[DEFINE] #gBALANCE NL #y[ERROR] #gBALANCE #gNOT #gFOUND NL #y[WARNING] #rLarge #robject #rapproaching NL NL ~“I...~ ~..am~ ~....Neow...”~",
       "#p~SERENITY..~ NL NL Two primitive creatures fight over a carcass on the side of the road. You observe, devoid of emotion. NL #yWatch. #yRemember. #yLive. This is the Watcher's mission. NL NL Recently, one of your peers had stopped reporting on their assignment: a Spire of unknown origin. NL NL As the fight ends, you continue onward, unfazed by the bloody scene that took place.",
-      "#y~GAZE.~ NL NL The #tMoon was bright with few #bStar, silver light ~covered~ ~the~ ~ground~ . NL In front of you stands a #bTall #bFigure , look at you eyes to eyes, with a #p~mild~ #p~eyesight~ . NL  #b“Just #brun #bafter #byour #blight, #bmy #blittle #bbrother. #bI #bwill #balways #bprotect #byou.” NL NL That's the reason why you step into the spire: to find the person who made such a promise to you."
+      "#y~GAZE.~ NL NL The #yMoon was bright with few #bStar, silver light #g~covered~ #g~the~ #g~ground~ . NL In front of you stands a #bTall #bFigure , look at you eyes to eyes, with a #p~mild~ #p~eyesight~ . NL  #b“Just #brun #bafter #byour #blight, #bmy #blittle #bbrother. #bI #bwill #balways #bprotect #byou.” NL NL That's the reason why you step into the spire: to find the person who made such a promise to you."
     ],
     "OPTIONS": [
       "[Recall] #gAdd #g1 #gColorless #gcard #ginto #gyour #gdeck.",
