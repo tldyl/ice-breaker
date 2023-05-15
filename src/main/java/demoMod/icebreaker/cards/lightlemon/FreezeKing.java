@@ -34,7 +34,7 @@ public class FreezeKing extends AbstractLightLemonCard {
 
     public FreezeKing() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 8;
         this.baseMagicNumber = this.magicNumber = 2;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);

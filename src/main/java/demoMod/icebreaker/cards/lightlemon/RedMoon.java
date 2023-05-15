@@ -33,7 +33,7 @@ public class RedMoon extends AbstractLightLemonCard {
 
     public RedMoon() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
+        this.damage = this.baseDamage = 6;
         this.baseMagicNumber = this.magicNumber = 1;
         this.cardsToPreview = new Spark();
         this.tags = new ArrayList<>();

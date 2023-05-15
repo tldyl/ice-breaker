@@ -37,7 +37,7 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.REMOTE);
         this.tags.add(CardTags.HEALING);
-        this.baseDamage = 9;
+        this.baseDamage = 8;
         this.isMultiDamage = true;
     }
 
@@ -45,7 +45,7 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeDamage(4);
         }
     }
 

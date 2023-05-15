@@ -33,8 +33,8 @@ public class FrostWind extends AbstractLightLemonCard {
 
     public FrostWind() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
-        this.baseBlock = this.block = 4;
+        this.damage = this.baseDamage = 6;
+        this.baseBlock = this.block = 3;
         this.baseMagicNumber = this.magicNumber = 1;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);

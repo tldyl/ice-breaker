@@ -34,7 +34,7 @@ public class EarthCollapse extends AbstractLightLemonCard {
 
     public EarthCollapse() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 8;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);

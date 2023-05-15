@@ -33,7 +33,7 @@ public class DrugDealerPatch {
     public static class PatchConstructor {
         public static SpireReturn<Void> Prefix(DrugDealer event) {
             if (AbstractDungeon.player instanceof IceBreakerCharacter) {
-                event.imageEventText.updateBodyText(DESCRIPTIONS[0]);
+                ReflectionHacks.setPrivate(event, AbstractEvent.class, "body", DESCRIPTIONS[0]);
                 boolean hasRemovableCards = !CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).isEmpty();
                 event.imageEventText.setDialogOption(hasRemovableCards ? OPTIONS[0] + 7 + OPTIONS[1] : OPTIONS[5], !hasRemovableCards);
                 boolean hasTwoRemovableCards = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() >= 2;

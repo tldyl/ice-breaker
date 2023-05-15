@@ -32,7 +32,7 @@ public class SeaOfLanterns extends AbstractLightLemonCard {
 
     public SeaOfLanterns() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = 10;
+        this.baseBlock = 8;
         this.baseMagicNumber = this.magicNumber = 1;
         this.isMultiDamage = true;
         this.tags = new ArrayList<>();

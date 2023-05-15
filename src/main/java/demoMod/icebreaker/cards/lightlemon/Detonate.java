@@ -28,7 +28,7 @@ public class Detonate extends AbstractLightLemonCard {
 
     public Detonate() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 7;
+        this.baseMagicNumber = this.magicNumber = 8;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
     }
@@ -37,7 +37,7 @@ public class Detonate extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(4);
         }
     }
 

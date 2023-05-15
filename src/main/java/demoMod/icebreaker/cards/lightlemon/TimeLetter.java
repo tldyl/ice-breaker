@@ -36,8 +36,8 @@ public class TimeLetter extends AbstractLightLemonCard {
 
     public TimeLetter() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseDamage = 7;
-        this.baseMagicNumber = this.magicNumber = 4;
+        this.baseDamage = 6;
+        this.baseMagicNumber = this.magicNumber = 3;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
@@ -47,7 +47,7 @@ public class TimeLetter extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
             this.portrait = UPGRADE_IMG;
             this.textureImg = IceBreaker.getResourcePath("cards/TimeLetter+.png");
