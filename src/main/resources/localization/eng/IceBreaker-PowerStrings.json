@@ -105,7 +105,7 @@
   "IceBreaker:NextTurnPlayCardPower": {
     "NAME": "Extra Trigger",
     "DESCRIPTIONS": [
-      "At the start of your next turn, add #b%d copy of #y%s into your hand."
+      "At the start of your next turn, add #b%d copy(ies) of #y%s into your hand."
     ]
   },
   "IceBreaker:NextTurnDamageAllEnemiesPower": {

@@ -105,7 +105,7 @@
   "IceBreaker:NextTurnPlayCardPower": {
     "NAME": "追加触发",
     "DESCRIPTIONS": [
-      "在下回合开始时，将 #y%s 的 #b%d 张复制加入手牌。"
+      "在下回合开始时，将 #b%d 张 #y%s 加入手牌。"
     ]
   },
   "IceBreaker:NextTurnDamageAllEnemiesPower": {

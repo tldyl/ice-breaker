@@ -35,7 +35,7 @@ public class NextTurnPlayCardPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.card.name, this.amount);
+        this.description = String.format(DESC[0], this.amount, this.card.name);
     }
 
     @Override
