@@ -14,13 +14,13 @@
   "IceBreaker:ExtraTurnPower": {
     "NAME": "Chronogap",
     "DESCRIPTIONS": [
-      "When you enter #yChronogap , gain [E] [E]. NL Playing a card in the #Gap will not trigger buffs about playing cards on enemies."
+      "When you enter #yChronogap , gain [E] [E] . NL Playing a card in the #Gap will not trigger buffs about playing cards on enemies."
     ]
   },
   "IceBreaker:ResonancePower": {
     "NAME": "Resonance",
     "DESCRIPTIONS": [
-      "When you are in #yChronogap ，#yResonance adds additional numerical value to #yMagics by #b%d. NL After it works, you lose #b1 #yResonance."
+      "When you are in #yChronogap, #yResonance adds additional numerical value to #yMagics by #b%d. NL After it works, you lose #b1 #yResonance."
     ]
   },
   "IceBreaker:DoubleBlockPower": {
@@ -68,7 +68,7 @@
   "IceBreaker:StarDustPower": {
     "NAME": "Star Dust",
     "DESCRIPTIONS": [
-      "The first #b%d time you #yConnect Respond successfully within a turn, gain [E]."
+      "The first #b%d time you #yConnect Respond successfully within a turn, gain [E] ."
     ]
   },
   "IceBreaker:NiflheimrPower": {
@@ -204,7 +204,7 @@
   "IceBreaker:BrandyPower": {
     "NAME": "Brandy",
     "DESCRIPTIONS": [
-      "Whenever you play a #ySpark , gain #b%d [E]."
+      "Whenever you play a #ySpark , gain #b%d [E] ."
     ]
   },
   "IceBreaker:DisobeyPower": {
