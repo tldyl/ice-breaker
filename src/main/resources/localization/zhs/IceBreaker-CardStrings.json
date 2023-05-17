@@ -280,6 +280,10 @@
     "NAME": "进阶之灾",
     "DESCRIPTION": ""
   },
+  "IceBreaker:Normality": {
+    "NAME": "怠惰",
+    "DESCRIPTION": ""
+  },
   "IceBreaker:Niflheimr": {
     "NAME": "雾霜之国",
     "DESCRIPTION": "在你的回合开始时，所有敌人失去 !M! 点 力量 。",

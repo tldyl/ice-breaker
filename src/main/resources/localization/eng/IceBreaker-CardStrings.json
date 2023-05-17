@@ -172,7 +172,7 @@
     "UPGRADE_DESCRIPTION": "Remove at most !M! Weak on an enemy, gain that many [E]."
   },
   "IceBreaker:OtherPartyOfMissing": {
-    "NAME": "See You in the Otherside",
+    "NAME": "See You Otherside",
     "DESCRIPTION": "Gain !B! Block. NL If you enter im:Chronogap or end your turn with this card is in hand, increase this card's Block by !M! in this combat.",
     "EXTENDED_DESCRIPTION": [
       "……I miss you."
@@ -279,6 +279,10 @@
   },
   "IceBreaker:AscendersBane": {
     "NAME": "Ascender's Bane",
+    "DESCRIPTION": ""
+  },
+  "IceBreaker:Normality": {
+    "NAME": "Sloth",
     "DESCRIPTION": ""
   },
   "IceBreaker:Niflheimr": {

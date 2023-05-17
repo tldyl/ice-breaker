@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.*;
 import demoMod.icebreaker.cards.lightlemon.*;
+import demoMod.icebreaker.cards.lightlemon.tempCards.Embers;
 import demoMod.icebreaker.cards.lightlemon.tempCards.Spark;
 import demoMod.icebreaker.characters.IceBreakerCharacter;
 import demoMod.icebreaker.dynamicVariables.AnotherMagicNumber;
@@ -226,6 +227,7 @@ public class IceBreaker implements EditStringsSubscriber,
         BaseMod.addCard(new YesterdayOnceMore());
 
         BaseMod.addCard(new Spark());
+        BaseMod.addCard(new Embers());
     }
 
     @Override

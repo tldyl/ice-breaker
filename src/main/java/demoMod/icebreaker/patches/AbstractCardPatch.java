@@ -10,6 +10,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
+import com.megacrit.cardcrawl.cards.curses.Normality;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -97,6 +98,31 @@ public class AbstractCardPatch {
     }
 
     @SpirePatch(
+            clz = Normality.class,
+            method = SpirePatch.CONSTRUCTOR
+    )
+    public static class NormalityPatch {
+        public static final String ID = IceBreaker.makeID("Normality");
+        public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
+        public static final String IMG_PATH = IceBreaker.getResourcePath("cards/normality.png");
+        public static final Texture IMG = ImageMaster.loadImage(IMG_PATH);
+
+        @SpireInsertPatch(rloc = 1)
+        public static void Insert(Normality card) {
+            if (AbstractDungeon.player instanceof IceBreakerCharacter) {
+                card.name = NAME;
+                card.assetUrl = IMG_PATH;
+                Texture cardTexture = IMG;
+                cardTexture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+                int tw = cardTexture.getWidth();
+                int th = cardTexture.getHeight();
+                TextureAtlas.AtlasRegion cardImg = new TextureAtlas.AtlasRegion(cardTexture, 0, 0, tw, th);
+                ReflectionHacks.setPrivateInherited(card, CustomCard.class, "portrait", cardImg);
+            }
+        }
+    }
+
+    @SpirePatch(
             clz = SingleCardViewPopup.class,
             method = "loadPortraitImg"
     )
@@ -120,6 +146,7 @@ public class AbstractCardPatch {
                     lastLoadedImgPath = newPath;
                     if (portraitImg != null) {
                         ReflectionHacks.setPrivate(popup, SingleCardViewPopup.class, "portraitImg", portraitImg);
+                        portraitImg = null;
                     }
                     return SpireReturn.Return(null);
                 }
