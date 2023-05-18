@@ -39,13 +39,16 @@ public class Flarier extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInHandAction(new Spark()));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview));
         addToBot(new ApplyPowerAction(p, p, new FlarierPower(p, this.magicNumber)));
     }
 }

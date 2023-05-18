@@ -118,7 +118,8 @@
   },
   "IceBreaker:Flarier": {
     "NAME": "Flarier",
-    "DESCRIPTION": "im:Magic. NL Add a *Spark into your hand. NL Whenever you play a *Spark this turn, gain !M! Block."
+    "DESCRIPTION": "im:Magic. NL Add a *Spark into your hand. NL Whenever you play a *Spark this turn, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "im:Magic. NL Add a *Spark+ into your hand. NL Whenever you play a *Spark this turn, gain !M! Block."
   },
   "IceBreaker:IcyBurst": {
     "NAME": "冰爆",

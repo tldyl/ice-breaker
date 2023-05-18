@@ -118,7 +118,8 @@
   },
   "IceBreaker:Flarier": {
     "NAME": "炎川",
-    "DESCRIPTION": "im:魔法 。 NL 将一张 *火花 加入手牌。 NL 在这个回合，你每打出一张 *火花 ，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "im:魔法 。 NL 将一张 *火花 加入手牌。 NL 在这个回合，你每打出一张 *火花 ，获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "im:魔法 。 NL 将一张 *火花+ 加入手牌。 NL 在这个回合，你每打出一张 *火花 ，获得 !M! 点 格挡 。"
   },
   "IceBreaker:IcyBurst": {
     "NAME": "冰爆",
