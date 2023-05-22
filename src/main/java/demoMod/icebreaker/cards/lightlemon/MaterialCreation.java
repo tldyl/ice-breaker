@@ -7,9 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 public class MaterialCreation extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("MaterialCreation");
@@ -27,8 +25,7 @@ public class MaterialCreation extends AbstractLightLemonCard {
 
     public MaterialCreation() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.extraEffectOnExtraTurn = true;
+        this.baseMagicNumber = this.magicNumber = 2;
     }
 
     @Override
@@ -43,9 +40,6 @@ public class MaterialCreation extends AbstractLightLemonCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i=0;i<this.magicNumber;i++) {
             AbstractCard randomCard = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
-            if (p.hasPower(ExtraTurnPower.POWER_ID) || p.hasPower(MasterRealityPower.POWER_ID)) {
-                randomCard.upgrade();
-            }
             addToBot(new MakeTempCardInHandAction(randomCard, false));
         }
     }

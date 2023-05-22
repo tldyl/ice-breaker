@@ -216,7 +216,7 @@
   },
   "IceBreaker:TimeLetter": {
     "NAME": "Chronomunicate",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If you have no less than two im:Chronostasis , cost two and deal !D! damage once more, at the start of your next turn, gain !M! im:Chronostasis."
+    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If you have no less than two im:Chronostasis, consume three and deal !D! damage once more, at the start of your next turn, gain !M! im:Chronostasis."
   },
   "IceBreaker:MaterialDecomposition": {
     "NAME": "Decompose Material",
@@ -225,8 +225,7 @@
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "Create Material",
-    "DESCRIPTION": "Add !M! random card into your hand. NL im:Gap : Upgrade the card.",
-    "UPGRADE_DESCRIPTION": "Add !M! random cards into your hand. NL im:Gap : Upgrade the cards."
+    "DESCRIPTION": "Add !M! random cards into your hand."
   },
   "IceBreaker:TriggerLightning": {
     "NAME": "Lighting Connecting",

@@ -25,10 +25,10 @@ public class EyeOfSpiritualView extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
+    public void atTurnStart() {
         AbstractPlayer p = player;
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(p, this));
-        this.addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, 5)));
+        this.addToBot(new ApplyPowerAction(p, p, new ResonancePower(p, 1)));
     }
 }

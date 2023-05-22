@@ -99,7 +99,7 @@
   "IceBreaker:DeepCalculatePower": {
     "NAME": "深度演算",
     "DESCRIPTIONS": [
-      "每次打出 #y羁绊 牌时，额外触发其 #y羁绊 效果 #b%d 次。"
+      "每次打出 #y羁绊 牌时，额外触发其 #y回应 效果。"
     ]
   },
   "IceBreaker:NextTurnPlayCardPower": {

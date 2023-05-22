@@ -99,7 +99,7 @@
   "IceBreaker:DeepCalculatePower": {
     "NAME": "Deep Calculate",
     "DESCRIPTIONS": [
-      "Whenever you play a #yConnect card, additionally trigger its #yRespond #b%d times."
+      "Whenever you play a #yConnect card, additionally trigger its #yRespond effects."
     ]
   },
   "IceBreaker:NextTurnPlayCardPower": {

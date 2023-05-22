@@ -36,6 +36,6 @@ public class DeepCalculate extends AbstractLightLemonCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DeepCalculatePower(p, 1)));
+        addToBot(new ApplyPowerAction(p, p, new DeepCalculatePower(p)));
     }
 }

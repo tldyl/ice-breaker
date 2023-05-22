@@ -28,7 +28,6 @@ public class AllInAsh extends AbstractLightLemonCard {
     public AllInAsh() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.cardsToPreview = new Embers();
-        this.extraEffectOnExtraTurn = true;
         this.exhaust = true;
     }
 

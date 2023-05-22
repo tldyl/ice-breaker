@@ -16,27 +16,25 @@ public class DeepCalculatePower extends AbstractPower {
     public static final String NAME;
     public static final String[] DESC;
 
-    public DeepCalculatePower(AbstractCreature owner, int amount) {
+    public DeepCalculatePower(AbstractCreature owner) {
         this.owner = owner;
         this.ID = POWER_ID;
         this.name = NAME;
-        this.amount = amount;
+        this.amount = -1;
         this.updateDescription();
         this.loadRegion("draw");
     }
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESC[0], this.amount);
+        this.description = DESC[0];
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card instanceof AbstractLightLemonCard) {
             this.flash();
-            for (int i=0;i<this.amount;i++) {
-                ((AbstractLightLemonCard) card).onTriggerFetter();
-            }
+            ((AbstractLightLemonCard) card).onTriggerFetter();
         }
     }
 

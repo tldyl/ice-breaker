@@ -59,9 +59,9 @@ public class TimeLetter extends AbstractLightLemonCard {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         if (p.hasPower(TimeStasisPower.POWER_ID)) {
             AbstractPower power = p.getPower(TimeStasisPower.POWER_ID);
-            if (power.amount >= 2) {
+            if (power.amount >= 3) {
                 addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                addToBot(new ReducePowerAction(p, p, power, 2));
+                addToBot(new ReducePowerAction(p, p, power, 3));
                 addToBot(new ApplyPowerAction(p, p, new NextTurnTimeStasisPower(p, this.magicNumber)));
             }
         }

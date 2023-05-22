@@ -81,7 +81,7 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public void calculateCardDamage(AbstractMonster mo) {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += upgraded ? 3 : 2 * countCards();
+        this.baseDamage += (upgraded ? 3 : 2) * countCards();
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
@@ -89,7 +89,7 @@ public class HeavySnow extends AbstractLightLemonCard {
 
     public void applyPowers() {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += upgraded ? 3 : 2 * countCards();
+        this.baseDamage += (upgraded ? 3 : 2) * countCards();
         super.applyPowers();
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;

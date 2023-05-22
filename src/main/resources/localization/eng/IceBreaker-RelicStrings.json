@@ -52,7 +52,7 @@
     "NAME": "Eye of Soul",
     "FLAVOR": "A small stone looks like an eye, you can catch the glimpse of magical power stream -- present from Disobey.",
     "DESCRIPTIONS": [
-      "Start each combat with #b5 #yim:Resonance."
+      "At the start of your turn, gain #b1 #yim:Resonance."
     ]
   },
   "IceBreaker:Letter": {

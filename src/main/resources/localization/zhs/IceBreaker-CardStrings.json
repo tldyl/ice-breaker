@@ -216,7 +216,7 @@
   },
   "IceBreaker:TimeLetter": {
     "NAME": "时间交信",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 若有至少二层 im:时间停滞 ，消耗二层，再造成 !D! 点伤害，下回合开始时获得 !M! 层 im:时间停滞 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 若有至少三层 im:时间停滞 ，消耗三层，再造成 !D! 点伤害，下回合开始时获得 !M! 层 im:时间停滞 。"
   },
   "IceBreaker:MaterialDecomposition": {
     "NAME": "物质分解",
@@ -225,7 +225,7 @@
   },
   "IceBreaker:MaterialCreation": {
     "NAME": "物质创造",
-    "DESCRIPTION": "将 !M! 张随机牌加入手牌。 NL im:狭隙 ： 升级 加入的牌。"
+    "DESCRIPTION": "将 !M! 张随机牌加入手牌。"
   },
   "IceBreaker:TriggerLightning": {
     "NAME": "引雷",
