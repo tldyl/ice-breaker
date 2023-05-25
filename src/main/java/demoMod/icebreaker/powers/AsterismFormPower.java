@@ -29,7 +29,7 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
     public static final String NAME;
     public static final String[] DESC;
 
-    private final boolean upgraded;
+    private boolean upgraded;
 
     public AsterismFormPower(AbstractCreature owner, int amount, boolean upgraded) {
         this.owner = owner;
@@ -38,11 +38,20 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
         this.amount = amount;
         this.upgraded = upgraded;
         if (this.upgraded) {
-            this.ID += "+";
             this.name += "+";
         }
         this.updateDescription();
         PowerRegionLoader.load(this, "StarryForm");
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power instanceof AsterismFormPower && target == this.owner && !this.upgraded) {
+            this.upgraded = ((AsterismFormPower) power).upgraded;
+            if (this.upgraded) {
+                this.name += "+";
+            }
+        }
     }
 
     @Override

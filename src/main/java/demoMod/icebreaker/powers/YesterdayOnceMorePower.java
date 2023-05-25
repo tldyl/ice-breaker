@@ -19,7 +19,7 @@ public class YesterdayOnceMorePower extends AbstractPower implements TriggerFett
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
-    private final boolean upgraded;
+    private boolean upgraded;
 
     public YesterdayOnceMorePower(AbstractCreature owner, int amount, boolean upgraded) {
         this.owner = owner;
@@ -28,11 +28,20 @@ public class YesterdayOnceMorePower extends AbstractPower implements TriggerFett
         this.ID = POWER_ID;
         this.name = NAME;
         if (upgraded) {
-            this.ID += "+";
             this.name += "+";
         }
         this.updateDescription();
         PowerRegionLoader.load(this);
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power instanceof YesterdayOnceMorePower && target == this.owner && !this.upgraded) {
+            this.upgraded = ((YesterdayOnceMorePower) power).upgraded;
+            if (this.upgraded) {
+                this.name += "+";
+            }
+        }
     }
 
     @Override

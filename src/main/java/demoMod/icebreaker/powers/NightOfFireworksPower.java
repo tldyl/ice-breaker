@@ -16,7 +16,7 @@ public class NightOfFireworksPower extends AbstractPower implements EnterOrExitE
     private static final PowerStrings powerStrings;
     public static final String NAME;
     public static final String[] DESC;
-    private final boolean upgraded;
+    private boolean upgraded;
 
     public NightOfFireworksPower(AbstractCreature owner, int amount, boolean upgraded) {
         this.owner = owner;
@@ -25,11 +25,20 @@ public class NightOfFireworksPower extends AbstractPower implements EnterOrExitE
         this.name = NAME;
         this.upgraded = upgraded;
         if (upgraded) {
-            this.ID += "+";
             this.name += "+";
         }
         this.updateDescription();
         PowerRegionLoader.load(this);
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if (power instanceof NightOfFireworksPower && target == this.owner && !this.upgraded) {
+            this.upgraded = ((NightOfFireworksPower) power).upgraded;
+            if (this.upgraded) {
+                this.name += "+";
+            }
+        }
     }
 
     @Override
