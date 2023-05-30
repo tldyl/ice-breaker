@@ -35,7 +35,6 @@ public class CascadeIceWall extends AbstractLightLemonCard {
         this.baseBlock = this.block = 8;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
-        this.tags.add(CardTags.HEALING);
         this.extraEffectOnExtraTurn = true;
         this.isFetter = true;
     }

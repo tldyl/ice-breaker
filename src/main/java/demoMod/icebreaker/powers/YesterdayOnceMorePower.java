@@ -52,7 +52,7 @@ public class YesterdayOnceMorePower extends AbstractPower implements TriggerFett
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card instanceof AbstractLightLemonCard && this.upgraded) {
-            if (((AbstractLightLemonCard) card).isFetter) {
+            if (!((AbstractLightLemonCard) card).fetterTarget.isEmpty()) {
                 this.flash();
                 addToBot(new ApplyPowerAction(owner, owner, new TimeStasisPower(owner, this.amount)));
             }

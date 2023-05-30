@@ -26,7 +26,6 @@ public class Oracle extends AbstractLightLemonCard {
 
     public Oracle() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.tags.add(CardTags.HEALING);
         this.baseBlock = this.block = 6;
         this.baseMagicNumber = this.magicNumber = 1;
         this.isFetter = true;
@@ -54,7 +53,7 @@ public class Oracle extends AbstractLightLemonCard {
             addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
-                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true, true));
+                    addToBot(new SelectCardInHandAction(Oracle.this.magicNumber, card -> true, card -> card.retain = true, true, cardStrings.EXTENDED_DESCRIPTION[0]));
                     isDone = true;
                 }
             });

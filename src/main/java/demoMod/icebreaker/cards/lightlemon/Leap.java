@@ -30,7 +30,6 @@ public class Leap extends AbstractLightLemonCard {
         this.baseBlock = 4;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
-        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
     }
 

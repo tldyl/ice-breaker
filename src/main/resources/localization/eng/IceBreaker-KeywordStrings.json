@@ -61,7 +61,7 @@
       "羁绊"
     ],
     "PROPER_NAME": "Connect",
-    "DESCRIPTION": "Upon pickup, choose a card in your deck to be its target. NL Whenever you play this card while the target is in your draw pile, put it into your hand. NL #yConnect cards won't be created in combat."
+    "DESCRIPTION": "Upon pickup, choose a card in your deck to be its target. NL Whenever you play this card while the target is in your draw pile, put it into your hand."
   },
   {
     "NAMES": [

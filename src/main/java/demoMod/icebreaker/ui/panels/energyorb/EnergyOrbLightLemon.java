@@ -60,7 +60,10 @@ public class EnergyOrbLightLemon implements EnergyOrbInterface {
 
     @Override
     public void updateOrb(int energyCount) {
-        float energizedSpeed = 20.0F;
+        float energizedSpeed = (energyCount + 1) * 10.0F;
+        if (energizedSpeed > 240) {
+            energizedSpeed = 240;
+        }
         float noEnergySpeed = 5.0F;
         if (energyCount <= 0) {
             for (int i=0;i<angles.length;i++) {

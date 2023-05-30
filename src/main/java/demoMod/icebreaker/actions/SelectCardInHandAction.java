@@ -17,12 +17,13 @@ public class SelectCardInHandAction extends AbstractGameAction {
     private final AbstractPlayer p;
     private final List<AbstractCard> filteredCards = new ArrayList<>();
     private final boolean anyNumber;
+    private final String text;
 
     public SelectCardInHandAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action) {
-        this(amount, condition, action, false);
+        this(amount, condition, action, false, SelectSpecifiedCardInHandAction.TEXT[0]);
     }
 
-    public SelectCardInHandAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action, boolean anyNumber) {
+    public SelectCardInHandAction(int amount, Predicate<AbstractCard> condition, Consumer<AbstractCard> action, boolean anyNumber, String text) {
         setValues(AbstractDungeon.player, AbstractDungeon.player, amount);
         this.actionType = AbstractGameAction.ActionType.DRAW;
         this.duration = 0.25F;
@@ -30,6 +31,7 @@ public class SelectCardInHandAction extends AbstractGameAction {
         this.condition = condition;
         this.action = action;
         this.anyNumber = anyNumber;
+        this.text = text;
     }
 
     @Override
@@ -55,7 +57,7 @@ public class SelectCardInHandAction extends AbstractGameAction {
             }
             this.p.hand.group.removeAll(this.filteredCards);
             if (this.p.hand.group.size() > 1 || this.anyNumber) {
-                AbstractDungeon.handCardSelectScreen.open(String.format(SelectSpecifiedCardInHandAction.TEXT[0], this.amount), this.amount, this.anyNumber, this.anyNumber, false, false);
+                AbstractDungeon.handCardSelectScreen.open(this.text, this.amount, this.anyNumber, this.anyNumber, false, false);
                 tickDuration();
                 return;
             }

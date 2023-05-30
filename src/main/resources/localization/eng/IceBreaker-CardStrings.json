@@ -156,7 +156,10 @@
   "IceBreaker:Oracle": {
     "NAME": "Oracle",
     "DESCRIPTION": "im:Connect. Gain !B! Block. NL Choose !M! card to Retain for a turn.",
-    "UPGRADE_DESCRIPTION": "im:Connect 2. NL Gain !B! Block. NL Choose !M! card to Retain for a turn."
+    "UPGRADE_DESCRIPTION": "im:Connect 2. NL Gain !B! Block. NL Choose !M! card to Retain for a turn.",
+    "EXTENDED_DESCRIPTION": [
+      " retain"
+    ]
   },
   "IceBreaker:OverloadEmulate": {
     "NAME": "过载演算",

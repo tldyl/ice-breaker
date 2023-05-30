@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.TimeStasisPower;
 
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ public class DeepColdSwamp extends AbstractLightLemonCard {
         this.baseMagicNumber = this.magicNumber = 1;
         this.baseBlock = this.block = 6;
         this.tags = new ArrayList<>();
-        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
     }
 

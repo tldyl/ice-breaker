@@ -2,7 +2,6 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.powers.ChronoChimePower;
 import demoMod.icebreaker.powers.ExtraTurnPower;
-import demoMod.icebreaker.powers.ResonancePower;
 import demoMod.icebreaker.powers.TimeStasisPower;
 
 public class FakeParley extends AbstractLightLemonCard {
@@ -30,7 +28,6 @@ public class FakeParley extends AbstractLightLemonCard {
 
     public FakeParley() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.tags.add(CardTags.HEALING);
         this.baseMagicNumber = this.magicNumber = 1;
         this.isFetter = true;
         this.extraEffectOnExtraTurn = true;

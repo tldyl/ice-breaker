@@ -44,7 +44,7 @@
       "[Forget] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
       "[Change] #gTransform #ga #gcard #gin #gyour #gdeck.",
       "[Grow] #gUpgrade #ga #gcard #gin #gyour #gdeck.",
-      "[Absorb Power] #gGain #gALL #greward. #r#rBecome #rCursed——Writhe.",
+      "[Absorb Power] #gGain #gALL #greward. #r#rBecome #rCursed——Writhe. #rLose #r%d #rMAX #rHP.",
       "Remove a card from your deck.",
       "Transform a card in your deck.",
       "Upgrade a card in your deck.",
@@ -134,7 +134,7 @@
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~Mr.Warrior,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~"
     ],
     "OPTIONS": [
-      "[Accept] #gRemove #gThree #gAttacks #gfrom #gyour #gdeck. #rLose #r",
+      "[Accept] #gRemove #gTwo #gAttacks #gfrom #gyour #gdeck. #rLose #r",
       " #rmaxHP.",
       "[Refuse]",
       "[Lose ",

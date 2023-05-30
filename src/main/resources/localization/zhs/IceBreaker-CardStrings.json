@@ -156,7 +156,10 @@
   "IceBreaker:Oracle": {
     "NAME": "神谕",
     "DESCRIPTION": "im:羁绊 。 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。",
-    "UPGRADE_DESCRIPTION": "im:羁绊 2。 NL 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。"
+    "UPGRADE_DESCRIPTION": "im:羁绊 2。 NL 获得 !B! 点 格挡 。 NL 从手牌中选择 !M! 张牌在本回合 保留 。",
+    "EXTENDED_DESCRIPTION": [
+      "保留"
+    ]
   },
   "IceBreaker:OverloadEmulate": {
     "NAME": "过载演算",

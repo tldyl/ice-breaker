@@ -43,7 +43,8 @@ public class LivingWallPatch {
     public static class PatchConstructor {
         public static void Postfix(LivingWall event) {
             if (AbstractDungeon.player instanceof IceBreakerCharacter) {
-                event.imageEventText.setDialogOption(OPTIONS[3], new Writhe());
+                int maxHpLose = (int) (AbstractDungeon.player.maxHealth * (AbstractDungeon.ascensionLevel >= 15 ? 0.25F : 0.15F));
+                event.imageEventText.setDialogOption(String.format(OPTIONS[3], maxHpLose), new Writhe());
             }
         }
     }
@@ -66,6 +67,8 @@ public class LivingWallPatch {
                                     if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
                                         AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, OPTIONS[4], false, false, false, true);
                                     }
+                                    int maxHpLose = (int) (AbstractDungeon.player.maxHealth * (AbstractDungeon.ascensionLevel >= 15 ? 0.25F : 0.15F));
+                                    AbstractDungeon.player.decreaseMaxHealth(maxHpLose);
 
                                     ReflectionHacks.setPrivate(event, LivingWall.class, "pickCard", true);
                                     if (PatchAddFields.chooseAll.get(event)) {

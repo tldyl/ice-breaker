@@ -51,7 +51,7 @@ public class VampiresPatch {
     public static class PatchUpdate {
         public static void Postfix(AbstractImageEvent event) {
             if (event instanceof Vampires && AbstractDungeon.player instanceof IceBreakerCharacter) {
-                if (!PatchButtonEffect.cardsSelected && AbstractDungeon.gridSelectScreen.selectedCards.size() == 3) {
+                if (!PatchButtonEffect.cardsSelected && AbstractDungeon.gridSelectScreen.selectedCards.size() == 2) {
                     PatchButtonEffect.deleteCards(AbstractDungeon.gridSelectScreen.selectedCards);
                 }
             }
@@ -122,12 +122,12 @@ public class VampiresPatch {
             if (tmp.group.isEmpty()) {
                 cardsSelected = true;
             } else {
-                if (tmp.group.size() <= 3) {
+                if (tmp.group.size() <= 2) {
                     deleteCards(tmp.group);
                 } else {
                     CardGroup group = AbstractDungeon.player.masterDeck.getPurgeableCards();
                     group.group.removeIf(card -> card.type != AbstractCard.CardType.ATTACK);
-                    AbstractDungeon.gridSelectScreen.open(group, 3, OPTIONS[7], false, false, false, true);
+                    AbstractDungeon.gridSelectScreen.open(group, 2, OPTIONS[7], false, false, false, true);
                 }
             }
         }

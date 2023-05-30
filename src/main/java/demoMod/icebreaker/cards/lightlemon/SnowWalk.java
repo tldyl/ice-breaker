@@ -31,7 +31,6 @@ public class SnowWalk extends AbstractLightLemonCard {
         this.baseMagicNumber = this.magicNumber = 3;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
-        this.tags.add(CardTags.HEALING);
         this.isFetter = true;
     }
 
