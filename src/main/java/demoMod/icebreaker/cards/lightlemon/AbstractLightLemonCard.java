@@ -175,6 +175,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
     }
 
     private boolean hovered = false;
+
     @Override
     public void hover() {
         if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.MASTER_DECK_VIEW) {
@@ -183,6 +184,12 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
                 if (fetterTarget.contains(c.uuid)) {
                     c.beginGlowing();
                 }
+                if (c instanceof AbstractLightLemonCard && c != this) {
+                    if (((AbstractLightLemonCard) c).fetterTarget.contains(this.uuid)) {
+                        c.glowColor = Color.GOLD.cpy();
+                        c.beginGlowing();
+                    }
+                }
             }
         }
         if (!this.hovered) {
@@ -190,6 +197,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
         }
         super.hover();
     }
+
     @Override
     public void unhover() {
         if (this.hovered) {
@@ -203,6 +211,7 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
         }
         super.unhover();
     }
+
     @Override
     public void renderCardTip(SpriteBatch sb) {
         super.renderCardTip(sb);
