@@ -53,8 +53,8 @@
   },
   "IceBreaker:Light": {
     "NAME": "Hikari",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile, play one to a random enemy.",
-    "UPGRADE_DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL If there's *Spark in your draw pile, play two to random enemies."
+    "DESCRIPTION": "Retain. NL Play ALL *Sparks in your draw pile to the target. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Play ALL *Sparks in your draw pile to the target."
   },
   "IceBreaker:EarthCollapse": {
     "NAME": "Earth Collapse",

@@ -61,12 +61,12 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
 
     @Override
     public void atStartOfTurn() {
-        triggerPower();
+        triggerPower(this.amount);
     }
 
     @Override
     public void onEnterExtraTurn() {
-        triggerPower();
+        triggerPower(this.amount);
     }
 
     @Override
@@ -74,7 +74,10 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
 
     }
 
-    private void triggerPower() {
+    private void triggerPower(int times) {
+        if (times <= 0) {
+            return;
+        }
         this.flash();
         addToBot(new SelectCardInCardGroupAction(1, card -> true, card -> {
             AbstractMonster m = null;
@@ -101,6 +104,7 @@ public class AsterismFormPower extends AbstractPower implements EnterOrExitExtra
                 tmp.energyOnUse = EnergyPanel.totalCount;
             }
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
+            triggerPower(times - 1);
         }, getRandomCards()));
     }
 

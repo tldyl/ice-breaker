@@ -58,7 +58,7 @@ public class PlayCardInCardGroupAction extends AbstractGameAction {
                 card.drawScale = 0.12F;
                 card.targetDrawScale = 0.75F;
                 card.applyPowers();
-                if (this.target == null) {
+                if (this.target == null || this.target.isDying || this.target.isDeadOrEscaped()) {
                     this.addToTop(new NewQueueCardAction(card, true, false, true));
                 } else {
                     this.addToTop(new NewQueueCardAction(card, this.target, false, true));

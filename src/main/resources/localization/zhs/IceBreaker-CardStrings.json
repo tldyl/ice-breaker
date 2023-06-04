@@ -53,8 +53,8 @@
   },
   "IceBreaker:Light": {
     "NAME": "光",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，对随机敌人打出至多一张。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 如果抽牌堆中有 *火花 ，对随机敌人打出至多两张。"
+    "DESCRIPTION": "保留 。 NL 打出抽牌堆中的所有 *火花 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 打出抽牌堆中的所有 *火花 。"
   },
   "IceBreaker:EarthCollapse": {
     "NAME": "大地崩坏",
