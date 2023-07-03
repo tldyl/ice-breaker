@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import demoMod.icebreaker.IceBreaker;
 import demoMod.icebreaker.enums.CardTagEnum;
-import demoMod.icebreaker.powers.ExtraTurnPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +69,8 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
                 AbstractLightLemonCard card = null;
                 for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                     if (c.uuid.equals(OnChronosBehalf.this.uuid)) {
-                        card = (AbstractLightLemonCard)c; break;
+                        card = (AbstractLightLemonCard)c;
+                        break;
                     }
                 }
                 if (cnt > 0 && card != null) {
@@ -82,9 +82,15 @@ public class OnChronosBehalf extends AbstractLightLemonCard {
             }
         };
         action.actionType = AbstractGameAction.ActionType.DAMAGE;
-        addToTop(action);
-        addToTop(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-        addToTop(new VFXAction(p, new CleaveEffect(), 0.1F));
-        addToTop(new SFXAction("ATTACK_HEAVY"));
+        IceBreaker.addToTop(action);
+        IceBreaker.addToTop(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        IceBreaker.addToTop(new VFXAction(p, new CleaveEffect(), 0.1F));
+        IceBreaker.addToTop(new SFXAction("ATTACK_HEAVY"));
+    }
+
+    @Override
+    public void onLoad(List<String> data) {
+        super.onLoad(data);
+        this.fetterAmount = this.fetterTarget.size();
     }
 }
