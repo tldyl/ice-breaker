@@ -3,7 +3,7 @@
     "NAME": "Bottled Inspiration",
     "DESCRIPTIONS": [
       "Choose #b1 of #b3 random #yMagic cards to add to your hand, it cost #b0 this turn.",
-      "Choose #b1 of #b3 random #yMagic cards to add to your hand twice, it cost #b0 this turn."
+      "Choose #b1 of #b3 random #yMagic cards to add to your hand twice, they cost #b0 this turn."
     ]
   },
   "IceBreaker:BottledLight": {

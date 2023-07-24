@@ -5,7 +5,7 @@
       "共鸣"
     ],
     "PROPER_NAME": "Resonance",
-    "DESCRIPTION": "When you are in #yChronogap, #yResonance adds additional numerical value to #yMagics. NL After it works, reduced by #b1."
+    "DESCRIPTION": "When you are in #yChronogap, #yResonance adds additional numerical value to #yMagic cards. NL Each use, reduces it by #b1 [REMOVE_SPACE]."
   },
   {
     "NAMES": [
@@ -13,7 +13,7 @@
       "远程"
     ],
     "PROPER_NAME": "Ranged",
-    "DESCRIPTION": "Ignore #yThorn and #yFlight."
+    "DESCRIPTION": "Ignore #yThorns and #yFlight [REMOVE_SPACE]."
   },
   {
     "NAMES": [
@@ -21,7 +21,7 @@
       "魔法"
     ],
     "PROPER_NAME": "Magic",
-    "DESCRIPTION": "#yMagics is not affected by most of buffs on #yyourself."
+    "DESCRIPTION": "#yMagic cards are not affected by most buffs on #yyourself."
   },
   {
     "NAMES": [
@@ -61,7 +61,7 @@
       "羁绊"
     ],
     "PROPER_NAME": "Connect",
-    "DESCRIPTION": "Upon pickup, choose a card in your deck to be its target. NL Whenever you play this card while the target is in your draw pile, put it into your hand."
+    "DESCRIPTION": "Upon pickup, choose a card in your deck to add as a target. NL Whenever you play this card while targets are in your draw pile, put them into your hand."
   },
   {
     "NAMES": [
@@ -69,7 +69,7 @@
       "回应"
     ],
     "PROPER_NAME": "Respond",
-    "DESCRIPTION": "If a card is putted into your hand as a #yConnect target, or put its #yConnect target into your hand, it is regarded as #yRespond successfully."
+    "DESCRIPTION": "If a card is put into your hand as a #yConnect target, or put its #yConnect card into your hand, both cards activate their #yRespond effects successfully."
   },
   {
     "NAMES": [
@@ -77,7 +77,7 @@
       "时间停滞"
     ],
     "PROPER_NAME": "Chronostasis",
-    "DESCRIPTION": "When you obtain no less than #b12 #yChronostasis , lose #b12 #yChronostasis , enter #yChronogap."
+    "DESCRIPTION": "When you obtain #b12 #yChronostasis [REMOVE_SPACE], enter #yChronogap."
   },
   {
     "NAMES": [
@@ -87,6 +87,14 @@
       "gap"
     ],
     "PROPER_NAME": "Chronogap",
-    "DESCRIPTION": "Upon entering #yChronogap , gain [E] [E] . NL Playing a card in the #yGap will not trigger buffs about playing cards on enemies. NL Exit at the end of your turn.( You can enter another #yGap when you're in the #yGap)"
+    "DESCRIPTION": "Upon entering this stance, gain [E] [REMOVE_SPACE][E] [REMOVE_SPACE]. NL Playing a card in this stance will not count towards enemy buffs. NL Exit this stance at the end of your turn. (Entering this stance multiple times in one turn still grants energy.)"
+  },
+  {
+    "PROPER_NAME": "Unnate",
+    "NAMES": [
+      "Unnate",
+      "unnate"
+    ],
+    "DESCRIPTION": "Starts each combat at the bottom of your draw pile."
   }
 ]
