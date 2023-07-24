@@ -1,5 +1,6 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -48,8 +49,10 @@ public class BloodyPath extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractPower power : p.powers) {
-            addToTop(new RemoveSpecificPowerAction(p, p, power));
-            addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            if(!(p instanceof InvisiblePower)) {
+                addToTop(new RemoveSpecificPowerAction(p, p, power));
+                addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            }
         }
     }
 }

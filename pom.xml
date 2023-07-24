@@ -6,7 +6,10 @@
 
     <groupId>demoMod</groupId>
     <artifactId>ice-breaker</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
+    <properties>
+    <steam.path>C:/Program Files (x86)/steam/steamapps</steam.path>
+    </properties>
 
     <dependencies>
         <dependency>

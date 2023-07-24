@@ -3,35 +3,35 @@
     "NAME": "Blizzard Staff",
     "FLAVOR": "It is made of solid-state icy magical power completely.",
     "DESCRIPTIONS": [
-      "The first time of the combat when you gain #yBlock , double it. NL Start each combat with #b4 #yim:Chronostasis."
+      "Start each combat with #b4 #yim:Chronostasis. NL The first time you gain #yBlock each combat, double it."
     ]
   },
   "IceBreaker:StaffMidwinter": {
     "NAME": "Midwinter Staff",
-    "FLAVOR": "It was injected divine power by the God of Time,and became a unique wand -- present from Chronos.",
+    "FLAVOR": "It was injected with divine power by the God of Time and became a unique wand. \n - Present from Chronos.",
     "DESCRIPTIONS": [
-      "Replaces #yBlizzard #yStaff. The first time of the combat when you gain #yBlock , double it. NL At the start of your turn, gain #yim:Chronostais equal to the number of turns experienced in this combat."
+      "Replaces #yBlizzard #yStaff. The first time you gain #yBlock each combat, double it. NL At the start of your turn, gain #yim:Chronostasis equal to the turn count."
     ]
   },
   "IceBreaker:MagicalScroll": {
     "NAME": "Magical Scroll",
-    "FLAVOR": "It looks like a recipe -- present from Ame.",
+    "FLAVOR": "It looks like a recipe. \n - Present from Ame.",
     "DESCRIPTIONS": [
-      "Choose #b1 of #b3 random #yim:Magic cards to add to your hand, it cost #b0 this turn."
+      "At the start of each combat, Choose #b1 of #b3 random #yim:Magic cards to add to your hand, it cost #b0 this turn."
     ]
   },
   "IceBreaker:Amulet": {
     "NAME": "Amulet",
-    "FLAVOR": "You can feel vitality is streaming in it -- present from Shiroikumo.",
+    "FLAVOR": "You can feel vitality flowing inside. \n - Present from Shiroikumo.",
     "DESCRIPTIONS": [
-      "The first time in combat you lose HP, heal #b8."
+      "Whenever you first lose HP each combat, heal #b8 HP."
     ]
   },
   "IceBreaker:Telescope": {
     "NAME": "Telescope",
-    "FLAVOR": "You can see the scenery in the distance……don't use it to peep the bath house -- present form Fukuhi.",
+    "FLAVOR": "You can see the scenery in the distance... Don't use it to peep the bath house. \n - Present form Fukuhi.",
     "DESCRIPTIONS": [
-      "At the start of your turn, draw #b1 less card , NL then choose a card from your draw pile to add into your hand."
+      "At the start of your turn, draw #b1 less card and choose a card from your draw pile to add into your hand."
     ]
   },
   "IceBreaker:Constellation": {
@@ -43,30 +43,30 @@
   },
   "IceBreaker:CrystalOfRadiance": {
     "NAME": "Crystal of Radiance",
-    "FLAVOR": "A knob of solidified radiance -- present from Brandy.",
+    "FLAVOR": "A star of solidified radiance. \n - Present from Brandy.",
     "DESCRIPTIONS": [
-      "Whenever you play a #ySpark outside of #yim:Chronogap , gain #b1 #yim:Chronostasis."
+      "Whenever you play a #ySpark outside of #yim:Chronogap [REMOVE_SPACE], gain #b1 #yim:Chronostasis [REMOVE_SPACE]."
     ]
   },
   "IceBreaker:EyeOfSpiritualView": {
     "NAME": "Eye of Soul",
-    "FLAVOR": "A small stone looks like an eye, you can catch the glimpse of magical power stream -- present from Disobey.",
+    "FLAVOR": "A small stone that looks like an eye, you can catch a glimpse of the magical power stream. \n - Present from Disobey.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b1 #yim:Resonance."
+      "At the start of your turn gain #b1 #yim:Resonance [REMOVE_SPACE]."
     ]
   },
   "IceBreaker:Letter": {
     "NAME": "Letter",
-    "FLAVOR": "\"The spire is spreading corrupt power.\" -- You can't be more familiar with the handwriting.",
+    "FLAVOR": "\"The spire is spreading corrupt power.\" - You can't be more familiar with the handwriting.",
     "DESCRIPTIONS": [
-      "Whenever you enter #yim:Chronogap , gain #b1 additional [E] and draw #b1 card."
+      "Upon entering #yim:Chronogap [REMOVE_SPACE], gain #b1 additional [E] and draw #b1 card."
     ]
   },
   "IceBreaker:ConnectionOfMeteor": {
     "NAME": "Connection of Meteor",
-    "FLAVOR": "Meteors across the night sky,the wishes at that time was \"accompany with you forever\".",
+    "FLAVOR": "Meteors across the night sky, that you wish will \n \"accompany you forever\".",
     "DESCRIPTIONS": [
-      "Upon pickup, Add #yim:Connect to #b1 Non-Connect card of Warrior in your deck.",
+      "Upon pickup, Add #yim:Connect to #b1 Non- [REMOVE_SPACE]#yConnect card of Zehhyo's color in your deck.",
       "Choose a card to add Connect."
     ]
   }

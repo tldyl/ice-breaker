@@ -34,3 +34,4 @@ src/test/
 *.docx
 /src/main/resources/IceImages/cards/cardsToCut/
 /src/main/resources/IceImages/cards/cardsToReplace/
+pom.xml

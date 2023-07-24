@@ -15,7 +15,8 @@ public class Letter extends CustomRelic implements EnterOrExitExtraTurnSubscribe
     private static final Texture IMG_OUTLINE = new Texture(IceBreaker.getResourcePath("relics/Letter_outline.png"));
 
     public Letter() {
-        super(ID, IMG, IMG_OUTLINE, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, IMG, IMG_OUTLINE, RelicTier.BOSS, //Boss?
+                LandingSound.FLAT);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Letter extends CustomRelic implements EnterOrExitExtraTurnSubscribe
     public void onEnterExtraTurn() {
         this.flash();
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        addToBot(new DrawCardAction(1));
+        addToBot(new DrawCardAction(1)); //2?
         addToBot(new GainEnergyAction(1));
     }
 

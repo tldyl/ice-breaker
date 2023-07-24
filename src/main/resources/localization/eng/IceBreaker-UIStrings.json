@@ -11,7 +11,7 @@
   },
   "IceBreaker:DiscardPileToTopOfDeckAction": {
     "TEXT": [
-      "Choose no more than %d cards to put them on the top of your draw pile. "
+      "Choose up to %d cards to put them on the top of your draw pile."
     ]
   },
   "IceBreaker:SelectSpecifiedCardInHandAction": {

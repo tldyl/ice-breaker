@@ -1,6 +1,7 @@
 package demoMod.icebreaker.relics;
 
 import basemod.abstracts.CustomRelic;
+import basemod.helpers.CardPowerTip;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -20,6 +21,7 @@ public class CrystalOfRadiance extends CustomRelic {
 
     public CrystalOfRadiance() {
         super(ID, IMG, IMG_OUTLINE, RelicTier.RARE, LandingSound.SOLID);
+        tips.add(new CardPowerTip(new Spark()));
     }
 
     @Override
