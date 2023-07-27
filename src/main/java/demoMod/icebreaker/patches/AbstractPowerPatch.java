@@ -20,24 +20,6 @@ public class AbstractPowerPatch {
 
     @SpirePatch(
             clz = AbstractPower.class,
-            method = "atDamageFinalReceive",
-            paramtypez = {
-                    float.class,
-                    DamageInfo.DamageType.class,
-                    AbstractCard.class
-            }
-    )
-    public static class PatchAtDamageFinalReceive {
-        public static SpireReturn<Float> Prefix(AbstractPower power, float damage, DamageInfo.DamageType type, AbstractCard card) {
-            if (card.hasTag(CardTagEnum.REMOTE) && !power.ID.equals(FlightPower.POWER_ID) && !power.ID.equals(IntangiblePower.POWER_ID) && !power.ID.equals(InvinciblePower.POWER_ID) && !power.ID.equals(ShiftingPower.POWER_ID)) {
-                return SpireReturn.Return(damage);
-            }
-            return SpireReturn.Continue();
-        }
-    }
-
-    @SpirePatch(
-            clz = AbstractPower.class,
             method = "atDamageGive",
             paramtypez = {
                     float.class,
