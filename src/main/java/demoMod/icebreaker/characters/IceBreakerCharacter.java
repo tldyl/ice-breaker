@@ -39,6 +39,8 @@ public class IceBreakerCharacter extends CustomPlayer {
     public IceBreakerCharacter(String name, PlayerClass setClass) {
         super(name, setClass, new EnergyOrbLightLemon(), new G3DJAnimation(null, null));
         this.initializeClass(IceBreaker.getResourcePath("char/character.png"), IceBreaker.getResourcePath("char/shoulder2.png"), IceBreaker.getResourcePath("char/shoulder.png"), IceBreaker.getResourcePath("char/corpse.png"), this.getLoadout(), 0.0F, -20F, 251.2F, 304.0F, new EnergyManager(3));
+        this.loadAnimation(IceBreaker.getResourcePath("char/break_character.atlas"), IceBreaker.getResourcePath("char/break_character.json"), 5.0F);
+        this.state.setAnimation(0, "idle", true);
         if (ModHelper.enabledMods.size() > 0 && (ModHelper.isModEnabled("Diverse") || ModHelper.isModEnabled("Chimera") || ModHelper.isModEnabled("Blue Cards"))) {
             this.masterMaxOrbs = 1;
         }

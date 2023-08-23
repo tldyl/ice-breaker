@@ -4,8 +4,8 @@
     "DESCRIPTIONS": [
       "While walking and traversing through the chaos of the Spire, your thoughts suddenly begin to feel very... #p~ real...~ NL NL Imaginings of #rmonsters and #yriches begin to manifest themselves into reality. NL The sensation is quickly fleeting. What do you do?",
       "Can it really be this easy?",
-      "Everything makes sense now. NL Memories of Ancient, Face of Relative, #yNeow in the bottom of the spire. NL NL The infinite spire contains all possibilities. NL As climbing, climbing…… NL NL Overcome any impediment, and climb forever……",
-      "You don't lack of money, maybe you will be laughed as an avaricious Warrior.",
+      "Everything makes sense now. NL Memories of Ancients, Faces of Relatives, #yNeow in the bottom of the spire. NL NL The seemingly infinite spire contains all possibilities. NL As climbing, climbing…… NL NL Overcome any impediment, and climb forever……",
+      "You don't lack money, maybe you will be mocked as an avaricious warrior.",
       "Facing such a sensation, you decide to bring your friends back to #g~life~ again. NL NL #pMemories of the pass, #bTime you shared with them. Every thing is displayed in front of you. NL #y~So~ #y~warm,~ #y~so~ #y~smooth,~ you hug your friend who can only be seen in your #bimagination . NL Tears drop down. NL NL #rWhat #rif #ryou #rprotect #rthem #rwell…… "
     ],
     "OPTIONS": [
@@ -21,9 +21,9 @@
     "NAME": "The Cleric",
     "DESCRIPTIONS": [
       "A strange blue humanoid with a golden helm(?) approaches you with a huge smile. NL When he saw your face, he began to speak to you @“Hello,@ @I'm@ #b@Cleric！@ @May@ @I@ @help@ @you?！@ ”",
-      "A warm #yGold #yLight envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!”@ Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
-      "A cold #bBlue #bFire envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Mr.Warrior!”@ Cleric says with smile,you notice his eras are trembling with joy. NL “Thanks.”After your simple response,you hit your ~road~ again.",
-      "ou don't trust this #b“Cleric” , so you leave."
+      "A warm #yGold #yLight envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Warrior!”@ Cleric says with smile, you notice his ears are twitching with joy. NL “Thanks.” After your simple response,you hit your ~road~ again.",
+      "A cold #bBlue #bFire envelops your body and dissipates. NL @“I@ @wish@ @you@ @a@ @happy@ @day,@ @Warrior!”@ Cleric says with smile, you notice his ears are twitching with joy. NL “Thanks.” After your simple response,you hit your ~road~ again.",
+      "You don't trust this #b“Cleric” , so you leave."
     ],
     "OPTIONS": [
       "[Heal] #gHeal #g",
@@ -38,7 +38,7 @@
     "DESCRIPTIONS": [
       "As you come to a dead-end and begin to turn around, walls @slam@ @down@ from the ceiling, @trapping@ @you!@ NL NL Three faces materialize from the walls and speak. NL #b“Forget #bwhat #byou #bknow, #band #bI'll #blet #byou #bgo.” NL #p“I #prequire #pchange #pto #psee #pa #pnew #pspace.” NL #y“If #yyou #ywant #yto #ypass #yme, #ythen #yyou #ymust #ygrow.”",
       "Satisfied, the walls in front of you merge back into the ceiling, leaving a path forward.",
-      "You use your magic to analise their power and absorb their power. NL At the same time, countless memories #b~flood~ #b~into~ #b~your~ #b~mind~ , you get a #r@Thumping@ #r@Headache@ , soon you fall down and lose sense. NL  NL When you wake up, the Living Wall had disappeared, left a path forward."
+      "You use your magic to inhibit and absorb their power. NL At the same time, countless memories #b~flood~ #b~into~ #b~your~ #b~mind~ , you get a #r@Thumping@ #r@Headache@ , soon you fall down and lose sense. NL NL When you wake up, the Living Wall had disappeared and left a path forward."
     ],
     "OPTIONS": [
       "[Forget] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
@@ -49,14 +49,14 @@
       "Transform a card in your deck.",
       "Upgrade a card in your deck.",
       "[Leave]",
-      "[Locked] Need： Unupgraded card."
+      "[Locked] Need: Unupgraded card."
     ]
   },
   "IceBreaker:Scrap Ooze": {
     "NAME": "Scrap Ooze",
     "DESCRIPTIONS": [
       "As you walk into the room you hear a ~gurgling~ and the @grinding@ of metals. Before you is a slime-like creature that ate too much scrap for its own good. From the center of the creature you see glints of strange light, perhaps something magical? ",
-      "ou launch magic fire to drive the slime away. NL However, it #r@jumps@ #r@on@ #r@you@ as soon as it feels your flame!",
+      "You launch fire magic to drive the slime away. NL However, it #r@jumps@ #r@on@ #r@you@ as soon as it feels your flame!",
       "You decide to leave the area. NL The slime pays no attention, content with its meal."
     ],
     "OPTIONS": [
@@ -68,10 +68,10 @@
   "IceBreaker:Beggar": {
     "NAME": "Beggar",
     "DESCRIPTIONS": [
-      "An old beggar cloaked in fur reaches his hands out towards you as you pass.“Spare some coin, Mr.Warrior?”",
-      "“I know you are #bCleric.”You say with laughter. NL NL The beggar takes off its cloak to reveal that he is Cleric! NL “You are worthy of the Warrior, see through me without difficulty!” NL He holds a #bblue #bbright #bfire on his hand. NL NL “Would you like my assistant?”He says with respect.",
-      "You declining his kindness.Cleric wears his cloak,while you leave the place.",
-      "“Mr.Warrior, I wish you happy.” Cleric smiles.You wave your hand and say goodbye,then you continue to explore the spire."
+      "An old beggar cloaked in fur reaches his hands out towards you as you pass.“Spare some coin, Warrior?”",
+      "“I know you are #bCleric.”You say with laughter. NL NL The beggar takes off its cloak to reveal that he is Cleric! NL “You are a worthy warrior, to see through me without difficulty!” NL He holds a #bblue #bbright #bfire on his hand. NL NL “Would you like my assistance?” He says with respect.",
+      "You declining his kindness. Cleric wears his cloak, while you leave the place.",
+      "“Warrior, I wish you happy.” Cleric smiles.You wave your hand and say goodbye, then you continue to explore the spire."
     ],
     "OPTIONS": [
       "[Purify] #gRemove #ga #gcard #gfrom #gyour #gdeck.",
@@ -85,9 +85,9 @@
   "IceBreaker:Drug Dealer": {
     "NAME": "Drug Dealer",
     "DESCRIPTIONS": [
-      "A man with an eyepatch and a devilish grin strides up to you. NL “Hey there, Mr.Warrior. Interested in advancing science? I can make you stronger than any training or blessing. You're gonna need it if you're one of those heroes with a death wish.” NL ”Whad'ya say?” ",
+      "A man with an eyepatch and a devilish grin strides up to you. NL “Hey there, Warrior. Interested in advancing science? I can make you stronger than any training or blessing. You're gonna need it if you're one of those heroes with a death wish.” NL ”Whad'ya say?” ",
       "~“Wonderful.”~ NL You drink a little bottle of #b~blue~ #b~agentia~ ,then you get a #r@violent@ #r@stomachache.@  NL But the pain disappears soon. and you feel your consideration become #b~simpler~ .",
-      "~“Superb.”~ NL The man inject you with three unknown substances and pulls out a notepad. Aa you begin to feel light-headed, he stars to frantically write down notes. NL Losing track of time completely, by the time you regain your senses, the shady character has disappeared.",
+      "~“Superb.”~ NL The man injects you with three unknown substances and pulls out a notepad. As you begin to feel light-headed, he starts to frantically write down notes. NL Losing track of time completely, by the time you regain your senses, the shady character has disappeared.",
       "You do believe science, but the man is so doubtful that you leave quickly."
     ],
     "OPTIONS": [
@@ -107,7 +107,7 @@
       "In front of you sits an altar to a forgotten god. NL Atop the altar sits an ornate female statue with arms outstretched. NL She calls out to you, demanding sacrifice.",
       "As you gently set the idol onto the altar a #bcold #bwind swirls throughout the room. NL The arms of the statue begin to discolor and crumble. Your #yGolden #yIdol begins to dull in color and begins bleeding from its eyes. NL The bleeding never ceases.",
       "You stand on the altar and cut your wrists. NL As the #rblood spills out in sacrifice, the arms of the statue reach out and close around your eyes. NL Everything goes #p~dark.~ NL You wake up a short time later feeling a new potential surging through you.\n",
-      "You begin to smash the statue violently. NL With your hitting, #p~Fog~ and #p@Wailing@ surround you…… NL ~……~ NL ~…………~ NL You finally break the statue. NL NL “So there really is a god using #p~Curse~ to threaten people for sacrifice…… ” You Leave the room with sigh, continue to climb the spire."
+      "You begin to smash the statue violently. NL With your hitting, #p~Fog~ and #p@Wailing@ surround you…… NL ~……~ NL ~…………~ NL You finally break the statue. NL NL “So there really is a god using #p~Curses~ to threaten people for sacrifice…… ” You Leave the room with sigh, continue to climb the spire."
     ],
     "OPTIONS": [
       "[Offer] #rLose #rGolden #rIdol, #gobtain #ga #gspecial #gRelic.",
@@ -126,12 +126,12 @@
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~sister,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~",
       "The tall figure grabs your arm, pulls you forward, and sinks his fangs into your neck. You feel a #p~dark~ #p~force~ pour into your neck and course through your body. NL NL ~……",
-      "……~ NL NL You wake up some time later, alone…… NL “As expected, it doesn't work…” You touch the bite #rwound on your neck, smile with self-mockery. You have already anticipated the result. NL After all, #p~Demon~  can't assimilate you, let alone #rVampires ?",
+      "……~ NL NL You wake up some time later, alone…… NL “As expected, it doesn't work…” You touch the bite #rwound on your neck, smile with arrogance. You have already anticipated the result. NL After all, a #p~Demon~ can't assimilate you, let alone #rVampires ?",
       "You step back and raise your Staff in defiance. NL The tall figure sighs. “Well, well.” NL The entire group of hooded figures morph into a thick black fog that flows away from you. NL You are alone once more.",
       "The pale figures gasp as you take out the #rBlood #rVial. NL “ ~The~ ~master's~ ~blood...~ ~the~ ~master's~ ~blood!~ @THE@ @MASTER'S@ @BLOOD!@ ” NL They all chant fervently as the tall one bows before you. “Drink from His blood, and become one with #b~Him~ .” NL The chant growing louder, you consume the contents of the vial. Your vision immediately ~warps~ and fades to #pdarkness. NL NL ~……",
-      "……~ NL NL You wake up some time later, alone…… NL “As expected, it doesn't work…” You lick your lips, smile with self-mockery. You have already anticipated the result. NL After all, #p~Demon~  can't assimilate you, let alone #rVampires ?",
+      "……~ NL NL You wake up some time later, alone…… NL “As expected, it doesn't work…” You lick your lips, smile with arrogance. You have already anticipated the result. NL After all, a #p~Demon~ can't assimilate you, let alone #rVampires ?",
       "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~the~ ~broken~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~Mr.Warrior,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~"
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~“Join~ ~us~ ~Warrior,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.”~"
     ],
     "OPTIONS": [
       "[Accept] #gRemove #gTwo #gAttacks #gfrom #gyour #gdeck. #rLose #r",
@@ -153,7 +153,7 @@
       "#g~TRIUMPH..~ NL NL The remains of a #p~ghostly~ #p~creature~ sink slowly into the mud before you, barely visible in the moonlight. NL You have proven yourself amongst your sisters. NL NL Standing victoriously, you wait in silence as the others ceremoniously place #ythe #ycreature's #yskull atop your head. The ritual has concluded. NL NL You head towards the Spire...",
       "#b~CONFUSION..~ NL NL #y[OBJECTIVE] #gBALANCE must be  #gENFORCED NL #y[DEFINE] #gBALANCE NL #y[ERROR] #gBALANCE #gNOT #gFOUND NL #y[DEFINE] #gBALANCE NL #y[ERROR] #gBALANCE #gNOT #gFOUND NL #y[WARNING] #rLarge #robject #rapproaching NL NL ~“I...~ ~..am~ ~....Neow...”~",
       "#p~SERENITY..~ NL NL Two primitive creatures fight over a carcass on the side of the road. You observe, devoid of emotion. NL #yWatch. #yRemember. #yLive. This is the Watcher's mission. NL NL Recently, one of your peers had stopped reporting on their assignment: a Spire of unknown origin. NL NL As the fight ends, you continue onward, unfazed by the bloody scene that took place.",
-      "#y~GAZE.~ NL NL The #yMoon was bright with few #bStar, silver light #g~covered~ #g~the~ #g~ground~ . NL In front of you stands a #bTall #bFigure , look at you eyes to eyes, with a #p~mild~ #p~eyesight~ . NL  #b“Just #brun #bafter #byour #blight, #bmy #blittle #bbrother. #bI #bwill #balways #bprotect #byou.” NL NL That's the reason why you step into the spire: to find the person who made such a promise to you."
+      "#y~GAZE.~ NL NL The #yMoon was bright with few #bStars, silver light #g~covered~ #g~the~ #g~ground~ . NL In front of you stands a #bTall #bFigure , look at you eyes to eyes, with a #p~mild~ #p~eyesight~ . NL  #b“Just #brun #bafter #byour #blight, #bmy #blittle #bbrother. #bI #bwill #balways #bprotect #byou.” NL NL That's the reason why you stepped into the spire: to find the person who made such a promise to you."
     ],
     "OPTIONS": [
       "[Recall] #gAdd #g1 #gColorless #gcard #ginto #gyour #gdeck.",
@@ -183,7 +183,7 @@
       "“Oooh, a free #gHeal for you!”",
       "“Looks like you won a #pCurse! NL That's not good. NL Oh well! Better luck next time!” NL Well, willing to gamble and accepting defeat.",
       "“Ohh, the power of #r~Darkness...~ NL Choose a card to remove from your deck!”",
-      "“Ur oh! NL You lose!” NL You spot him readying a shiv...",
+      "“Uh oh! NL You lose!” NL You spot him readying a shiv...",
       "Well, willing to gamble and accepting defeat. NL After all you're the Warrior, he just scratches your arm once and collect a little bottle of your blood. NL NL “The price has been paid!!” With that both the gremlin and its wheel disappear in a puff of smoke. NL You treat your wound soon and climb to the further.",
       "Gremlin looks at you with appointment, you ignore him and leave the area."
     ],
