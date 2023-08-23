@@ -33,6 +33,7 @@ public class VitalLoop extends AbstractLightLemonCard {
             this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            this.isInnate = true;
         }
     }
 
