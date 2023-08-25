@@ -35,8 +35,7 @@
   },
   "IceBreaker:HeavySnow": {
     "NAME": "Snowflakes",
-    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage and apply !M! Weak to ALL enemies. NL When you im:Respond successfully, raise this cards damage by 2 this combat.",
-    "UPGRADE_DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage and apply !M! Weak to ALL enemies. NL When you im:Respond successfully, raise this cards damage by 3 this combat."
+    "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage and apply !M! Weak to ALL enemies."
   },
   "IceBreaker:Flash": {
     "NAME": "Flash",
@@ -66,7 +65,7 @@
   },
   "IceBreaker:RedMoon": {
     "NAME": "Bloody Moon",
-    "DESCRIPTION": "im:Magic. im:Ranged. im:Connect. NL Deal !D! damage. NL Add !M! *Spark on-top of your draw pile. NL im:Respond : Apply !M! Vulnerable to a random enemy."
+    "DESCRIPTION": "im:Magic. im:Ranged. im:Connect. NL Deal !D! damage. NL Apply !M! Vulnerable. NL im:Respond : Add !M! *Spark on-top of your draw pile."
   },
   "IceBreaker:SoulTremor": {
     "NAME": "Soul Tremor",
@@ -188,7 +187,8 @@
   },
   "IceBreaker:GhostStar": {
     "NAME": "Ghost Star",
-    "DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose a card from your discard pile and put it to the bottom of your draw pile."
+    "DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose a card from your discard pile and put it to your hand.",
+    "UPGRADE_DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose at most two cards from your discard pile and put them to your hand."
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "Cascaded Icy Wall",

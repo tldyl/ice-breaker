@@ -20,11 +20,11 @@ public class Negate extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public Negate() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 6;
+        this.baseMagicNumber = this.magicNumber = 4;
     }
 
     @Override

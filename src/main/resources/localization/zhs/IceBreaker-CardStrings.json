@@ -35,8 +35,7 @@
   },
   "IceBreaker:HeavySnow": {
     "NAME": "白雪纷纷",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !M! 层 虚弱 。 NL 每当有 im:羁绊 触发时，这张牌的伤害在本场战斗增加二。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !M! 层 虚弱 。 NL 每当有 im:羁绊 触发时，这张牌的伤害在本场战斗增加三。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 NL 对所有敌人造成 !D! 点伤害。 NL  给予所有敌人 !M! 层 虚弱 。"
   },
   "IceBreaker:Flash": {
     "NAME": "闪烁",
@@ -66,7 +65,7 @@
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 NL 加入抽牌堆顶部。 NL im:回应 ：给予随机一名敌人 !M! 层 易伤 。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL im:回应 ：将 !M! 张 *火花 NL 加入抽牌堆顶部。"
   },
   "IceBreaker:SoulTremor": {
     "NAME": "灵魂震颤",
@@ -188,7 +187,8 @@
   },
   "IceBreaker:GhostStar": {
     "NAME": "幽灵星体",
-    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择一张牌放入抽牌堆底部。"
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择一张牌放入手牌。",
+    "UPGRADE_DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择至多两张牌放入手牌。"
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "层积式冰墙",

@@ -26,8 +26,8 @@ public class GhostStar extends AbstractLightLemonCard {
 
     public GhostStar() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
-        this.baseBlock = this.block = 8;
+        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseBlock = this.block = 6;
         this.isFetter = true;
     }
 
@@ -35,7 +35,8 @@ public class GhostStar extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(4);
+            this.upgradeBlock(2);
+            this.upgradeMagicNumber(1);
         }
     }
 
@@ -48,9 +49,9 @@ public class GhostStar extends AbstractLightLemonCard {
             }
         }
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new SelectCardInCardGroupAction(1, card -> true, card -> {
+        addToBot(new SelectCardInCardGroupAction(this.magicNumber, card -> true, card -> {
             p.discardPile.removeCard(card);
-            p.hand.moveToBottomOfDeck(card);
+            p.hand.moveToHand(card);
         }, p.discardPile));
         addToBot(new AbstractGameAction() {
             @Override

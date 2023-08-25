@@ -30,11 +30,11 @@ public class AirCut extends AbstractLightLemonCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public AirCut() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.damage = this.baseDamage = 6;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.tags.add(CardTagEnum.REMOTE);
@@ -45,7 +45,7 @@ public class AirCut extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(3);
+            this.upgradeDamage(2);
         }
     }
 

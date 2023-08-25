@@ -24,7 +24,7 @@ public class TimeLeap extends AbstractLightLemonCard {
 
     public TimeLeap() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = this.magicNumber = 2;
+        this.baseMagicNumber = this.magicNumber = 3;
     }
 
     @Override

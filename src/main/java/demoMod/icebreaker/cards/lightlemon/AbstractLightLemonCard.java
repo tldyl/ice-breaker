@@ -1,5 +1,6 @@
 package demoMod.icebreaker.cards.lightlemon;
 
+import basemod.BaseMod;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.CustomSavable;
@@ -287,5 +288,13 @@ public abstract class AbstractLightLemonCard extends CustomCard implements CardA
 
     private boolean isOnScreen() {
         return !(this.current_y < -200.0F * Settings.scale) && !(this.current_y > (float)Settings.HEIGHT + 200.0F * Settings.scale);
+    }
+
+    @Override
+    public void initializeDescription() {
+        super.initializeDescription();
+        if (this.keywords.contains("im:timestasis") && !this.keywords.contains("im:extraturn")) {
+            this.keywords.add(this.keywords.indexOf("im:timestasis") + 1, "im:extraturn");
+        }
     }
 }

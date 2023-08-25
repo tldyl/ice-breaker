@@ -20,14 +20,14 @@ public class Leap extends AbstractLightLemonCard {
     public static final String IMG_PATH = "cards/Leap.png";
 
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     private static final int COST = 1;
 
     public Leap() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = 4;
+        this.baseBlock = 6;
         this.tags = new ArrayList<>();
         this.tags.add(CardTagEnum.MAGIC);
         this.isFetter = true;
@@ -37,7 +37,7 @@ public class Leap extends AbstractLightLemonCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeBlock(2);
         }
     }
 

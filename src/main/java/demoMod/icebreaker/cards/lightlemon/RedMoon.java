@@ -54,14 +54,14 @@ public class RedMoon extends AbstractLightLemonCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, false, false, false));
+        addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new VulnerablePower(m, this.magicNumber, false)));
     }
 
     @Override
     public void onTriggerFetter() {
         AbstractMonster lastTarget = AbstractDungeon.getRandomMonster();
         if (lastTarget != null) {
-            addToBot(new ApplyPowerAction(lastTarget, AbstractDungeon.player, new VulnerablePower(lastTarget, this.magicNumber, false)));
+            addToBot(new MakeTempCardInDrawPileAction(new Spark(), this.magicNumber, false, false, false));
         }
     }
 }
