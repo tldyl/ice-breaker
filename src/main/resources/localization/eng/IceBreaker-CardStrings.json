@@ -12,9 +12,8 @@
     "DESCRIPTION": "im:Magic. im:Ranged. NL Deal !D! damage. NL Shuffle !M! *Spark into your draw pile."
   },
   "IceBreaker:IceShield": {
-    "NAME": "Snow Zone",
-    "DESCRIPTION": "im:Magic. NL Gain !B! Block. NL Apply !M! Weak to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "im:Magic. NL Gain !B! Block. NL Apply !M! Weak to ALL enemies."
+    "NAME": "Chronarrier",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! im:Chronostasis."
   },
   "IceBreaker:Spark": {
     "NAME": "Spark",
@@ -39,8 +38,8 @@
   },
   "IceBreaker:Flash": {
     "NAME": "Flash",
-    "DESCRIPTION": "im:Ranged. NL Deal !D! damage. NL If you have no [E] left, gain [E].",
-    "UPGRADE_DESCRIPTION": "im:Ranged. NL Deal !D! damage. NL If you have no [E] left, gain [E] [E]."
+    "DESCRIPTION": "Gain !M! im:Chronostasis. NL If you have no [E] left, gain [E].",
+    "UPGRADE_DESCRIPTION": "Gain !M! im:Chronostasis. NL If you have no [E] left, gain [E] [E]."
   },
   "IceBreaker:Thunder": {
     "NAME": "Thunder",
@@ -187,8 +186,7 @@
   },
   "IceBreaker:GhostStar": {
     "NAME": "Ghost Star",
-    "DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose a card from your discard pile and put it to your hand.",
-    "UPGRADE_DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose at most two cards from your discard pile and put them to your hand."
+    "DESCRIPTION": "im:Connect. NL Gain !B! Block. NL Choose !M! card(s) from your discard pile and put it to the bottom of your draw pile."
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "Cascaded Icy Wall",

@@ -51,7 +51,7 @@ public class GhostStar extends AbstractLightLemonCard {
         addToBot(new GainBlockAction(p, p, this.block));
         addToBot(new SelectCardInCardGroupAction(this.magicNumber, card -> true, card -> {
             p.discardPile.removeCard(card);
-            p.hand.moveToHand(card);
+            p.hand.moveToBottomOfDeck(card);
         }, p.discardPile));
         addToBot(new AbstractGameAction() {
             @Override

@@ -12,9 +12,8 @@
     "DESCRIPTION": "im:魔法 。 im:远程 。 NL 造成 !D! 点伤害。 NL 将 !M! 张 *火花 放入抽牌堆。"
   },
   "IceBreaker:IceShield": {
-    "NAME": "雪域",
-    "DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。",
-    "UPGRADE_DESCRIPTION": "im:魔法 。 NL 获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。"
+    "NAME": "时间屏障",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得 !M! 层 im:时间停滞 。"
   },
   "IceBreaker:Spark": {
     "NAME": "火花",
@@ -39,8 +38,8 @@
   },
   "IceBreaker:Flash": {
     "NAME": "闪烁",
-    "DESCRIPTION": "im:远程 。 NL 造成 !D! 点伤害。 NL 若没有剩余的 [E] ，获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "im:远程 。 NL 造成 !D! 点伤害。 NL 若没有剩余的 [E] ，获得 [E] [E] 。"
+    "DESCRIPTION": "获得 !M! 层 im:时间停滞 。 NL 若没有剩余的 [E] ，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 im:时间停滞 。 NL 若没有剩余的 [E] ，获得 [E] [E] 。"
   },
   "IceBreaker:Thunder": {
     "NAME": "雷鸣火花",
@@ -65,7 +64,7 @@
   },
   "IceBreaker:RedMoon": {
     "NAME": "红月",
-    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL im:回应 ：将 !M! 张 *火花 NL 加入抽牌堆顶部。"
+    "DESCRIPTION": "im:魔法 。 im:远程 。 im:羁绊 。 NL 造成 !D! 点伤害。 NL 给予 !M! 层 易伤 。 NL im:回应 ：将 !IM2! 张 *火花 NL 加入抽牌堆顶部。"
   },
   "IceBreaker:SoulTremor": {
     "NAME": "灵魂震颤",
@@ -187,8 +186,7 @@
   },
   "IceBreaker:GhostStar": {
     "NAME": "幽灵星体",
-    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择一张牌放入手牌。",
-    "UPGRADE_DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择至多两张牌放入手牌。"
+    "DESCRIPTION": "im:羁绊 。 NL 获得 !B! 点 格挡 。 NL 从弃牌堆中选择 !M! 张牌放入抽牌堆底部。"
   },
   "IceBreaker:CascadeIceWall": {
     "NAME": "层积式冰墙",

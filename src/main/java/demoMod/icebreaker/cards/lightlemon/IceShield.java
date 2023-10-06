@@ -2,18 +2,12 @@ package demoMod.icebreaker.cards.lightlemon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import demoMod.icebreaker.IceBreaker;
-import demoMod.icebreaker.enums.CardTagEnum;
 import demoMod.icebreaker.powers.TimeStasisPower;
-
-import java.util.ArrayList;
 
 public class IceShield extends AbstractLightLemonCard {
     public static final String ID = IceBreaker.makeID("IceShield");
@@ -32,9 +26,7 @@ public class IceShield extends AbstractLightLemonCard {
     public IceShield() {
         super(ID, NAME, IceBreaker.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseBlock = this.block = 8;
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.tags = new ArrayList<>();
-        this.tags.add(CardTagEnum.MAGIC);
+        this.baseMagicNumber = this.magicNumber = 3;
     }
 
     @Override
@@ -43,18 +35,12 @@ public class IceShield extends AbstractLightLemonCard {
             this.upgradeName();
             this.upgradeBlock(4);
             this.upgradeMagicNumber(1);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
-            if (!mo.isDeadOrEscaped()) {
-                addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false)));
-            }
-        }
+        addToBot(new ApplyPowerAction(p, p, new TimeStasisPower(p, this.magicNumber)));
     }
 }
