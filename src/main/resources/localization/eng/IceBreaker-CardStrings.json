@@ -380,16 +380,16 @@
   },
   "IceBreaker:FantasyDream": {
     "NAME": "Fantasy Dream",
-    "DESCRIPTION": "When you play a card which does not Exhaust or is Power , Exhaust it and im:Trigger once more."
+    "DESCRIPTION": "When you play a card which does not Exhaust or is a Power, Exhaust it and im:Trigger once more."
   },
   "IceBreaker:HarshTemperament": {
     "NAME": "Harsh",
-    "DESCRIPTION": "Whenever you enter im:Chronogap , your next im:Magic card with non 0 cost will played twice."
+    "DESCRIPTION": "Whenever you enter im:Chronogap, your next im:Magic card with non 0 cost will played twice."
   },
   "IceBreaker:AsterismForm": {
     "NAME": "Asterism Form",
-    "DESCRIPTION": "At the start of your turn or when you enter im:Chronogap , choose 1 of 15 random cards from ALL colors to play. NL Every card can be selected once per run.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn or when you enter im:Chronogap , choose 1 of 15 random Upgraded cards from ALL colors to play. NL Every card can be selected once per run."
+    "DESCRIPTION": "At the start of your turn or when you enter im:Chronogap, choose 1 of 15 random cards from ALL colors to play. NL Every card can be selected once per run.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn or when you enter im:Chronogap, choose 1 of 15 random Upgraded cards from ALL colors to play. NL Every card can be selected once per run."
   },
   "IceBreaker:YesterdayOnceMore": {
     "NAME": "Yesterday Once More",
@@ -403,7 +403,7 @@
   },
   "IceBreaker:TsukishiRin": {
     "NAME": "Tsukishi Rin",
-    "DESCRIPTION": "Whenever you play an Attack to an enemy, target lose 1 Strength."
+    "DESCRIPTION": "Whenever you play an Attack on an enemy, target lose 1 Strength."
   },
   "IceBreaker:Shiroikumo": {
     "NAME": "Shiroi Kumo",
@@ -415,15 +415,15 @@
   },
   "IceBreaker:Ame": {
     "NAME": "Ame",
-    "DESCRIPTION": "Whenever you enter im:Chronogap , gain 8 Metallicize."
+    "DESCRIPTION": "Whenever you enter im:Chronogap, gain 8 Metallicize."
   },
   "IceBreaker:Brandy": {
     "NAME": "Brandy",
-    "DESCRIPTION": "Whenever you play a *Spark , gain [E]."
+    "DESCRIPTION": "Whenever you play a *Spark, gain [E]."
   },
   "IceBreaker:Disobey": {
     "NAME": "Disobey",
-    "DESCRIPTION": "im:Connect can success when im:Connect target is in discard pile."
+    "DESCRIPTION": "im:Connect can succeed when the im:Connect target is in the discard pile."
   },
   "IceBreaker:TsukishiRitsu": {
     "NAME": "Tsukishi Ritsu",
